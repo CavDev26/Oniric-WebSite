@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+
+  background: #37284f;
+}
+
+.navbar-top {
+  background: radial-gradient(
+    139.02% 189.45% at 48.25% 44.79%,
+    #000000 0%,
+    #37284f 100%
+  );
+  position: fixed;
+  width: 100%;
+  transition: top 0.3s;
+  border: 1px solid #000000;
+  box-shadow: 0px 4px 5px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 0px 0px 15px 15px;
+  color: WHITE;
+  height: 100px;
+  text-align: center;
+}
+
+.main-logo {
+  width: 74px;
+  height: 74px;
+  padding-top: 10px;
+}
+
+.dropmenu {
+  padding-top: 25px;
+  padding-left: 25px;
+  float: left;
+  width: 50px;
+  height: 50px;
+}
+
+.notification-menu {
+  padding-right: 25px;
+  padding-top: 25px;
+  float: right;
+  width: 50px;
+  height: 50px;
+}
+
+.home-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 13px;
+  line-height: 16px;
+  /* identical to box height */
+  text-align: center;
+
+  color: #ffffff;
+  padding: 20px 0;
+  background: #000000;
+}
