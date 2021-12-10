@@ -2,12 +2,13 @@
 
 .pink{
   color: #B69DE0;
+  font-weight: 800;
 }
 
 body {
-  margin: 0;
-
+  margin: 130px 0px 0px 0px;
   font-family: Inter;
+  font-style: normal;
   background: #37284f;
 }
 
@@ -18,14 +19,15 @@ body {
     #37284f 100%
   );
   position: fixed;
+  top: 0;
   width: 100%;
-  /*transition: top 0.3s;*/
+  height: 100px;
   border: 1px solid #000000;
   box-shadow: 0px 4px 5px 3px rgba(0, 0, 0, 0.25);
   border-radius: 0px 0px 15px 15px;
   color: WHITE;
-  height: 100px;
   text-align: center;
+
   z-index:1;
 }
 
@@ -52,42 +54,33 @@ body {
 }
 
 .home-footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
   width: 100%;
-  font-family: Inter;
-  font-style: normal;
   font-weight: 200;
   font-size: 13px;
   line-height: 16px;
-  /* identical to box height */
   text-align: center;
-
   color: #ffffff;
   padding: 20px 0;
   background: #000000;
 }
 
 .main {
-  margin-top: 100px;
-  margin-bottom: 20px;
+    padding-top: 10000px;
+    margin-bottom: 20px;
 }
 
-
-
-
+.art-music {
+    width: 100%;
+    margin-top: -100px;
+}
 
 
 
 main > article:nth-child(1) {
   text-align: center;
-  position: absolute;
   width: 100%;
   height: 682px;
   bottom: 0px;
-
-  top: 110px;
 
   background: conic-gradient(from -44.57deg at 131.07% 133.06%, rgba(255, 255, 255, 0.65) -37.74deg, #FFFFFF 22.02deg, rgba(255, 255, 255, 0.65) 322.26deg, #FFFFFF 382.02deg);
   box-shadow: 0px 4px 21px rgba(255, 255, 255, 0.25);
@@ -95,114 +88,112 @@ main > article:nth-child(1) {
 }
 
 main > article:nth-child(1) > header >h2 {
-  font-style: normal;
   font-weight: bold;
   font-size: 30px;
   line-height: 44px;
   text-align: center;
-
   color: #BE9CF5;
-
   text-shadow: 0px 4px 7px rgba(0, 0, 0, 0.25);
+  padding-top: 10px;
 }
 
 main > article:nth-child(1) > header > p {
-font-style: normal;
 font-weight: normal;
 font-size: 20px;
 line-height: 20px;
 text-align: center;
 margin-top: -15px;
-
 color: #B69DE0;
-
 text-shadow: 0px 4px 11px rgba(0, 0, 0, 0.25);
 }
 
 main > article:nth-child(2) {
-  position: absolute;
+  margin-top: 20px;
   width: 100%;
   height: 379px;
-  top: 808px;
-
   text-align: right;
-  
 
   background-color: white;
-  background-image: url(../img/image\ 1.png);
+  background-image: url(../img/Oni13.png);
   background-repeat:no-repeat;
   background-blend-mode: darken;
 
-  /*background: #FFFFFF;*/
   box-shadow: 0px 8px 6px 2px rgba(0, 0, 0, 0.25);
   border-radius: 28px;
 }
 
 main > article:nth-child(2) > header {
   padding: 20px;
-  font-family: Inter;
+  font-size: 24px;
+}
+
+main > article:nth-child(2) > header > p {
+  font-size: 20px;
+  padding-left: 200px;
+  color: #433161;
 }
 
 main > article:nth-child(3) {
-  position: absolute;
   width: 100%;
   height: 372px;
-  left: 0;
-  top: 1196px;
-
+  margin-top: 10px;
   text-align: right;
 
   /*DA CONTROLLARE IMPORTANTE I GRADI NON VANNO BENE*/
 
-
   background: conic-gradient(from 120deg at 0% 0%, #E5D6FF 0deg, #FAFAFB 286.87deg, #FFFFFF 359.78deg, #E5D6FF 360deg);
   box-shadow: 0px 1px 23px 5px rgba(0, 0, 0, 0.25);
-  border-radius: 29px 29px 0px 0px; 
+  border-radius: 29px 29px 0px 0px;
+  /*background-color: white;
+
+  background-image: url(../img/music1.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-blend-mode: darken;*/
 }
 
 main > article:nth-child(3) > header {
   text-align: left;
-  padding-right: 25px;
-  padding-left: 180px;
+  padding: 20px 24px 0px 180px;
+  color: #433161;
 }
 
 main > article:nth-child(4) {
-  position: absolute;
   width: 100%;
   height: 453px;
-  left: 0;
-  top: 1665px;
+  margin-top: -20px; /*WHI IN THE FUCKING WORLD*/
 
+  background-color: black;
   background-image: url(../img/CAVA\ PHONE.png);
   background-repeat:no-repeat;
-  background-color: black;
   background-position: center;
   
   box-shadow: 0px -6px 9px 5px rgba(0, 0, 0, 0.25);
-  border-radius: 0px 0px 20px 20px;
-
   text-align: center;
   color: #FFFFFF;
-
   filter: drop-shadow(0px 21px 12px rgba(0, 0, 0, 0.24));
 }
 
+main > article:nth-child(4) > header > h2 {
+  font-size: 28px;
+  padding-top: 20px;
+  line-height: 33px;
+}
+
+main > article:nth-child(4) > header > p {
+  font-size: 18px;
+}
+
 main > article:nth-child(5){
-  position: absolute;
   width: 100%;
   height: 650px;
-  top: 2118px;
-
-  font-size: 16px;
-
-  color: #ffffff;
+  margin-top: -20px;
   text-align: center;
-
   background-image: url(../img/scheda\ grafica.png);
-  border-radius: 0px 0px 20px 20px;
 }
 
 main > article:nth-child(5) > header {
-  padding-left: 20px;
-  padding-right: 20px;
+  color: #ffffff;
+  padding: 20px 20px 0px 20px;
+  font-size: 16px;
 }
