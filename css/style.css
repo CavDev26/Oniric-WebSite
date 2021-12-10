@@ -12,6 +12,20 @@ body {
   background: #37284f;
 }
 
+.navbar-bot {
+  position: fixed;
+  width: 90%;
+  height: 66px;
+  bottom: 40px;
+  left: 22px;
+  right: 22px;
+
+  /*filter: drop-shadow(0px 3px 13px rgba(192, 154, 255, 0.86));*/
+  background: linear-gradient(180deg, #000000 0%, rgba(55, 40, 79, 0.97) 100%, #37284F 100%);
+  /*box-shadow: 0px 0px 17px 6px rgba(0, 0, 0, 0.25);*/
+  border-radius: 500px;
+}
+
 .navbar-top {
   background: radial-gradient(
     139.02% 189.45% at 48.25% 44.79%,
@@ -171,7 +185,8 @@ main > article:nth-child(4) {
   box-shadow: 0px -6px 9px 5px rgba(0, 0, 0, 0.25);
   text-align: center;
   color: #FFFFFF;
-  filter: drop-shadow(0px 21px 12px rgba(0, 0, 0, 0.24));
+  /*filter: drop-shadow(0px 21px 12px rgba(0, 0, 0, 0.24));*/ 
+  /*DA CONTROLLARE, SE METTO UNO DEI DUE LA NAV BAR IN BASSO SVANISCE*/
 }
 
 main > article:nth-child(4) > header > h2 {
