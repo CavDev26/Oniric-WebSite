@@ -256,3 +256,12 @@ line-height: 5px;
 .squareRoundButton:hover , .cartButton:hover{
   opacity: 0.5;
 }
+
+.left {
+  float: left;
+  text-align: left;
+}
+.right {
+  float: right;
+  text-align: right;
+}
