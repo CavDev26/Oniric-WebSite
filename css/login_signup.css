@@ -6,17 +6,18 @@
   line-height: 41px;
   text-align: center;
   color: #be9cf5;
-  padding: 0 80px;
-  margin-bottom: 30px;
+  padding: 0 10%;
+  width: 80%;
+  margin: 0, 0, 30px, 0;
 }
 
 .form {
   margin: 20px;
   padding: 12px;
-  display: inline-block;
   background: #e5d6ff;
   border-radius: 4px;
   width: 80%;
+  max-width: 400px;
   border: 2px solid #e5d6ff;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -49,8 +50,27 @@
   font-size: 16px;
   line-height: 19px;
   color: #433161;
-  width: 90%;
+  max-width: 330px;
+  min-width: 200px;
   margin: 20px 0;
   padding: 10px 0;
   text-shadow: 0px 4px 17px #ad7cff;
+}
+
+.inline-block {
+  display: inline-block;
+}
+.block {
+  display: block;
+}
+.fullWidth {
+  width: 100%;
+}
+
+.p-20l {
+  padding-left: 20px;
+}
+
+.center {
+  text-align: center;
 }
