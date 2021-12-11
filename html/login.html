@@ -9,27 +9,27 @@
 
     <title>Cava 2000</title>
   </head>
-  <body>
+  <body class="center">
     <nav class="navbar-top">
       <img src="../img/3barsNav.png" alt="" class="dropmenu" />
       <img src="../img/first_logo.jpg" alt="" class="main-logo" />
       <img src="../img/notification.png" alt="" class="notification-menu" />
     </nav>
 
-    <div class="productBack fullHeight">
+    <div class="productBack fullHeight inline-block">
       <h1 class="signUpTitle">Entra sul tuo Account</h1>
       <form>
-        <label for="username" class="priceItem left">Nome Utente:</label><br />
+        <label for="username" class="priceItem left fullWidth p-20l">Nome Utente:</label><br />
         <input
-          class="form"
+          class="form left"
           type="text"
           id="username"
           name="username"
           placeholder="Inserisci il tuo nome utente"
         /><br />
-        <label for="password" class="priceItem left">Password:</label><br />
+        <label for="password" class="priceItem left block fullWidth p-20l">Password:</label><br />
         <input
-          class="form"
+          class="form left"
           type="password"
           id="password"
           name="password"
@@ -37,9 +37,8 @@
         /><br />
       </form>
       <footer>
-        <button type="button" class="softButton">
-          <span class="buttonContent">Accedi</span>
-        </button>
+        <input class="softButton" type="submit" value="Accedi">
+        </input>
       </footer>
     </div>
 
