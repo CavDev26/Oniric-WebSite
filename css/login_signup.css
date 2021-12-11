@@ -1,0 +1,56 @@
+.signUpTitle {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 34px;
+  line-height: 41px;
+  text-align: center;
+  color: #be9cf5;
+  padding: 0 80px;
+  margin-bottom: 30px;
+}
+
+.form {
+  margin: 20px;
+  padding: 12px;
+  display: inline-block;
+  background: #e5d6ff;
+  border-radius: 4px;
+  width: 80%;
+  border: 2px solid #e5d6ff;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+}
+
+.form::placeholder {
+  color: rgba(190, 156, 245, 0.66);
+}
+
+.form:focus {
+  border: 2px solid #b596e6;
+}
+
+.fullHeight {
+  height: 100%;
+}
+.softButton {
+  background: rgba(229, 214, 255, 0.6);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: 2px solid transparent;
+  border-radius: 6px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: #433161;
+  width: 90%;
+  margin: 20px 0;
+  padding: 10px 0;
+  text-shadow: 0px 4px 17px #ad7cff;
+}
