@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap%22');
 
 .pink{
-    color: #B69DE0;
+  color: #B69DE0;
   font-weight: 2000;
+  font-size: 30px;
 }
 
 body {
@@ -10,21 +11,34 @@ body {
   font-family: Inter;
   font-style: normal;
   font-weight: normal;
-  font-size: 20px;
+  font-size: 18px;
   background: #37284f;
 }
 
+.bottom-nav-icon-profile {
+
+}
+.bottom-nav-icon-home {
+
+}
+.bottom-nav-icon-search {
+
+}
+.bottom-nav-icon-cart {
+
+}
+
 .navbar-bot {
+  display: inline-block;
+  text-align: justify;
   position: fixed;
-  width: 90%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  width: 80%;
   height: 66px;
-  bottom: 40px;
-  left: 22px;
-  right: 22px;
-  z-index: 100;
-  /*filter: drop-shadow(0px 3px 13px rgba(192, 154, 255, 0.86));*/
+  bottom: 5%;
+  z-index: 1;
   background: linear-gradient(180deg, #000000 0%, rgba(55, 40, 79, 0.97) 100%, #37284F 100%);
-  /*box-shadow: 0px 0px 17px 6px rgba(0, 0, 0, 0.25);*/
   border-radius: 500px;
 }
 
@@ -86,22 +100,6 @@ body {
 }
 
 
-.omni-music-img {
- /* width: 100%;
-  margin-top: -100px;*/
-  vertical-align: top;
-  max-width: 100%;
-  height: auto;
-  width: auto\9;
-}
-
-.Oni13-img {
-  /*margin-top: -250px;*/ /*ovviamente non va bene questa cosa*/
-  float: left;
-  max-width: 100%;
-  height: auto;
-  width: auto\9;
-}
 
 
 
@@ -118,7 +116,7 @@ body {
   border-radius: 64px;
 }
 
-.winter-sales-a > header > h2 {
+.winter-sales-a > header > h1 {
   font-weight: bold;
   font-size: 30px;
   line-height: 44px;
@@ -129,7 +127,6 @@ body {
 }
 
 .winter-sales-a > header > p {
-  line-height: 20px;
   text-align: center;
   color: #B69DE0;
   text-shadow: 0px 4px 11px rgba(0, 0, 0, 0.25);
@@ -137,11 +134,10 @@ body {
 
 
 .oni13-a {
-  display: inline-block;
+  position: relative;
   margin-top: 20px;
   width: 100%;
-  /*height: 379px;*/
-  height: min-content;
+  height: 379px;
 
   background-color: white;
   box-shadow: 0px 8px 6px 2px rgba(0, 0, 0, 0.25);
@@ -149,24 +145,35 @@ body {
 }
 
 .oni13-a > header {
-  /*float: right;*/
-  padding-right: 20px;
-  font-size: 24px;
   text-align: right;
-  margin: 0;
-}
-
-.oni13-a > header > p {
-  padding-left: 200px;
   color: #433161;
 }
 
+.oni13-a > header > h2 {
+  position: absolute;
+  left: 50%;
+  top: 5px;
+  right: 10px;
+}
+
+.Oni13-img {
+  position: absolute;
+  height: auto;
+  width: auto\9;
+                     /*OPZIONE 1*/
+  top: 0px;
+  right: 35%;
+  bottom: 0px;
+  max-height: 100%;
+}
+
+
+
 .omni-music-a {
+  position: relative;  
+  height: 372px;
   width: 100%;
-  /*height: 372px;*/
-  height: min-content;
   margin-top: 10px;
-  text-align: right;
 
   background: conic-gradient(from 120deg at 0% 0%, #E5D6FF 0deg, #FAFAFB 286.87deg, #FFFFFF 359.78deg, #E5D6FF 360deg);
   box-shadow: 0px 1px 23px 5px rgba(0, 0, 0, 0.25);
@@ -174,14 +181,112 @@ body {
 }
 
 .omni-music-a > header {
-  text-align: left;
-  font-size: 16px;
-  padding: 5px 20px 0px 180px;
+  text-align: right;
   color: #433161;
 }
 
+.omni-music-a > header > h3 {
+  position: absolute;
+  left: 50%;
+  top: 0px;
+  right: 10px;
+}
 
-/*DA CAMBIARE CON LE CLASSI  TUTTTOOOOO*/
+.omni-music-img {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+                      /*OPZIONE 2*/
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  width: auto\9;
+}
+
+
+
+.dreamx11-a {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background-color: black;  
+  box-shadow: 0px -6px 9px 5px rgba(0, 0, 0, 0.25);
+  color: #FFFFFF;
+  filter: drop-shadow(0px 21px 12px rgba(0, 0, 0, 0.24)); 
+}
+
+.dreamx11-a > header > h4  {
+  position: absolute;
+  font-size: 28px;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 33px;
+}
+
+.dreamx11-a > header > p {
+  position: absolute;
+  font-size: 18px;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.dreamx11-img {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+                      /*OPZIONE 2*/
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  width: auto\9;
+}
+
+
+
+.gpu-a {
+  position: relative;
+  width: 100%;
+  height: 400px;
+}
+
+.gpu-a > header > h5 {
+  color: white;
+  position: absolute;
+  top: 1%;
+  left: 10%;
+  right: 10%;
+  text-align: center;
+}
+
+.gpu-a > header > h6 {
+  color: white;
+  position: absolute;
+  top: 5%;
+  left: 10%;
+  right: 10%;
+  text-align: center;
+}
+
+.gpu-img {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  max-height: 100%;
+  height: auto;
+  width: auto\9;
+}
+
+
+/*CODICE VECCHIO*/
+
+
+
 /*main > article:nth-child(1) {
   display: inline-block;
   text-align: center;
@@ -256,10 +361,10 @@ main > article:nth-child(3) > header {
   color: #433161;
 }*/
 
-main > article:nth-child(4) {
+/*main > article:nth-child(4) {
   width: 100%;
   height: 453px;
-  margin-top: -20px; /*WHI IN THE FUCKING WORLD*/
+  margin-top: -20px;
 
   background-color: black;
   background-image: url(../img/CAVA\ PHONE.png);
@@ -270,13 +375,12 @@ main > article:nth-child(4) {
   text-align: center;
   color: #FFFFFF;
   filter: drop-shadow(0px 21px 12px rgba(0, 0, 0, 0.24)); 
-  /*DA CONTROLLARE, SE METTO UNO DEI DUE LA NAV BAR IN BASSO SVANISCE*/
-}
+}*/
 
 
 
 /*DA CAMBIARE TUTTO*/
-main > article:nth-child(4) > div > img {
+/*main > article:nth-child(4) > div > img {
   max-width: 100%;
   height: auto;
   width: auto\9;
@@ -290,18 +394,18 @@ main > article:nth-child(4) > header > h2 {
 
 main > article:nth-child(4) > header > p {
   font-size: 18px;
-}
-
+}*/
+/*
 main > article:nth-child(5){
   width: 100%;
   height: 650px;
   margin-top: -20px;
   text-align: center;
   background-image: url(../img/scheda\ grafica.png);
-}
+}*/
 
-main > article:nth-child(5) > header {
+/*main > article:nth-child(5) > header {
   color: #ffffff;
   padding: 20px 20px 0px 20px;
   font-size: 16px;
-}
+}*/
