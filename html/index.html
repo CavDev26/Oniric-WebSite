@@ -10,33 +10,62 @@
   <body>
 
     <nav class="navbar-top">
-      <div class="fixingdiv">
-        <nav class="foldable-menu">
-          <input type="checkbox"/>
-  
+        <nav class="foldable-menu display-flex-column">
+            <input type="checkbox"/>
           <span></span>
           <span></span>
           <span></span>
-  
+          
           <ul class="unfolded-menu">
-            <a href=""><li>Home</li></a>
-            <a href=""><li>About</li></a>
-            <a href=""><li>Info</li></a>
-            <a href=""><li>Contact</li></a>
+            <li class="search-bar">
+              <!-- il seguente form va poi cambiato, è solo un placeholder-->
+              <form role="search">
+                <input type="search" id="query" name="q"
+                placeholder="Search..."
+                aria-label="Search through site content">
+                <button class="search-button">Search</button>
+              </form>
+            </li>
+            <hr class="span-menu-div">
+            <li><a href="#">Pre-assemblati</a></li>
+            <hr class="span-menu-div">
+            <li><a href="#">Categoria 1</a></li>
+            <hr class="span-menu-div">
+            <li><a href="#">Categoria 2</a></li>
+            <hr class="span-menu-div">
+            <li><a href="#">Categoria 3</a></li>
+            <hr class="span-menu-div">
+            <li><a href="#">Contatti</a></li>
+            <hr class="span-menu-div">
+            <li><a href="#">Assistenza</a></li>
+            <hr class="span-menu-div">
+            <li><a href="">acnadidcn</a></li>
+            <hr class="span-menu-div">
           </ul>
         </nav>
   
         <!--<a href=""><img src="../img/3barsNav.png" alt="" class="dropmenu" /></a>-->
-        <a href="" class="button-top"><img src="../img/first_logo.jpg" alt="" class="main-logo-home" /></a>
-        <a href="" class="button-top-notifications"><img src="../img/notificationdef.png" alt="" class="notification-menu" /></a>
-      </div>    
+        <div class="button-top-logo display-flex-column">
+          <a href=""><img src="../img/first_logo.jpg" alt="" class="main-logo-img" /></a>
+        </div>
+        <div class="button-top-notifications display-flex-column">
+          <a href=""><img src="../img/notificationdef.png" alt="" class="notification-menu-img" /></a>
+        </div>
     </nav>
 
     <nav class="navbar-bot">
-      <a href="" class="bottom-nav-button"><img src="../img/User.png" alt="" class="bottom-nav-icon-img"/></a>
-      <a href="" class="bottom-nav-button"><img src="../img/Home.png" alt="" class="bottom-nav-icon-img"/></a>
-      <a href="" class="bottom-nav-button"><img src="../img/Search.png" alt="" class="bottom-nav-icon-img"/></a>
-      <a href="" class="bottom-nav-button"><img src="../img/Cart.png" alt="" class="bottom-nav-icon-img"/></a>
+      <div class="bottom-nav-button display-flex-column">
+        <a href=""><img src="../img/User.png" alt="" class="bottom-nav-icon-img"/></a>
+      </div>
+      <div class="bottom-nav-button display-flex-column">
+        <a href=""><img src="../img/Home.png" alt="" class="bottom-nav-icon-img"/></a>
+      </div>
+      <div class="bottom-nav-button display-flex-column">
+        <a href=""><img src="../img/Search.png" alt="" class="bottom-nav-icon-img"/></a>
+      </div>
+      <div class="bottom-nav-button display-flex-column">
+        <a href=""><img src="../img/Cart.png" alt="" class="bottom-nav-icon-img"/></a>
+      </div>
     </nav>
 
     <main>
@@ -52,19 +81,19 @@
       <article class="oni13-a">
           <header>  
             <img src="../img/Oni13.png" alt="" class="Oni13-img"/>
-            <h2><span class="pink">Oni 13</span>, Il top delle nostre workstation</h2>
+            <h2><span class="accent">Oni 13</span>, Il top delle nostre workstation</h2>
           </header>
       </article>
       <article class="omni-music-a ">
         <header>
           <img src="../img/OmniMusic.png" alt="" class="omni-music-img"/>
-          <h3>Ascolta il meglio della musica con <span class="pink">Omni Music</span></h3>
+          <h3>Ascolta il meglio della musica con <span class="accent">Omni Music</span></h3>
         </header>
       </article>
       <article class="dreamx11-a">
         <header>
           <img src="../img/CAVA PHONE.png" alt="" class="dreamx11-img"/>
-          <h4><span class="pink">Dream X11</span></h4>
+          <h4><span class="accent">Dream X11</span></h4>
           <p>Disponibile a Gennaio</p>
         </header>
       </article>
@@ -72,7 +101,7 @@
         <header>
           <img src="../img/scheda grafica.png" alt="" class="gpu-img">
           <h5>Prova le nostre build che montano</h5>
-          <h6><span class="pink">schede NVIDIA</span></h6>
+          <h6><span class="accent">schede NVIDIA</span></h6>
         </header>
       </article>
     </main>
