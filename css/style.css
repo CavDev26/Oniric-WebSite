@@ -23,24 +23,19 @@ body {
   background: #37284f;
 }
 
-.bottom-nav-icon-profile {
-}
-.bottom-nav-icon-home {
-}
-.bottom-nav-icon-search {
-}
-.bottom-nav-icon-cart {
-}
 
-.navbar-bot {
-  display: inline-block;
-  text-align: justify;
+.navbar-bot {  
+  display: flex; /*per  mettere gli elementi centrati*/
+  align-items: center;
+
   position: fixed;
   left: 50%;
-  transform: translate(-50%, 0%);
-  width: 80%;
-  height: 66px;
   bottom: 5%;
+  transform: translate(-50%, 0%); /*to center it*/
+  width: 80%;
+  height: 10%;
+  max-height: 90px; /*solo per schermi più larghi*/
+  max-width: 450px; /*solo per schermi più larghi*/
   z-index: 1;
   background: linear-gradient(
     180deg,
@@ -50,7 +45,28 @@ body {
   );
   border-radius: 500px;
 }
+.bottom-nav-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  text-align: center;
 
+  height: 8%;
+  max-height: 80px;
+}
+.bottom-nav-icon-img {
+  width: 75%;
+  height: auto;
+}
+
+
+/*VOLENDO, SI PUò CAMBIARE E FARLA UGUALE AL NAV BOT
+  QUESTO SERVE SOLO SE SI VUOL FARE CHE L'IPHONE 5 
+  NON ABBIA PROBLEMI DI DIMENSIONI E DI DISTANZE 
+  DEGLI OGGETTI NEL NAV.
+  DA CHIEDERE*/
 .navbar-top {
   background: radial-gradient(
     139.02% 189.45% at 48.25% 44.79%,
@@ -70,12 +86,156 @@ body {
   z-index: 1;
 }
 
-.main-logo {
-  width: 74px;
-  height: 74px;
-  padding-top: 10px;
+
+
+
+/*QUESTO SERVE SOLO PER POTER FIXARE GLI ITEM, FORSE SI PUò SPOSTARE DIRETTAMENTE IN NAV*/
+.fixingdiv {
+  display: flex;
+  align-items: center;
 }
 
+/*SONO DA RINOMINARE TUTTE LE CLASSI*/
+.button-top-notifications {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: flex-end;
+  padding-right: 20px;
+
+}
+
+.button-top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 2;
+  text-align: center;
+  padding-top: 12px;
+}
+
+/*QUESTO E' IL MENU FOLDABLE, ORA FUNZIONA, MA VEDI PADDING SOPRA*/
+
+.foldable-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  padding-left: 20px;
+
+  flex-grow: 1;
+
+  z-index: 1;
+  width: 50px;
+}
+
+.foldable-menu > a {
+  text-decoration: none;
+  color: #232323;
+  
+  transition: color 0.3s ease;
+}
+
+.foldable-menu > a:hover {
+  color: tomato;
+}
+
+.foldable-menu > input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  
+  cursor: pointer;
+  
+  opacity: 0;
+  z-index: 2;
+  
+  -webkit-touch-callout: none;
+}
+
+.foldable-menu > span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  
+  background: #cdcdcd;
+  border-radius: 3px;
+  
+  z-index: 1;
+  
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+.foldable-menu > span:first-child {
+  transform-origin: 0% 0%;
+}
+
+.foldable-menu > span:nth-last-child(2) {
+  transform-origin: 0% 100%;
+}
+
+.foldable-menu > input:checked ~ span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+.foldable-menu > input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+.foldable-menu > input:checked ~ span:nth-last-child(2) {
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+.unfolded-menu {
+  position: absolute;
+  width: 300px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  
+  background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+.unfolded-menu > li {
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+.foldable-menu > input:checked ~ ul {
+  transform: none;
+}
+
+
+
+
+
+/*QUI HO MODIFICATO I PADDING, LI HO COMMENTATI*/
+
+.main-logo-home {
+  width: 74px;
+  height: 74px;
+  /*padding-top: 10px;*/
+}
 .dropmenu {
   padding-top: 25px;
   padding-left: 25px;
@@ -83,14 +243,15 @@ body {
   width: 50px;
   height: 50px;
 }
-
 .notification-menu {
-  padding-right: 25px;
-  padding-top: 25px;
+  /*padding-right: 25px;
+  /*padding-top: 25px;*/
   float: right;
   width: 50px;
   height: 50px;
 }
+
+
 
 .home-footer {
   width: 100%;
