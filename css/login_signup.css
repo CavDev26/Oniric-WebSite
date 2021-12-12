@@ -14,11 +14,11 @@
 .form {
   margin: 20px;
   padding: 12px;
-  background: #e5d6ff;
+  background: var(--traslucentPrimary);
   border-radius: 4px;
   width: 80%;
   max-width: 400px;
-  border: 2px solid #e5d6ff;
+  border: 2px solid var(--traslucentPrimary);
   -webkit-transition: 0.5s;
   transition: 0.5s;
   outline: none;
@@ -30,18 +30,18 @@
 }
 
 .form::placeholder {
-  color: rgba(190, 156, 245, 0.66);
+  color: var(--primary);
 }
 
 .form:focus {
-  border: 2px solid #b596e6;
+  border: 2px solid var(--primary);
 }
 
 .fullHeight {
   height: 100%;
 }
 .softButton {
-  background: #e5d6ff99;
+  background: var(--traslucentPrimary);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border: 2px solid transparent;
   border-radius: 6px;
@@ -49,12 +49,12 @@
   font-weight: 600;
   font-size: 16px;
   line-height: 19px;
-  color: #433161;
+  color: var(--lightSecondary);
   max-width: 330px;
   min-width: 200px;
   margin: 20px 0;
   padding: 10px 0;
-  text-shadow: 0px 4px 17px #ad7cff;
+  text-shadow: 0px 4px 17px var(--saturatedPrimary);
 }
 
 .inline-block {
@@ -73,4 +73,14 @@
 
 .center {
   text-align: center;
+}
+
+.passwordEye {
+  position: absolute;
+  top: 170px;
+  right: 9%;
+}
+
+.container {
+  position: relative;
 }

@@ -6,14 +6,13 @@
   -webkit-box-sizing: border-box;
   width: 100%;
   padding: 20px 20px 90px 20px;;
-  margin: 100px 0 80px 0 ;
   background: linear-gradient(
     180deg,
     rgba(182, 157, 224, 0.02) 0%,
     #ffffff 0.48%
   );
   
-  color: #433161;
+  color: var(--lightSecondary);
   box-shadow: 0px 8px 6px 2px rgba(0, 0, 0, 0.25);
   text-align: center;
   border: 11px solid transparent; /*2*/
@@ -21,6 +20,10 @@
   background-clip: padding-box;
   border-radius: 33px;
   border-width: 11px;
+}
+
+.m-100-80 {
+  margin: 100px 0 80px 0 ;
 }
 
 .productBack::after {
@@ -34,7 +37,7 @@
 }
 
 .productTitle {
-  color: #433161;
+  color: var(--lightSecondary);
   font-style: normal;
   font-weight: 600;
   font-size: 28px;
@@ -50,7 +53,7 @@
   line-height: 22px;
   letter-spacing: 0em;
   text-align: center;
-  color: #433161;
+  color: var(--lightSecondary);
 }
 
 .reviewStar {
@@ -83,7 +86,7 @@ hr.separator {
 }
 
 .briefDesc {
-  color: rgba(67, 49, 97, 1);
+  color: var(--lightSecondary);
   padding: 10px;
   font-size: 16px;
 }
@@ -111,7 +114,7 @@ line-height: 5px;
   padding: 0 10%;
   text-align: left;
   display: inline;
-  color: #433161;
+  color: var(--lightSecondary);
   align-items: left;
   font-weight: bold;
   font-size: 18px;
@@ -145,7 +148,7 @@ line-height: 5px;
   font-weight: bold;
   font-size: 24px;
   line-height: 29px;
-  color: #9564E6;
+  color: var(--saturatedPrimary);
   margin: 0;
   padding-right: 15%;
 }
@@ -157,11 +160,11 @@ line-height: 5px;
 .smallSubTitle {
   font-weight: bold;
   font-size: 16px;
-  color: #433161;
+  color: var(--lightSecondary);
 }
 
 .simpleText {
-  color: #433161;
+  color: var(--lightSecondary);
   font-weight: 300;
   font-size: 15px;
   line-height: 18px;
@@ -182,7 +185,7 @@ line-height: 5px;
   font-weight: 600;
   font-size: 16px;
   line-height: 19px;
-  color: #433161;
+  color: var(--lightSecondary);
   width: 90%;
   padding: 10px 0;
 }
@@ -200,7 +203,7 @@ line-height: 5px;
 }
 .review {
   background: #FFFFFF;
-  border: 1px solid #433161;
+  border: 1px solid var(--lightSecondary);
   box-sizing: border-box;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 17px;
@@ -247,7 +250,7 @@ line-height: 5px;
   font-weight: 600;
   font-size: 16px;
   line-height: 19px;
-  color: #433161;
+  color: -var(--lightSecondary);
   width: 90%;
   padding: 10px 0;
   text-shadow: 0px 4px 17px #AD7CFF;
