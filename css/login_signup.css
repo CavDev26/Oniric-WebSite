@@ -1,4 +1,4 @@
-.signUpTitle {
+.bigTitle {
   font-family: Inter;
   font-style: normal;
   font-weight: bold;
@@ -12,7 +12,7 @@
 }
 
 .form {
-  margin: 20px;
+  color: var(--secondary);
   padding: 12px;
   background: var(--traslucentPrimary);
   border-radius: 4px;
@@ -28,6 +28,9 @@
   font-size: 16px;
   line-height: 100%;
 }
+.form input {
+  position: relative;
+}
 
 .form::placeholder {
   color: var(--primary);
@@ -41,6 +44,8 @@
   height: 100%;
 }
 .softButton {
+  display: inline;
+  text-align: center;
   background: var(--traslucentPrimary);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border: 2px solid transparent;
@@ -50,19 +55,85 @@
   font-size: 16px;
   line-height: 19px;
   color: var(--lightSecondary);
-  max-width: 330px;
+  max-width: 400px;
   min-width: 200px;
-  margin: 20px 0;
+  width: 90%;
+  margin: 20px 10%;
   padding: 10px 0;
   text-shadow: 0px 4px 17px var(--saturatedPrimary);
 }
-
-.inline-block {
+.softButton input {
+  text-align: center;
+}
+.switch {
+  position: relative;
   display: inline-block;
+  width: 60px;
+  height: 34px;
 }
-.block {
-  display: block;
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: var(--primary);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--primary);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.saturatedText {
+  display: inline-block;
+  color: var(--saturatedPrimary);
+  font-size: 16px;
+  width: 60%;
+}
+
 .fullWidth {
   width: 100%;
 }
@@ -70,17 +141,66 @@
 .p-20l {
   padding-left: 20px;
 }
-
-.center {
-  text-align: center;
+.p-20r {
+  padding-right: 20px;
 }
-
+.p-20t {
+  padding-top: 20px;
+}
+.p-20b {
+  padding-bottom: 20px;
+}
+.p-10t {
+  padding-top: 10px;
+}
+.p-10b {
+  padding-bottom: 10px;
+}
+.m-20l {
+  margin-left: 20px;
+}
+.m-20r {
+  margin-right: 20px;
+}
+.m-20t {
+  margin-top: 20px;
+}
+.m-20b {
+  margin-bottom: 20px;
+}
+.m-10l {
+  margin-left: 10px;
+}
+.m-10r {
+  margin-right: 10px;
+}
+.m-10t {
+  margin-top: 10px;
+}
+.m-10b {
+  margin-bottom: 10px;
+}
+.m-20 {
+  margin: 20px;
+}
+.m-10 {
+  margin: 10px;
+}
 .passwordEye {
   position: absolute;
   top: 170px;
   right: 9%;
 }
-
+.passwordEye-2 {
+  position: absolute;
+  top: 250px;
+  right: 10%;
+}
+.passwordEye-3 {
+  position: absolute;
+  top: 340px;
+  right: 10%;
+}
 .container {
   position: relative;
 }
