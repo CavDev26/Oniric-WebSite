@@ -77,42 +77,56 @@ body {
   DEGLI OGGETTI NEL NAV.
   DA CHIEDERE*/
 .navbar-top {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100px;
+
+  display: flex;
+  align-items: center;
+
+  text-align: center;
+  z-index: 1;
+
+  border: 1px solid black;
   background: radial-gradient(
     139.02% 189.45% at 48.25% 44.79%,
     #000000 0%,
     #37284f 100%
   );
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 100px;
-  border: 1px solid black;
   box-shadow: 0px 4px 5px 3px var(--shadow);
   border-radius: 0px 0px 15px 15px;
-  color: WHITE;
-  text-align: center;
-  z-index: 1;
-
-  display: flex;
-  align-items: center;
+  /*color: WHITE;*/
 }
 .button-top-notifications {
-  flex-grow: 1;
+  float: right;
   align-items: flex-end;
+  flex-grow: 1;
   padding-right: 20px;
-
 }
 .button-top-logo {
   align-items: center;
   flex-grow: 2;
   padding-top: 5px;
 }
+.main-logo-img {
+  width: 74px;
+  height: 74px;
+}
+.notification-menu-img {
+  width: 50px;
+  height: 50px;
+}
 
-/*QUESTO E' IL MENU FOLDABLE, ORA FUNZIONA, MA VEDI PADDING SOPRA*/
+
+
+
+
+/* QUESTO E' IL MENU FOLDABLE, ORA FUNZIONA, MA VEDI PADDING SOPRA*/
 .foldable-menu {
   align-items: flex-start;
   flex-grow: 1;
-
+  display: inline-block;
   padding-left: 20px;
   z-index: 1;
   /*width: 50px;*/
@@ -166,51 +180,42 @@ body {
   transform: rotate(-45deg) translate(0, -1px);
 }
 
-.main-logo-img {
-  width: 74px;
-  height: 74px;
-}
-/* UNUSED
-.dropmenu {
-  padding-top: 25px;
-  padding-left: 25px;
-  float: left;
-  width: 50px;
-  height: 50px;
-}*/
-.notification-menu-img {
-  width: 50px;
-  height: 50px;
-}
-
 .unfolded-menu {
+
+
+
+  /*FIXAMI PER FAVORE, METTI UNA PERCENTUALE, CON UN MAX HEIGHT*/ 
+  height: 300px; 
+  overflow: hidden;
+
   position: absolute;
   width: 100%;
-  /*margin: -100px 0 0 -50px;*/
   margin-left: -50px;
-  margin-top: 50px;
-  padding: 50px;
+  top: 75%;
+
+  overflow: auto;
+  max-height: 1000px;
+
+  display: block;
 
   text-align: left;
-  
   background: radial-gradient(
     139.02% 189.45% at 48.25% 44.79%,
     #000000 0%,
     #37284f 100%
   );
-    list-style-type: none;
+  list-style-type: none;
   -webkit-font-smoothing: antialiased;
-  
   transform-origin: 0% 0%;
   transform: translate(-100%, 0);
-  
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 }
 
 /*PER ACCEDERE AI TESTI NEL MENU A TENDINA*/
 .unfolded-menu > li {
+  /*display: block;*/
   padding-left: 0%;
-  margin-top: 4%;
+  margin-top: 1%;
   font-size: 20px;
 }
 .unfolded-menu > li > a {
@@ -223,16 +228,57 @@ body {
 }
 .foldable-menu > input:checked ~ ul {
   transform: none;
+} 
+
+
+
+/*OPZIONE UGUALE AL W3SCHOOL
+
+.foldable-menu {
+  display: inline-block;
 }
+.dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.foldable-menu:hover .dropdown-content {
+  display: block;
+}
+.dropdown-menu-img {
+  width: 74px;
+  height: 74px;
+}
+*/
+
+
+
 
 
 
 
 .search-bar {
-  position: absolute;
   /*background-color: var(--lightSecondary);*/
   border-radius: 5px;
-  top: 1%;
 }
 .input {
   all: unset;
@@ -245,9 +291,8 @@ body {
 
 .span-menu-div {
   background-color: var(--lightSecondary);
-  width: 80%;
+  width: 90%;
   margin-left: 0px;
-  margin-right: 0px;
 }
 /*it works ok with mobile decises, but margins are not in desktop mode. to be fixed with %s,
   even though they are not currenty woking.
