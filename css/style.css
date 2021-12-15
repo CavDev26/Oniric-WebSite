@@ -70,7 +70,6 @@ body {
 
 
 
-
 /*VOLENDO, SI PUò CAMBIARE E FARLA UGUALE AL NAV BOT
   QUESTO SERVE SOLO SE SI VUOL FARE CHE L'IPHONE 5 
   NON ABBIA PROBLEMI DI DIMENSIONI E DI DISTANZE 
@@ -81,10 +80,8 @@ body {
   top: 0;
   width: 100%;
   height: 100px;
-
   display: flex;
   align-items: center;
-
   text-align: center;
   z-index: 1;
 
@@ -96,56 +93,128 @@ body {
   );
   box-shadow: 0px 4px 5px 3px var(--shadow);
   border-radius: 0px 0px 15px 15px;
-  /*color: WHITE;*/
-}
-.button-top-notifications {
-  float: right;
-  align-items: flex-end;
-  flex-grow: 1;
-  padding-right: 20px;
 }
 .button-top-logo {
   align-items: center;
   flex-grow: 2;
   padding-top: 5px;
 }
-.main-logo-img {
+.logo-img {
   width: 74px;
   height: 74px;
+}
+
+
+
+
+.button-top-notifications {
+  align-items: flex-end;
+  flex-grow: 1;
+  z-index: 1;
+  padding-right: 20px;
 }
 .notification-menu-img {
   width: 50px;
   height: 50px;
 }
+.check-notifications {
+  display: block;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 22px;
+  right: 18px;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 2;  
+}
+.notifications-list {
+  height: 500px; 
+  position: absolute;
+  width: 75%;
+
+  right: 0%;
+
+  padding-top: 5%;
+  padding-right: 5%;
+  padding-left: 5%;
+  padding-bottom: 5%;
+
+  top: 75%;
+  overflow: auto;
+  max-height: 1000px;
+  display: block;
+
+  text-align: left;
+  background: radial-gradient(
+    139.02% 189.45% at 48.25% 44.79%,
+    #000000 0%,
+    #37284f 100%
+  );
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  border-radius: 10px;
+  
+  transform-origin: 0% 0%;
+  transform: translate(100%, 0%);
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+.notification-elem {
+  text-decoration: none;
+  color: white;
+  text-align: left;
+  padding-right: 0%;
+  margin-top: 1%;
+  font-size: 20px;
+}
+.notification-elem:hover {
+  color: var(--primary);
+  transition: color 0.3s ease;
+}
+.button-top-notifications > input:checked ~ ul {
+  transform: none;
+}
+.span-notifications-div {
+  background-color: var(--lightSecondary);
+  width: 90%;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.notification-img {
+  width: auto;
+  height: auto\9;
+  max-width:25%;
+}
 
 
 
 
 
-/* QUESTO E' IL MENU FOLDABLE, ORA FUNZIONA, MA VEDI PADDING SOPRA*/
-.foldable-menu {
+
+
+
+.left-menu {
   align-items: flex-start;
   flex-grow: 1;
   display: inline-block;
   padding-left: 20px;
   z-index: 1;
-  /*width: 50px;*/
 }
-
 /*questa cosa mi fa schifo coi pixel, ma non trovo altre soluzioni*/
-.foldable-menu > input {
+.left-menu > input {
   display: block;
   width: 42px;
   height: 34px;
   position: absolute;
   top: 20px;
   left: 14px;
-  /*magari non è da gestire qui*/
+
   cursor: pointer;
   opacity: 0;
   z-index: 2;
 }
-.foldable-menu > span {
+.left-menu > span {
   display: block;
   width: 40px;
   height: 4px;
@@ -161,43 +230,53 @@ body {
   background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
   opacity 0.55s ease;
 }
-.foldable-menu > span:first-child {
+.left-menu > span:first-child {
   transform-origin: 0% 0%;
 }
-.foldable-menu > span:nth-last-child(2) {
+.left-menu > span:nth-last-child(2) {
   transform-origin: 0% 100%;
 }
-.foldable-menu > input:checked ~ span {
+.left-menu > input:checked ~ span {
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
   background: var(--primary); /*colore della x*/
 }
-.foldable-menu > input:checked ~ span:nth-last-child(3) {
+.left-menu > input:checked ~ span:nth-last-child(3) {
   opacity: 1;
   transform: rotate(0deg) scale(0.2, 0.2);
 }
-.foldable-menu > input:checked ~ span:nth-last-child(2) {
+.left-menu > input:checked ~ span:nth-last-child(2) {
   transform: rotate(-45deg) translate(0, -1px);
 }
 
-.unfolded-menu {
-
-
-
+.unfolded-left-menu {
   /*FIXAMI PER FAVORE, METTI UNA PERCENTUALE, CON UN MAX HEIGHT*/ 
-  height: 300px; 
-  overflow: hidden;
+  /*ci sarebbe anche da fixare il fatto che ci vuole un margine bottom, per non tagliare il testo*/
+  /*da fixare le dimensioni delle linee e come piazzarle,perchè è tutto un po' così
+  per via dei margini negativi in pixel*/
+  /*difatti guarda la barra di ricerca come è storta*/
 
-  position: absolute;
+  position: fixed;
+
+
+  /*SOLUZIONE DEFINITIVA*/
+
+  height: 70%;
   width: 100%;
-  margin-left: -50px;
-  top: 75%;
+  /* max-height: 1000px; */
+
+  /*margin-left: -50px; /*COLPEVOLE*/
+  /*ma potrei sostituirlo così:*/
+
+  left: 0px; /*facendo così è centrato e non si vede la barra per scorrere,
+                mentre mettendo 0 è tutto sfasato, di 1px*/
+  padding-left: 5%;
+  padding-right: 5%;
+
+  /* top: 75%; */
 
   overflow: auto;
-  max-height: 1000px;
-
   display: block;
-
   text-align: left;
   background: radial-gradient(
     139.02% 189.45% at 48.25% 44.79%,
@@ -205,28 +284,26 @@ body {
     #37284f 100%
   );
   list-style-type: none;
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased; /*serve per safari per mac, ma penso si possa togliere*/
   transform-origin: 0% 0%;
   transform: translate(-100%, 0);
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 }
 
-/*PER ACCEDERE AI TESTI NEL MENU A TENDINA*/
-.unfolded-menu > li {
-  /*display: block;*/
+.unfolded-left-menu > li {
   padding-left: 0%;
   margin-top: 1%;
   font-size: 20px;
 }
-.unfolded-menu > li > a {
+.unfolded-left-menu > li > a {
   text-decoration: none;
   color: white;
 }
-.unfolded-menu > li >a:hover {
+.unfolded-left-menu > li >a:hover {
   color: var(--primary);
   transition: color 0.3s ease;
 }
-.foldable-menu > input:checked ~ ul {
+.left-menu > input:checked ~ ul {
   transform: none;
 } 
 
@@ -277,8 +354,10 @@ body {
 
 
 .search-bar {
-  /*background-color: var(--lightSecondary);*/
+  text-align: left;
+  /* background-color: var(--lightSecondary); */
   border-radius: 5px;
+  /* padding-left: 0px; */
 }
 .input {
   all: unset;

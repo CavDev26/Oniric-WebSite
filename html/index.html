@@ -10,49 +10,13 @@
   <body>
 
     <nav class="navbar-top">
-        <nav class="foldable-menu display-flex-column">
+        <nav class="left-menu display-flex-column">
           <input type="checkbox"/>
           <span></span>
           <span></span>
           <span></span>
-          
-          
-          <!--OPZIONE W3SCHOOL
-            <input type="checkbox"/>
-          <a href="" class="dropbtn"><img src="../img/3barsNav.png" alt="" class="dropdown-menu-img"/></a>
 
-          <div class="dropdown-content">
-            <a href="" class="search-bar">
-              <form role="search">
-                <input type="search" id="query" name="q"
-                placeholder="Search..."
-                aria-label="Search through site content">
-                <button class="search-button">Search</button>
-              </form>
-            </a>
-            <a href="#">Pre-assemblati</a>
-            <a href="#">Pre-assemblati</a>
-            <a href="#">Pre-assemblati</a>
-            <a href="#">Pre-assemblati</a>
-            <a href="#">Pre-assemblati</a>
-            <a href="#">Pre-assemblati</a>
-            <a href="#">Pre-assemblati</a>
-            <a href="#">Pre-assemblati</a>
-            <a href="#">Pre-assemblati</a>
-            <a href="#">Pre-assemblati</a>
-            <a href="#">Pre-assemblati</a>
-            <a href="#">Pre-assemblati</a>
-            <a href="#">Pre-assemblati</a>
-            <a href="#">Pre-assemblati</a>
-            <a href="#">Pre-assemblati</a>
-            <a href="#">Pre-assemblati</a>
-            <a href="#">Pre-assemblati</a>
-            <a href="#">Pre-assemblati</a>
-            <a href="#">Pre-assemblati</a>
-            <a href="#">Pre-assemblati</a>
-          </div>-->
-
-          <ul class="unfolded-menu">
+          <ul class="unfolded-left-menu">
             <li class="search-bar">
               <form role="search">
                 <input type="search" id="query" name="q"
@@ -91,12 +55,65 @@
           </ul>
         </nav>
   
-        <!--<a href=""><img src="../img/3barsNav.png" alt="" class="dropmenu" /></a>-->
         <div class="button-top-logo display-flex-column">
-          <a href=""><img src="../img/first_logo.jpg" alt="" class="main-logo-img" /></a>
+          <a href=""><img src="../img/first_logo.jpg" alt="" class="logo-img" /></a>
         </div>
+
+
+
+        <!-- problema: se lascio così, entrambi i nav esistono sempre, sono solo fuori dallo schermo.
+             in più, le loro dimensioni (height) non sono facilmente gestibili, perchè le percentuali fanno
+             riferimento al nav, non al display. Ora sto usando i pixel, ma tipo su iphone 5 è chiaramente un problema.
+             altra cosa: bisogna sistemare i colori del background, avendo un gradiente non vengono bellissimi.-->
+
         <div class="button-top-notifications display-flex-column">
-          <a href=""><img src="../img/notificationdef.png" alt="" class="notification-menu-img" /></a>
+          <img src="../img/notificationdef.png" alt="" class="notification-menu-img"/>
+          <input type="checkbox" class="check-notifications"/>
+          <ul class="notifications-list">
+            <a href="" class="notification-elem">
+              <li><img src="../img/cava2000.png" alt="" class="notification-img"> Status Ordine</li>
+            </a>
+            <hr class="span-notifications-div">
+            <a href="" class="notification-elem">
+              <li><img src="../img/cava2000.png" alt="" class="notification-img"> Status Ordine</li>
+            </a>
+            <hr class="span-notifications-div">
+            <a href="" class="notification-elem">
+              <li><img src="../img/cava2000.png" alt="" class="notification-img"> Status Ordine</li>
+            </a>
+            <hr class="span-notifications-div">
+            <a href="" class="notification-elem">
+              <li><img src="../img/cava2000.png" alt="" class="notification-img"> Status Ordine</li>
+            </a>
+            <hr class="span-notifications-div">
+            <a href="" class="notification-elem">
+              <li><img src="../img/cava2000.png" alt="" class="notification-img"> Status Ordine</li>
+            </a>
+            <hr class="span-notifications-div">
+            <a href="" class="notification-elem">
+              <li><img src="../img/cava2000.png" alt="" class="notification-img"> Status Ordine</li>
+            </a>
+            <hr class="span-notifications-div">
+            <a href="" class="notification-elem">
+              <li><img src="../img/cava2000.png" alt="" class="notification-img"> Status Ordine</li>
+            </a>
+            <hr class="span-notifications-div">
+            <a href="" class="notification-elem">
+              <li><img src="../img/cava2000.png" alt="" class="notification-img"> Status Ordine</li>
+            </a>
+            <hr class="span-notifications-div">
+            <a href="" class="notification-elem">
+              <li><img src="../img/cava2000.png" alt="" class="notification-img"> Status Ordine</li>
+            </a>
+            <hr class="span-notifications-div">
+            <a href="" class="notification-elem">
+              <li><img src="../img/cava2000.png" alt="" class="notification-img"> Status Ordine</li>
+            </a>
+            <hr class="span-notifications-div">
+            <a href="" class="notification-elem">
+              <li><img src="../img/cava2000.png" alt="" class="notification-img"> Status Ordine</li>
+            </a>
+          </ul>
         </div>
     </nav>
 
