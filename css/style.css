@@ -83,7 +83,8 @@ body {
   display: flex;
   align-items: center;
   text-align: center;
-  z-index: 1;
+  z-index: 2;
+  /*ho modificato lo zindex*/
 
   border: 1px solid black;
   background: radial-gradient(
@@ -129,18 +130,15 @@ body {
   z-index: 2;  
 }
 .notifications-list {
-  height: 500px; 
-  position: absolute;
+  position: fixed;
+  height: 70%;
   width: 75%;
-
+  top: 95px;
   right: 0%;
 
-  padding-top: 5%;
-  padding-right: 5%;
-  padding-left: 5%;
-  padding-bottom: 5%;
+  margin-top: 0px;
+  padding: 5%;
 
-  top: 75%;
   overflow: auto;
   max-height: 1000px;
   display: block;
@@ -180,16 +178,11 @@ body {
   margin-right: 0px;
   margin-left: 0px;
 }
-
 .notification-img {
   width: auto;
   height: auto\9;
-  max-width:25%;
+  max-width: 20%;
 }
-
-
-
-
 
 
 
@@ -201,7 +194,6 @@ body {
   padding-left: 20px;
   z-index: 1;
 }
-/*questa cosa mi fa schifo coi pixel, ma non trovo altre soluzioni*/
 .left-menu > input {
   display: block;
   width: 42px;
@@ -250,30 +242,22 @@ body {
 }
 
 .unfolded-left-menu {
-  /*FIXAMI PER FAVORE, METTI UNA PERCENTUALE, CON UN MAX HEIGHT*/ 
-  /*ci sarebbe anche da fixare il fatto che ci vuole un margine bottom, per non tagliare il testo*/
-  /*da fixare le dimensioni delle linee e come piazzarle,perchè è tutto un po' così
-  per via dei margini negativi in pixel*/
-  /*difatti guarda la barra di ricerca come è storta*/
-
   position: fixed;
 
-
-  /*SOLUZIONE DEFINITIVA*/
-
-  height: 70%;
+  height: 100%;
   width: 100%;
-  /* max-height: 1000px; */
+  left: 0px;
+  top: 0px;
+  padding: 5% 5% 0 5%;
+  margin-top: 95px;
 
-  /*margin-left: -50px; /*COLPEVOLE*/
-  /*ma potrei sostituirlo così:*/
 
-  left: 0px; /*facendo così è centrato e non si vede la barra per scorrere,
-                mentre mettendo 0 è tutto sfasato, di 1px*/
-  padding-left: 5%;
-  padding-right: 5%;
-
-  /* top: 75%; */
+  /* height: 100%;
+  width: 100%;
+  left: 0px;
+  top: 95px;
+  padding: 5% 5% 0 5%;
+  margin-top: 0px; */
 
   overflow: auto;
   display: block;
@@ -285,8 +269,12 @@ body {
   );
   list-style-type: none;
   -webkit-font-smoothing: antialiased; /*serve per safari per mac, ma penso si possa togliere*/
-  transform-origin: 0% 0%;
-  transform: translate(-100%, 0);
+  
+  /* transform-origin: -100% -100%; */
+  transform: translate(0%, -120%);
+  
+  /* transform-origin: 0% 0%;
+  transform: translate(-100%, 0); */
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 }
 
@@ -352,12 +340,16 @@ body {
 
 
 
-
+/*
 .search-bar {
-  text-align: left;
-  /* background-color: var(--lightSecondary); */
+  width: 100%;
+  margin-right: 9%;
+  text-align: center;
+  background-color: var(--lightSecondary);
   border-radius: 5px;
-  /* padding-left: 0px; */
+}
+.search-button {
+
 }
 .input {
   all: unset;
@@ -366,6 +358,51 @@ body {
   height: 100%;
   width: 100%;
   padding: 6px 10px;
+}*/
+
+.search-line {
+  /*per il background, ma non funzia*/
+}
+.wrapper {
+  position: relative;
+  display: flex;
+  width: 90%;
+}
+.search-icon {
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  width: auto\9;
+  height: auto\9;
+  max-width: 8%;
+  max-height: 90%;
+  transform: translate(-50%, -50%);
+}
+.search {
+  width: 100%;
+  font-size: 20px;
+  border: 1px solid;
+  border-color: var(--primary);
+  border-radius: 8px;
+  padding: 1.5% 1% 1.5% 1%;
+  outline: 0;
+  color: var(--saturedPrimary);
+  background-color: var(--lightSecondary);
+}
+.search::placeholder {
+  color: var(--primary)
+}
+/*
+.clear-icon {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 10px;
+  cursor: pointer;
+  visibility: hidden;
+}*/
+.search:hover, .search:focus {
+  background-color: var(--primary);
 }
 
 .span-menu-div {
@@ -373,11 +410,6 @@ body {
   width: 90%;
   margin-left: 0px;
 }
-/*it works ok with mobile decises, but margins are not in desktop mode. to be fixed with %s,
-  even though they are not currenty woking.
-  There's need of founding a way to set the bot nav opacity to 0 when the hanmburger nav
-  is open (currently bugged, see iPhone5 template).*/
-
 
 
 .home-footer {
