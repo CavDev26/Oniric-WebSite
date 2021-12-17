@@ -10,14 +10,28 @@
   width: 80%;
   margin: 0, 0, 30px, 0;
 }
-
-.form {
+.form-label {
+  text-align: left;
+  width: 100%;
+  color: var(--lightSecondary);
+  align-items: left;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 40px;
+}
+.simpleForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+}
+.box-input {
   color: var(--secondary);
-  padding: 12px;
   background: var(--traslucentPrimary);
   border-radius: 4px;
-  width: 80%;
-  max-width: 400px;
+  width: 92%;
+  max-width: 700px;
+  height: 40px;
   border: 2px solid var(--traslucentPrimary);
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -27,16 +41,15 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 100%;
-}
-.form input {
-  position: relative;
+  margin: 0;
+  padding-left: 10px;
 }
 
-.form::placeholder {
+.box-input::placeholder {
   color: var(--primary);
 }
 
-.form:focus {
+.box-input:focus {
   border: 2px solid var(--primary);
 }
 
@@ -59,7 +72,7 @@
   max-width: 400px;
   min-width: 200px;
   width: 90%;
-  margin: 20px 10%;
+  margin: 20px 4%;
   padding: 10px 0;
   text-shadow: 0px 4px 17px var(--saturatedPrimary);
 }
@@ -69,8 +82,10 @@
 .switch {
   position: relative;
   display: inline-block;
+  vertical-align: middle;
   width: 60px;
   height: 34px;
+  margin: 10px;
 }
 
 /* Hide default HTML checkbox */
@@ -132,23 +147,13 @@ input:checked + .slider:before {
   display: inline-block;
   color: var(--saturatedPrimary);
   font-size: 16px;
+  vertical-align: middle;
   width: 60%;
 }
 
 .passwordEye {
-  position: absolute;
-  top: 170px;
-  right: 9%;
-}
-.passwordEye-2 {
-  position: absolute;
-  top: 250px;
-  right: 10%;
-}
-.passwordEye-3 {
-  position: absolute;
-  top: 340px;
-  right: 10%;
+  margin-left: -35px;
+  vertical-align: middle;
 }
 .container {
   position: relative;

@@ -13,6 +13,12 @@
 .m-0 {
   margin: 0;
 }
+.p-10 {
+  padding: 10px;
+}
+.p-20 {
+  padding: 20px;
+}
 .p-20l {
   padding-left: 20px;
 }
@@ -84,4 +90,30 @@
 }
 .f-28 {
   font-size: 28px;
+}
+
+.left {
+  float: left;
+  text-align: left;
+}
+
+.left-text {
+  text-align: left;
+}
+.right {
+  float: right;
+  text-align: right;
+}
+.right-text {
+  text-align: right;
+}
+.center {
+  text-align: center;
+}
+
+.inline-block {
+  display: inline-block;
+}
+.block {
+  display: block;
 }

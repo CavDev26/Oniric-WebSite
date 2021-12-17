@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/productStyle.css" />
     <link rel="stylesheet" href="../css/login_signup.css" />
+    <link rel="stylesheet" href="../css/framework.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 
     <title>Registrati su Oniric</title>
   </head>
@@ -18,79 +21,84 @@
 
     <div class="simpleBack inline-block">
       <h1 class="bigTitle">Crea il tuo Account Oniric</h1>
-      <div class="container">
-          <label for="email" class="priceItem left fullWidth p-20l">Email:</label><br />
-        <input
-          class="form left m-10t m-20l m-20r m-20b"
-          type="text"
-          id="email"
-          name="email"
-          placeholder="Inserisci la tua mail"
-        /><br />
-        <label for="username" class="priceItem left fullWidth p-20l">Nome Utente:</label><br />
-        <input
-          class="form left m-10t m-20l m-20r m-20b"
-          type="text"
-          id="username"
-          name="username"
-          placeholder="Inserisci il tuo nome utente"
-        /><br />
-        <label for="password" class="priceItem left block fullWidth p-20l">Password:</label><br />
-          <input
-          class="form left m-10t m-20l m-20r m-10b"
-          type="password"
-          id="password"
-          name="password"
-          placeholder="Inserisci la tua password" /> 
-          <img src="../img/showPassword.png" alt="" class="passwordEye-2">
-        <br />
-        <label for="confirmpassword" class="priceItem left block fullWidth p-20l">Conferma Password:</label><br />
-          <input
-          class="form left m-10t m-20l m-20r m-20b "
-          type="password"
-          id="confirmpassword"
-          name="confirmpassword"
-          placeholder="Inserisci di nuovo la tua password" >
-           <img src="../img/showPassword.png" alt="" class="passwordEye-3"> 
-          </input>
-         
-        <br />
-        <label for="nameAndsurname" class="priceItem left fullWidth p-20l">Nome e Cognome:</label><br />
-        <input
-          class="form left m-10t m-20l m-20r m-10b"
-          type="text"
-          id="nameAndsurname"
-          name="name"
-          placeholder="Inserisci il tuo nome"
-        /><br />
-        <input
-          class="form left m-10t m-20l m-20r m-10b"
-          type="text"
-          id="nameAndsurname"
-          name="surname"
-          placeholder="Inserisci il tuo cognome"
-        /><br />
-        <label for="birthdate" class="priceItem left fullWidth p-20l">Data di Nascita:</label><br />
-        <input
-          class="form left m-10t m-20l m-20r m-10b"
-          type="date"
-          id="nameAndsurname"
-          name="name"
-          placeholder="Inserisci il tuo nome"
-        /><br />
-        <label for="news" class="saturatedText left p-20t p-20l">Ricevi notizie riguardo le offerte o eventi relativi a Oniric</label>
-        <label class="switch right m-10l m-10r m-20t m-10b">
-            <input type="checkbox">
-            <span class="slider round"></span>
-        </label>
-      </form>
-      <footer class="center">
+      <form action="" class="simpleForm">
+          <div class="left p-10l p-10r">
+            <label for="email" class="form-label">Email:</label><br />
+            <input
+              class="box-input"
+              type="text"
+              id="email"
+              name="email"
+              placeholder="Inserisci la tua mail"
+            />
+          </div>
+          <div class="left p-10l p-10r">
+            <label for="username" class="form-label">Nome Utente:</label><br />
+            <input
+              class="box-input"
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Inserisci il tuo nome utente"
+            />
+          </div>
+          <div class="left p-10l p-10r">
+            <label for="password" class="form-label">Password:</label><br />
+              <input
+              class="box-input"
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Inserisci la tua password" > 
+              <span class="material-icons passwordEye">visibility</span>
+          </div>
+          <div class="left p-10l p-10r">
+            <label for="confirmpassword" class="form-label">Conferma Password:</label><br />
+            <input
+            class="box-input"
+            type="password"
+            id="confirmpassword"
+            name="confirmpassword"
+            placeholder="Inserisci di nuovo la tua password" >
+            </input>
+            <span class="material-icons passwordEye">visibility</span>
+          </div>
+          <div class="left p-10l p-10r">
+            <label for="nameAndsurname" class="form-label">Nome e Cognome:</label><br />
+            <input
+              class="box-input"
+              type="text"
+              id="nameAndsurname"
+              name="name"
+              placeholder="Inserisci il tuo nome e cognome"
+            />
+          </div>
+          <div class="left p-10l p-10r">
+            <label for="birthdate" class="form-label">Data di Nascita:</label><br />
+            <input
+              class="box-input"
+              type="date"
+              id="birthdate"
+              name="name"
+              placeholder="Inserisci la tua data di nascita"
+            />
+          </div>
+          <div class="center p-10">
+            <label for="news" class="saturatedText ">Ricevi notizie riguardo le offerte o eventi relativi a Oniric</label>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+          </div>
+        </form>
+        <footer class="center">
           <div class="center">
-        <input class="softButton" type="submit" value="Registrati">
-        </input>
-        </div>
-      </footer>
-    </di>
+            <input class="softButton" type="submit" value="Registrati">
+          </div>
+        </footer>
+      </form>
+    </div>
+    
 
     <footer class="home-footer">
       Cava and Fresh (C) Copyright 2021 All rights reserved
