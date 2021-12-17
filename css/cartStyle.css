@@ -1,0 +1,68 @@
+.buy-button {
+    position: fixed;
+    width: 90%;
+    height: 40px;
+    top: 130px;
+    /*left: 50%;
+    transform: translate(-50%, -50%);*/
+    /*left: 50%;
+    transform: translateX(-50%);*/
+
+    z-index: 1;
+
+
+    transition: transform .2s;
+    background-color: var(--buttons);
+    border-radius: 12px;
+    box-shadow: 3px 8px 11px 1px var(--shadow);
+    text-decoration: none;
+}
+.buy-button > div {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.buy-button > div > p {
+    top: 50%;
+    transform: translate(0%, -50%);
+    align-items: center;
+    flex-grow: 1;
+}
+.buy-button:hover {
+    transform: scale(1.1);
+}
+
+
+.centered {
+    display: flex;
+    align-items: center;
+}
+
+
+
+/*THE FOOTER NEEDS TO BE UPDATED*/
+
+.normal {
+    text-decoration: none;
+    /* text-align: center; */
+}
+.purchase-button {
+    position: fixed;
+    text-align: center;
+    top: 110px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 90%;
+    height: 40px;
+    background-color: var(--buttons);
+    border-radius: 12px;
+    box-shadow: 3px 8px 11px 1px var(--shadow);
+}
+
+
+
+
+
+
+
+
