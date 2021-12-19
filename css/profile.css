@@ -277,3 +277,13 @@ em {
   position: relative;
   width: 100%;
 }
+.littlePaymentIcon {
+  width: 52px;
+  height: 34px;
+}
+.simpleCross {
+  vertical-align: middle;
+  width: 20%;
+  float: right;
+  padding-top: 30px;
+}
