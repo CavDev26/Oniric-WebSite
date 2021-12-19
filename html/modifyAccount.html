@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/productStyle.css" />
+    <link rel="stylesheet" href="../css/login_signup.css" />
+    <link rel="stylesheet" href="../css/profile.css" />
+    <link rel="stylesheet" href="../css/framework.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+    <title>Cambia Nome Utente o Password</title>
+  </head>
+  <body class="center">
+    <nav class="navbar-top">
+      <img src="../img/3barsNav.png" alt="" class="dropmenu" />
+      <img src="../img/first_logo.jpg" alt="" class="main-logo" />
+      <img src="../img/notification.png" alt="" class="notification-menu" />
+    </nav>
+    <div class="lightBack left-text">
+      <div class="floatingBack inline-block">
+        <div class="center relative">
+          <input class="bigHardButton relative" type="submit" value="Torna all'Account">
+        </div>
+      <div class="accordionBack">
+        <form action="" class="simpleForm p-20t">
+            <div class="left p-10l p-10r">
+              <label for="username" class="form-label">Nome Utente:</label><br />
+              <input
+                class="box-input"
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Inserisci il tuo nome utente"
+                value="Fresh"
+              />
+            </div>
+            <div class="left p-10l p-10r">
+              <label for="password" class="form-label">Vecchia Password:</label><br />
+                <input
+                class="box-input"
+                type="password"
+                id="oldpassword"
+                name="oldpassword"
+                placeholder="••••••••••••••" 
+                disabled="true"> 
+            </div>
+            <div class="left p-10l p-10r">
+              <label for="password" class="form-label">Nuova Password:</label><br />
+                <input
+                class="box-input"
+                type="password"
+                id="newpassword"
+                name="newpassword"
+                placeholder="Inserisci la tua password" > 
+                <span class="material-icons passwordEye">visibility</span>
+            </div>
+            <div class="left p-10l p-10r">
+              <label for="confirmpassword" class="form-label">Conferma Nuova Password:</label><br />
+              <input
+              class="box-input"
+              type="password"
+              id="confirmpassword"
+              name="confirmpassword"
+              placeholder="Inserisci di nuovo la tua password" >
+              </input>
+              <span class="material-icons passwordEye">visibility</span>
+            </div>
+            <div class="left p-10l p-10r">
+              <label for="nameAndsurname" class="form-label">Nome e Cognome:</label><br />
+              <input
+                class="box-input"
+                type="text"
+                id="nameAndsurname"
+                name="name"
+                placeholder="Inserisci il tuo nome e cognome"
+                value="Francesco Magnani"
+              />
+            </div>
+            <div class="left p-10l p-10r">
+              <label for="birthdate" class="form-label">Data di Nascita:</label><br />
+              <input
+                class="box-input"
+                type="date"
+                id="birthdate"
+                name="name"
+                placeholder="Inserisci la tua data di nascita"
+                value="2000-03-16"
+                disabled="true"
+              />
+            </div>
+          </form>
+          <footer class="center">
+            <div class="center">
+              <input class="hardButton m-10b m-20t w-90" type="submit" value="Applica Modifiche">
+            </div>
+          </footer>
+        </form>
+      </div>
+    </div>
+    </div>
+    
+
+    <footer class="home-footer">
+      Cava and Fresh (C) Copyright 2021 All rights reserved
+    </footer>
+  </body>
+</html>
