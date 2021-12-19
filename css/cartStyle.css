@@ -1,0 +1,142 @@
+.buy-button {
+    position: fixed;
+    width: 90%;
+    height: 40px;
+    top: 130px;
+    /*left: 50%;
+    transform: translate(-50%, -50%);*/
+    /*left: 50%;
+    transform: translateX(-50%);*/
+
+    z-index: 1;
+
+
+    transition: transform .2s;
+    background-color: var(--buttons);
+    border-radius: 12px;
+    box-shadow: 3px 8px 11px 1px var(--shadow);
+    text-decoration: none;
+}
+.buy-button > div {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.buy-button > div > p {
+    top: 50%;
+    transform: translate(0%, -50%);
+    align-items: center;
+    flex-grow: 1;
+}
+.buy-button:hover {
+    transform: scale(1.1);
+}
+
+
+.centered {
+    display: flex;
+    align-items: center;
+}
+
+
+
+/*THE FOOTER NEEDS TO BE UPDATED*/
+
+.normal {
+    text-decoration: none;
+    /* text-align: center; */
+}
+.purchase-button {
+    position: fixed;
+    text-align: center;
+    top: 110px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 90%;
+    height: 40px;
+    background-color: var(--buttons);
+    border-radius: 12px;
+    box-shadow: 3px 8px 11px 1px var(--shadow);
+}
+
+
+
+
+
+
+/*Come cambio il background di questa pagina e basta?*/
+body {
+    background: linear-gradient(
+        180deg, 
+        rgba(182, 157, 224, 0.58)) 0%,
+        #37284F 100%;
+}
+main {
+}
+
+
+
+
+ /*CONSIDERARE L'USO DI DISPLAY TABLE, DA CAPIRE*/
+.product-container {
+    display: inline-block;
+    border: 1px solid #BE9CF5;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    margin: auto;
+    text-align: left;
+    background-color: white;
+    width: 95%;
+    /* height: 20%; */
+}
+.product-image {
+    /* padding: 1%; */
+    padding-top: 5%;
+    float: left;
+    width: 45%;
+    height: auto\9;
+}
+.product-info {
+    float: right;
+    text-align: right;
+    margin-right: 20px;
+    margin-top: 0px;
+}
+.product-name {
+    font-size: 30px;
+
+}
+.stars {
+    width: 100%;
+    text-align: left;
+    height: auto\9;
+
+}
+.price-section {
+    display: inline-block;
+    float: left;
+}
+.valuta {
+    float: left;
+}
+.price {
+    float: left;
+}
+.buttons {
+    display: inline-block;
+}
+.remove-button {
+    float: left;
+    text-align: center;
+    background-color: var(--buttons);
+    width: min-content;
+    height: 20px;    
+}
+.quantity-button {
+    float: right;
+}
+
+
+
+
+
