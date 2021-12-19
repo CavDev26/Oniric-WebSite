@@ -1,0 +1,279 @@
+.profileIcon {
+  width: 80px;
+  height: 80px;
+}
+.accordion {
+  background: rgba(229, 214, 255, 0.42);
+  border: 5px solid transparent;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 95%;
+  box-sizing: border-box;
+  border-radius: 8px;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+.accountAccordion {
+  background: none;
+  cursor: pointer;
+  padding: 5px;
+  width: 75%;
+  border: 2px solid transparent;
+  border-radius: 16px;
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  transition: 0.4s;
+}
+.accountAccordion:hover {
+  background-color: rgba(159, 150, 175, 0.42);
+}
+
+.accordion:hover {
+  background-color: rgba(159, 150, 175, 0.42);
+}
+.active {
+  border: 5px solid rgba(67, 49, 97, 0.58);
+  box-sizing: border-box;
+  border-radius: 8px;
+  width: 100%;
+}
+.activeAlt {
+  box-sizing: border-box;
+  border-radius: 16px;
+}
+.accordion:after {
+  content: url("../img/openArrow.png");
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+.accountAccordion:after {
+  content: url("../img/openArrow.png");
+  color: #777;
+  float: right;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+.active:after,
+.activeAlt:after {
+  vertical-align: middle;
+  content: url("../img/closeArrow.png");
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+.accordionList {
+  list-style: none;
+  padding: 0;
+}
+
+.accordionBack {
+  background: rgba(229, 214, 255, 0.35);
+  border: 1px solid #be9cf59d;
+  box-sizing: border-box;
+  border-radius: 7px;
+  width: 100%;
+}
+.paymentMethod {
+  display: inline-block;
+  background: rgba(229, 214, 255, 0.35);
+  border: 1px solid #be9cf5;
+  box-sizing: border-box;
+  border-radius: 7px;
+  padding: 10px 10px;
+  width: 90%;
+  height: 84px;
+}
+strong {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+  align-items: center;
+
+  color: #433161;
+}
+
+em {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  align-items: center;
+
+  color: #a187ce;
+
+  text-shadow: 0px 4px 4px #ffffff;
+}
+
+.lightText {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  align-items: center;
+  color: #433161;
+}
+
+.middleText {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 27px;
+  align-items: center;
+  text-align: center;
+}
+
+.lightTitle {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 34px;
+  margin: 10px 0;
+  color: #37284f;
+
+  text-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.hardButton {
+  background: #be9cf5;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  display: inline-block;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  min-height: 25px;
+  min-width: 180px;
+  color: #37284f;
+  border: none;
+}
+.bigHardButton {
+  background: #be9cf5;
+  border-radius: 5px;
+  font-family: Inter;
+  font-size: 28px;
+  line-height: 19px;
+  display: inline-block;
+  align-items: center;
+  text-align: center;
+  width: 101%;
+  min-height: 50px;
+  min-width: 180px;
+  color: #37284f;
+  border: none;
+  box-shadow: 3px 8px 11px 1px rgba(0, 0, 0, 0.25);
+  margin: -10px -15px -2% -15px;
+}
+.orderImage {
+  display: inline-block;
+  text-align: left;
+  width: 110px;
+  height: 110px;
+}
+
+.lightSaturatedText {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  align-items: center;
+  text-align: center;
+  color: #a187ce;
+  text-shadow: 0px 4px 4px #ffffff;
+}
+
+.orderMiddleText {
+  vertical-align: middle;
+  width: 50%;
+  display: inline-block;
+  height: 110px;
+  line-height: 110px;
+}
+.orderMiddleText p {
+  line-height: 1.5;
+  display: inline-block;
+  vertical-align: middle;
+}
+.coolButton {
+  background: rgba(229, 214, 255, 0.42);
+  border: 5px solid transparent;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 95%;
+  box-sizing: border-box;
+  border-radius: 8px;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+.coolButton img {
+  width: 20px;
+  height: 20px;
+  padding-left: 10px;
+}
+.coolButton:hover {
+  background-color: rgba(159, 150, 175, 0.42);
+}
+.coolButton:focus {
+  border: 5px solid rgba(67, 49, 97, 0.58);
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+.bigSaturatedText {
+  font-weight: bold;
+  font-size: 34px;
+  line-height: 50px;
+  align-items: center;
+  text-align: center;
+
+  color: rgba(138, 111, 183, 0.87);
+}
+.bigSaturatedText em {
+  font-weight: bold;
+  font-size: 24px;
+}
+.middleSaturatedText {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  color: var(--primary);
+}
+
+.lightBack {
+  border: 25px solid;
+  border-image: linear-gradient(to bottom, rgba(182, 157, 224, 0.58), #37284f)
+    51.04% 100%;
+  background: #ffffff;
+  border-image: linear-gradient(to bottom, rgba(182, 157, 224, 0.58), #37284f) 1
+    100%;
+  margin-top: -40px;
+}
+.floatingBack {
+  background: #ffffff;
+  box-shadow: 0px 4px 11px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 23px;
+  padding: 20px;
+  margin: 0 -20px;
+  position: relative;
+  width: 100%;
+}

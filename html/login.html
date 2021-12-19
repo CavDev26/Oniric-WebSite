@@ -6,8 +6,12 @@
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/productStyle.css" />
     <link rel="stylesheet" href="../css/login_signup.css" />
+    <link rel="stylesheet" href="../css/framework.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 
-    <title>Cava 2000</title>
+
+    <title>Accedi al tuo Oniric</title>
   </head>
   <body class="center">
     <nav class="navbar-top">
@@ -16,29 +20,32 @@
       <img src="../img/notification.png" alt="" class="notification-menu" />
     </nav>
 
-    <div class="productBack fullHeight inline-block">
-      <h1 class="signUpTitle">Entra sul tuo Account</h1>
-      <form class="container">
-        <label for="username" class="priceItem left fullWidth p-20l">Nome Utente:</label><br />
-        <input
-          class="form left"
-          type="text"
-          id="username"
-          name="username"
-          placeholder="Inserisci il tuo nome utente"
-        /><br />
-        <label for="password" class="priceItem left block fullWidth p-20l">Password:</label><br />
-          <input
-          class="form left"
-          type="password"
-          id="password"
-          name="password"
-          placeholder="Inserisci la tua password" /> 
-          <img src="../img/showPassword.png" alt="" class="passwordEye">
-        <br />
+    <div class="simpleBack fullHeight inline-block">
+      <h1 class="bigTitle">Entra sul tuo Account</h1>
+      <form class="simpleForm">
+        <div class="left p-10">
+            <label for="username" class="form-label">Nome Utente:</label><br />
+            <input
+              class="box-input"
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Inserisci il tuo nome utente"
+            />
+          </div>
+          <div class="left p-10">
+            <label for="password" class="form-label">Password:</label><br />
+              <input
+              class="box-input"
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Inserisci la tua password" > 
+              <span class="material-icons passwordEye">visibility</span>
+          </div>
       </form>
       <footer>
-        <input class="softButton" type="submit" value="Accedi">
+        <input class="softButton center" type="submit" value="Accedi">
         </input>
       </footer>
     </div>
