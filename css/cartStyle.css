@@ -40,6 +40,9 @@
 
 
 
+
+
+
 /*THE FOOTER NEEDS TO BE UPDATED*/
 
 .normal {
@@ -53,32 +56,20 @@
     left: 50%;
     transform: translate(-50%, 0%);
     width: 90%;
-    height: 40px;
+    height: 50px;
     background-color: var(--buttons);
     border-radius: 12px;
     box-shadow: 3px 8px 11px 1px var(--shadow);
+    z-index: 2;
 }
 
 
-
-
-
-
-/*Come cambio il background di questa pagina e basta?*/
-body {
-    background: linear-gradient(
-        180deg, 
-        rgba(182, 157, 224, 0.58)) 0%,
-        #37284F 100%;
-}
-main {
-}
 
 
 
 
  /*CONSIDERARE L'USO DI DISPLAY TABLE, DA CAPIRE*/
-.product-container {
+/* .product-container {
     display: inline-block;
     border: 1px solid #BE9CF5;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -87,10 +78,8 @@ main {
     text-align: left;
     background-color: white;
     width: 95%;
-    /* height: 20%; */
 }
 .product-image {
-    /* padding: 1%; */
     padding-top: 5%;
     float: left;
     width: 45%;
@@ -134,9 +123,104 @@ main {
 }
 .quantity-button {
     float: right;
+} */
+
+.centered-div {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+
 }
 
+.product-list {
+    /*controllami*/
+    margin-top: 170px;
+    /* text-align: center; */
+    margin-bottom: 15px;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding: 0;
+    list-style-type: none;
+    display: block;
+}
 
+.product-container {
+    width: 100%;
+   /* height: 15%;/*perchè ora non vai più?*/
+    height: 500%;
 
+}
+.product {
+    background-color: white;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 0;
+    box-sizing: border-box;
+    color: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 17px;
 
+}
+.product-image {
+    float: left;
+    height: 100px;
+    width: auto\9;
+    max-height: 98%;
+    margin-right: 5px;
+}
+.product-name {
+    color: black;
+    margin: 0;
+    font-size: 18px;
+    font-weight: normal;
+}
+.stars {
+    height: 20px;
+    width: 60%;
+    display: inline-block;
+    margin: 0;
+}
+.star {
+    height: 100%;
+    width: auto\9;
+    margin: 0;
+}
+.price-section {
+    position: relative;
+    margin: 0;
+    /* height: min-content; */
+}
+.valuta {
+    position: absolute;
+    margin: 0;
+    left: 35%;
+    color: var(--buttons);
 
+}
+.price {
+    position: absolute;
+    left: 40%;
+    font-weight: bold;
+    color: var(--buttons);
+    margin: 0;
+}
+.remove-button {
+    position: absolute;
+    left: 35%;
+    bottom: 10px;
+    color: black;
+    text-align: center;
+    background-color: var(--buttons);
+    border-radius: 5px;
+    width: fit-content;
+    height: 20px;  
+    margin: 0;
+}
+.quantity-button {
+    position: absolute;
+    right: 15%;
+    bottom: 10px;
+    color: black;
+    margin: 0;
+}
