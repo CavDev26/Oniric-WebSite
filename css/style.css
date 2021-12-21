@@ -330,11 +330,11 @@ body {
   position: absolute;
   top: 50%;
   right: 0%;
+  transform: translate(-50%, -50%);
   width: auto\9;
   height: auto\9;
   max-width: 8%;
-  max-height: 90%;
-  transform: translate(-50%, -50%);
+  max-height: 85%;
 }
 .search {
   width: 100%;
