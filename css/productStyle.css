@@ -97,7 +97,6 @@ hr.separator {
   font-style: italic;
   font-weight: 100;
   font-size: 15px;
-  line-height: 5px;
 }
 
 .priceList {
@@ -112,13 +111,13 @@ hr.separator {
 }
 
 .priceItem {
-  padding: 0 10%;
+  padding-left: 5%;
   text-align: left;
   display: inline;
   color: var(--lightSecondary);
   align-items: left;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 22px;
 }
 
@@ -128,10 +127,10 @@ hr.separator {
   display: inline;
   font-style: normal;
   font-weight: bold;
-  font-size: 17px;
+  font-size: 14px;
   line-height: 18px;
   margin: 0;
-  padding-right: 12%;
+  padding-right: 10%;
 }
 
 .normalPriceNumber > em {
