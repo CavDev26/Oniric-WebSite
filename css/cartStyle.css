@@ -51,7 +51,7 @@
 }
 .purchase-button {
     position: fixed;
-    text-align: center;
+    /* text-align: center; */
     top: 110px;
     left: 50%;
     transform: translate(-50%, 0%);
@@ -60,85 +60,61 @@
     background-color: var(--buttons);
     border-radius: 12px;
     box-shadow: 3px 8px 11px 1px var(--shadow);
-    z-index: 2;
-}
-
-
-
-
-
-
- /*CONSIDERARE L'USO DI DISPLAY TABLE, DA CAPIRE*/
-/* .product-container {
-    display: inline-block;
-    border: 1px solid #BE9CF5;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
-    margin: auto;
-    text-align: left;
-    background-color: white;
-    width: 95%;
-}
-.product-image {
-    padding-top: 5%;
-    float: left;
-    width: 45%;
-    height: auto\9;
-}
-.product-info {
-    float: right;
-    text-align: right;
-    margin-right: 20px;
-    margin-top: 0px;
-}
-.product-name {
-    font-size: 30px;
-
-}
-.stars {
-    width: 100%;
-    text-align: left;
-    height: auto\9;
-
-}
-.price-section {
-    display: inline-block;
-    float: left;
-}
-.valuta {
-    float: left;
-}
-.price {
-    float: left;
-}
-.buttons {
-    display: inline-block;
-}
-.remove-button {
-    float: left;
+    z-index: 1;
     text-align: center;
-    background-color: var(--buttons);
-    width: min-content;
-    height: 20px;    
+    margin: 0;
 }
-.quantity-button {
-    float: right;
-} */
-
-.centered-div {
+.purchase-button > p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -25%);
     margin: 0;
     width: 100%;
-    text-align: center;
+    height: 100%;
+    /* line-height: 14px; */
+}
 
+
+
+
+
+.cartback {
+    /* width: 100%; */
+    /* height: 100%; */
+    position: relative;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding: 2% 2% 90px 2%;
+    background: linear-gradient(
+      180deg,
+      rgba(182, 157, 224, 0.02) 0%,
+      #ffffff 0.48%
+    );
+  
+    color: var(--lightSecondary);
+    box-shadow: 0px 8px 6px 2px rgba(0, 0, 0, 0.25);
+    border: 8px solid transparent; /*2*/
+    /*3*/
+    background-clip: padding-box;
+    border-radius: 33px;
+    border-width: 11px;
+  }
+
+
+
+.m-t-200 {
+    margin-top: 30px;
 }
 
 .product-list {
     /*controllami*/
-    margin-top: 170px;
+    /* margin-top: 170px; */
     /* text-align: center; */
     margin-bottom: 15px;
-    margin-right: 0px;
-    margin-left: 0px;
+    /* margin-right: 0px;
+    margin-left: 0px; */
     padding: 0;
     list-style-type: none;
     display: block;
@@ -147,7 +123,8 @@
 .product-container {
     width: 100%;
    /* height: 15%;/*perchè ora non vai più?*/
-    height: 500%;
+    height: 150px;
+    margin-bottom: 10px;
 
 }
 .product {
@@ -164,22 +141,31 @@
 }
 .product-image {
     float: left;
-    height: 100px;
-    width: auto\9;
+    height: 150px;
+    width: 150px;
+    /* width: auto\9; */
     max-height: 98%;
     margin-right: 5px;
 }
 .product-name {
     color: black;
     margin: 0;
-    font-size: 18px;
+    padding-left: 160px;
+    font-size: 14px;
     font-weight: normal;
 }
-.stars {
-    height: 20px;
-    width: 60%;
-    display: inline-block;
+.span-cart {
     margin: 0;
+    margin-bottom: 3px;
+}
+.stars {
+    position: absolute;
+    height: 18px;
+    /* width: 100%; */
+    left: 160px;
+    /*width: 40%; /*questo è pericoloso, se è troppo largo va sotto l'immagine*/
+    display: inline-block;
+    margin: 0px;
 }
 .star {
     height: 100%;
@@ -189,38 +175,56 @@
 .price-section {
     position: relative;
     margin: 0;
+    margin-top: 25px;
     /* height: min-content; */
 }
 .valuta {
     position: absolute;
     margin: 0;
-    left: 35%;
+    left: 160px;
     color: var(--buttons);
 
 }
 .price {
     position: absolute;
-    left: 40%;
+    left: 175px;
     font-weight: bold;
     color: var(--buttons);
     margin: 0;
 }
+
+/*le dimensioni in larghezza dei bottoni devono essere messe
+  in percentuale, conrtolla iphone5 cosa succede*/
+
+/*da fixare anche la lunghezza massima del nome del prodotto*/
+
+/*da finire il bottone delle quantità*/
+
+
 .remove-button {
     position: absolute;
-    left: 35%;
-    bottom: 10px;
+    left: 160px;
+    bottom: 20px;
     color: black;
-    text-align: center;
+    /* text-align: center; */
     background-color: var(--buttons);
     border-radius: 5px;
-    width: fit-content;
-    height: 20px;  
+    height: 30px;
+    width: 90px;
     margin: 0;
 }
+.remove-button > p {
+    width: 100%;
+    line-height: 14px;
+} 
 .quantity-button {
     position: absolute;
-    right: 15%;
-    bottom: 10px;
+    right: 5px;
+    bottom: 20px;
+    line-height: 14px;
+    height: 30px;
+    width: 105px;
+    background-color: var(--buttons);
     color: black;
     margin: 0;
 }
