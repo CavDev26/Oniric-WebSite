@@ -287,3 +287,20 @@ em {
   float: right;
   padding-top: 30px;
 }
+
+.numberPicker {
+  width: 85%;
+  text-align: center;
+  padding: 10px;
+  background-color: var(--traslucentPrimary);
+  border: 2px solid var(--trascentPrimary);
+  font-size: 18px;
+  font-family: Inter;
+  font-weight: bold;
+  color: var(--secondary);
+  transition: 0.15s;
+}
+.numberPicker:focus {
+  border: 2px solid var(--primary);
+  outline: none;
+}
