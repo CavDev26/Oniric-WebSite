@@ -1,38 +1,3 @@
-.buy-button {
-    position: fixed;
-    width: 90%;
-    height: 40px;
-    top: 130px;
-    /*left: 50%;
-    transform: translate(-50%, -50%);*/
-    /*left: 50%;
-    transform: translateX(-50%);*/
-
-    z-index: 1;
-
-
-    transition: transform .2s;
-    background-color: var(--buttons);
-    border-radius: 12px;
-    box-shadow: 3px 8px 11px 1px var(--shadow);
-    text-decoration: none;
-}
-.buy-button > div {
-    display: flex;
-    align-items: center;
-    text-align: center;
-}
-.buy-button > div > p {
-    top: 50%;
-    transform: translate(0%, -50%);
-    align-items: center;
-    flex-grow: 1;
-}
-.buy-button:hover {
-    transform: scale(1.1);
-}
-
-
 .centered {
     display: flex;
     align-items: center;
@@ -40,48 +5,39 @@
 
 
 
-
-
-
-/*THE FOOTER NEEDS TO BE UPDATED*/
-
 .normal {
     text-decoration: none;
-    /* text-align: center; */
 }
 .purchase-button {
     position: fixed;
-    /* text-align: center; */
     top: 110px;
     left: 50%;
-    transform: translate(-50%, 0%);
+    margin: 0;
     width: 90%;
     height: 50px;
+    transform: translate(-50%, 0%);
     background-color: var(--buttons);
     border-radius: 12px;
     box-shadow: 3px 8px 11px 1px var(--shadow);
     z-index: 1;
     text-align: center;
-    margin: 0;
 }
 .purchase-button > p {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -25%);
-    margin: 0;
     width: 100%;
     height: 100%;
-    /* line-height: 14px; */
+    transform: translate(-50%, -25%);
+    margin: 0;
+}
+.purchase-button:hover {
+    background-color: var(--lightButtons);
 }
 
 
 
-
-
 .cartback {
-    /* width: 100%; */
-    /* height: 100%; */
     position: relative;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -109,12 +65,7 @@
 }
 
 .product-list {
-    /*controllami*/
-    /* margin-top: 170px; */
-    /* text-align: center; */
     margin-bottom: 15px;
-    /* margin-right: 0px;
-    margin-left: 0px; */
     padding: 0;
     list-style-type: none;
     display: block;
@@ -122,17 +73,15 @@
 
 .product-container {
     width: 100%;
-   /* height: 15%;/*perchè ora non vai più?*/
     height: 150px;
     margin-bottom: 10px;
-
 }
 .product {
-    background-color: white;
     position: relative;
     width: 100%;
     height: 100%;
     margin-bottom: 0;
+    background-color: white;
     box-sizing: border-box;
     color: white;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -143,9 +92,10 @@
     float: left;
     height: 150px;
     width: 150px;
-    /* width: auto\9; */
     max-height: 98%;
     margin-right: 5px;
+    padding-left: 2px;
+    border-radius: 15px;
 }
 .product-name {
     color: black;
@@ -155,15 +105,12 @@
     font-weight: normal;
 }
 .span-cart {
-    margin: 0;
-    margin-bottom: 3px;
+    margin: 3px 0px 3px 0px;
 }
 .stars {
     position: absolute;
-    height: 18px;
-    /* width: 100%; */
+    height: 14px;
     left: 160px;
-    /*width: 40%; /*questo è pericoloso, se è troppo largo va sotto l'immagine*/
     display: inline-block;
     margin: 0px;
 }
@@ -174,9 +121,7 @@
 }
 .price-section {
     position: relative;
-    margin: 0;
-    margin-top: 25px;
-    /* height: min-content; */
+    margin: 40px 0px 0px 0px;
 }
 .valuta {
     position: absolute;
@@ -193,38 +138,79 @@
     margin: 0;
 }
 
-/*le dimensioni in larghezza dei bottoni devono essere messe
-  in percentuale, conrtolla iphone5 cosa succede*/
-
 /*da fixare anche la lunghezza massima del nome del prodotto*/
-
-/*da finire il bottone delle quantità*/
-
 
 .remove-button {
     position: absolute;
     left: 160px;
     bottom: 20px;
+    height: 30px;
+    width: 20%;
+    margin: 0;
+    max-width: 100px;
     color: black;
-    /* text-align: center; */
     background-color: var(--buttons);
     border-radius: 5px;
-    height: 30px;
-    width: 90px;
-    margin: 0;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .remove-button > p {
     width: 100%;
-    line-height: 14px;
+    font-size: clamp(14px, 4vw, 18px); /*serve per renderlo adjustable*/
+    font-weight: 300;
 } 
 .quantity-button {
     position: absolute;
     right: 5px;
-    bottom: 20px;
-    line-height: 14px;
-    height: 30px;
-    width: 105px;
-    background-color: var(--buttons);
-    color: black;
+    bottom: 15px;
+    height: 40px;
+    width: 20%;
     margin: 0;
+    max-width: 100px;
+    font-weight: 300;
+    background-color: var(--buttons);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    color: black;
 }
+.qty {
+    position: absolute;
+    float: left;
+    width: 70%;
+    height: 100%;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}  
+.quantity.buttons_added {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    text-align: left;
+    vertical-align: top;
+}
+.minus {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 50%;
+    width: 30%;
+    background-color: var(--lightButtons);
+    border: none;
+    cursor: pointer;
+    border-radius: 0px 0px 5px 0px;
+    border-top: solid 1px var(--buttons);
+}
+.plus {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 50%;
+    width: 30%;
+    background-color: var(--lightButtons);
+    border: none;
+    cursor: pointer;
+    border-radius: 0px 5px 0px 0px;
+    border-bottom: solid 1px var(--buttons);
+    font-size: 10px;
+}   
