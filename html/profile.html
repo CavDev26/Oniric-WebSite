@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/productStyle.css" />
     <link rel="stylesheet" href="../css/login_signup.css" />
     <link rel="stylesheet" href="../css/framework.css" />
+    <link rel="stylesheet" href="../css/searchResults.css" />
 
     <title>Oniric-Home</title>
   </head>
@@ -417,9 +418,51 @@
                         </div>
                       </li>
                     </ul>
-                    <button class="hardButton w-75 m-10t m-20b">
+                    <!-- Trigger/Open The Modal -->
+
+                    <button id="myBtn" class="hardButton w-75 m-10t m-20b">
                       Aggiungi un nuovo Indirizzo
                     </button>
+
+                    <!-- The Modal -->
+                    <div id="myModal" class="modal">
+                      <!-- Modal content -->
+                      <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h3>Inserisci nuovo indirizzo</h3>
+                        <form class="simpleForm">
+                          <div class="left p-10">
+                            <label for="address" class="form-label"
+                              >Indirizzo:</label
+                            ><br />
+                            <input
+                              class="box-input"
+                              type="text"
+                              id="address"
+                              name="address"
+                              placeholder="Inserisci il tuo indirizzo"
+                            />
+                          </div>
+                          <div class="left p-10">
+                            <label for="ncivico" class="form-label"
+                              >N. Civico:</label
+                            ><br />
+                            <input
+                              class="box-input"
+                              type="number"
+                              id="ncivico"
+                              name="ncivico"
+                              placeholder="N. Civico"
+                            />
+                          </div>
+                          <input
+                            class="softButton center"
+                            type="submit"
+                            value="Inserisci"
+                          />
+                        </form>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -436,4 +479,5 @@
     </footer>
   </body>
   <script src="../js/accordion.js"></script>
+  <script src="../js/modal.js"></script>
 </html>

@@ -105,7 +105,7 @@ strong {
   color: #433161;
 }
 
-em {
+.priceItalic {
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -150,6 +150,7 @@ em {
   background: #be9cf5;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
+  border: 2px transparent;
   font-family: Inter;
   font-style: normal;
   font-weight: normal;
@@ -163,10 +164,12 @@ em {
   min-width: 180px;
   color: #37284f;
   border: none;
+  transition: 0.4s;
 }
 .bigHardButton {
   background: #be9cf5;
   border-radius: 5px;
+  border: 2px transparent;
   font-family: Inter;
   font-size: 28px;
   line-height: 19px;
@@ -180,6 +183,7 @@ em {
   border: none;
   box-shadow: 3px 8px 11px 1px rgba(0, 0, 0, 0.25);
   margin: -10px -15px -2% -15px;
+  transition: 0.4s;
 }
 .orderImage {
   display: inline-block;
@@ -231,7 +235,9 @@ em {
   height: 20px;
   padding-left: 10px;
 }
-.coolButton:hover {
+.coolButton:hover,
+.hardButton:hover,
+.bigHardButton:hover {
   background-color: rgba(159, 150, 175, 0.42);
 }
 .coolButton:focus {
@@ -239,6 +245,13 @@ em {
   box-sizing: border-box;
   border-radius: 8px;
 }
+.hardButton:focus,
+.bigHardButton:focus {
+  border: 2px solid rgba(67, 49, 97, 0.58);
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
 .bigSaturatedText {
   font-weight: bold;
   font-size: 34px;
@@ -268,15 +281,17 @@ em {
   border-image: linear-gradient(to bottom, rgba(182, 157, 224, 0.58), #37284f) 1
     100%;
   margin-top: -40px;
+  text-align: center;
 }
 .floatingBack {
+  display: inline-block;
+  text-align: center;
   background: #ffffff;
   box-shadow: 0px 4px 11px 4px rgba(0, 0, 0, 0.25);
   border-radius: 23px;
   padding: 20px;
-  margin: 0 -20px;
-  position: relative;
-  width: 100%;
+  margin-left: -9px;
+  margin-right: -9px;
 }
 .littlePaymentIcon {
   width: 45px;
