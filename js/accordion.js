@@ -1,5 +1,6 @@
 var acc = document.querySelectorAll(".accordion");
 var i;
+var width = window.screen.width;
 
 for (i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function () {
@@ -17,10 +18,13 @@ for (i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function () {
     this.classList.toggle("activeAlt");
     var panel = this.nextElementSibling;
-    if (panel.style.maxHeight) {
-      panel.style.maxHeight = null;
+    if (width > 768) {
     } else {
-      panel.style.maxHeight = panel.scrollHeight + "px";
+      if (panel.style.maxHeight) {
+        panel.style.maxHeight = null;
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      }
     }
   });
 }
