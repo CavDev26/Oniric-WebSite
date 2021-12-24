@@ -2,6 +2,7 @@
   font-family: Inter;
 }
 .simpleBack {
+  display: inline-block;
   position: relative;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -20,6 +21,8 @@
   background-clip: padding-box;
   border-radius: 33px;
   border-width: 11px;
+  max-width: 1300px;
+  width: 100%;
 }
 
 .m-100-80 {
