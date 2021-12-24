@@ -66,13 +66,6 @@
   content: url("../img/closeArrow.png");
 }
 
-.panel {
-  padding: 0 18px;
-  background-color: white;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-}
 .accordionList {
   list-style: none;
   padding: 0;
@@ -286,4 +279,18 @@ em {
   width: 20%;
   float: right;
   padding-top: 30px;
+}
+@media screen and (max-width: 768px) {
+  .panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .panel {
+  }
 }
