@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/productStyle.css" />
     <link rel="stylesheet" href="../css/login_signup.css" />
     <link rel="stylesheet" href="../css/framework.css" />
+    <link rel="stylesheet" href="../css/searchResults.css" />
 
     <title>Oniric-Home</title>
   </head>
@@ -187,7 +188,7 @@
     </nav>
 
     <main>
-      <div class="lightBack left-text">
+      <div class="lightBack center">
         <div class="floatingBack inline-block m-20b">
           <header>
             <div class="simpleBack p-20b">
@@ -270,8 +271,8 @@
                   <strong>I tuoi Ordini</strong>
                 </button>
                 <div class="panel">
-                  <div class="accordionBack p-20">
-                    <ul class="accordionList center">
+                  <div class="accordionBack">
+                    <ul class="accordionList center p-20">
                       <li class="left-text">
                         <img
                           src="../img/cava2000.png"
@@ -279,8 +280,16 @@
                           srcset=""
                           class="orderImage"
                         />
-                        <div class="saturatedText orderMiddleText right center">
-                          <p>Arriverà domani</p>
+                        <div
+                          class="
+                            saturatedText
+                            orderMiddleText
+                            right
+                            center
+                            w-50
+                          "
+                        >
+                          Arriverà domani
                         </div>
                       </li>
                       <li class="left-text">
@@ -290,8 +299,16 @@
                           srcset=""
                           class="orderImage"
                         />
-                        <div class="saturatedText orderMiddleText right center">
-                          <p>Arriverà dopodomani</p>
+                        <div
+                          class="
+                            saturatedText
+                            orderMiddleText
+                            right
+                            center
+                            w-50
+                          "
+                        >
+                          Arriverà dopodomani
                         </div>
                       </li>
                       <li class="left-text">
@@ -301,16 +318,24 @@
                           srcset=""
                           class="orderImage"
                         />
-                        <div class="saturatedText orderMiddleText right center">
-                          <p>Arriverà sabato 18 Dicembre</p>
+                        <div
+                          class="
+                            saturatedText
+                            orderMiddleText
+                            right
+                            center
+                            w-50
+                          "
+                        >
+                          Arriverà sabato 18 Dicembre
                         </div>
                       </li>
                     </ul>
-                    <div class="p-20">
-                      <button class="hardButton">
+                    <footer>
+                      <button class="hardButton w-75 m-10t m-20b">
                         Mostra tutti gli ordini
                       </button>
-                    </div>
+                    </footer>
                   </div>
                 </div>
               </div>
@@ -339,15 +364,15 @@
                       </header>
                       <ul class="accordionList">
                         <li>
-                          <div class="paymentMethod">
-                            <h3 class="m-0 right w-75 center f-18">
+                          <div class="paymentMethod w-75 inline-block">
+                            <h3 class="m-0 right w-60 center f-16 p-10b">
                               Carta di Fresh
                             </h3>
                             <img
                               src="../img/visaLogo.png"
-                              class="left p-10b p-10t"
+                              class="left p-10t littlePaymentIcon"
                             />
-                            <p class="w-75 right m-0 center p-10t">
+                            <p class="w-68 right m-0 center f-14 lh-10">
                               •••• •••• •••• 0765
                             </p>
                           </div>
@@ -393,9 +418,51 @@
                         </div>
                       </li>
                     </ul>
-                    <button class="hardButton w-75 m-10t m-20b">
+                    <!-- Trigger/Open The Modal -->
+
+                    <button id="myBtn" class="hardButton w-75 m-10t m-20b">
                       Aggiungi un nuovo Indirizzo
                     </button>
+
+                    <!-- The Modal -->
+                    <div id="myModal" class="modal">
+                      <!-- Modal content -->
+                      <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h3>Inserisci nuovo indirizzo</h3>
+                        <form class="simpleForm">
+                          <div class="left p-10">
+                            <label for="address" class="form-label"
+                              >Indirizzo:</label
+                            ><br />
+                            <input
+                              class="box-input"
+                              type="text"
+                              id="address"
+                              name="address"
+                              placeholder="Inserisci il tuo indirizzo"
+                            />
+                          </div>
+                          <div class="left p-10">
+                            <label for="ncivico" class="form-label"
+                              >N. Civico:</label
+                            ><br />
+                            <input
+                              class="box-input"
+                              type="number"
+                              id="ncivico"
+                              name="ncivico"
+                              placeholder="N. Civico"
+                            />
+                          </div>
+                          <input
+                            class="softButton center"
+                            type="submit"
+                            value="Inserisci"
+                          />
+                        </form>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -412,4 +479,5 @@
     </footer>
   </body>
   <script src="../js/accordion.js"></script>
+  <script src="../js/modal.js"></script>
 </html>
