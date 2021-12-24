@@ -65,7 +65,13 @@
   vertical-align: middle;
   content: url("../img/closeArrow.png");
 }
-
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
 .accordionList {
   list-style: none;
   padding: 0;
@@ -310,5 +316,4 @@ strong {
 .numberPicker:focus {
   border: 2px solid var(--primary);
   outline: none;
-
 }
