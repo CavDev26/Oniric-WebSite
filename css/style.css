@@ -295,30 +295,9 @@ body {
   list-style-type: none;
   -webkit-font-smoothing: antialiased; /*serve per safari per mac, ma penso si possa togliere*/
 
-
-  animation-name: animatetop;
-  animation-duration: 1s;
-
-/* 
   transform: translate(0%, -120%);
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);*/
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 }
-
-
-/*da fixare questa cosa*/
-@keyframes animatetop {
-  from {
-    top: -80px;
-    opacity: 0;
-  }
-  to {
-    top: 0%;
-    opacity: 1;
-  }
-}
-
-
-
 .unfolded-left-menu > li {
   padding-left: 0%;
   margin-top: 1%;
