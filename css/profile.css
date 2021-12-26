@@ -189,6 +189,7 @@ strong {
   text-align: left;
   width: 40%;
   height: 40%;
+  max-width: 150px;
 }
 
 .lightSaturatedText {
@@ -236,7 +237,8 @@ strong {
 }
 .coolButton:hover,
 .hardButton:hover,
-.bigHardButton:hover {
+.bigHardButton:hover,
+.modalButton:hover {
   background-color: rgba(159, 150, 175, 0.42);
 }
 .coolButton:focus {
@@ -245,7 +247,8 @@ strong {
   border-radius: 8px;
 }
 .hardButton:focus,
-.bigHardButton:focus {
+.bigHardButton:focus,
+.modalButton:hover {
   border: 2px solid rgba(67, 49, 97, 0.58);
   box-sizing: border-box;
   border-radius: 8px;
@@ -355,4 +358,7 @@ strong {
 .numberPicker:focus {
   border: 2px solid var(--primary);
   outline: none;
+}
+
+@media screen and (min-width: 768px) {
 }

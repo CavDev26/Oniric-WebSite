@@ -307,7 +307,7 @@
 
     <main>
       <div class="lightBack center">
-        <div class="floatingBack inline-block m-20b fullWidth">
+        <div class="floatingBack inline-block m-20b fullWidth mw-800">
           <header>
             <div class="simpleBack p-20b">
               <div class="center">
@@ -472,7 +472,78 @@
                       <p class="middleSaturatedText m-0 m-20b">
                         Saldo Rimanente
                       </p>
-                      <button class="hardButton w-75">Ricarica</button>
+                      <button id="myBtn" class="modalButton">Ricarica</button>
+
+                      <!-- The Modal -->
+                      <div id="myModal" class="modal">
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                          <span class="close">&times;</span>
+                          <div class="center">
+                            <header>
+                              <div class="p-20t p-10b">
+                                <span class="bigSaturatedText"
+                                  >€ 1205<em>,16 </em></span
+                                >
+                              </div>
+                              <p class="middleSaturatedText m-0 m-20b">
+                                Saldo Rimanente
+                              </p>
+                            </header>
+                            <form action="">
+                              <label
+                                for="quantity"
+                                class="middleText left p-20l f-20 p-10b"
+                              >
+                                Ammontare </label
+                              ><br />
+                              <input
+                                class="numberPicker"
+                                type="number"
+                                id="quantity"
+                                name="quantity"
+                                min="1"
+                                max="500"
+                              />
+
+                              <aside>
+                                <header>
+                                  <h2 class="middleText left-text p-20l f-20">
+                                    Scegli con cosa ricaricare il saldo
+                                  </h2>
+                                </header>
+                                <ul class="accordionList">
+                                  <li>
+                                    <div
+                                      class="paymentMethod w-75 inline-block"
+                                    >
+                                      <h3
+                                        class="m-0 right w-60 center f-16 p-10b"
+                                      >
+                                        Carta di Fresh
+                                      </h3>
+                                      <img
+                                        src="../img/visaLogo.png"
+                                        class="left p-10t littlePaymentIcon"
+                                      />
+                                      <p
+                                        class="w-68 right m-0 center f-14 lh-10"
+                                      >
+                                        •••• •••• •••• 0765
+                                      </p>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </aside>
+                              <input
+                                type="submit"
+                                class="hardButton w-75 m-10t m-20b"
+                                value="Ricarica"
+                              />
+                            </form>
+                          </div>
+                        </div>
+                      </div>
                     </header>
                     <aside>
                       <header>
@@ -497,9 +568,13 @@
                         </li>
                       </ul>
                       <footer>
-                        <button class="hardButton w-75 m-10t m-20b">
-                          Modifica metodi di Pagamento
-                        </button>
+                        <form action="">
+                          <input
+                            type="button"
+                            class="hardButton w-75 m-10t m-20b"
+                            value="Modifica metodi di Pagamento"
+                          />
+                        </form>
                       </footer>
                     </aside>
                     <ul></ul>
@@ -538,7 +613,7 @@
                     </ul>
                     <!-- Trigger/Open The Modal -->
 
-                    <button id="myBtn" class="hardButton w-75 m-10t m-20b">
+                    <button id="myBtn" class="modalButton">
                       Aggiungi un nuovo Indirizzo
                     </button>
 

@@ -12,6 +12,7 @@
   margin: 0, 0, 30px, 0;
 }
 .form-label {
+  display: inline-block;
   text-align: left;
   width: 100%;
   color: var(--lightSecondary);
@@ -19,18 +20,19 @@
   font-weight: bold;
   font-size: 18px;
   line-height: 40px;
+  max-width: 500px;
 }
 .simpleForm {
   display: flex;
   flex-direction: column;
-  justify-content: left;
-  align-items: left;
+  justify-content: center;
+  align-items: center;
 }
 .box-input {
   color: var(--secondary);
   background: var(--traslucentPrimary);
   border-radius: 4px;
-  width: 96%;
+  width: 97%;
   height: 40px;
   border: 2px solid var(--traslucentPrimary);
   -webkit-transition: 0.5s;
@@ -42,7 +44,9 @@
   font-size: 16px;
   line-height: 100%;
   margin: 0;
+  max-width: 500px;
   padding-left: 10px;
+  box-sizing: border-box;
 }
 
 .box-input::placeholder {
@@ -70,7 +74,7 @@
   line-height: 19px;
   color: var(--lightSecondary);
   max-width: 400px;
-  min-width: 200px;
+  min-width: 100px;
   width: 90%;
   margin: 20px 4%;
   padding: 10px 0;
@@ -155,13 +159,14 @@ input:checked + .slider:before {
 .saturatedText {
   display: inline-block;
   color: var(--saturatedPrimary);
-  font-size: 16px;
+  font-size: 14px;
+  text-align: left;
   vertical-align: middle;
-  width: 60%;
+  width: 50%;
 }
 
 .passwordEye {
-  margin-left: -40px;
+  margin-left: -35px;
   vertical-align: middle;
 }
 .container {
