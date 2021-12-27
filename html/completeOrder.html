@@ -6,8 +6,47 @@
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/orderStyle.css" />
     <link rel="stylesheet" href="../css/framework.css" />
+    <link rel="stylesheet" href="../css/profile.css" />
+    <link rel="" href="../css/profile.css" />
 
     <title>Oniric-Cart</title>
+
+    <script>
+var acc = document.querySelectorAll(".accordion");
+var i;
+var width = window.screen.width;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function () {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
+}
+var acc = document.querySelectorAll(".accountAccordion");
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function () {
+    this.classList.toggle("activeAlt");
+    var panel = this.nextElementSibling;
+    if (width > 768) {
+    } else {
+      if (panel.style.maxHeight) {
+        panel.style.maxHeight = null;
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      }
+    }
+  });
+}
+
+    </script>
+
+
+
   </head>
   <body>
 
@@ -267,15 +306,75 @@
                       <hr>
                       <div>
                         <p class="sendto m-0 pos-center fullWidth pos-abs">Invia a:</p>
-                        <button class="accordion-addresses m-0 pos-abs pos-center">
+                        <!-- <button class="accordion-addresses m-0 pos-abs pos-center">
                           <div class="adresses-content">
                             <div class="accordion-back">
                               <ul class="accordion-list">
-                                <li class="adress-info"></li>
+                                <li class="adress-info"> indirizzo</li>
+                                <li class="adress-info"> indirizzo</li>
+                                <li class="adress-info"> indirizzo</li>
+                                <li class="adress-info"> indirizzo</li>
+                                <li class="adress-info"> indirizzo</li>
+                                <li class="adress-info"> indirizzo</li>
+                                <li class="adress-info"> indirizzo</li>
+                                <li class="adress-info"> indirizzo</li>
+                                <li class="adress-info"> indirizzo</li>
+                                <li class="adress-info"> indirizzo</li>
+
                               </ul>
                             </div>
                           </div>
+                        </button> -->
+                        <button class="accordion"><strong>Account</strong></button>
+                        <button class="panel">
+                          <div class="accordionBack">
+                            <ul class="accordionList">
+                              <li class="m-20">
+                                <span class="lightText left w-50">Nome Utente:</span>
+                                <span class="middleText center">Fresh</span><br />
+                                <button
+                                  class="right hardButton center right w-50 m-10b m-10t"
+                                >
+                                  Modifica Nome Utente
+                                </button>
+                                <br />
+                              </li>
+                              <li class="m-20">
+                                <span class="lightText left w-50">Password:</span>
+                                <span class="middleText center">●●●●●●●●●●</span>
+                                <br />
+                                <button
+                                  class="right hardButton center right w-50 m-10b m-10t"
+                                >
+                                  Modifica Password
+                                </button>
+                                <br />
+                              </li>
+                              <li class="m-20">
+                                <span class="lightText left w-50">Nome e Cognome:</span>
+                                <span class="middleText center">Francesco Magnani</span>
+                                <br />
+                                <button
+                                  class="right hardButton center right w-50 m-10b m-10t"
+                                >
+                                  Modifica Nome e Cognome
+                                </button>
+                                <br />
+                              </li>
+                              <li class="m-20">
+                                <span class="lightText left w-50"
+                                  >Data di Nascita:</span
+                                >
+                                <span class="middleText center">16/03/2000</span>
+                                <br />
+                              </li>
+                            </ul>
+                          </div>
                         </button>
+
+
+
+
                         <!-- <div class="accordion-addresses m-0 pos-abs pos-center">
 
                           <ul>

@@ -159,7 +159,6 @@ CAPIRE COME FARLI CENTRATI MA PIù LUNGHI*/
 }
 
 
-
 .sendto {
     top: 20%;
 }
@@ -172,17 +171,52 @@ CAPIRE COME FARLI CENTRATI MA PIù LUNGHI*/
     transition: 1s;
 }
 .addresses-content {
-
+    padding: 0 18px;
+    background-color: white;
+    /* max-height: 300px; */
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
 }
 .accordion-back {
-
+    background: rgba(229, 214, 255, 0.35);
+    border: 1px solid #be9cf59d;
+    box-sizing: border-box;
+    border-radius: 7px;
+    width: 100%;
 }
 .accordion-list {
-
+    list-style: none;
+    padding: 0;
 }
 .address-info {
-
+    margin: 20;
 }
+
+
+.accordion-addresses:hover {
+    background-color: rgba(159, 150, 175, 0.42);
+  }
+  .active {
+    border: 5px solid rgba(67, 49, 97, 0.58);
+    box-sizing: border-box;
+    border-radius: 8px;
+    width: 90%;
+  }
+  .activeAlt {
+    box-sizing: border-box;
+    border-radius: 16px;
+  }
+
+  .accordion-addresses:after {
+    /* content: url("../img/openArrow.png"); */
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+  }
+
+
+
 
 
 
