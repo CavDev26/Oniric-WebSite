@@ -165,11 +165,27 @@ CAPIRE COME FARLI CENTRATI MA PIù LUNGHI*/
 }
 .accordion-addresses {
     top: 30%;
-    width: 80%;
+    width: 90%;
     height: 80px;
     background-color: var(--buttons);
     border-radius: 12px;
+    transition: 1s;
 }
+.addresses-content {
+
+}
+.accordion-back {
+
+}
+.accordion-list {
+
+}
+.address-info {
+
+}
+
+
+
 .span-ship-2 {
     top: 60%;
     width: 100%;
