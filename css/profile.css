@@ -22,14 +22,14 @@
   padding: 5px;
   width: 75%;
   border: 2px solid transparent;
-  border-radius: 16px;
+  border-radius: 12px;
   text-align: center;
   box-sizing: border-box;
   outline: none;
   transition: 0.4s;
 }
 .accountAccordion:hover {
-  background-color: rgba(159, 150, 175, 0.42);
+  background-color: rgba(159, 150, 175, 0.089);
 }
 
 .accordion:hover {
@@ -51,18 +51,21 @@
   font-weight: bold;
   float: right;
   margin-left: 5px;
+  padding-top: 5px;
+  vertical-align: -50%;
 }
 .accountAccordion:after {
   content: url("../img/openArrow.png");
   color: #777;
   float: right;
   margin-left: 5px;
-  vertical-align: middle;
+  vertical-align: -50%;
 }
 
 .active:after,
 .activeAlt:after {
-  vertical-align: middle;
+  vertical-align: -50%;
+  padding: 0 5px 0 0;
   content: url("../img/closeArrow.png");
 }
 .panel {
@@ -161,6 +164,7 @@ strong {
   width: 100%;
   min-height: 25px;
   min-width: 180px;
+  max-width: 500px;
   color: #37284f;
   border: none;
   transition: 0.4s;
@@ -175,7 +179,7 @@ strong {
   display: inline-block;
   align-items: center;
   text-align: center;
-  width: 101%;
+  width: 100%;
   min-height: 50px;
   min-width: 180px;
   color: #37284f;
@@ -183,6 +187,12 @@ strong {
   box-shadow: 3px 8px 11px 1px rgba(0, 0, 0, 0.25);
   margin: -10px -15px -2% -15px;
   transition: 0.4s;
+}
+.bigHardButton:hover,
+.hardButton:hover {
+  transition: all 0.65s;
+  box-shadow: 4px 10px 11px 1px #43316198;
+  transform: scale(1.01);
 }
 .orderImage {
   display: inline-block;
@@ -206,10 +216,10 @@ strong {
 .orderMiddleText {
   vertical-align: middle;
   width: 50%;
-  display: inline-block;
-  font-size: 10%;
+  font-size: clamp(6px, 4vw, 20px);
   height: 40%;
   margin: 0;
+  padding: 5% 0;
 }
 .orderMiddleText p {
   line-height: 1.5;
@@ -236,8 +246,6 @@ strong {
   padding-left: 10px;
 }
 .coolButton:hover,
-.hardButton:hover,
-.bigHardButton:hover,
 .modalButton:hover {
   background-color: rgba(159, 150, 175, 0.42);
 }
@@ -263,8 +271,8 @@ strong {
 
   color: rgba(138, 111, 183, 0.87);
 }
-.bigSaturatedText em {
-  font-weight: bold;
+.bigSaturatedText > em {
+  font-style: normal;
   font-size: 24px;
 }
 .middleSaturatedText {
@@ -276,7 +284,7 @@ strong {
 }
 
 .lightBack {
-  border: 25px solid;
+  border: 18px solid;
   border-image: linear-gradient(to bottom, rgba(182, 157, 224, 0.58), #37284f)
     51.04% 100%;
   background: #ffffff;
@@ -358,7 +366,4 @@ strong {
 .numberPicker:focus {
   border: 2px solid var(--primary);
   outline: none;
-}
-
-@media screen and (min-width: 768px) {
 }
