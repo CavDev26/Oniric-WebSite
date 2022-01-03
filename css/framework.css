@@ -22,6 +22,9 @@
 .w-95 {
   width: 95%;
 }
+.mw-800 {
+  max-width: 800px;
+}
 .m--10t {
   margin-top: -10px;
 }
@@ -151,6 +154,7 @@
 }
 
 .mediumText {
+  z-index: 2;
   font-family: Inter;
   font-style: normal;
   font-weight: 500;
@@ -159,6 +163,7 @@
   color: var(--lightSecondary);
 }
 .mediumText > strong {
+  z-index: 2;
   display: block;
   font-family: Inter;
   font-style: normal;
@@ -167,4 +172,30 @@
   line-height: 22px;
   color: var(--lightSecondary);
   padding: 15px 0;
+}
+.v-middle {
+  vertical-align: middle;
+}
+.p-50pt {
+  padding-top: 50%;
+}
+.z-inherit {
+  z-index: inherit;
+}
+.z-1 {
+  z-index: 1;
+}
+.z-2 {
+  z-index: 2;
+}
+.z-9 {
+  z-index: 9;
+}
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }

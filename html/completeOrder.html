@@ -6,8 +6,47 @@
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/orderStyle.css" />
     <link rel="stylesheet" href="../css/framework.css" />
+    <link rel="stylesheet" href="../css/profile.css" />
+    <link rel="" href="../css/profile.css" />
 
     <title>Oniric-Cart</title>
+
+    <script>
+var acc = document.querySelectorAll(".accordion");
+var i;
+var width = window.screen.width;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function () {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
+}
+var acc = document.querySelectorAll(".accountAccordion");
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function () {
+    this.classList.toggle("activeAlt");
+    var panel = this.nextElementSibling;
+    if (width > 768) {
+    } else {
+      if (panel.style.maxHeight) {
+        panel.style.maxHeight = null;
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      }
+    }
+  });
+}
+
+    </script>
+
+
+
   </head>
   <body>
 
@@ -235,19 +274,136 @@
         </div>
         <div class="ordineBack center">
             <ul class="conferma-list">
-                <li class="dettagli-articoli">
-                    <div class="detail-container">
-
+                <li class="detail-container">
+                    <div class="dettagli-articoli">
+                      <h1 class="detail-category">
+                        Dettagli articoli
+                      </h1>
+                      <hr>
+                      <div>
+                        <p class="first-line m-0 l-10p pos-abs">Articoli:</p>
+                        <p class="first-line m-0 r-10p pos-abs">999,99€</p>
+                        <br>
+                        <p class="second-line m-0 l-10p pos-abs">Spedizione:</p>
+                        <p class="second-line m-0 r-10p pos-abs">0,00€</p>
+                      </div>
+                      <div>
+                        <p class="total third-line m-0 l-10p pos-abs">Totale:</p>
+                        <p class="total-price third-line m-0 r-10p pos-abs">999,99€</p>
+                      </div>
+                      <hr class="span pos-abs">
+                      <div class="items-footer m-0 l-10p pos-abs">
+                        <p class="m-0">IVA inclusa nel totale.</p>
+                      </div>
                     </div>
                 </li>
-                <li class="dettagli-spedizione">
-                    <div class="detail-container">
 
+                <li class="detail-container">
+                    <div class="dettagli-spedizione">
+                      <h1 class="detail-category">
+                        Dettagli spedizione
+                      </h1>
+                      <hr>
+                      <div>
+                        <p class="sendto m-0 pos-center fullWidth pos-abs">Invia a:</p>
+                        <!-- <button class="accordion-addresses m-0 pos-abs pos-center">
+                          <div class="adresses-content">
+                            <div class="accordion-back">
+                              <ul class="accordion-list">
+                                <li class="adress-info"> indirizzo</li>
+                                <li class="adress-info"> indirizzo</li>
+                                <li class="adress-info"> indirizzo</li>
+                                <li class="adress-info"> indirizzo</li>
+                                <li class="adress-info"> indirizzo</li>
+                                <li class="adress-info"> indirizzo</li>
+                                <li class="adress-info"> indirizzo</li>
+                                <li class="adress-info"> indirizzo</li>
+                                <li class="adress-info"> indirizzo</li>
+                                <li class="adress-info"> indirizzo</li>
+
+                              </ul>
+                            </div>
+                          </div>
+                        </button> -->
+                        <button class="accordion"><strong>Account</strong></button>
+                        <button class="panel">
+                          <div class="accordionBack">
+                            <ul class="accordionList">
+                              <li class="m-20">
+                                <span class="lightText left w-50">Nome Utente:</span>
+                                <span class="middleText center">Fresh</span><br />
+                                <button
+                                  class="right hardButton center right w-50 m-10b m-10t"
+                                >
+                                  Modifica Nome Utente
+                                </button>
+                                <br />
+                              </li>
+                              <li class="m-20">
+                                <span class="lightText left w-50">Password:</span>
+                                <span class="middleText center">●●●●●●●●●●</span>
+                                <br />
+                                <button
+                                  class="right hardButton center right w-50 m-10b m-10t"
+                                >
+                                  Modifica Password
+                                </button>
+                                <br />
+                              </li>
+                              <li class="m-20">
+                                <span class="lightText left w-50">Nome e Cognome:</span>
+                                <span class="middleText center">Francesco Magnani</span>
+                                <br />
+                                <button
+                                  class="right hardButton center right w-50 m-10b m-10t"
+                                >
+                                  Modifica Nome e Cognome
+                                </button>
+                                <br />
+                              </li>
+                              <li class="m-20">
+                                <span class="lightText left w-50"
+                                  >Data di Nascita:</span
+                                >
+                                <span class="middleText center">16/03/2000</span>
+                                <br />
+                              </li>
+                            </ul>
+                          </div>
+                        </button>
+
+
+
+
+                        <!-- <div class="accordion-addresses m-0 pos-abs pos-center">
+
+                          <ul>
+
+                          </ul>
+                        </div> -->
+                        <hr class="span-ship-2 pos-abs">
+                      </div>
+                      <div>
+                        <p class="ship-method m-0 l-10p pos-abs">Metodo di spedizione:</p>
+                        <div class="shipment-button pos-abs m-o">
+                          <ul>
+
+                          </ul>
+                        </div>
+                      </div>
+                      <hr class="span-ship-3 pos-abs">
+                      <div class="ship-footer pos-abs">
+                        <p class="footer-placehoder m-0 l-10p pos-abs">Data di consegna prevista:</p>
+                        <p class="footer-when m-0 r-10p pos-abs">Domani, 25 Dicembre 2021</p>
+                      </div>
                     </div>
                 </li>
-                <li class="dettagli-pagamento">
-                    <div class="detail-container">
 
+                <li class="detail-container">
+                    <div class="dettagli-pagamento">
+                      <h1 class="detail-category">
+                        Dettagli pagamento
+                      </h1>
                     </div>
                 </li>
             </ul>

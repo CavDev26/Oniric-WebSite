@@ -2,9 +2,10 @@
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 10; /* Sit on top */
-  left: 0;
-  top: 0;
+  z-index: 15; /* Sit on top */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
@@ -22,6 +23,7 @@
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
   height: 70%;
+  /* max-width: 800px;*/
   font-family: Inter;
   font-weight: bold;
   border-radius: 20px;
@@ -53,4 +55,358 @@
     top: 10%;
     opacity: 1;
   }
+}
+
+.modalButton {
+  background: #be9cf5;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  border: 2px transparent;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  display: inline-block;
+  align-items: center;
+  text-align: center;
+  min-height: 25px;
+  min-width: 180px;
+  color: #37284f;
+  border: none;
+  transition: 0.4s;
+  width: 75%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.filterButton {
+  background: #ffffff;
+  border: 1px solid rgba(55, 40, 79, 0.17);
+  box-sizing: border-box;
+  border-radius: 22px;
+  color: var(--secondary);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  align-items: center;
+  text-align: center;
+  min-width: 100px;
+  width: 100%;
+  min-height: 30px;
+  vertical-align: middle;
+  transition: 0.2s;
+}
+.filterSection {
+  width: 40%;
+  display: inline-block;
+  margin: 0 1%;
+}
+.floatingHalf {
+  display: inline-block;
+  background: #ffffff;
+  box-shadow: 0px 4px 11px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 23px;
+  width: 47%;
+  z-index: 10;
+}
+
+.resultImage {
+  padding: 10px;
+  height: 100px;
+  width: auto\9;
+  max-height: 98%;
+}
+.resultTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--secondary);
+  margin: 0;
+}
+.resultStar {
+  display: inline-block;
+  margin: 1px;
+  width: 12px;
+  height: 12px;
+}
+.resultFooter {
+  background: #37284f;
+  border-radius: 0px 0px 17px 17px;
+  width: 100%;
+}
+
+.priceSection {
+  margin-top: 20px;
+  display: inline-block;
+  width: 95%;
+  background: #e5d6ff;
+  box-shadow: 0px 4px 12px 1px #37284f;
+  border-radius: 13px 13px 0px 0px;
+}
+.addToCart {
+  z-index: 2;
+  width: 60px;
+  height: 50px;
+  font-family: Arial, Verdana;
+  background: url("../img/addToCart.png");
+  background-repeat: no-repeat;
+  outline: none;
+  border: none;
+  padding: 0;
+}
+.saledPrice {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  align-items: center;
+  text-align: center;
+  text-decoration-line: line-through;
+
+  color: var(--buttons);
+}
+
+.sale {
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  align-items: center;
+  text-align: center;
+  background: #37284f;
+  border-radius: 19px;
+  padding: 3px;
+  color: #ffffff;
+}
+/* Style The Dropdown Button */
+.dropbtn {
+  background-color: white;
+  cursor: pointer;
+  border: 1px solid rgba(55, 40, 79, 0.17);
+  box-sizing: border-box;
+  border-radius: 22px;
+  color: var(--secondary);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  align-items: center;
+  text-align: center;
+  min-width: 100px;
+  width: 100%;
+  min-height: 30px;
+  vertical-align: middle;
+  transition: 0.2s;
+}
+
+/* The checkContain <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  z-index: 100;
+  width: 40%;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  border: 1px solid rgba(67, 49, 97, 0.6);
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 14px;
+  padding: 10px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 8px 16px;
+  text-decoration: none;
+  display: block;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background: #e5d6ff;
+  border-radius: 8px;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn,
+.filterButton:hover {
+  background-color: #e5d6ff;
+}
+.filterButton:focus {
+  background-color: var(--secondary);
+  color: white;
+}
+
+.wideLiteButton {
+  background: #e5d6ff;
+  border-radius: 14px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  align-items: center;
+  text-align: center;
+  border: none;
+  outline: none;
+  color: #433161;
+  width: 100%;
+  height: 40px;
+}
+.filterSeparator {
+  background-color: var(--lightSecondary);
+  width: 90%;
+  margin-left: 0px;
+}
+.filterAccordion {
+  background: none;
+  cursor: pointer;
+  padding: 5px;
+  width: 100%;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  text-align: left;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  align-items: center;
+
+  color: #37284f;
+  outline: none;
+  transition: 0.4s;
+}
+
+.filterAccordion:after {
+  content: url("../img/openArrow.png");
+  float: right;
+  margin-left: 5px;
+  vertical-align: -50%;
+}
+
+.checkContainer {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  font-weight: 500;
+  font-size: 15px;
+
+  color: #37284f;
+}
+
+/* Hide the browser's default checkbox */
+.checkContainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  border-radius: 3px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.checkContainer:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkContainer input:checked ~ .checkmark {
+  background-color: var(--primary);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkContainer input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkContainer .checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid var(--lightButtons);
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.resultsFooter {
+  position: center;
+  position: relative;
+  z-index: 2;
+  height: 120px;
+}
+.pageText {
+  color: #433161;
+  padding: 0 3px;
+}
+.currentPageText {
+  background: #e5d6ff;
+  border: 1px solid #433161;
+  box-sizing: border-box;
+  border-radius: 14px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  text-decoration: none;
+  color: #433161;
+  padding: 5px 10px;
+}
+.resultSearch {
+  width: 100%;
+  height: 10px;
+
+  font-family: Inter;
+  font-size: 20px;
+
+  border: none;
+  padding: 1.5% 1% 1.5% 1%;
+  outline: 0;
+  color: var(--saturedPrimary);
+  background-color: none;
+}
+.resultSearch::placeholder {
+  color: rgba(55, 40, 79, 0.37);
+  font-style: italic;
 }

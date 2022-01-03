@@ -295,14 +295,9 @@ body {
   list-style-type: none;
   -webkit-font-smoothing: antialiased; /*serve per safari per mac, ma penso si possa togliere*/
 
-  /* transform-origin: -100% -100%; */
   transform: translate(0%, -120%);
-
-  /* transform-origin: 0% 0%;
-  transform: translate(-100%, 0); */
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 }
-
 .unfolded-left-menu > li {
   padding-left: 0%;
   margin-top: 1%;

@@ -145,10 +145,10 @@
     </nav>
 
 
-    <div class="lightBack left-text">
+    <div class="lightBack center p-20">
       <h1 class="bigTitle">Entra sul tuo Account</h1>
       <form class="simpleForm">
-        <div class="left p-10">
+        <div class="p-10 fullWidth">
             <label for="username" class="form-label">Nome Utente:</label><br />
             <input
               class="box-input"
@@ -158,7 +158,7 @@
               placeholder="Inserisci il tuo nome utente"
             />
           </div>
-          <div class="left p-10">
+          <div class="p-10 fullWidth">
             <label for="password" class="form-label">Password:</label><br />
               <input
               class="box-input"
@@ -166,7 +166,7 @@
               id="password"
               name="password"
               placeholder="Inserisci la tua password" > 
-              <span class="material-icons passwordEye">visibility</span>
+              <span class="material-icons passwordEye noselect" onclick="togglePassword(this)">visibility</span>
           </div>
       </form>
       <footer>
@@ -179,4 +179,5 @@
       Cava and Fresh (C) Copyright 2021 All rights reserved
     </footer>
   </body>
+  <script src="../js/togglePassword.js"></script>
 </html>

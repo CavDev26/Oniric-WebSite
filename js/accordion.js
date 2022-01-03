@@ -13,7 +13,7 @@ for (i = 0; i < acc.length; i++) {
     }
   });
 }
-var acc = document.querySelectorAll(".accountAccordion");
+var acc = document.querySelectorAll(".accountAccordion,.filterAccordion");
 for (i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function () {
     this.classList.toggle("activeAlt");

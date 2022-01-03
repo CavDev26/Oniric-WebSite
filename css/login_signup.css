@@ -1,4 +1,5 @@
 .bigTitle {
+  position: relative;
   font-family: Inter;
   font-style: normal;
   font-weight: bold;
@@ -11,6 +12,7 @@
   margin: 0, 0, 30px, 0;
 }
 .form-label {
+  display: inline-block;
   text-align: left;
   width: 100%;
   color: var(--lightSecondary);
@@ -18,30 +20,31 @@
   font-weight: bold;
   font-size: 18px;
   line-height: 40px;
+  max-width: 500px;
 }
 .simpleForm {
   display: flex;
   flex-direction: column;
-  justify-content: left;
-  align-items: left;
+  justify-content: center;
+  align-items: center;
 }
 .box-input {
   color: var(--secondary);
   background: var(--traslucentPrimary);
   border-radius: 4px;
-  width: 96%;
+  width: 97%;
   height: 40px;
   border: 2px solid var(--traslucentPrimary);
   -webkit-transition: 0.5s;
   transition: 0.5s;
   outline: none;
   font-family: Inter;
-  font-style: normal;
   font-weight: 500;
-  font-size: 16px;
-  line-height: 100%;
+  font-size: 15px;
   margin: 0;
+  max-width: 500px;
   padding-left: 10px;
+  box-sizing: border-box;
 }
 
 .box-input::placeholder {
@@ -69,15 +72,11 @@
   line-height: 19px;
   color: var(--lightSecondary);
   max-width: 400px;
-  min-width: 200px;
+  min-width: 100px;
   width: 90%;
   margin: 20px 4%;
   padding: 10px 0;
-  text-shadow: 0px 4px 17px var(--saturatedPrimary);
   transition: 0.4s;
-}
-.softButton input {
-  text-align: center;
 }
 .softButton:hover {
   background-color: rgba(159, 150, 175, 0.42);
@@ -154,14 +153,23 @@ input:checked + .slider:before {
 .saturatedText {
   display: inline-block;
   color: var(--saturatedPrimary);
-  font-size: 16px;
+  font-size: clamp(12px, 4vw, 22px);
+  text-align: left;
   vertical-align: middle;
-  width: 60%;
+  line-height: 1;
+  width: 50%;
 }
-
+.saturatedText > strong {
+  font-style: bold;
+  color: var(--saturatedPrimary);
+  font-size: clamp(12px, 4vw, 22px);
+  line-height: 1;
+}
 .passwordEye {
-  margin-left: -40px;
+  margin-left: -35px;
   vertical-align: middle;
+  color: var(--primary);
+  cursor: pointer;
 }
 .container {
   position: relative;
