@@ -1,5 +1,5 @@
 // Get the modal
-var modal = document.getElementsByClassName("modal");
+var modal = document.querySelectorAll(".modal , .profileModal");
 // Get the button that opens the modal
 var btn = document.querySelectorAll(".modalButton , .filterButton");
 
@@ -19,9 +19,12 @@ for (var i = 0; i < modal.length; i++) {
     this.parentElement.parentElement.style.display = "none";
   };
 }
-// When the user clicks anywhere outside of the modal, close it
+// When the user clicks anywhere outside of the modal, close it/*
 window.onclick = function (event) {
-  if (event.target.className == "modal") {
+  if (
+    event.target.className == "modal" ||
+    event.target.className == "profileModal"
+  ) {
     event.target.style.display = "none";
   }
 };
