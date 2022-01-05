@@ -1,3 +1,9 @@
+.dis-scroll {
+  overflow-y: auto;
+}
+.fullHeight {
+  height: 100%;
+}
 .fullWidth {
   width: 100%;
 }
@@ -152,7 +158,9 @@
 .absolute {
   position: absolute;
 }
-
+.none {
+  display: none;
+}
 .mediumText {
   z-index: 2;
   font-family: Inter;

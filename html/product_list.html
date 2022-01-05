@@ -308,11 +308,8 @@
       <div class="center block fullWidth relative">
         <div class="lightBackBorder-Alt">
           <div class="relative z-1 p-20t center">
-            <div class="search-line fullWidth center">
-              <div class="wrapper inline-block center">
-                <a href="#"
-                  ><img class="search-icon" src="../img/Search.png"
-                /></a>
+            <div class="fullWidth center">
+              <div class="fullWidth inline-block center m-20t">
                 <input class="resultSearch" placeholder="Search" type="text" />
                 <hr class="filterSeparator inline-block" />
               </div>
@@ -326,20 +323,20 @@
                 <!-- Modal content -->
                 <div class="modal-content">
                   <span class="close">&times;</span>
-                  <form class="simpleForm p-20 m-0">
+                  <form class="simpleForm p-10 m-0">
                     <input
                       type="submit"
                       value="Conferma"
                       class="wideLiteButton"
                     />
-                    <ul class="accordionList fullWidth left-text">
+                    <ul class="filterList fullWidth left-text">
                       <li class="inline-block fullWidth">
                         <div>
                           <button type="button" class="filterAccordion">
                             Consegna
                           </button>
-                          <div class="panel fullWidth">
-                            <ul class="accordionList">
+                          <div class="panel fullWidth p-10r p-10l">
+                            <ul class="filterList">
                               <li>
                                 <label class="checkContainer p-10t">
                                   Domani
@@ -364,8 +361,8 @@
                           <button type="button" class="filterAccordion">
                             Tag
                           </button>
-                          <div class="panel fullWidth">
-                            <ul class="accordionList">
+                          <div class="panel fullWidth p-10r p-10l">
+                            <ul class="filterList">
                               <li>
                                 <label class="checkContainer p-10t">
                                   #saldiinvernali
@@ -397,8 +394,8 @@
                           <button type="button" class="filterAccordion">
                             Prezzo
                           </button>
-                          <div class="panel fullWidth">
-                            <ul class="accordionList m-10b">
+                          <div class="panel fullWidth p-10r p-10l">
+                            <ul class="filterList m-10b">
                               <li>
                                 <label class="checkContainer p-10t">
                                   tra 100 e 500 €
@@ -452,8 +449,8 @@
                           <button type="button" class="filterAccordion">
                             Tipo
                           </button>
-                          <div class="panel fullWidth">
-                            <ul class="accordionList m-10b">
+                          <div class="panel fullWidth p-10r p-10l">
+                            <ul class="filterList m-10b">
                               <li>
                                 <label class="checkContainer p-10t">
                                   Pre-Assemblati
@@ -485,8 +482,8 @@
                           <button type="button" class="filterAccordion">
                             Recensioni
                           </button>
-                          <div class="panel fullWidth">
-                            <ul class="accordionList m-10b">
+                          <div class="panel fullWidth p-10r p-10l">
+                            <ul class="filterList m-10b">
                               <li>
                                 <label class="checkContainer p-10t">
                                   <img
@@ -559,13 +556,24 @@
             <div class="dropdown">
               <button class="dropbtn">Ordina</button>
               <div class="dropdown-content">
-                <a href="#">Rilevanza</a>
-                <a href="#">Prezzo (Ascendente)</a>
-                <a href="#">Prezzo (Discendente)</a>
+                <form action="">
+                  <div>
+                    <input type="radio" class="none absolute" id="sort" />
+                    <label for="sort">Rilevanza</label>
+                  </div>
+                  <div>
+                    <input type="radio" class="none absolute" id="sort" />
+                    <label for="sort">Prezzo (Ascendente)</label>
+                  </div>
+                  <div>
+                    <input type="radio" class="none absolute" id="sort" />
+                    <label for="sort">Prezzo (Discendente)</label>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
-          <ul class="accordionList z-1 relative">
+          <ul class="productList z-1 relative">
             <li class="center inline-block fullWidth">
               <div class="floatingHalf m-20b inline-block">
                 <img src="../img/cava2000.png" alt="" class="resultImage" />
