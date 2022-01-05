@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/productStyle.css" />
     <link rel="stylesheet" href="../css/framework.css" />
+    <link rel="stylesheet" href="../css/searchResults.css" />
+    <link rel="stylesheet" href="../css/carousel.css" />
 
     <title>Cava 2000</title>
   </head>
@@ -185,7 +187,7 @@
     </nav>
 
     <main class="center">
-      <div class="simpleBack m-100-80 center">
+      <div class="simpleBack center">
         <section>
           <h1 class="mediumTitle">Cava 2000</h1>
           <h2 class="mediumSubtitle">Il top delle nostre workstation</h2>
@@ -195,12 +197,56 @@
           <img src="../img/star.png" alt="" class="reviewStar" />
           <img src="../img/halfStar.png" alt="" class="reviewStar" />
           <hr class="separator" />
-          <img src="../img/cava2000.png" alt="" class="productImage" />
+          <div class="slideshow-container">
+            <div class="mySlides fade">
+              <div class="numbertext">1 / 4</div>
+              <img src="../img/cava2000.png" alt="" class="productImage" />
+            </div>
+            <div class="mySlides fade">
+              <div class="numbertext">2 / 4</div>
+              <img
+                src="../img/scheda grafica.png"
+                alt=""
+                class="productImage"
+              />
+            </div>
+
+            <div class="mySlides fade">
+              <div class="numbertext">3 / 4</div>
+              <img src="../img/CAVA PHONE.png" alt="" class="productImage" />
+            </div>
+
+            <div class="mySlides fade">
+              <div class="numbertext">3 / 4</div>
+              <img src="../img/cava2000.png" alt="" class="productImage" />
+            </div>
+          </div>
+
           <div class="carouselNav">
-            <img src="../img/carouselDot.png" alt="" class="carouselDot" />
-            <img src="../img/carouselDotOff.png" alt="" class="carouselDot" />
-            <img src="../img/carouselDotOff.png" alt="" class="carouselDot" />
-            <img src="../img/carouselDotOff.png" alt="" class="carouselDot" />
+            <img
+              src="../img/carouselDot.png"
+              alt=""
+              class="carouselDot activeDot"
+              onclick="currentSlide(1)"
+            />
+            <img
+              src="../img/carouselDot.png"
+              alt=""
+              class="carouselDot"
+              onclick="currentSlide(2)"
+            />
+            <img
+              src="../img/carouselDot.png"
+              alt=""
+              class="carouselDot"
+              onclick="currentSlide(3)"
+            />
+            <img
+              src="../img/carouselDot.png"
+              alt=""
+              class="carouselDot"
+              onclick="currentSlide(4)"
+            />
           </div>
           <p class="briefDesc">
             Il PC al top di gamma 2021, pre-assemblato dai nostri esperti e con
@@ -251,11 +297,11 @@
           </main>
           <footer><hr class="separator" /></footer>
         </section>
-        <button type="button" class="roundedButton">
+        <button type="button" class="wideLiteButton">
           Aggiungi al Carrello
         </button>
         <section>
-          <main class="simpleText simpleTextLeft">
+          <main class="simpleText simpleTextLeft m-20t">
             Una potente workstation in grado di reggere qualsiasi software. Il
             PC monta una NVidia RTX 3090 in grado di sopportare grossi sforzi
             lato GPU. Il processore è un Intel Core i9-11 con frequenza di 3.5
@@ -329,7 +375,7 @@
             </footer>
           </article>
           <footer>
-            <button type="button" class="squareRoundButton">
+            <button type="button" class="wideLiteButton">
               <span class="buttonContent">Mostra tutte le recensioni</span>
             </button>
           </footer>
@@ -340,4 +386,5 @@
       Cava and Fresh (C) Copyright 2021 All rights reserved
     </footer>
   </body>
+  <script src="../js/carousel.js"></script>
 </html>

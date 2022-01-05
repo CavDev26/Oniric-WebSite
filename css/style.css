@@ -21,6 +21,9 @@
   font-weight: 2000;
   font-size: 30px;
 }
+html {
+  min-height: 100%;
+}
 
 body {
   margin: 130px 0px 0px 0px;
@@ -29,6 +32,7 @@ body {
   font-weight: normal;
   font-size: 18px;
   background: #37284f;
+  position: relative;
 }
 
 .navbar-bot {
@@ -363,6 +367,10 @@ body {
   color: white;
   padding: 20px 0;
   background: black;
+  margin-top: 60px;
+  position: static;
+  bottom: 0;
+  height: 30px;
 }
 
 .main {

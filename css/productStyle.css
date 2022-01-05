@@ -84,16 +84,10 @@ hr.separator {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.carouselDot {
-  display: inline-block;
-  text-align: center;
-  margin: 0 20px;
-}
-
 .briefDesc {
   color: var(--lightSecondary);
   padding: 10px;
-  font-size: 16px;
+  font-size: clamp(16px, 4vw, 20px);
 }
 
 .italic-footer {
@@ -106,6 +100,9 @@ hr.separator {
   list-style-type: none;
   text-align: center;
   padding: 0;
+  max-width: 500px;
+  width: 100%;
+  display: inline-block;
 }
 
 .priceListItem {
@@ -120,7 +117,7 @@ hr.separator {
   color: var(--lightSecondary);
   align-items: left;
   font-weight: bold;
-  font-size: 14px;
+  font-size: clamp(16px, 4vw, 20px);
   line-height: 22px;
 }
 
@@ -130,14 +127,14 @@ hr.separator {
   display: inline;
   font-style: normal;
   font-weight: bold;
-  font-size: 14px;
+  font-size: clamp(16px, 4vw, 18px);
   line-height: 18px;
   margin: 0;
-  padding-right: 10%;
+  padding-right: 6%;
 }
 
 .normalPriceNumber > em {
-  font-size: 14px;
+  font-size: clamp(14px, 4vw, 16px);
   font-style: normal;
 }
 
@@ -153,7 +150,7 @@ hr.separator {
   line-height: 29px;
   color: var(--saturatedPrimary);
   margin: 0;
-  padding-right: 15%;
+  padding-right: 8%;
 }
 .finalPriceNumber > em {
   font-size: 18px;
@@ -169,7 +166,7 @@ hr.separator {
 .simpleText {
   color: var(--lightSecondary);
   font-weight: 300;
-  font-size: 15px;
+  font-size: clamp(14px, 4vw, 18px);
   line-height: 18px;
   margin: 10px 0;
   padding: 0 20px;
@@ -179,23 +176,6 @@ hr.separator {
   padding: 10px;
 }
 
-.roundedButton {
-  background: linear-gradient(
-    180deg,
-    rgba(190, 156, 245, 0.23) 0%,
-    #e5d6ff 100%,
-    #e5d6ff 100%
-  );
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 21px;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 19px;
-  color: var(--lightSecondary);
-  width: 90%;
-  padding: 10px 0;
-}
 .tableSection {
   padding: 0 20px;
 }

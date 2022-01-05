@@ -22,7 +22,7 @@
   padding: 20px;
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
-  height: 70%;
+  height: auto;
   /* max-width: 800px;*/
   font-family: Inter;
   font-weight: bold;
@@ -230,7 +230,7 @@
 }
 
 /* Links inside the dropdown */
-.dropdown-content a {
+.dropdown-content > form > div > label {
   color: black;
   padding: 8px 16px;
   text-decoration: none;
@@ -242,7 +242,7 @@
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {
+.dropdown-content > form > div > label:hover {
   background: #e5d6ff;
   border-radius: 8px;
 }
@@ -277,10 +277,28 @@
   color: #433161;
   width: 100%;
   height: 40px;
+  transition: 0.3s;
+  max-width: 500px;
+}
+.wideLiteButton:hover {
+  background: #c0b5d6;
+}
+.wideLiteButton:focus {
+  animation-name: confirmfocus;
+  animation-duration: 0.3s;
+}
+@keyframes confirmfocus {
+  from {
+    transform: rotate(2deg);
+  }
+  to {
+    transform: rotate(-2deg);
+    opacity: 0.5;
+  }
 }
 .filterSeparator {
   background-color: var(--lightSecondary);
-  width: 90%;
+  width: 80%;
   margin-left: 0px;
 }
 .filterAccordion {
@@ -315,14 +333,13 @@
   position: relative;
   padding-left: 35px;
   cursor: pointer;
-  font-size: 22px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 
   font-weight: 500;
-  font-size: 15px;
+  font-size: clamp(12px, 4vw, 15px);
 
   color: #37284f;
 }
@@ -404,24 +421,24 @@
   padding: 5px 10px;
 }
 .resultSearch {
-  width: 100%;
-  height: 10px;
-
+  display: inline-block;
+  width: 80%;
   font-family: Inter;
   font-size: 20px;
 
   border: none;
-  padding: 1.5% 1% 1.5% 1%;
+  padding: 1% 1%;
   outline: 0;
   color: var(--saturedPrimary);
-  background-color: none;
+  box-sizing: border-box;
+  margin: 0;
 }
 .resultSearch::placeholder {
   color: rgba(55, 40, 79, 0.37);
   font-style: italic;
 }
 
-@media screen and (min-width: 1360px) {
+@media screen and (min-width: 768px) {
   .filterButton {
     display: none;
   }
@@ -429,13 +446,13 @@
     display: none;
   }
   .productList {
-    width: 70%;
+    width: 62%;
     display: inline-block;
   }
   .filterSection {
     float: left;
-    margin-left: 7%;
-    width: 20%;
+    margin-left: 6%;
+    width: 28%;
   }
   .modal {
     display: block; /* Hidden by default */
@@ -448,6 +465,7 @@
     height: 100%; /* Full height */
     overflow: inherit;
     background-color: transparent; /* Black w/ opacity */
+    margin-bottom: 70px;
   }
 
   /* Modal Content/Box */
@@ -458,7 +476,7 @@
     width: 100%; /* Could be more or less, depending on screen size */
     height: 70%;
     margin: 0;
-    padding: 20px;
+    padding: 5%;
     top: auto;
     left: auto;
     /* max-width: 800px;*/
@@ -471,8 +489,8 @@
     box-sizing: border-box;
   }
   .floatingHalf {
-    width: 40%;
-    margin: 20px 30px;
+    width: 45%;
+    margin: 20px 2%;
   }
   .resultStar {
     width: 20px;
