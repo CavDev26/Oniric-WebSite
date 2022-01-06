@@ -1,0 +1,33 @@
+.bigTitle {
+  position: relative;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 34px;
+  line-height: 41px;
+  text-align: center;
+  color: var(--primary);
+  padding: 0 10%;
+  width: 80%;
+  margin: 0, 0, 30px, 0;
+}
+.mediumText {
+  z-index: 2;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: clamp(18px, 4vw, 24px);
+  line-height: clamp(22px, 4vw, 28px);
+  color: var(--lightSecondary);
+}
+.mediumText > strong {
+  z-index: 2;
+  display: block;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 700;
+  font-size: clamp(18px, 4vw, 24px);
+  line-height: clamp(22px, 4vw, 28px);
+  color: var(--lightSecondary);
+  padding: 15px 0;
+}
