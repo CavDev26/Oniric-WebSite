@@ -1,3 +1,22 @@
+.searchResultsBack {
+  padding-top: 100px;
+  background: white;
+  display: inline-block;
+  border-left: 20px solid;
+  border-right: 20px solid;
+  border-image: linear-gradient(
+      to bottom,
+      rgba(182, 157, 224, 0.58),
+      #37284f 100%
+    )
+    1 100%;
+  box-sizing: border-box;
+  text-align: center;
+  z-index: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
@@ -502,5 +521,9 @@
   .priceSection {
     width: 100%;
     box-shadow: none;
+  }
+  .searchResultsBack {
+    border-left: 100px solid;
+    border-right: 100px solid;
   }
 }
