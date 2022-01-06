@@ -6,7 +6,6 @@ var btn = document.querySelectorAll(".modalButton , .filterButton");
 // Get the <span> element that closes the modal
 var span = document.querySelectorAll(".close , .profileModalClose");
 
-let scroll = document.getElementsByClassName("dis-scroll");
 // When the user clicks on the button, open the modal
 for (var i = 0; i < modal.length; i++) {
   btn[i].onclick = function () {
