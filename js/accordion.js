@@ -1,4 +1,4 @@
-var acc = document.querySelectorAll(".accordion");
+var acc = document.querySelectorAll(".profileAccordion");
 var i;
 var width = window.screen.width;
 
