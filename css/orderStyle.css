@@ -29,39 +29,42 @@
     margin: 0;
 }
 
+main {
+    margin-top: 130px;
+}
 
 .m-0 {
     margin: 0;
 }
 .r-10p {
-    right: 10px;
+    /* right: 10px; */
 }
 .l-10p {
-    left: 10px;
+    /* left: 10px; */
 }
 .pos-abs {
-    position: absolute;
+    /* position: absolute; */
 }
 .first-line {
-    top: 30%;
+    /* top: 30%; */
 }
 .second-line {
-    top: 42%;
+    /* top: 42%; */
 }
 .third-line {
-    top: 65%;
+    /* top: 65%; */
 }
 
 .pos-center {
-    left: 50%;
-    transform: translate(-50%, 0);
+    /* left: 50%;
+    transform: translate(-50%, 0); */
 }
 
 .t-1 {
-    top: 85%;
+    /* top: 85%; */
 }
 .t-2 {
-    top: 80%;
+    /* top: 80%; */
 }
 
 
@@ -70,11 +73,11 @@
 DA METTERE FUORI I DIV DEI SINGOLI OGGETTI, O 
 CAPIRE COME FARLI CENTRATI MA PIù LUNGHI*/
 .ordineBack {
-    position: relative;
+    /* position: relative; */
     box-sizing: content-box;
     width: 90%;
-    left: 50%;
-    transform: translate(-50%, 0%);
+    /* left: 50%;
+    transform: translate(-50%, 0%); */
     margin-top: 30px;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -100,9 +103,9 @@ CAPIRE COME FARLI CENTRATI MA PIù LUNGHI*/
     display: block;
 }
 .detail-container {
-    position: relative;
+    /* position: relative; */
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     background-color: white;
     box-sizing: border-box;
     color: var(--secondary);
