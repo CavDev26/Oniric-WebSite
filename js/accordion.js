@@ -18,13 +18,10 @@ for (i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function () {
     this.classList.toggle("activeAlt");
     var panel = this.nextElementSibling;
-    if (width > 768) {
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
     } else {
-      if (panel.style.maxHeight) {
-        panel.style.maxHeight = null;
-      } else {
-        panel.style.maxHeight = panel.scrollHeight + "px";
-      }
+      panel.style.maxHeight = panel.scrollHeight + "px";
     }
   });
 }

@@ -55,9 +55,6 @@
   border: 2px solid var(--primary);
 }
 
-.fullHeight {
-  height: 100%;
-}
 .softButton {
   display: inline;
   text-align: center;
@@ -153,7 +150,7 @@ input:checked + .slider:before {
 .saturatedText {
   display: inline-block;
   color: var(--saturatedPrimary);
-  font-size: clamp(12px, 4vw, 22px);
+  font-size: clamp(12px, 4vw, 20px);
   text-align: left;
   vertical-align: middle;
   line-height: 1;
