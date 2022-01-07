@@ -25,6 +25,7 @@
   box-sizing: border-box;
   border-radius: 8px;
 }
+.modifyAccountButton:focus,
 .hardButton:focus,
 .bigHardButton:focus {
   border: 2px solid rgba(67, 49, 97, 0.58);
@@ -53,6 +54,26 @@
   border: none;
   transition: 0.4s;
 }
+.modifyAccountButton {
+  background: #be9cf5;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  border: 2px transparent;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  display: inline-block;
+  text-align: center;
+  width: 50%;
+  min-height: 25px;
+  min-width: 180px;
+  max-width: 500px;
+  color: #37284f;
+  border: none;
+  transition: 0.4s;
+}
 .bigHardButton {
   background: #be9cf5;
   border-radius: 5px;
@@ -72,10 +93,39 @@
   margin: -10px -15px -2% -15px;
   transition: 0.4s;
 }
+.modifyAccountButton:hover,
 .modalButton:hover,
 .bigHardButton:hover,
 .hardButton:hover {
   transition: all 0.65s;
   box-shadow: 4px 10px 11px 1px #43316198;
   transform: scale(1.01);
+}
+.softButton {
+  display: inline;
+  text-align: center;
+  background: var(--traslucentPrimary);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: 3px solid transparent;
+  border-radius: 6px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: var(--lightSecondary);
+  max-width: 400px;
+  min-width: 100px;
+  width: 90%;
+  margin: 20px 4%;
+  padding: 10px 0;
+  transition: 0.4s;
+}
+.softButton:hover {
+  background-color: rgba(159, 150, 175, 0.42);
+}
+.softButton:focus {
+  border: 3px solid rgba(67, 49, 97, 0.58);
+  box-sizing: border-box;
+  border-radius: 8px;
 }

@@ -30,7 +30,30 @@
   animation-name: animatetop;
   animation-duration: 0.4s;
 }
+.headerBack {
+  margin-top: 10px;
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  padding: 2% 2% 90px 2%;
+  background: linear-gradient(
+    180deg,
+    rgba(182, 157, 224, 0.02) 0%,
+    #ffffff 0.48%
+  );
 
+  color: var(--lightSecondary);
+  box-shadow: 0px 8px 6px 2px rgba(0, 0, 0, 0.25);
+  border: 8px solid transparent; /*2*/
+  /*3*/
+  background-clip: padding-box;
+  border-radius: 33px;
+  border-width: 11px;
+  max-width: 1300px;
+  width: 100%;
+}
 .profileIcon {
   width: 80px;
   height: 80px;
@@ -62,7 +85,7 @@
 }
 
 .lightBack {
-  padding-top: 140px;
+  padding-top: 110px;
   background: linear-gradient(
     180deg,
     rgba(182, 157, 224, 0.58) 51.04%,
@@ -111,4 +134,63 @@
 .numberPicker:focus {
   border: 2px solid var(--primary);
   outline: none;
+}
+.violetBox {
+  background: rgba(229, 214, 255, 0.35);
+  border: 1px solid #be9cf59d;
+  box-sizing: border-box;
+  border-radius: 7px;
+  width: auto;
+  margin: 20px;
+  padding: 10px;
+}
+/* Container needed to position the overlay. Adjust the width as needed */
+.profileHeader {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* Make the image to responsive */
+.image {
+  width: 30%;
+  height: auto;
+}
+
+/* The overlay effect (full height and width) - lays on top of the profileHeader and over the image */
+.overlay {
+  border-radius: 20px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: +25%;
+  right: 0;
+  height: 100%;
+  width: 50%;
+  opacity: 0;
+  transition: 0.3s ease;
+  background-color: var(--lightButtons);
+}
+
+/* When you mouse over the profileHeader, fade in the overlay icon*/
+.profileHeader:hover .overlay {
+  opacity: 1;
+}
+
+/* The icon inside the overlay is positioned in the middle vertically and horizontally */
+.icon {
+  color: white;
+  font-size: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* When you move the mouse over the icon, change color */
+.fa-user:hover {
+  color: #eee;
 }

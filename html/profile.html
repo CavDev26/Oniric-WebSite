@@ -12,6 +12,10 @@
     <link rel="stylesheet" href="../css/text.css" />
     <link rel="stylesheet" href="../css/buttons.css" />
     <link rel="stylesheet" href="../css/accordion.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
 
     <title>Profilo - Oniric</title>
   </head>
@@ -310,29 +314,15 @@
     <main class="fullHeight">
       <div class="lightBack center fullWidth">
         <div class="floatingBack inline-block m-20b mw-800 z-1">
-          <header>
-            <div class="simpleBack p-20b w-90">
-              <div class="center">
-                <div>
-                  <img src="../img/userIcon.png" alt="" class="profileIcon" />
-                </div>
-                <button class="accountAccordion center">
-                  <span class="lightTitle f-24">Fresh</span>
-                </button>
-                <div class="panel">
-                  <div>
-                    <button class="softButton m-10">
-                      <span class="lightText"
-                        >Modifica l'immagine di profilo</span
-                      ></button
-                    ><br />
-                    <button class="softButton m-10">
-                      <span class="lightText">Esci</span>
-                    </button>
-                  </div>
-                </div>
+          <header class="center p-10t">
+            <div class="profileHeader inline-block">
+              <img src="../img/account.png" alt="Avatar" class="image" />
+              <div class="overlay inline-block center">
+                <p class="whiteText inline-block">Iscritto il 10/01/2022</p>
+                <button class="">Esci</button>
               </div>
             </div>
+            <p class="profileNameText">Fresh</p>
           </header>
           <ul class="list center">
             <li>
@@ -344,35 +334,23 @@
                   <div class="accordionBack">
                     <ul class="list">
                       <li class="m-20">
-                        <span class="lightText left w-50">Nome Utente:</span>
-                        <span class="middleText center">Fresh</span><br />
-                        <button
-                          class="right hardButton center right w-50 m-10b m-10t"
+                        <span class="lightText left w-50 fullHeight"
+                          >Nome Utente:</span
                         >
-                          Modifica Nome Utente
-                        </button>
-                        <br />
+                        <span class="middleText center">Fresh</span><br />
                       </li>
                       <li class="m-20">
-                        <span class="lightText left w-50">Password:</span>
+                        <span class="lightText left w-50 fullHeight"
+                          >Password:</span
+                        >
                         <span class="middleText center">●●●●●●●●●●</span>
                         <br />
-                        <button
-                          class="right hardButton center right w-50 m-10b m-10t"
-                        >
-                          Modifica Password
-                        </button>
-                        <br />
                       </li>
                       <li class="m-20">
-                        <span class="lightText left w-50">Nome e Cognome:</span>
+                        <p class="left w-50 m-0 fullHeight">
+                          <span class="lightText">Nome e Cognome:</span>
+                        </p>
                         <span class="middleText center">Francesco Magnani</span>
-                        <br />
-                        <button
-                          class="right hardButton center right w-50 m-10b m-10t"
-                        >
-                          Modifica Nome e Cognome
-                        </button>
                         <br />
                       </li>
                       <li class="m-20">
@@ -380,8 +358,11 @@
                           >Data di Nascita:</span
                         >
                         <span class="middleText center">16/03/2000</span>
-                        <br />
                       </li>
+                      <button class="center modifyAccountButton m-10b m-10t">
+                        Modifica dati
+                      </button>
+                      <br />
                     </ul>
                   </div>
                 </div>
@@ -395,42 +376,36 @@
                 <div class="panel">
                   <div class="accordionBack">
                     <ul class="list center p-10">
-                      <li class="left-text">
+                      <li class="left-text relative p-10">
                         <img
                           src="../img/cava2000.png"
                           alt=""
                           srcset=""
                           class="orderImage"
                         />
-                        <div
-                          class="saturatedText orderMiddleText right center w-50"
-                        >
+                        <div class="orderMiddleText">
                           Arriverà <strong>domani</strong>
                         </div>
                       </li>
-                      <li class="left-text">
+                      <li class="left-text relative p-10">
                         <img
                           src="../img/cava2000.png"
                           alt=""
                           srcset=""
                           class="orderImage"
                         />
-                        <div
-                          class="saturatedText orderMiddleText right center w-50"
-                        >
+                        <div class="orderMiddleText">
                           Arriverà <strong>dopodomani</strong>
                         </div>
                       </li>
-                      <li class="left-text">
+                      <li class="left-text relative p-10">
                         <img
                           src="../img/cava2000.png"
                           alt=""
                           srcset=""
                           class="orderImage"
                         />
-                        <div
-                          class="saturatedText orderMiddleText right center w-50"
-                        >
+                        <div class="orderMiddleText">
                           Arriverà <strong>sabato 18 Dicembre</strong>
                         </div>
                       </li>
@@ -460,10 +435,10 @@
                       <p class="middleSaturatedText m-0 m-20b">
                         Saldo Rimanente
                       </p>
-                      <button id="myBtn" class="modalButton">Ricarica</button>
+                      <button class="modalButton">Ricarica</button>
 
                       <!-- The Modal -->
-                      <div id="myModal" class="profileModal">
+                      <div class="profileModal">
                         <!-- Modal content -->
                         <div class="profileModal-content">
                           <span class="profileModalClose">&times;</span>
@@ -590,9 +565,7 @@
                   <div class="accordionBack">
                     <ul class="list">
                       <li>
-                        <div
-                          class="accordionBack m-20t m-10b inline-block w-90"
-                        >
+                        <div class="violetBox">
                           <p class="middleSaturatedText f-18">
                             Via F. Parri 727, Cesena
                           </p>
@@ -601,11 +574,11 @@
                     </ul>
                     <!-- Trigger/Open The Modal -->
 
-                    <button id="myBtn" class="modalButton">
+                    <button class="modalButton">
                       Aggiungi un nuovo Indirizzo
                     </button>
                     <!-- The Modal -->
-                    <div id="myModal" class="profileModal">
+                    <div class="profileModal">
                       <!-- Modal content -->
                       <div class="profileModal-content">
                         <span class="profileModalClose">&times;</span>
