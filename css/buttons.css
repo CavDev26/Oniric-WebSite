@@ -1,0 +1,192 @@
+.coolButton {
+  background: rgba(229, 214, 255, 0.42);
+  border: 5px solid transparent;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 95%;
+  box-sizing: border-box;
+  border-radius: 8px;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+.coolButton img {
+  width: 20px;
+  height: 20px;
+  padding-left: 10px;
+}
+.coolButton:hover {
+  background-color: rgba(159, 150, 175, 0.42);
+}
+.coolButton:focus {
+  border: 5px solid rgba(67, 49, 97, 0.58);
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+.modifyAccountButton:focus,
+.hardButton:focus,
+.bigHardButton:focus {
+  border: 2px solid rgba(67, 49, 97, 0.58);
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.hardButton {
+  background: #be9cf5;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  border: 2px transparent;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  display: inline-block;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  min-height: 25px;
+  min-width: 180px;
+  max-width: 500px;
+  color: #37284f;
+  border: none;
+  transition: 0.4s;
+}
+.modifyAccountButton {
+  background: #be9cf5;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  border: 2px transparent;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  display: inline-block;
+  text-align: center;
+  width: 50%;
+  min-height: 25px;
+  min-width: 180px;
+  max-width: 500px;
+  color: #37284f;
+  border: none;
+  transition: 0.4s;
+}
+.bigHardButton {
+  background: #be9cf5;
+  border-radius: 5px;
+  border: 2px transparent;
+  font-family: Inter;
+  font-size: 28px;
+  line-height: 19px;
+  display: inline-block;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  min-height: 50px;
+  min-width: 180px;
+  color: #37284f;
+  border: none;
+  box-shadow: 3px 8px 11px 1px rgba(0, 0, 0, 0.25);
+  margin: -10px -15px -2% -15px;
+  transition: 0.4s;
+}
+.modifyAccountButton:hover,
+.modalButton:hover,
+.bigHardButton:hover,
+.hardButton:hover {
+  transition: all 0.65s;
+  box-shadow: 4px 10px 11px 1px #43316198;
+  transform: scale(1.01);
+}
+.softButton {
+  display: inline;
+  text-align: center;
+  background: var(--traslucentPrimary);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: 3px solid transparent;
+  border-radius: 6px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: var(--lightSecondary);
+  max-width: 400px;
+  min-width: 100px;
+  width: 90%;
+  margin: 20px 4%;
+  padding: 10px 0;
+  transition: 0.4s;
+}
+.softButton:hover {
+  background-color: rgba(159, 150, 175, 0.42);
+}
+.softButton:focus {
+  border: 3px solid rgba(67, 49, 97, 0.58);
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.wideLiteButton {
+  background: #e5d6ff;
+  border-radius: 14px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  align-items: center;
+  text-align: center;
+  border: none;
+  outline: none;
+  color: #433161;
+  width: 100%;
+  height: 40px;
+  transition: 0.3s;
+  max-width: 500px;
+}
+.wideLiteButton:hover {
+  background: #c0b5d6;
+}
+.wideLiteButton:focus {
+  animation-name: confirmfocus;
+  animation-duration: 0.3s;
+}
+@keyframes confirmfocus {
+  from {
+    transform: rotate(2deg);
+  }
+  to {
+    transform: rotate(-2deg);
+    opacity: 0.5;
+  }
+}
+
+.miniButton {
+  background: #e5d6ff;
+  border-radius: clamp(14px, 4vw, 20px);
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  align-items: center;
+  text-align: center;
+  border: none;
+  outline: none;
+  color: #433161;
+  margin-top: 15%;
+  width: 60%;
+  height: 50%;
+  transition: 0.3s;
+  max-width: 500px;
+  box-shadow: 3px 8px 11px 1px rgba(0, 0, 0, 0.25);
+}
+.miniButton:hover {
+  background: rgb(218, 205, 241);
+}
+.miniButton:focus {
+  background: #cabee0;
+}

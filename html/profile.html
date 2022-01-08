@@ -5,10 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/profile.css" />
-    <link rel="stylesheet" href="../css/productStyle.css" />
-    <link rel="stylesheet" href="../css/login_signup.css" />
     <link rel="stylesheet" href="../css/framework.css" />
-    <link rel="stylesheet" href="../css/searchResults.css" />
+    <link rel="stylesheet" href="../css/modal.css" />
+    <link rel="stylesheet" href="../css/text.css" />
+    <link rel="stylesheet" href="../css/buttons.css" />
+    <link rel="stylesheet" href="../css/accordion.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
 
     <title>Profilo - Oniric</title>
   </head>
@@ -305,69 +310,44 @@
       </div>
     </nav>
     <main class="fullHeight">
-      <div class="lightBackBorder-Alt center fullWidth">
+      <div class="lightBack center fullWidth">
         <div class="floatingBack inline-block m-20b mw-800 z-1">
-          <header>
-            <div class="simpleBack p-20b w-90">
-              <div class="center">
-                <div>
-                  <img src="../img/userIcon.png" alt="" class="profileIcon" />
-                </div>
-                <button class="accountAccordion center">
-                  <span class="lightTitle f-24">Fresh</span>
-                </button>
-                <div class="panel">
-                  <div>
-                    <button class="softButton m-10">
-                      <span class="lightText"
-                        >Modifica l'immagine di profilo</span
-                      ></button
-                    ><br />
-                    <button class="softButton m-10">
-                      <span class="lightText">Esci</span>
-                    </button>
-                  </div>
-                </div>
+          <header class="center p-10t">
+            <div class="profileHeader inline-block">
+              <img src="../img/account.png" alt="Avatar" class="image" />
+              <div class="overlay inline-block center">
+                <button class="miniButton">Esci</button>
               </div>
             </div>
+            <p class="profileNameText">Fresh</p>
           </header>
-          <ul class="accordionList center">
+          <ul class="list center">
             <li>
               <div>
-                <button class="accordion"><strong>Account</strong></button>
+                <button class="profileAccordion">
+                  <strong>Account</strong>
+                </button>
                 <div class="panel">
                   <div class="accordionBack">
-                    <ul class="accordionList">
+                    <ul class="list">
                       <li class="m-20">
-                        <span class="lightText left w-50">Nome Utente:</span>
-                        <span class="middleText center">Fresh</span><br />
-                        <button
-                          class="right hardButton center right w-50 m-10b m-10t"
+                        <span class="lightText left w-50 fullHeight"
+                          >Nome Utente:</span
                         >
-                          Modifica Nome Utente
-                        </button>
-                        <br />
+                        <span class="middleText center">Fresh</span><br />
                       </li>
                       <li class="m-20">
-                        <span class="lightText left w-50">Password:</span>
+                        <span class="lightText left w-50 fullHeight"
+                          >Password:</span
+                        >
                         <span class="middleText center">●●●●●●●●●●</span>
                         <br />
-                        <button
-                          class="right hardButton center right w-50 m-10b m-10t"
-                        >
-                          Modifica Password
-                        </button>
-                        <br />
                       </li>
                       <li class="m-20">
-                        <span class="lightText left w-50">Nome e Cognome:</span>
+                        <p class="left w-50 m-0 fullHeight">
+                          <span class="lightText">Nome e Cognome:</span>
+                        </p>
                         <span class="middleText center">Francesco Magnani</span>
-                        <br />
-                        <button
-                          class="right hardButton center right w-50 m-10b m-10t"
-                        >
-                          Modifica Nome e Cognome
-                        </button>
                         <br />
                       </li>
                       <li class="m-20">
@@ -375,8 +355,11 @@
                           >Data di Nascita:</span
                         >
                         <span class="middleText center">16/03/2000</span>
-                        <br />
                       </li>
+                      <button class="center modifyAccountButton m-10b m-10t">
+                        Modifica dati
+                      </button>
+                      <br />
                     </ul>
                   </div>
                 </div>
@@ -384,48 +367,42 @@
             </li>
             <li>
               <div>
-                <button class="accordion">
+                <button class="profileAccordion">
                   <strong>I tuoi Ordini</strong>
                 </button>
                 <div class="panel">
                   <div class="accordionBack">
-                    <ul class="accordionList center p-10">
-                      <li class="left-text">
+                    <ul class="list center p-10">
+                      <li class="left-text relative p-10">
                         <img
                           src="../img/cava2000.png"
                           alt=""
                           srcset=""
                           class="orderImage"
                         />
-                        <div
-                          class="saturatedText orderMiddleText right center w-50"
-                        >
+                        <div class="orderMiddleText">
                           Arriverà <strong>domani</strong>
                         </div>
                       </li>
-                      <li class="left-text">
+                      <li class="left-text relative p-10">
                         <img
                           src="../img/cava2000.png"
                           alt=""
                           srcset=""
                           class="orderImage"
                         />
-                        <div
-                          class="saturatedText orderMiddleText right center w-50"
-                        >
+                        <div class="orderMiddleText">
                           Arriverà <strong>dopodomani</strong>
                         </div>
                       </li>
-                      <li class="left-text">
+                      <li class="left-text relative p-10">
                         <img
                           src="../img/cava2000.png"
                           alt=""
                           srcset=""
                           class="orderImage"
                         />
-                        <div
-                          class="saturatedText orderMiddleText right center w-50"
-                        >
+                        <div class="orderMiddleText">
                           Arriverà <strong>sabato 18 Dicembre</strong>
                         </div>
                       </li>
@@ -441,7 +418,7 @@
             </li>
             <li>
               <div>
-                <button class="accordion">
+                <button class="profileAccordion">
                   <strong>Il tuo Saldo</strong>
                 </button>
                 <div class="panel">
@@ -455,10 +432,10 @@
                       <p class="middleSaturatedText m-0 m-20b">
                         Saldo Rimanente
                       </p>
-                      <button id="myBtn" class="modalButton">Ricarica</button>
+                      <button class="modalButton">Ricarica</button>
 
                       <!-- The Modal -->
-                      <div id="myModal" class="profileModal">
+                      <div class="profileModal">
                         <!-- Modal content -->
                         <div class="profileModal-content">
                           <span class="profileModalClose">&times;</span>
@@ -495,7 +472,7 @@
                                     Scegli con cosa ricaricare il saldo
                                   </h2>
                                 </header>
-                                <ul class="accordionList">
+                                <ul class="list">
                                   <li>
                                     <div
                                       class="paymentMethod w-75 inline-block"
@@ -534,7 +511,7 @@
                           Altri metodi di Pagamento
                         </h2>
                       </header>
-                      <ul class="accordionList">
+                      <ul class="list">
                         <li>
                           <div class="paymentMethod w-75 inline-block">
                             <h3 class="m-0 right w-60 center f-16 p-10b">
@@ -578,16 +555,14 @@
             </li>
             <li>
               <div>
-                <button class="accordion">
+                <button class="profileAccordion">
                   <strong>I tuoi indirizzi</strong>
                 </button>
                 <div class="panel">
                   <div class="accordionBack">
-                    <ul class="accordionList">
+                    <ul class="list">
                       <li>
-                        <div
-                          class="accordionBack m-20t m-10b inline-block w-90"
-                        >
+                        <div class="violetBox">
                           <p class="middleSaturatedText f-18">
                             Via F. Parri 727, Cesena
                           </p>
@@ -596,22 +571,22 @@
                     </ul>
                     <!-- Trigger/Open The Modal -->
 
-                    <button id="myBtn" class="modalButton">
+                    <button class="modalButton">
                       Aggiungi un nuovo Indirizzo
                     </button>
                     <!-- The Modal -->
-                    <div id="myModal" class="profileModal">
+                    <div class="profileModal">
                       <!-- Modal content -->
                       <div class="profileModal-content">
                         <span class="profileModalClose">&times;</span>
                         <h3>Inserisci nuovo indirizzo</h3>
                         <form class="simpleForm">
                           <div class="left p-10">
-                            <label for="address" class="form-label"
+                            <label for="address" class="addressLabel"
                               >Indirizzo:</label
                             ><br />
                             <input
-                              class="box-input"
+                              class="addressInput"
                               type="text"
                               id="address"
                               name="address"
@@ -619,11 +594,11 @@
                             />
                           </div>
                           <div class="left p-10">
-                            <label for="ncivico" class="form-label"
+                            <label for="ncivico" class="addressLabel"
                               >N. Civico:</label
                             ><br />
                             <input
-                              class="box-input"
+                              class="addressInput"
                               type="number"
                               id="ncivico"
                               name="ncivico"

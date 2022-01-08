@@ -31,3 +31,161 @@
   color: var(--lightSecondary);
   padding: 15px 0;
 }
+.bigSaturatedText {
+  font-weight: bold;
+  font-size: 34px;
+  line-height: 50px;
+  align-items: center;
+  text-align: center;
+
+  color: rgba(138, 111, 183, 0.87);
+}
+.bigSaturatedText > em {
+  font-style: normal;
+  font-size: 24px;
+}
+.middleSaturatedText {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  color: var(--primary);
+}
+
+.lightSaturatedText {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  align-items: center;
+  text-align: center;
+  color: #a187ce;
+  text-shadow: 0px 4px 4px #ffffff;
+}
+
+.orderMiddleText {
+  padding-left: 5%;
+  color: var(--saturatedPrimary);
+  display: inline-block;
+  width: 50%;
+  font-size: clamp(6px, 4vw, 20px);
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.orderMiddleText p {
+  line-height: 1.5;
+  display: inline-block;
+  vertical-align: middle;
+}
+.orderMiddleText > strong {
+  font-style: bold;
+  color: var(--saturatedPrimary);
+  font-size: clamp(12px, 4vw, 22px);
+  line-height: 1;
+}
+
+strong {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+  align-items: center;
+
+  color: #433161;
+}
+
+.priceItalic {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  align-items: center;
+
+  color: #a187ce;
+
+  text-shadow: 0px 4px 4px #ffffff;
+}
+
+.lightText {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  align-items: center;
+  color: #433161;
+}
+
+.middleText {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 27px;
+  align-items: center;
+  text-align: center;
+}
+
+.lightTitle {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 34px;
+  margin: 10px 0;
+  color: #37284f;
+
+  text-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+}
+.saturatedText {
+  display: inline-block;
+  color: var(--saturatedPrimary);
+  font-size: clamp(12px, 4vw, 20px);
+  text-align: left;
+  vertical-align: middle;
+  line-height: 1;
+  width: 50%;
+}
+.saturatedText > strong {
+  font-style: bold;
+  color: var(--saturatedPrimary);
+  font-size: clamp(12px, 4vw, 22px);
+  line-height: 1;
+}
+.whiteText {
+  color: white;
+  font-style: normal;
+  font-weight: 500;
+  font-size: clamp(14px, 4vw, 16px);
+  line-height: 18px;
+  font-family: Inter;
+  padding: 0 5%;
+  margin: 5% 0;
+}
+.profileNameText {
+  z-index: 2;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: bold;
+  font-size: clamp(18px, 4vw, 24px);
+  line-height: clamp(22px, 4vw, 28px);
+  color: var(--lightSecondary);
+  margin: 10px 0;
+}
+.priceTitle {
+  color: var(--lightSecondary);
+  font-style: normal;
+  font-weight: 600;
+  font-size: clamp(20px, 4vw, 24px);
+  line-height: 34px;
+}
+
+.mediumSubtitle {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: var(--lightSecondary);
+}
