@@ -156,9 +156,11 @@ strong {
   color: white;
   font-style: normal;
   font-weight: 500;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: clamp(14px, 4vw, 16px);
+  line-height: 18px;
   font-family: Inter;
+  padding: 0 5%;
+  margin: 5% 0;
 }
 .profileNameText {
   z-index: 2;
@@ -169,4 +171,21 @@ strong {
   line-height: clamp(22px, 4vw, 28px);
   color: var(--lightSecondary);
   margin: 10px 0;
+}
+.priceTitle {
+  color: var(--lightSecondary);
+  font-style: normal;
+  font-weight: 600;
+  font-size: clamp(20px, 4vw, 24px);
+  line-height: 34px;
+}
+
+.mediumSubtitle {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: var(--lightSecondary);
 }

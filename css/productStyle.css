@@ -42,24 +42,6 @@
   border-radius: 33px;
 }
 
-.mediumTitle {
-  color: var(--lightSecondary);
-  font-style: normal;
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 34px;
-}
-
-.mediumSubtitle {
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 200;
-  line-height: 22px;
-  letter-spacing: 0em;
-  text-align: center;
-  color: var(--lightSecondary);
-}
-
 .reviewStar {
   margin: 5px;
 }

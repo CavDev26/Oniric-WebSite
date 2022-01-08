@@ -164,13 +164,13 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  left: +25%;
+  left: +30%;
   right: 0;
   height: 100%;
-  width: 50%;
+  width: 40%;
   opacity: 0;
   transition: 0.3s ease;
-  background-color: var(--lightButtons);
+  background-color: white;
 }
 
 /* When you mouse over the profileHeader, fade in the overlay icon*/
@@ -193,4 +193,41 @@
 /* When you move the mouse over the icon, change color */
 .fa-user:hover {
   color: #eee;
+}
+.addressInput {
+  color: var(--secondary);
+  background: var(--traslucentPrimary);
+  border-radius: 4px;
+  width: 97%;
+  height: 40px;
+  border: 2px solid var(--traslucentPrimary);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 15px;
+  margin: 0;
+  max-width: 500px;
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+
+.addressInput::placeholder {
+  color: var(--primary);
+}
+
+.addressInput:focus {
+  border: 2px solid var(--primary);
+}
+.addressLabel {
+  display: inline-block;
+  text-align: left;
+  width: 100%;
+  color: var(--lightSecondary);
+  align-items: left;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 40px;
+  max-width: 500px;
 }

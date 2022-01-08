@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/profile.css" />
-    <link rel="stylesheet" href="../css/productStyle.css" />
-    <link rel="stylesheet" href="../css/login_signup.css" />
     <link rel="stylesheet" href="../css/framework.css" />
-    <link rel="stylesheet" href="../css/searchResults.css" />
+    <link rel="stylesheet" href="../css/modal.css" />
     <link rel="stylesheet" href="../css/text.css" />
     <link rel="stylesheet" href="../css/buttons.css" />
     <link rel="stylesheet" href="../css/accordion.css" />
@@ -318,8 +316,7 @@
             <div class="profileHeader inline-block">
               <img src="../img/account.png" alt="Avatar" class="image" />
               <div class="overlay inline-block center">
-                <p class="whiteText inline-block">Iscritto il 10/01/2022</p>
-                <button class="">Esci</button>
+                <button class="miniButton">Esci</button>
               </div>
             </div>
             <p class="profileNameText">Fresh</p>
@@ -585,11 +582,11 @@
                         <h3>Inserisci nuovo indirizzo</h3>
                         <form class="simpleForm">
                           <div class="left p-10">
-                            <label for="address" class="form-label"
+                            <label for="address" class="addressLabel"
                               >Indirizzo:</label
                             ><br />
                             <input
-                              class="box-input"
+                              class="addressInput"
                               type="text"
                               id="address"
                               name="address"
@@ -597,11 +594,11 @@
                             />
                           </div>
                           <div class="left p-10">
-                            <label for="ncivico" class="form-label"
+                            <label for="ncivico" class="addressLabel"
                               >N. Civico:</label
                             ><br />
                             <input
-                              class="box-input"
+                              class="addressInput"
                               type="number"
                               id="ncivico"
                               name="ncivico"
