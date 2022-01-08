@@ -10,43 +10,6 @@
     <link rel="" href="../css/profile.css" />
 
     <title>Oniric-Cart</title>
-
-    <script>
-var acc = document.querySelectorAll(".accordion");
-var i;
-var width = window.screen.width;
-
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function () {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.maxHeight) {
-      panel.style.maxHeight = null;
-    } else {
-      panel.style.maxHeight = panel.scrollHeight + "px";
-    }
-  });
-}
-var acc = document.querySelectorAll(".accountAccordion");
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function () {
-    this.classList.toggle("activeAlt");
-    var panel = this.nextElementSibling;
-    if (width > 768) {
-    } else {
-      if (panel.style.maxHeight) {
-        panel.style.maxHeight = null;
-      } else {
-        panel.style.maxHeight = panel.scrollHeight + "px";
-      }
-    }
-  });
-}
-
-    </script>
-
-
-
   </head>
   <body>
 
@@ -326,10 +289,12 @@ for (i = 0; i < acc.length; i++) {
                           </div>
                         </button> -->
                         <button class="accordion"><strong>Account</strong></button>
-                        <button class="panel">
+                        <!-- SONO QUI -->
+                        <div class="panel">
                           <div class="accordionBack">
                             <ul class="accordionList">
                               <li class="m-20">
+                                <!-- GUARDA QUI COME FARE, FUNZIONA TUTTO -->
                                 <span class="lightText left w-50">Nome Utente:</span>
                                 <span class="middleText center">Fresh</span><br />
                                 <button
@@ -370,7 +335,7 @@ for (i = 0; i < acc.length; i++) {
                               </li>
                             </ul>
                           </div>
-                        </button>
+                        </div>
 
 
 
@@ -409,7 +374,46 @@ for (i = 0; i < acc.length; i++) {
             </ul>
     </main>
     <footer class="home-footer">
-      Cava and Fresh (C) Copyright 2021 All rights reserved
+      <p>
+        Cava and Fresh (C) Copyright 2021 All rights reserved
+      </p>
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../js/onscroll.js"></script>
+
+
+    <script>
+      var acc = document.querySelectorAll(".accordion");
+      var i;
+      var width = window.screen.width;
+      
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          var panel = this.nextElementSibling;
+          if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+          } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+          }
+        });
+      }
+      var acc = document.querySelectorAll(".accountAccordion");
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+          this.classList.toggle("activeAlt");
+          var panel = this.nextElementSibling;
+          if (width > 768) {
+          } else {
+            if (panel.style.maxHeight) {
+              panel.style.maxHeight = null;
+            } else {
+              panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+          }
+        });
+      }
+      
+    </script>
   </body>
 </html>
