@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/profile.css" />
+    <link rel="stylesheet" href="../css/framework.css" />
+    <link rel="stylesheet" href="../css/modal.css" />
+    <link rel="stylesheet" href="../css/text.css" />
+    <link rel="stylesheet" href="../css/buttons.css" />
+    <link rel="stylesheet" href="../css/accordion.css" />
+    <link rel="stylesheet" href="../css/completeOrderStyle.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <title>CompletaOrdine - Oniric</title>
+  </head>
+  <body class="dis-scroll">
+    <nav class="navbar-top">
+      <div class="left-menu display-flex-column">
+        <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <span></span>
+
+        <ul class="unfolded-left-menu">
+          <li class="search-line">
+            <div class="wrapper">
+              <a href="#"
+                ><img class="search-icon" src="../img/Search.png"
+              /></a>
+              <input class="search" placeholder="Search" type="text" />
+              <!-- <img class="clear-icon" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDUxLjk3NiA1MS45NzYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxLjk3NiA1MS45NzY7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4Ij4KPGc+Cgk8cGF0aCBkPSJNNDQuMzczLDcuNjAzYy0xMC4xMzctMTAuMTM3LTI2LjYzMi0xMC4xMzgtMzYuNzcsMGMtMTAuMTM4LDEwLjEzOC0xMC4xMzcsMjYuNjMyLDAsMzYuNzdzMjYuNjMyLDEwLjEzOCwzNi43NywwICAgQzU0LjUxLDM0LjIzNSw1NC41MSwxNy43NCw0NC4zNzMsNy42MDN6IE0zNi4yNDEsMzYuMjQxYy0wLjc4MSwwLjc4MS0yLjA0NywwLjc4MS0yLjgyOCwwbC03LjQyNS03LjQyNWwtNy43NzgsNy43NzggICBjLTAuNzgxLDAuNzgxLTIuMDQ3LDAuNzgxLTIuODI4LDBjLTAuNzgxLTAuNzgxLTAuNzgxLTIuMDQ3LDAtMi44MjhsNy43NzgtNy43NzhsLTcuNDI1LTcuNDI1Yy0wLjc4MS0wLjc4MS0wLjc4MS0yLjA0OCwwLTIuODI4ICAgYzAuNzgxLTAuNzgxLDIuMDQ3LTAuNzgxLDIuODI4LDBsNy40MjUsNy40MjVsNy4wNzEtNy4wNzFjMC43ODEtMC43ODEsMi4wNDctMC43ODEsMi44MjgsMGMwLjc4MSwwLjc4MSwwLjc4MSwyLjA0NywwLDIuODI4ICAgbC03LjA3MSw3LjA3MWw3LjQyNSw3LjQyNUMzNy4wMjIsMzQuMTk0LDM3LjAyMiwzNS40NiwzNi4yNDEsMzYuMjQxeiIgZmlsbD0iIzAwMDAwMCIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=" /> -->
+            </div>
+          </li>
+
+          <hr class="span-menu-div" />
+          <li><a href="#">Pre-assemblati</a></li>
+          <hr class="span-menu-div" />
+          <li><a href="#">Categoria 1</a></li>
+          <hr class="span-menu-div" />
+          <li><a href="#">Categoria 2</a></li>
+          <hr class="span-menu-div" />
+          <li><a href="#">Categoria 3</a></li>
+          <hr class="span-menu-div" />
+          <li><a href="#">Contatti e Assistenza</a></li>
+          <hr class="span-menu-div" />
+        </ul>
+      </div>
+
+      <div class="button-top-logo display-flex-column">
+        <a href=""
+          ><img src="../img/logo-oniric.png" alt="" class="logo-img"
+        /></a>
+      </div>
+
+      <div class="button-top-notifications display-flex-column">
+        <img
+          src="../img/notificationdef.png"
+          alt=""
+          class="notification-menu-img"
+        />
+        <input type="checkbox" class="check-notifications" />
+        <ul class="notifications-list">
+          <a href="">
+            <li class="notification-dimensions">
+              <div class="notification-elem">
+                <img
+                  src="../img/cava2000.png"
+                  alt=""
+                  class="notification-img-product"
+                />
+                <h1 class="notification-type left-text">Status ordine abc:</h1>
+                <p class="notification-status left-text">Consegnato</p>
+                <img
+                  src="../img/notifica-ball.png"
+                  alt=""
+                  class="notification-indicator"
+                />
+                <footer class="notification-time right-text">4h fa</footer>
+              </div>
+            </li>
+          </a>
+          <hr class="span-notifications-div" />
+          <a href="">
+            <li class="notification-dimensions">
+              <div class="notification-elem">
+                <img
+                  src="../img/cava2000.png"
+                  alt=""
+                  class="notification-img-product"
+                />
+                <h1 class="notification-type left-text">Status ordine abc:</h1>
+                <p class="notification-status left-text">Consegnato</p>
+                <img
+                  src="../img/notifica-ball.png"
+                  alt=""
+                  class="notification-indicator"
+                />
+                <footer class="notification-time right-text">4h fa</footer>
+              </div>
+            </li>
+          </a>
+          <hr class="span-notifications-div" />
+          <a href="">
+            <li class="notification-dimensions">
+              <div class="notification-elem">
+                <img
+                  src="../img/cava2000.png"
+                  alt=""
+                  class="notification-img-product"
+                />
+                <h1 class="notification-type left-text">Status ordine abc:</h1>
+                <p class="notification-status left-text">Consegnato</p>
+                <img
+                  src="../img/notifica-ball.png"
+                  alt=""
+                  class="notification-indicator"
+                />
+                <footer class="notification-time right-text">4h fa</footer>
+              </div>
+            </li>
+          </a>
+          <hr class="span-notifications-div" />
+          <a href="">
+            <li class="notification-dimensions">
+              <div class="notification-elem">
+                <img
+                  src="../img/cava2000.png"
+                  alt=""
+                  class="notification-img-product"
+                />
+                <h1 class="notification-type left-text">Status ordine abc:</h1>
+                <p class="notification-status left-text">Consegnato</p>
+                <img
+                  src="../img/notifica-ball.png"
+                  alt=""
+                  class="notification-indicator"
+                />
+                <footer class="notification-time right-text">4h fa</footer>
+              </div>
+            </li>
+          </a>
+          <hr class="span-notifications-div" />
+          <a href="">
+            <li class="notification-dimensions">
+              <div class="notification-elem">
+                <img
+                  src="../img/cava2000.png"
+                  alt=""
+                  class="notification-img-product"
+                />
+                <h1 class="notification-type left-text">Status ordine abc:</h1>
+                <p class="notification-status left-text">Consegnato</p>
+                <img
+                  src="../img/notifica-ball.png"
+                  alt=""
+                  class="notification-indicator"
+                />
+                <footer class="notification-time right-text">4h fa</footer>
+              </div>
+            </li>
+          </a>
+          <hr class="span-notifications-div" />
+          <a href="">
+            <li class="notification-dimensions">
+              <div class="notification-elem">
+                <img
+                  src="../img/cava2000.png"
+                  alt=""
+                  class="notification-img-product"
+                />
+                <h1 class="notification-type left-text">Status ordine abc:</h1>
+                <p class="notification-status left-text">Consegnato</p>
+                <img
+                  src="../img/notifica-ball.png"
+                  alt=""
+                  class="notification-indicator"
+                />
+                <footer class="notification-time right-text">4h fa</footer>
+              </div>
+            </li>
+          </a>
+          <hr class="span-notifications-div" />
+          <a href="">
+            <li class="notification-dimensions">
+              <div class="notification-elem">
+                <img
+                  src="../img/cava2000.png"
+                  alt=""
+                  class="notification-img-product"
+                />
+                <h1 class="notification-type left-text">Status ordine abc:</h1>
+                <p class="notification-status left-text">Consegnato</p>
+                <img
+                  src="../img/notifica-ball.png"
+                  alt=""
+                  class="notification-indicator"
+                />
+                <footer class="notification-time right-text">4h fa</footer>
+              </div>
+            </li>
+          </a>
+          <hr class="span-notifications-div" />
+          <a href="">
+            <li class="notification-dimensions">
+              <div class="notification-elem">
+                <img
+                  src="../img/cava2000.png"
+                  alt=""
+                  class="notification-img-product"
+                />
+                <h1 class="notification-type left-text">Status ordine abc:</h1>
+                <p class="notification-status left-text">Consegnato</p>
+                <img
+                  src="../img/notifica-ball.png"
+                  alt=""
+                  class="notification-indicator"
+                />
+                <footer class="notification-time right-text">4h fa</footer>
+              </div>
+            </li>
+          </a>
+          <hr class="span-notifications-div" />
+          <a href="">
+            <li class="notification-dimensions">
+              <div class="notification-elem">
+                <img
+                  src="../img/cava2000.png"
+                  alt=""
+                  class="notification-img-product"
+                />
+                <h1 class="notification-type left-text">Status ordine abc:</h1>
+                <p class="notification-status left-text">Consegnato</p>
+                <img
+                  src="../img/notifica-ball.png"
+                  alt=""
+                  class="notification-indicator"
+                />
+                <footer class="notification-time right-text">4h fa</footer>
+              </div>
+            </li>
+          </a>
+          <hr class="span-notifications-div" />
+          <a href="">
+            <li class="notification-dimensions">
+              <div class="notification-elem">
+                <img
+                  src="../img/cava2000.png"
+                  alt=""
+                  class="notification-img-product"
+                />
+                <h1 class="notification-type left-text">Status ordine abc:</h1>
+                <p class="notification-status left-text">Consegnato</p>
+                <img
+                  src="../img/notifica-ball.png"
+                  alt=""
+                  class="notification-indicator"
+                />
+                <footer class="notification-time right-text">4h fa</footer>
+              </div>
+            </li>
+          </a>
+          <hr class="span-notifications-div" />
+          <a href="">
+            <li class="notification-dimensions">
+              <div class="notification-elem">
+                <img
+                  src="../img/cava2000.png"
+                  alt=""
+                  class="notification-img-product"
+                />
+                <h1 class="notification-type left-text">Status ordine abc:</h1>
+                <p class="notification-status left-text">Consegnato</p>
+                <img
+                  src="../img/notifica-ball.png"
+                  alt=""
+                  class="notification-indicator"
+                />
+                <footer class="notification-time right-text">4h fa</footer>
+              </div>
+            </li>
+          </a>
+        </ul>
+      </div>
+    </nav>
+
+    <nav class="navbar-bot">
+      <div class="bottom-nav-button display-flex-column">
+        <a href=""
+          ><img src="../img/User.png" alt="" class="bottom-nav-icon-img"
+        /></a>
+      </div>
+      <div class="bottom-nav-button display-flex-column">
+        <a href=""
+          ><img src="../img/Home.png" alt="" class="bottom-nav-icon-img"
+        /></a>
+      </div>
+      <div class="bottom-nav-button display-flex-column">
+        <a href=""
+          ><img src="../img/Search.png" alt="" class="bottom-nav-icon-img"
+        /></a>
+      </div>
+      <div class="bottom-nav-button display-flex-column">
+        <a href=""
+          ><img src="../img/Cart.png" alt="" class="bottom-nav-icon-img"
+        /></a>
+      </div>
+    </nav>
+    <main class="fullHeight">
+      <div class="centered">
+          <a class="normal" href="">
+              <div class="purchase-button">
+                <p>Acquista</p>
+              </div>
+           </a>
+      </div>
+      <div class="lightBack center fullWidth">
+        <div class="floatingBack inline-block m-20b mw-800 z-1">
+          <!-- <header class="center p-10t">
+            <div class="profileHeader inline-block">
+              <img src="../img/account.png" alt="Avatar" class="image" />
+              <div class="overlay inline-block center">
+                <button class="miniButton">Esci</button>
+              </div>
+            </div>
+            <p class="profileNameText">Fresh</p>
+          </header> -->
+
+          <div>
+              <header class="category m-10t">Dettagli Articoli</header>
+              <hr class="span-order"></hr>
+              <ul class="list detail-items">
+                  <li class="m-20l m-20r">
+                      <span class="left fullHeight m-0">Articoli</span>
+                      <span class="right m-0">999,99$</span><br/>
+                  </li>
+                  <li class="m-20l m-20r m-20b">
+                    <span class="left fullHeight m-0">Costi di spedizione</span>
+                    <span class="right m-0">0,00$</span><br/>
+                  </li>
+                  <hr class="span-order"></hr>
+                  <li class="m-20">
+                    <span class="left fullHeight total m-0">Totale</span>
+                    <span class="right m-0 total-price">999,99$</span><br/>
+                  </li>
+                </ul>
+          </div>
+          <hr class="span-order-big"></hr>
+          <div>
+            <header class="category m-10t">Dettagli Spedizione</header>
+            <hr class="span-order"></hr>
+            <ul class="list detail-items">
+                <li class="m-20l m-20r">
+                    <span class="center w-50 fullHeight">Invia a:</span>
+                </li>
+                <div class="m-10t">
+                    <button class="profileAccordion">
+                        Indirizzo 1
+                    </button>
+                    <div class="panel">
+                      <div class="accordionBack">
+                        <ul class="list">
+                          <li class="m-20">
+                            <span class="lightText left w-50 fullHeight">
+                                Indirizzo 2
+                            </span>
+                          </li>
+                          <hr class="span-order-big"></hr> 
+                          <!--  bisogna fixare il fatto che non è estesa del 100 percento perchè è dentro un div -->
+                          <li class="m-20">
+                            <span class="lightText left w-50 fullHeight"
+                              >Password:</span
+                            >
+                            <span class="middleText center">●●●●●●●●●●</span>
+                            <br />
+                          </li>
+                          <li class="m-20">
+                            <p class="left w-50 m-0 fullHeight">
+                              <span class="lightText">Nome e Cognome:</span>
+                            </p>
+                            <span class="middleText center">Francesco Magnani</span>
+                            <br />
+                          </li>
+                          <li class="m-20">
+                            <span class="lightText left w-50"
+                              >Data di Nascita:</span
+                            >
+                            <span class="middleText center">16/03/2000</span>
+                          </li>
+                          <button class="center modifyAccountButton m-10b m-10t">
+                            Modifica dati
+                          </button>
+                          <br />
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+              </ul>
+        </div>
+
+
+          <ul class="list center">
+            <li>
+              <div>
+                <button class="profileAccordion">
+                  <strong>Account</strong>
+                </button>
+                <div class="panel">
+                  <div class="accordionBack">
+                    <ul class="list">
+                      <li class="m-20">
+                        <span class="lightText left w-50 fullHeight"
+                          >Nome Utente:</span
+                        >
+                        <span class="middleText center">Fresh</span><br />
+                      </li>
+                      <li class="m-20">
+                        <span class="lightText left w-50 fullHeight"
+                          >Password:</span
+                        >
+                        <span class="middleText center">●●●●●●●●●●</span>
+                        <br />
+                      </li>
+                      <li class="m-20">
+                        <p class="left w-50 m-0 fullHeight">
+                          <span class="lightText">Nome e Cognome:</span>
+                        </p>
+                        <span class="middleText center">Francesco Magnani</span>
+                        <br />
+                      </li>
+                      <li class="m-20">
+                        <span class="lightText left w-50"
+                          >Data di Nascita:</span
+                        >
+                        <span class="middleText center">16/03/2000</span>
+                      </li>
+                      <button class="center modifyAccountButton m-10b m-10t">
+                        Modifica dati
+                      </button>
+                      <br />
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div>
+                <button class="profileAccordion">
+                  <strong>I tuoi Ordini</strong>
+                </button>
+                <div class="panel">
+                  <div class="accordionBack">
+                    <ul class="list center p-10">
+                      <li class="left-text relative p-10">
+                        <img
+                          src="../img/cava2000.png"
+                          alt=""
+                          srcset=""
+                          class="orderImage"
+                        />
+                        <div class="orderMiddleText">
+                          Arriverà <strong>domani</strong>
+                        </div>
+                      </li>
+                      <li class="left-text relative p-10">
+                        <img
+                          src="../img/cava2000.png"
+                          alt=""
+                          srcset=""
+                          class="orderImage"
+                        />
+                        <div class="orderMiddleText">
+                          Arriverà <strong>dopodomani</strong>
+                        </div>
+                      </li>
+                      <li class="left-text relative p-10">
+                        <img
+                          src="../img/cava2000.png"
+                          alt=""
+                          srcset=""
+                          class="orderImage"
+                        />
+                        <div class="orderMiddleText">
+                          Arriverà <strong>sabato 18 Dicembre</strong>
+                        </div>
+                      </li>
+                    </ul>
+                    <footer>
+                      <button class="hardButton w-75 m-10t m-20b">
+                        Mostra tutti gli ordini
+                      </button>
+                    </footer>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div>
+                <button class="profileAccordion">
+                  <strong>Il tuo Saldo</strong>
+                </button>
+                <div class="panel">
+                  <div class="accordionBack">
+                    <header>
+                      <div class="p-20t p-10b">
+                        <span class="bigSaturatedText"
+                          >€ 1205<em>,16 </em></span
+                        >
+                      </div>
+                      <p class="middleSaturatedText m-0 m-20b">
+                        Saldo Rimanente
+                      </p>
+                      <button class="modalButton">Ricarica</button>
+
+                      <!-- The Modal -->
+                      <div class="profileModal">
+                        <!-- Modal content -->
+                        <div class="profileModal-content">
+                          <span class="profileModalClose">&times;</span>
+                          <div class="center">
+                            <header>
+                              <div class="p-20t p-10b">
+                                <span class="bigSaturatedText"
+                                  >€ 1205<em>,16 </em></span
+                                >
+                              </div>
+                              <p class="middleSaturatedText m-0 m-20b">
+                                Saldo Rimanente
+                              </p>
+                            </header>
+                            <form action="">
+                              <label
+                                for="quantity"
+                                class="middleText left p-20l f-20 p-10b"
+                              >
+                                Ammontare </label
+                              ><br />
+                              <input
+                                class="numberPicker"
+                                type="number"
+                                id="quantity"
+                                name="quantity"
+                                min="1"
+                                max="500"
+                              />
+
+                              <aside>
+                                <header>
+                                  <h2 class="middleText left-text p-20l f-20">
+                                    Scegli con cosa ricaricare il saldo
+                                  </h2>
+                                </header>
+                                <ul class="list">
+                                  <li>
+                                    <div
+                                      class="paymentMethod w-75 inline-block"
+                                    >
+                                      <h3
+                                        class="m-0 right w-60 center f-16 p-10b"
+                                      >
+                                        Carta di Fresh
+                                      </h3>
+                                      <img
+                                        src="../img/visaLogo.png"
+                                        class="left p-10t littlePaymentIcon"
+                                      />
+                                      <p
+                                        class="w-68 right m-0 center f-14 lh-10"
+                                      >
+                                        •••• •••• •••• 0765
+                                      </p>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </aside>
+                              <input
+                                type="submit"
+                                class="hardButton w-75 m-10t m-20b"
+                                value="Ricarica"
+                              />
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </header>
+                    <aside>
+                      <header>
+                        <h2 class="middleText left-text p-20l f-20">
+                          Altri metodi di Pagamento
+                        </h2>
+                      </header>
+                      <ul class="list">
+                        <li>
+                          <div class="paymentMethod w-75 inline-block">
+                            <h3 class="m-0 right w-60 center f-16 p-10b">
+                              Carta di Fresh
+                            </h3>
+                            <img
+                              src="../img/visaLogo.png"
+                              class="left p-10t littlePaymentIcon"
+                            />
+                            <p class="w-68 right m-0 center f-14 lh-10">
+                              •••• •••• •••• 0765
+                            </p>
+                          </div>
+                        </li>
+                      </ul>
+                      <footer>
+                        <form action="">
+                          <input
+                            type="button"
+                            class="hardButton w-75 m-10t m-20b"
+                            value="Modifica metodi di Pagamento"
+                          />
+                        </form>
+                      </footer>
+                    </aside>
+                    <ul></ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <button class="coolButton">
+                <strong>Iscrivi a Omni</strong>
+                <img src="../img/first_logo.jpg" class="inline-block" />
+              </button>
+            </li>
+            <li>
+              <button class="coolButton">
+                <strong>Le tue Recensioni</strong>
+              </button>
+            </li>
+            <li>
+              <div>
+                <button class="profileAccordion">
+                  <strong>I tuoi indirizzi</strong>
+                </button>
+                <div class="panel">
+                  <div class="accordionBack">
+                    <ul class="list">
+                      <li>
+                        <div class="violetBox">
+                          <p class="middleSaturatedText f-18">
+                            Via F. Parri 727, Cesena
+                          </p>
+                        </div>
+                      </li>
+                    </ul>
+                    <!-- Trigger/Open The Modal -->
+
+                    <button class="modalButton">
+                      Aggiungi un nuovo Indirizzo
+                    </button>
+                    <!-- The Modal -->
+                    <div class="profileModal">
+                      <!-- Modal content -->
+                      <div class="profileModal-content">
+                        <span class="profileModalClose">&times;</span>
+                        <h3>Inserisci nuovo indirizzo</h3>
+                        <form class="simpleForm">
+                          <div class="left p-10">
+                            <label for="address" class="addressLabel"
+                              >Indirizzo:</label
+                            ><br />
+                            <input
+                              class="addressInput"
+                              type="text"
+                              id="address"
+                              name="address"
+                              placeholder="Inserisci il tuo indirizzo"
+                            />
+                          </div>
+                          <div class="left p-10">
+                            <label for="ncivico" class="addressLabel"
+                              >N. Civico:</label
+                            ><br />
+                            <input
+                              class="addressInput"
+                              type="number"
+                              id="ncivico"
+                              name="ncivico"
+                              placeholder="N. Civico"
+                            />
+                          </div>
+                          <input
+                            class="softButton center"
+                            type="submit"
+                            value="Inserisci"
+                          />
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <button class="coolButton"><strong>Notifiche</strong></button>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <footer class="home-footer">
+        <p>Cava and Fresh (C) Copyright 2021 All rights reserved</p>
+      </footer>
+    </main>
+  </body>
+  <script src="../js/accordion.js"></script>
+  <script src="../js/modal.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="../js/onscroll.js"></script>
+</html>
