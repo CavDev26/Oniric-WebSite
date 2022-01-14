@@ -57,6 +57,15 @@
     width: 100%;
   }
 
+  .add-add {
+    width: 80%;
+    font-size: 18px;
+    line-height: 30px;
+    background-color: var(--buttons);
+    color: var(--secondary);
+    border: none;
+    border-radius: 8px;
+  }
   .add-name {
     font-weight: 600;
   }
