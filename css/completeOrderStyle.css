@@ -1,4 +1,4 @@
-.centered {
+  .centered {
     display: flex;
     align-items: center;
   }
@@ -31,15 +31,15 @@
   main {
       margin-top: 75px;
   }
-  
-.category {
+
+  .category {
     font-size: 22px;
-    font-weight: normal;
-}
-.detail-items {
+    font-weight: bold;
+  }
+  .detail-items {
     font-size: 18px;
-}
-.total {
+  }
+  .total {
     font-size: 20px;
     font-weight: bold;
   }
@@ -49,15 +49,48 @@
     font-weight: bold;
   }
 
+  .accordionBackShipment {
+    background: rgba(229, 214, 255, 0.35);
+    border: 1px solid #be9cf59d;
+    box-sizing: border-box;
+    border-radius: 0px 0px 16px 16px;
+    width: 100%;
+  }
 
-
+  .address {
+    font-size: 20px;
+  }
+  .consegna {
+    color: var(--buttons);
+    font-weight: bold;
+  }
+  .m-15 {
+    margin: 15px;
+  }
   .span-order {
-    width: 100px;
-    background-color: black;
+    width: 50%;
+    background-color: var(--primary);
     height: 1px;
   }
   .span-order-big {
     width: 100%;
-    background-color: black;
+    background-color: var(--primary);
     height: 1px;
+  }
+  .span-accordion {
+    width: 98%;
+    background-color: var(--primary);
+    height: 1px;
+  }
+  .giftcard {
+    height: 50px;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--primary);
+  }
+  .giftcard::placeholder {
+    font-size: 18px;
+    padding-left: 25px;
+    color: var(--buttons)
   }

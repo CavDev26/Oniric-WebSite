@@ -5,6 +5,28 @@
   overflow: hidden;
   transition: max-height 0.2s ease-out;
 }
+.panelShipment {
+  width: 100%;
+  margin: 0;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+.shipmentAccordion {
+  background: rgba(229, 214, 255, 0.42);
+  border: 5px solid transparent;
+  color: #444;
+  cursor: pointer;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 8px;
+  text-align: center;
+  outline: none;
+  font-size: 18px;
+  transition: 0.4s;
+}
 .profileAccordion {
   background: rgba(229, 214, 255, 0.42);
   border: 5px solid transparent;
@@ -31,6 +53,25 @@
   outline: none;
   transition: 0.4s;
 }
+.shipmentAccordion:hover {
+  background-color: rgba(159, 150, 175, 0.42);
+}
+.active {
+  border: 5px solid rgba(67, 49, 97, 0.58);
+  box-sizing: border-box;
+  border-radius: 8px;
+  width: 100%;
+}
+.activeAltShipment {
+  box-sizing: border-box;
+  border-radius: 16px 16px 0px 0px;
+}
+.active:after,
+.activeAltShipment:after {
+  vertical-align: -50%;
+  padding: 0 5px 0 0;
+  content: url("../img/closeArrow.png");
+}
 .accountAccordion:hover {
   background-color: rgba(159, 150, 175, 0.089);
 }
@@ -55,6 +96,15 @@
   margin-left: 5px;
   vertical-align: -50%;
 }
+.shipmentAccordion:after {
+  content: url("../img/openArrow.png");
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+  padding-top: 5px;
+  vertical-align: -50%;
+}
 .accordionBack {
   background: rgba(229, 214, 255, 0.35);
   border: 1px solid #be9cf59d;
@@ -72,8 +122,13 @@
   box-sizing: border-box;
   border-radius: 16px;
 }
+.activeAltShipment {
+  box-sizing: border-box;
+  border-radius: 16px 16px 0px 0px;
+}
 .active:after,
-.activeAlt:after {
+.activeAlt:after,
+.activeAltShipment:after {
   vertical-align: -50%;
   padding: 0 5px 0 0;
   content: url("../img/closeArrow.png");
