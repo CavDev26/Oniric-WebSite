@@ -57,6 +57,9 @@
     width: 100%;
   }
 
+  .add-name {
+    font-weight: 600;
+  }
   .address {
     font-size: 20px;
   }
@@ -92,5 +95,14 @@
   .giftcard::placeholder {
     font-size: 18px;
     padding-left: 25px;
-    color: var(--buttons)
+    color: var(--secondary);
+  }
+  .add-card {
+    width: 80%;
+    font-size: 18px;
+    line-height: 30px;
+    background-color: var(--buttons);
+    color: var(--secondary);
+    border: none;
+    border-radius: 8px;
   }
