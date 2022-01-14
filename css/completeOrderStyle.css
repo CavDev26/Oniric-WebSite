@@ -96,7 +96,7 @@
   }
   .giftcard {
     height: 50px;
-    width: 100%;
+    width: 80%;
     border: none;
     border-radius: 8px;
     background-color: var(--primary);
@@ -114,4 +114,13 @@
     color: var(--secondary);
     border: none;
     border-radius: 8px;
+  }
+  .insert-giftcard {
+    height: 50px;
+    font-size: 30px;
+    text-align: center;
+    width: 15%;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--primary);
   }
