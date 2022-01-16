@@ -1,0 +1,126 @@
+  .centered {
+    display: flex;
+    align-items: center;
+  }
+  .normal {
+    text-decoration: none;
+  }
+  .purchase-button {
+    position: fixed;
+    top: 110px;
+    left: 50%;
+    margin: 0;
+    width: 90%;
+    height: 50px;
+    transform: translate(-50%, 0%);
+    background-color: var(--buttons);
+    border-radius: 12px;
+    box-shadow: 3px 8px 11px 1px var(--shadow);
+    z-index: 1;
+    text-align: center;
+  }
+  .purchase-button > p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -25%);
+    margin: 0;
+  }
+  main {
+      margin-top: 75px;
+  }
+
+  .category {
+    font-size: 22px;
+    font-weight: bold;
+  }
+  .detail-items {
+    font-size: 18px;
+  }
+  .total {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .total-price {
+    color: var(--buttons);
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .accordionBackShipment {
+    background: rgba(229, 214, 255, 0.35);
+    border: 1px solid #be9cf59d;
+    box-sizing: border-box;
+    border-radius: 0px 0px 16px 16px;
+    width: 100%;
+  }
+
+  .add-add {
+    width: 80%;
+    font-size: 18px;
+    line-height: 30px;
+    background-color: var(--buttons);
+    color: var(--secondary);
+    border: none;
+    border-radius: 8px;
+  }
+  .add-name {
+    font-weight: 600;
+  }
+  .address {
+    font-size: 20px;
+  }
+  .consegna {
+    color: var(--buttons);
+    font-weight: bold;
+  }
+  .m-15 {
+    margin: 15px;
+  }
+  .span-order {
+    width: 50%;
+    background-color: var(--primary);
+    height: 1px;
+  }
+  .span-order-big {
+    width: 100%;
+    background-color: var(--primary);
+    height: 1px;
+  }
+  .span-accordion {
+    width: 98%;
+    background-color: var(--primary);
+    height: 1px;
+  }
+  .giftcard {
+    height: 50px;
+    width: 80%;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--primary);
+  }
+  .giftcard::placeholder {
+    font-size: 18px;
+    padding-left: 25px;
+    color: var(--secondary);
+  }
+  .add-card {
+    width: 80%;
+    font-size: 18px;
+    line-height: 30px;
+    background-color: var(--buttons);
+    color: var(--secondary);
+    border: none;
+    border-radius: 8px;
+  }
+  .insert-giftcard {
+    height: 50px;
+    font-size: 30px;
+    text-align: center;
+    width: 15%;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--primary);
+  }
