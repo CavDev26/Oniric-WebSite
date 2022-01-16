@@ -36,6 +36,21 @@ class DatabaseHelper{
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
-    }    
+    }
+    public function checkUserExists($username){
+        $query = "SELECT Nome_Utente FROM utente WHERE Nome_Utente = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s',$username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return count($result->fetch_all(MYSQLI_ASSOC)) > 0;
+    }        
+    public function registerUser($name, $surname, $username, $password, $birthdate) {
+        $query = "INSERT INTO utente (Nome, Cognome, Nome_Utente, Password_Utente, Data_Nascita) VALUES (?, ?, ?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('sssss',$name, $surname, $username, $password, $birthdate);
+        $stmt->execute();
+        return $stmt->insert_id;
+    }
 }
 ?>

@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/framework.css" />
     <link rel="stylesheet" href="./css/indexStyle.css" />
+    <link rel="stylesheet" href="./css/text.css" />
+    <link rel="stylesheet" href="./css/buttons.css" />
+    <link rel="icon" href="img/favicon.ico" type="image/ico">
 
     <title><?php echo $templateParams["titolo"]; ?></title>
   </head>

@@ -1,6 +1,9 @@
 <?php
 require_once 'bootstrap.php';
 
+$templateParams["titolo"] = "Oniric - Login";
+$templateParams["nome"] = "login-form.php";
+
 if(isset($_POST["username"]) && isset($_POST["password"])){
     $login_result = $dbh->checkLogin($_POST["username"], $_POST["password"]);
     if(count($login_result)==0){
