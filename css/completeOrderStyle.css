@@ -49,14 +49,6 @@
     font-weight: bold;
   }
 
-  .accordionBackShipment {
-    background: rgba(229, 214, 255, 0.35);
-    border: 1px solid #be9cf59d;
-    box-sizing: border-box;
-    border-radius: 0px 0px 16px 16px;
-    width: 100%;
-  }
-
   .add-add {
     width: 80%;
     font-size: 18px;
@@ -80,19 +72,20 @@
     margin: 15px;
   }
   .span-order {
-    width: 50%;
+    width: 80%;
     background-color: var(--primary);
     height: 1px;
   }
   .span-order-big {
     width: 100%;
     background-color: var(--primary);
-    height: 1px;
+    height: 2px;
   }
   .span-accordion {
     width: 98%;
     background-color: var(--primary);
-    height: 1px;
+    height: 2px;
+    margin-bottom: 0;
   }
   .giftcard {
     height: 50px;
@@ -123,4 +116,21 @@
     border: none;
     border-radius: 8px;
     background-color: var(--primary);
+  }
+
+  .pls {
+    padding: 10px 10px 10px 10px;
+    width: 100%;
+  }
+  .labell {
+    width: 100%;
+  }
+  .labell:hover {
+    background: #e5d6ff;
+    border-radius: 8px;
+  }
+  .ship-img-omni {
+    width: 50px;
+    height: auto;
+    /* margin-right: 20px; */
   }

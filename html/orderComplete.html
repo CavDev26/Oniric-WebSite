@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../css/buttons.css" />
     <link rel="stylesheet" href="../css/accordion.css" />
     <link rel="stylesheet" href="../css/completeOrderStyle.css" />
+    <link rel="stylesheet" href="../css/searchResults.css" />
 
     <link
       rel="stylesheet"
@@ -363,97 +364,85 @@
                 </button>
                 <div class="panel">
                   <div class="accordionBack">
-                    <ul class="list">
-                      <li class="m-20l m-20r m-10t m-10b">
-                        <span class="left add-name">
-                          Lorenzo Cavallucci
-                        </span> <br>
-                        <span class="left">
-                          Via San Gimignano 369
-                        </span> <br>
-                        <span class="left m-10b">
-                          Cesena, FC, Italia.
-                        </span>
-                      </li>
-                      <hr class="span-accordion"></hr> 
-                      <li class="m-20l m-20r m-10t m-10b">
-                        <span class="left add-name">
-                          Lorenzo Cavallucci
-                        </span> <br>
-                        <span class="left">
-                          Via San Gimignano 369
-                        </span> <br>
-                        <span class="left m-10b">
-                          Cesena, FC, Italia.
-                        </span>
-                      </li>
-                      <hr class="span-accordion"></hr> 
-                      <li class="m-20l m-20r m-10t m-10b">
-                        <span class="left add-name">
-                          Lorenzo Cavallucci
-                        </span> <br>
-                        <span class="left">
-                          Via San Gimignano 369
-                        </span> <br>
-                        <span class="left m-10b">
-                          Cesena, FC, Italia.
-                        </span>
-                      </li>
-                      <hr class="span-accordion"></hr> 
-                      <li class="m-20l m-20r m-10t m-10b">
-                        <span class="left add-name">
-                          Lorenzo Cavallucci
-                        </span> <br>
-                        <span class="left">
-                          Via San Gimignano 369
-                        </span> <br>
-                        <span class="left m-10b">
-                          Cesena, FC, Italia.
-                        </span>
-                      </li>
-                      <hr class="span-accordion"></hr> 
-                      <li class="m-20l m-20r m-10t m-10b">
-                        <span class="left add-name">
-                          Lorenzo Cavallucci
-                        </span> <br>
-                        <span class="left">
-                          Via San Gimignano 369
-                        </span> <br>
-                        <span class="left m-10b">
-                          Cesena, FC, Italia.
-                        </span>
-                      </li>
-                      <hr class="span-accordion"></hr> 
-                      <li class="m-20l m-20r m-10t m-20b">
-                          <a href="">
-                            <button class="add-add">
-                              Aggiungi indirizzo
-                            </button>
-                          </a>
-                      </li>
-                    </ul>
+                    <form class="list" action="">
+                      <div>
+                        <input type="radio" class="none absolute" id="sort" />
+                        <label class="labell left" for="sort">
+                          <div class="pls">
+                            <p class="m-0 add-name">Lorenzo Cavallucci<br></p>
+                            Via San Gimignano 369<br>
+                            Cesena, FC, Italia.
+                          </div>
+                        </label>
+                      </div>
+                      <hr class="span-accordion"></hr>
+                      <div>
+                        <input type="radio" class="none absolute" id="sort" />
+                        <label class="labell left" for="sort">
+                          <div class="pls">
+                            <p class="m-0 add-name">Lorenzo Cavallucci<br></p>
+                            Via San Gimignano 369<br>
+                            Cesena, FC, Italia.
+                          </div>
+                        </label>
+                      </div>
+                      <hr class="span-accordion"></hr>
+                      <div>
+                        <input type="radio" class="none absolute" id="sort" />
+                        <label class="labell left" for="sort">
+                          <div class="pls">
+                            <p class="m-0 add-name">Lorenzo Cavallucci<br></p>
+                            Via San Gimignano 369<br>
+                            Cesena, FC, Italia.
+                          </div>
+                        </label>
+                      </div>
+                      <hr class="span-accordion"></hr>
+                      <div class="m-20l m-20r m-10t m-20b">
+                        <a href="">
+                          <button class="add-add">
+                            Aggiungi indirizzo
+                          </button>
+                        </a>
+                      </div>
+                    </form>
                   </div>
                 </div>
               </li>
               <hr class="span-order"></hr>
-              <li class="m-20l m-20t m-20r">
+              <li>
                 <span class="center">
-                    Metodo di spedizione
-                </span><br>
-                <span>
-                  <button class="shipmentAccordion">
-                    Omni
-                  </button>
-                  <div class="panelShipment">
-                    <div class="accordionBackShipment">
-                      <ul class="list">
-                        <li class="center m-10t m-10b">
-                          Normale
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
+                  Metodo di spedizione
                 </span>
+              </li>
+              <li class="m-20l m-20t m-20r">
+                <button class="shipmentAccordion">
+                  Scegli metodo
+                </button>
+                <div class="panelShipment">
+                  <div class="accordionBackShipment">
+                    <form class="list" action="">
+                      <div>
+                        <input type="radio" class="none absolute" id="sort"/>
+                        <label class="labell left" for="sort">
+                          <div class="pls">
+                            <img class="left ship-img-omni m-20r" src="../img/logo-oniric.png" alt=""/>
+                            <p>Omni</p>
+                          </div>
+                        </label>
+                      </div>
+                      <hr class="span-accordion"></hr>
+                      <div class="m-80b">
+                        <input type="radio" class="none absolute" id="sort" />
+                        <label class="labell left" for="sort">
+                          <div class="pls">
+                            <p>Normale</p>
+                          </div>                          
+                        </label>
+                      </div>
+                    </form>
+                  </div>
+                </div>
               </li>
               <hr class="span-order"></hr>
               <li class="m-20l m-20r m-20b">
@@ -474,34 +463,48 @@
                 <li class="m-20l m-20r">
                   <span class="center fullHeight">Metodo di pagamento</span>
                   <span>
-                    <button class="shipmentAccordion m-0">
+                    <button class="shipmentAccordion m-0 m-10t">
                       <img class="left" src="../img/visaLogo.png" alt=""/>
                       Mastercard <br>
                       •••• •••• •••• 0765
                     </button>
                     <div class="panelShipment">
                       <div class="accordionBackShipment">
-                        <ul class="list">
-                          <li class="center m-15">
-                            <img class="left" src="../img/visaLogo.png" alt=""/>
-                            Mastercard <br>
-                            •••• •••• •••• 0765
-                          </li>
+                        <form class="list">
+                          <div class="center m-15">
+                            <input type="radio" class="none absolute" id="sort" />
+                            <label class="labell left" for="sort">
+                              <div class="pls m-10b">
+                                <img class="left" src="../img/visaLogo.png" alt=""/>
+                                <p class="center m-0">
+                                  Mastercard <br>
+                                  •••• •••• •••• 0765
+                                </p>
+                              </div>                          
+                            </label>
+                          </div>
                           <hr class="span-order-big"></hr>
-                          <li class="center m-15">
-                            <img class="left" src="../img/visaLogo.png" alt=""/>
-                            Mastercard <br>
-                            •••• •••• •••• 0765
-                          </li>
+                          <div class="center m-15">
+                            <input type="radio" class="none absolute" id="sort" />
+                            <label class="labell left" for="sort">
+                              <div class="pls m-10b">
+                                <img class="left" src="../img/visaLogo.png" alt=""/>
+                                <p class="center m-0">
+                                  Mastercard <br>
+                                  •••• •••• •••• 0765
+                                </p>
+                              </div>                          
+                            </label>
+                          </div>
                           <hr class="span-order-big"></hr>
-                          <li class="center">
+                          <div class="center">
                             <a href="">
                               <button class="add-card m-10b">
                                 Aggiungi una carta
                               </button>
                             </a>
-                          </li>
-                        </ul>
+                          </div>
+                        </form>
                       </div>
                     </div>
                   </span>

@@ -6,10 +6,9 @@
 .normal {
     text-decoration: none;
 }
-
-
-
-
+.main-cart {
+    margin-top: 150px;
+}
 
 .purchase-button {
     position: fixed;
@@ -101,7 +100,7 @@
 .product-name {
     color: black;
     margin: 0;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: normal;
     white-space: nowrap;
     overflow: hidden;
