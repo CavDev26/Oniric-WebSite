@@ -53,21 +53,13 @@
   outline: none;
   transition: 0.4s;
 }
-.shipmentAccordion:hover {
-  background-color: rgba(159, 150, 175, 0.42);
-}
 .active {
   border: 5px solid rgba(67, 49, 97, 0.58);
   box-sizing: border-box;
   border-radius: 8px;
   width: 100%;
 }
-.activeAltShipment {
-  box-sizing: border-box;
-  border-radius: 16px 16px 0px 0px;
-}
-.active:after,
-.activeAltShipment:after {
+.active:after {
   vertical-align: -50%;
   padding: 0 5px 0 0;
   content: url("../img/closeArrow.png");
@@ -77,6 +69,9 @@
 }
 
 .profileAccordion:hover {
+  background-color: rgba(159, 150, 175, 0.42);
+}
+.shipmentAccordion:hover {
   background-color: rgba(159, 150, 175, 0.42);
 }
 
@@ -112,6 +107,13 @@
   border-radius: 7px;
   width: 100%;
 }
+.accordionBackShipment {
+  background: rgba(229, 214, 255, 0.35);
+  border: 1px solid #be9cf59d;
+  box-sizing: border-box;
+  border-radius: 16px;
+  width: 100%;
+}
 .active {
   border: 5px solid rgba(67, 49, 97, 0.58);
   box-sizing: border-box;
@@ -124,7 +126,7 @@
 }
 .activeAltShipment {
   box-sizing: border-box;
-  border-radius: 16px 16px 0px 0px;
+  border-radius: 16px;
 }
 .active:after,
 .activeAlt:after,
