@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./css/framework.css" />
     <link rel="stylesheet" href="./css/indexStyle.css" />
 
-    <title>Oniric-Home</title>
+    <title><?php echo $templateParams["titolo"]; ?></title>
   </head>
   <body>
 
@@ -248,7 +248,7 @@
 
     <main>
 
- 
+    <?php  require($templateParams["nome"]); ?>
 
     </main>
 
