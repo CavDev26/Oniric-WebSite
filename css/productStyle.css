@@ -49,9 +49,9 @@
 .productImage {
   display: inline-block;
   text-align: center;
-  width: 90%;
-  height: 90%;
-  max-width: 350px;
+  position: relative;
+  max-width: 280px;
+  max-height: 280px;
 }
 
 hr.separator {
@@ -71,12 +71,14 @@ hr.separator {
   color: var(--lightSecondary);
   padding: 10px;
   font-size: clamp(16px, 4vw, 20px);
+  text-align: center;
 }
 
 .italic-footer {
   font-style: italic;
   font-weight: 100;
   font-size: 15px;
+  text-align: center;
 }
 
 .priceList {
@@ -118,6 +120,7 @@ hr.separator {
 
 .normalPriceNumber > em {
   font-size: clamp(14px, 4vw, 16px);
+  color: var(--lightSecondary);
   font-style: normal;
 }
 
@@ -144,6 +147,7 @@ hr.separator {
   font-weight: bold;
   font-size: 16px;
   color: var(--lightSecondary);
+  text-align: center;
 }
 
 .simpleText {
@@ -224,4 +228,26 @@ hr.separator {
 .squareRoundButton:hover,
 .cartButton:hover {
   opacity: 0.5;
+}
+@media screen and (min-width: 768px) {
+  .pricePart {
+    display: inline-block;
+    width: 100%;
+  }
+  .descriptionPart {
+    display: inline-block;
+  }
+  .secondPart {
+    display: inline-block;
+    text-align: right;
+    width: 60%;
+  }
+  .priceList {
+    max-width: 800px;
+  }
+}
+@media screen and (min-width: 960px) {
+  .secondPart {
+    margin-left: 5%;
+  }
 }
