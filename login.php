@@ -17,12 +17,15 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
 
 if(isUserLoggedIn()){
     // UTENTE LOGGATO
-    $templateParams["titolo"] = "Profilo - ".$_SESSION("username");
-    $templateParams["nome"] = "login-home.php";
-    /*
+    $templateParams["titolo"] = "Profilo - " . $_SESSION["username"];
+    $templateParams["nome"] = "profile.php";
+    $templateParams["ordini"] = $dbh->getOrders($_SESSION["username"]);
+    $templateParams["payMethods"] = $dbh->getPayMethods($_SESSION["username"], 3);
+    $templateParams["addresses"] = $dbh->getAddresses($_SESSION["username"]);
+
     if(isset($_GET["formmsg"])){
         $templateParams["formmsg"] = $_GET["formmsg"];
-    }*/
+    }
 }
 else{
     // UTENTE NON LOGGATO

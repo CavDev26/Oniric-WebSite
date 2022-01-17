@@ -30,7 +30,7 @@ class DatabaseHelper{
     }
 
     public function checkLogin($username, $password){
-        $query = "SELECT idautore, username, nome FROM autore WHERE attivo=1 AND username = ? AND password = ?";
+        $query = "SELECT Nome_Utente FROM utente WHERE Nome_Utente = ? AND Password_Utente = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ss',$username, $password);
         $stmt->execute();
@@ -51,6 +51,15 @@ class DatabaseHelper{
         $stmt->bind_param('sssss',$name, $surname, $username, $password, $birthdate);
         $stmt->execute();
         return $stmt->insert_id;
+    }
+    public function getOrders($username) {
+
+    }
+    public function getAddresses($username) {
+        
+    }
+    public function getPayMethods($username, $limit=20) {
+        
     }
 }
 ?>

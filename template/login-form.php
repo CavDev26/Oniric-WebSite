@@ -6,7 +6,10 @@
 
 <div class="loginBack ">
       <h1 class="bigTitle">Entra sul tuo Account</h1>
-      <form class="simpleForm">
+      <?php if(isset($templateParams["errorelogin"])): ?>
+        <p><?php echo $templateParams["errorelogin"]; ?></p>
+      <?php endif; ?>
+      <form class="simpleForm" action="#" method="POST">
         <div class="p-10 fullWidth">
             <label for="username" class="form-label">Nome Utente:</label><br />
             <input
@@ -27,8 +30,11 @@
               placeholder="Inserisci la tua password" > 
               <span class="material-icons passwordEye noselect" onclick="togglePassword(this)">visibility</span>
           </div>
+          <footer class="center fullWidth">
+            <div class="center">
+              <input class="softButton" type="submit" value="Accedi">
+            </div>
+        </footer>
       </form>
-      <footer>
-        <input class="softButton center" type="submit" value="Accedi">
-      </footer>
+      
     </div>
