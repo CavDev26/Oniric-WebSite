@@ -20,11 +20,12 @@ if(isUserLoggedIn()){
     // UTENTE LOGGATO
     $templateParams["titolo"] = "Profilo - " . $_SESSION["username"];
     $templateParams["nome"] = "profile.php";
-    $templateParams["ordini"] = $dbh->getOrders($_SESSION["username"]);
+    $templateParams["orders"] = $dbh->getOrders($_SESSION["username"]);
     $templateParams["payMethods"] = $dbh->getPayMethods($_SESSION["username"], 3);
     $templateParams["addresses"] = $dbh->getAddresses($_SESSION["username"]);
     $templateParams["userinfo"] = array("username" => $_SESSION["username"], "namesurname" => $_SESSION["namesurname"], 
                                         "birthdate" => $_SESSION["birthdate"], "passlen" => $_SESSION["passlen"]);
+    $templateParams["balance"] = findBalance($templateParams["payMethods"]);
     if(isset($_GET["formmsg"])){
         $templateParams["formmsg"] = $_GET["formmsg"];
     }

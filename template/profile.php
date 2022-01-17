@@ -70,39 +70,19 @@
                 <div class="panel">
                   <div class="accordionBack">
                     <ul class="list center p-10">
-                      <li class="left-text relative p-10">
+                      <?php foreach($templateParams["orders"] as $order): ?>
+                        <li class="left-text relative p-10">
                         <img
-                          src="./img/cava2000.png"
-                          alt=""
+                          src="./img/<?php echo $order["Cartella_immagini"]; ?>/1.png"
+                          alt="<?php echo $order["Nome"] ?>"
                           srcset=""
                           class="orderImage"
                         />
                         <div class="orderMiddleText">
-                          Arriverà <strong>domani</strong>
+                          Arriverà <strong><?php echo $order["Data_Arrivo"]; ?></strong>
                         </div>
                       </li>
-                      <li class="left-text relative p-10">
-                        <img
-                          src="./img/cava2000.png"
-                          alt=""
-                          srcset=""
-                          class="orderImage"
-                        />
-                        <div class="orderMiddleText">
-                          Arriverà <strong>dopodomani</strong>
-                        </div>
-                      </li>
-                      <li class="left-text relative p-10">
-                        <img
-                          src="./img/cava2000.png"
-                          alt=""
-                          srcset=""
-                          class="orderImage"
-                        />
-                        <div class="orderMiddleText">
-                          Arriverà <strong>sabato 18 Dicembre</strong>
-                        </div>
-                      </li>
+                      <?php endforeach; ?>
                     </ul>
                     <footer>
                       <button class="hardButton w-75 m-10t m-20b">
@@ -123,7 +103,9 @@
                     <header>
                       <div class="p-20t p-10b">
                         <span class="bigSaturatedText"
-                          >€ 1205<em>,16 </em></span
+                          >€ <?php $sald = $templateParams["balance"]["Tassa"];
+                                 $splitted = explode(".", $sald);
+                                 echo $splitted[0] . "<em>, " . $splitted[1] . "</em>"; ?></span
                         >
                       </div>
                       <p class="middleSaturatedText m-0 m-20b">
@@ -140,7 +122,9 @@
                             <header>
                               <div class="p-20t p-10b">
                                 <span class="bigSaturatedText"
-                                  >€ 1205<em>,16 </em></span
+                                  >€ <?php $sald = $templateParams["balance"]["Tassa"];
+                                 $splitted = explode(".", $sald);
+                                 echo $splitted[0] . "<em>, " . $splitted[1] . "</em>"; ?></span
                                 >
                               </div>
                               <p class="middleSaturatedText m-0 m-20b">
@@ -170,26 +154,24 @@
                                   </h2>
                                 </header>
                                 <ul class="list">
-                                  <li>
-                                    <div
-                                      class="paymentMethod w-75 inline-block"
-                                    >
-                                      <h3
-                                        class="m-0 right w-60 center f-16 p-10b"
-                                      >
-                                        Carta di Fresh
-                                      </h3>
-                                      <img
-                                        src="./img/visaLogo.png"
-                                        class="left p-10t littlePaymentIcon"
-                                      />
-                                      <p
-                                        class="w-68 right m-0 center f-14 lh-10"
-                                      >
-                                        •••• •••• •••• 0765
-                                      </p>
-                                    </div>
-                                  </li>
+                                  <?php foreach($templateParams["payMethods"] as $payMethod): ?>
+                          <li>
+                          <div class="paymentMethod w-75 inline-block">
+                            <h3 class="m-0 right w-60 center f-16 p-10b">
+                              <?php echo $payMethod["Nome"] ?>
+                            </h3>
+                            <img
+                              src="./img/visaLogo.png"
+                              class="left p-10t littlePaymentIcon"
+                            />
+                            <p class="w-68 right m-0 center f-14 lh-10">
+                              <?php for($i = 0; $i < strlen((string)$payMethod["Numero"])-2; $i++) {echo "●";} 
+                              echo substr((string)$payMethod["Numero"], -2); ?>
+                            </p>
+                          </div>
+                        </li>
+                        <?php endforeach; ?>
+                                  
                                 </ul>
                               </aside>
                               <input
@@ -209,20 +191,23 @@
                         </h2>
                       </header>
                       <ul class="list">
-                        <li>
+                        <?php foreach($templateParams["payMethods"] as $payMethod): ?>
+                          <li>
                           <div class="paymentMethod w-75 inline-block">
                             <h3 class="m-0 right w-60 center f-16 p-10b">
-                              Carta di Fresh
+                              <?php echo $payMethod["Nome"] ?>
                             </h3>
                             <img
                               src="./img/visaLogo.png"
                               class="left p-10t littlePaymentIcon"
                             />
                             <p class="w-68 right m-0 center f-14 lh-10">
-                              •••• •••• •••• 0765
+                              <?php for($i = 0; $i < strlen((string)$payMethod["Numero"])-2; $i++) {echo "●";} 
+                              echo substr((string)$payMethod["Numero"], -2); ?>
                             </p>
                           </div>
                         </li>
+                        <?php endforeach; ?>
                       </ul>
                       <footer>
                         <form action="">
@@ -258,13 +243,15 @@
                 <div class="panel">
                   <div class="accordionBack">
                     <ul class="list">
-                      <li>
+                      <?php foreach($templateParams["addresses"] as $address): ?>
+                        <li>
                         <div class="violetBox">
                           <p class="middleSaturatedText f-18">
-                            Via F. Parri 727, Cesena
+                            <?php echo $address["Via"] . " " . $address["Numero_civico"] . ", " . $address["Citta"]; ?>
                           </p>
                         </div>
                       </li>
+                        <?php endforeach; ?>
                     </ul>
                     <!-- Trigger/Open The Modal -->
 

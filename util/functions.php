@@ -19,7 +19,13 @@ function registerLoggedUser($user, $passlen){
     $_SESSION["passlen"] = $passlen;
     $_SESSION["namesurname"] = $user["Nome"] . " " . $user["Cognome"];
 }
-
+function findBalance($payMethods) {
+    foreach($payMethods as $payMethod) {
+        if ($payMethod["Nome"] == "saldo") {
+            return $payMethod;
+        }
+    }
+}
 function getAction($action){
     $result = "";
     switch($action){

@@ -53,13 +53,29 @@ class DatabaseHelper{
         return $stmt->insert_id;
     }
     public function getOrders($username) {
-
+        $query = "SELECT Nome, Data_Arrivo, Cartella_immagini FROM articolo a, dettaglio_spedizione d, ordine o WHERE o.Nome_Utente = ? AND
+                 d.ID_Ordine = o.ID_Ordine AND d.ID_Articolo = a.ID_Articolo";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s',$username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
     public function getAddresses($username) {
-        
+        $query = "SELECT Via, Numero_civico, Citta  FROM indirizzo i WHERE i.Nome_Utente = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s',$username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
     public function getPayMethods($username, $limit=20) {
-        
+        $query = "SELECT Nome_Utente, Nome, Numero, Circuito_pagamento, Tassa FROM metodo_pagamento m WHERE m.Nome_Utente = ? LIMIT ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('si',$username, $limit);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 }
 ?>
