@@ -31,27 +31,27 @@
                         <span class="lightText left w-50 fullHeight"
                           >Nome Utente:</span
                         >
-                        <span class="middleText center"><?php echo $_SESSION["username"] ?></span><br />
+                        <span class="middleText center"><?php echo $templateParams["userinfo"]["username"] ?></span><br />
                       </li>
                       <li class="m-20">
                         <span class="lightText left w-50 fullHeight"
                           >Password:</span
                         >
-                        <span class="middleText center">●●●●●●●●●●</span>
+                        <span class="middleText center"><?php for($i = 0; $i < $templateParams["userinfo"]["passlen"]; $i++) {echo "●";} ?></span>
                         <br />
                       </li>
                       <li class="m-20">
                         <p class="left w-50 m-0 fullHeight">
                           <span class="lightText">Nome e Cognome:</span>
                         </p>
-                        <span class="middleText center">Francesco Magnani</span>
+                        <span class="middleText center"><?php echo $templateParams["userinfo"]["namesurname"] ?></span>
                         <br />
                       </li>
                       <li class="m-20">
                         <span class="lightText left w-50"
                           >Data di Nascita:</span
                         >
-                        <span class="middleText center">16/03/2000</span>
+                        <span class="middleText center"><?php echo $templateParams["userinfo"]["birthdate"] ?></span>
                       </li>
                       <button class="center modifyAccountButton m-10b m-10t">
                         Modifica dati

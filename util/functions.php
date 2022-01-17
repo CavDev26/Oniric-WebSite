@@ -13,8 +13,11 @@ function isUserLoggedIn(){
     return !empty($_SESSION['username']);
 }
 
-function registerLoggedUser($user){
+function registerLoggedUser($user, $passlen){
     $_SESSION["username"] = $user["Nome_Utente"];
+    $_SESSION["birthdate"] = $user["Data_Nascita"];
+    $_SESSION["passlen"] = $passlen;
+    $_SESSION["namesurname"] = $user["Nome"] . " " . $user["Cognome"];
 }
 
 function getAction($action){
