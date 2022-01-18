@@ -77,5 +77,19 @@ class DatabaseHelper{
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+    public function insertNewAddress($username, $address) {
+        $query = "INSERT INTO indirizzo (Via, Numero_civico, Citta, Nome_Utente) VALUES (?, ?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('siss',$address["Via"],$address["Numero_civico"], $address["Citta"], $username);
+        $stmt->execute();
+        return $stmt->insert_id;
+    }
+    public function insertNewPayMethod($username, $payMethod) {
+        $query = "INSERT INTO metodo_pagamento (Nome_Utente, Nome, Numero, Circuito_pagamento, Tassa) VALUES (?, ?, ?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ssssd',$username,$payMethod["Nome"], $payMethod["Numero"], $payMethod["Circuito_pagamento"], $payMethod["Tassa"]);
+        $stmt->execute();
+        return $stmt->insert_id;
+    }
 }
 ?>

@@ -14,8 +14,12 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
         registerLoggedUser($login_result[0], strlen($_POST["password"]));
     }
 }
-
 if(isUserLoggedIn()){
+
+    if(isset($_POST["address"]) && isset($_POST["ncivico"]) && isset($_POST["citta"])){
+        //Login fallito
+        $dbh->insertNewAddress($_SESSION["username"], array("Via" => $_POST["address"], "Numero_civico" => $_POST["ncivico"], "Citta" => $_POST["citta"]));
+    }
     
     // UTENTE LOGGATO
     $templateParams["titolo"] = "Profilo - " . $_SESSION["username"];
@@ -26,15 +30,13 @@ if(isUserLoggedIn()){
     $templateParams["userinfo"] = array("username" => $_SESSION["username"], "namesurname" => $_SESSION["namesurname"], 
                                         "birthdate" => $_SESSION["birthdate"], "passlen" => $_SESSION["passlen"]);
     $templateParams["balance"] = findBalance($templateParams["payMethods"]);
-    if(isset($_GET["formmsg"])){
-        $templateParams["formmsg"] = $_GET["formmsg"];
-    }
 }
 else{
     // UTENTE NON LOGGATO
     $templateParams["titolo"] = "Oniric - Login";
     $templateParams["nome"] = "login-form.php";
 }
+
 
 require 'template/base.php';
 ?>

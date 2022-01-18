@@ -18,6 +18,7 @@
             </div>
             <p class="profileNameText"><?php echo $_SESSION["username"] ?></p>
           </header>
+          <p><?php if (isset($templateParams["error"])) { echo $templateParams["error"];} ?></p> 
           <ul class="list center">
             <li>
               <div>
@@ -264,7 +265,7 @@
                       <div class="profileModal-content">
                         <span class="profileModalClose">&times;</span>
                         <h3>Inserisci nuovo indirizzo</h3>
-                        <form class="simpleForm">
+                        <form class="simpleForm" action="#" method="POST" enctype="multipart/form-data">
                           <div class="left p-10">
                             <label for="address" class="addressLabel"
                               >Indirizzo:</label
@@ -287,6 +288,18 @@
                               id="ncivico"
                               name="ncivico"
                               placeholder="N. Civico"
+                            />
+                          </div>
+                          <div class="left p-10">
+                            <label for="citta" class="addressLabel"
+                              >Citt&agrave;</label
+                            ><br />
+                            <input
+                              class="addressInput"
+                              type="text"
+                              id="citta"
+                              name="citta"
+                              placeholder="Inserisci Citt&agrave;"
                             />
                           </div>
                           <input
