@@ -15,9 +15,10 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
     }
 }
 if(isUserLoggedIn()){
-
+    if(isset($_POST["caddress"]) && isset($_POST["cncivico"]) && isset($_POST["ccitta"])){
+        $dbh->deleteAddress($_SESSION["username"], array("Via" => $_POST["caddress"], "Numero_civico" => $_POST["cncivico"], "Citta" => $_POST["ccitta"]));
+    }
     if(isset($_POST["address"]) && isset($_POST["ncivico"]) && isset($_POST["citta"])){
-        //Login fallito
         $dbh->insertNewAddress($_SESSION["username"], array("Via" => $_POST["address"], "Numero_civico" => $_POST["ncivico"], "Citta" => $_POST["citta"]));
     }
     

@@ -136,12 +136,13 @@
   outline: none;
 }
 .violetBox {
+  display: inline-block;
   background: rgba(229, 214, 255, 0.35);
   border: 1px solid #be9cf59d;
   box-sizing: border-box;
   border-radius: 7px;
-  width: auto;
-  margin: 20px;
+  width: 80%;
+  margin: 10px;
   padding: 10px;
 }
 /* Container needed to position the overlay. Adjust the width as needed */
@@ -230,4 +231,16 @@
   font-size: 18px;
   line-height: 40px;
   max-width: 500px;
+}
+.addressButton {
+  color: #aaa;
+  font-size: 28px;
+  cursor: pointer;
+}
+.addressText {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 29px;
+  color: var(--primary);
 }

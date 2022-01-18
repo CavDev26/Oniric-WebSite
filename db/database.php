@@ -84,6 +84,12 @@ class DatabaseHelper{
         $stmt->execute();
         return $stmt->insert_id;
     }
+    public function deleteAddress($username,$address) {
+        $query = "DELETE FROM indirizzo where Via = ? AND Numero_civico = ? AND Citta = ? AND Nome_Utente = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('siss',$address["Via"],$address["Numero_civico"], $address["Citta"], $username);
+        return  $stmt->execute();
+    }
     public function insertNewPayMethod($username, $payMethod) {
         $query = "INSERT INTO metodo_pagamento (Nome_Utente, Nome, Numero, Circuito_pagamento, Tassa) VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);

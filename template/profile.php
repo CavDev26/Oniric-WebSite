@@ -247,10 +247,31 @@
                       <?php foreach($templateParams["addresses"] as $address): ?>
                         <li>
                         <div class="violetBox">
-                          <p class="middleSaturatedText f-18">
+                          <p class="addressText m-10t m-10b">
                             <?php echo $address["Via"] . " " . $address["Numero_civico"] . ", " . $address["Citta"]; ?>
                           </p>
                         </div>
+                        <span class="filterButton addressButton">&times;</span>
+                    <!-- The Modal -->
+                    <div class="profileModal">
+                      <!-- Modal content -->
+                      <div class="profileModal-content">
+                        <span class="profileModalClose">&times;</span>
+                        <p> Sei sicuro di voler cancellare questo indirizzo? </p>
+                        <form action="#" method="POST">
+                        <input type="hidden" value="<?php echo $address["Via"] ?>" name="caddress"/> 
+                        <input type="hidden" value="<?php echo $address["Numero_civico"] ?>" name="cncivico"/> 
+                        <input type="hidden" value="<?php echo $address["Citta"] ?>" name="ccitta"/> 
+                        <input
+                            class="softButton center"
+                            type="submit"
+                            value="Sì"
+                          />
+                          </form>
+                          <button
+                            class="softButton center cancelModal">Annulla</button>
+                      </div>
+                    </div>
                       </li>
                         <?php endforeach; ?>
                     </ul>
