@@ -3,3 +3,9 @@
     padding: 10px;
     border-radius: 6px;
 }
+.order-span-img {
+    height: 140px;
+}
+.status-effettivo {
+    font-weight: bold;
+}
