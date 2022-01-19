@@ -1,69 +1,47 @@
-<?php $articolo = $templateParams["articolo"][0]; var_dump($articolo); ?>
+<?php $articolo = $templateParams["articolo"][0]; ?>
+<link rel="stylesheet" href="./css/productStyle.css" />
+ <link rel="stylesheet" href="./css/carousel.css" />
+
+<main class="center">
 <div class="simpleBack center">
         <section>
           <h1 class="mediumTitle"><?php echo $articolo["Nome"]; ?></h1>
           <h2 class="mediumSubtitle"><?php echo $articolo["App_Nome"]; ?></h2>
-          <img src="../img/star.png" alt="" class="reviewStar" />
-          <img src="../img/star.png" alt="" class="reviewStar" />
-          <img src="../img/star.png" alt="" class="reviewStar" />
-          <img src="../img/star.png" alt="" class="reviewStar" />
-          <img src="../img/halfStar.png" alt="" class="reviewStar" />
+          <img src="./img/star.png" alt="" class="reviewStar" />
+          <img src="./img/star.png" alt="" class="reviewStar" />
+          <img src="./img/star.png" alt="" class="reviewStar" />
+          <img src="./img/star.png" alt="" class="reviewStar" />
+          <img src="./img/halfStar.png" alt="" class="reviewStar" />
         </section>
         <hr class="separator" />
           <section class="carouselSection left-text">
             <div class="slideshow-container">
-              <div class="mySlides fade">
-                <div class="numbertext">1 / 4</div>
-                <img src="../img/cava2000.png" alt="" class="productImage" />
-              </div>
-              <div class="mySlides fade">
-                <div class="numbertext">2 / 4</div>
-                <img
-                  src="../img/scheda grafica.png"
-                  alt=""
-                  class="productImage"
-                />
-              </div>
-
-              <div class="mySlides fade">
-                <div class="numbertext">3 / 4</div>
-                <img src="../img/CAVA PHONE.png" alt="" class="productImage" />
-              </div>
-
-              <div class="mySlides fade">
-                <div class="numbertext">3 / 4</div>
-                <img src="../img/cava2000.png" alt="" class="productImage" />
-              </div>
+              <?php $dir = scandir("./img/" . $articolo["Cartella_immagini"]); 
+              array_splice($dir, 0, 2);
+              for($i=1; $i <= count($dir); $i++): ?>
+                <div class="mySlides fade">
+                  <img
+                    src="<?php echo "./img/" . $articolo["Cartella_immagini"] . "/" . $i . ".png" ?>"
+                    alt="<?php echo $articolo["Nome"] . " immagine numero: " . $i ?>"
+                    class="productImage"
+                  />
+                </div>
+              <?php endfor; ?>
             </div>
             <div class="carouselNav center">
-              <img
-                src="../img/carouselDot.png"
-                alt=""
-                class="carouselDot activeDot"
-                onclick="currentSlide(1)"
-              />
-              <img
-                src="../img/carouselDot.png"
-                alt=""
-                class="carouselDot"
-                onclick="currentSlide(2)"
-              />
-              <img
-                src="../img/carouselDot.png"
-                alt=""
-                class="carouselDot"
-                onclick="currentSlide(3)"
-              />
-              <img
-                src="../img/carouselDot.png"
-                alt=""
-                class="carouselDot"
-                onclick="currentSlide(4)"
-              />
+            <?php 
+            for($i=1; $i <= count($dir); $i++): ?>
+                <img
+                  src="./img/carouselDot.png"
+                  alt="Seleziona immagine numero <?php echo $i ?>"
+                  class="carouselDot activeDot"
+                  onclick="currentSlide(<?php echo $i ?>)"
+                />
+            <?php endfor; ?>
             </div>
           </section>
           <section class="secondPart center">
-            <section class="descriptionPart">
+            <section class="descriptionPart fullWidth">
               <p class="briefDesc">
                 <?php echo $articolo["Descrizione_breve"]; ?>
               </p>
@@ -77,7 +55,8 @@
                 <li class="priceListItem">
                   <div>
                     <p class="priceItem">Prezzo Consigliato:</p>
-                    <p class="normalPriceNumber lineThroughNumber">
+                    <p class="<?php if (is_null($articolo["Sconto"])) 
+                    { echo "finalPriceNumber";} else { echo "normalPriceNumber lineThroughNumber"; } ?>">
                       <?php $price = explode(".",$articolo["Costo_listino"]);
                       if (count($price) == 1) {
                         echo $price[0];
@@ -88,25 +67,38 @@
                         echo ", <em class=\"priceItalic\">". $price[1] . "</em>";
                       }
                       ?>
+                      &#128;
                     </p>
                   </div>
                 </li>
+                <?php if (!is_null($articolo["Sconto"])): ?>
                 <li class="priceListItem">
                   <div>
                     <p class="priceItem">Sconto:</p>
                     <p class="normalPriceNumber">
-                      200,<em class="priceItalic">00</em> € (17%)
+                      <?php echo (string) ((float)$articolo["Sconto"]*$articolo["Costo_listino"]) ?>,<em class="priceItalic">00</em> € <?php echo "( " . (string) ((float)$articolo["Sconto"]*100)."% )"?>
                     </p>
                   </div>
                 </li>
                 <li class="priceListItem">
                   <div>
                     <p class="priceItem">Prezzo:</p>
-                    <p class="finalPriceNumber">
-                      999, <em class="priceItalic">99</em> €
+                    <p class="finalPriceNumber"><?php $price = explode(".",
+                    (string)((float)$articolo["Costo_listino"] - (float)$articolo["Sconto"]*(float)$articolo["Costo_listino"]));
+                      if (count($price) == 1) {
+                        echo $price[0];
+                        echo ", <em class=\"priceItalic\">00</em>";
+                      }
+                      else {
+                        echo $price[0];
+                        echo ", <em class=\"priceItalic\">". $price[1] . "</em>";
+                      }
+                      ?>
+                      &#128;
                     </p>
                   </div>
                 </li>
+                <?php endif; ?>
               </ul>
               <footer class="italic-footer lh-10">
                 Tutti i prezzi sono inclusivi di IVA
@@ -115,15 +107,16 @@
             </section>
             <section class="center">
               <h2 class="smallSubTitle">Spedizione Gratuita</h2>
-              <main class="simpleText">
+              <p class="simpleText">
                 Spedito da BRT: Consegna Prevista per
                 <strong>2 Gennaio 2024</strong>
-              </main>
+              </p>
               <footer><hr class="separator" /></footer>
-            </section>
-            <button type="button" class="wideLiteButton">
-              Aggiungi al Carrello
+              <button type="button" class="wideLiteButton">Aggiungi al Carrello
             </button>
+            </section>
+            
+              
           </section>
           <section>
             <main class="simpleText simpleTextLeft m-20t">
@@ -163,13 +156,13 @@
         <section class="center">
           <h2>Recensioni</h2>
           <article class="review center">
-            <img src="../img/userIcon.png" alt="" class="reviewUserIcon" />
+            <img src="./img/account.png" alt="" class="reviewUserIcon" />
             <h3 class="inline-block">Fresh</h3>
             <div class="reviewVote right inline-block">
-              <img src="../img/star.png" alt="" class="smallReviewStar" />
-              <img src="../img/star.png" alt="" class="smallReviewStar" />
-              <img src="../img/star.png" alt="" class="smallReviewStar" />
-              <img src="../img/star.png" alt="" class="smallReviewStar" />
+              <img src="./img/star.png" alt="" class="smallReviewStar" />
+              <img src="./img/star.png" alt="" class="smallReviewStar" />
+              <img src="./img/star.png" alt="" class="smallReviewStar" />
+              <img src="./img/star.png" alt="" class="smallReviewStar" />
             </div>
             <p class="reviewText left-text">
               Ottimo PC! Lo consiglio a tutti quelli che, come me, necessitano
@@ -180,13 +173,13 @@
             </footer>
           </article>
           <article class="review center">
-            <img src="../img/userIcon.png" alt="" class="reviewUserIcon" />
+            <img src="./img/account.png" alt="" class="reviewUserIcon" />
             <h3 class="inline-block">Cava</h3>
             <div class="reviewVote right inline-block">
-              <img src="../img/star.png" alt="" class="smallReviewStar" />
-              <img src="../img/emptyStar.png" alt="" class="smallReviewStar" />
-              <img src="../img/emptyStar.png" alt="" class="smallReviewStar" />
-              <img src="../img/emptyStar.png" alt="" class="smallReviewStar" />
+              <img src="./img/star.png" alt="" class="smallReviewStar" />
+              <img src="./img/emptyStar.png" alt="" class="smallReviewStar" />
+              <img src="./img/emptyStar.png" alt="" class="smallReviewStar" />
+              <img src="./img/emptyStar.png" alt="" class="smallReviewStar" />
             </div>
             <p class="reviewText left-text">
               Non ascoltate quello che dicono gli altri utenti. Una vergogna
@@ -204,3 +197,5 @@
           </footer>
         </section>
       </div>
+</main>
+<script src="./js/carousel.js"></script>
