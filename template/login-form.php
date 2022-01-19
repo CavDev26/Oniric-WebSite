@@ -36,5 +36,5 @@
             </div>
         </footer>
       </form>
-      
+      <a href="signup.php"><p>Non hai un account? Clicca qui per registrarti!</p></a>
     </div>

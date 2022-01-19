@@ -97,5 +97,13 @@ class DatabaseHelper{
         $stmt->execute();
         return $stmt->insert_id;
     }
+    public function getArticle($articleId) {
+        $query = "SELECT Nome, Descrizione, Descrizione_breve, Costo_listino, Quantita_Disp, Sconto, Cartella_immagini, App_Nome FROM articolo WHERE articolo.ID_Articolo = ? LIMIT 1";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s',$articleId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }
 ?>
