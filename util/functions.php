@@ -92,4 +92,14 @@ function uploadImage($path, $image){
     return array($result, $msg);
 }
 
+function getMeanVote($reviews) {
+    if (count($reviews) == 0) { return 0;}
+    $mean = 0.0;
+    $n = count($reviews);
+    for ($i = 0; $i < $n; $i++) {
+        $mean += (float) $reviews[$i]["Voto"];
+    }
+    return $mean / $n;
+}
+
 ?>

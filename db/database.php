@@ -105,5 +105,21 @@ class DatabaseHelper{
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+    public function getReviewsOfArticle($articleId) {
+        $query = "SELECT Nome_Utente, Voto, Testo, Titolo, Data_Recensione FROM recensione WHERE ID_Articolo = ? LIMIT 10";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s',$articleId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function getArticleDetails($articleId) {
+        $query = "SELECT Nome, Valore FROM dettaglio_articolo WHERE ID_Articolo = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s',$articleId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }
 ?>

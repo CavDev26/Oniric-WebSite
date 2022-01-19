@@ -7,11 +7,17 @@
         <section>
           <h1 class="mediumTitle"><?php echo $articolo["Nome"]; ?></h1>
           <h2 class="mediumSubtitle"><?php echo $articolo["App_Nome"]; ?></h2>
+          <?php $n = (int) $templateParams["votomedio"]; 
+          for($i = 0; $i < $n; $i++):?>
           <img src="./img/star.png" alt="" class="reviewStar" />
-          <img src="./img/star.png" alt="" class="reviewStar" />
-          <img src="./img/star.png" alt="" class="reviewStar" />
-          <img src="./img/star.png" alt="" class="reviewStar" />
+          <?php endfor; 
+          if ($templateParams["votomedio"] - (float)$n >= 0.5): $n++;?>
           <img src="./img/halfStar.png" alt="" class="reviewStar" />
+          <?php endif; 
+          for($i=0; $i < 5 - $n; $i++):?>
+          <img src="./img/emptyStar.png" alt="" class="reviewStar" />
+          <?php endfor; ?>
+          <span class="mediumSubtitle">(<?php echo count($templateParams["recensioni"]);?>)</span>
         </section>
         <hr class="separator" />
           <section class="carouselSection left-text">
@@ -118,78 +124,57 @@
             
               
           </section>
-          <section>
+          <section class="m-20">
             <main class="simpleText simpleTextLeft m-20t">
               <?php echo $articolo["Descrizione"]; ?>
             </main>
             <aside class="tableSection center inline-block">
+              <?php if(count($templateParams["dettagli"]) > 0): ?>
               <table class="detailsTable">
+                <?php $i = 0; foreach($templateParams["dettagli"] as $dettaglio): ?>
+                <?php if ($i % 2 == 0): ?>
                 <tr class="detailsTable">
-                  <th class="detailsTable">Processore</th>
-                  <td class="detailsTable">Intel Core i9-11 3.5 GHz</td>
+                  <th class="detailsTable"><?php echo $dettaglio["Nome"];?></th>
+                  <td class="detailsTable"><?php echo $dettaglio["Valore"];?></td>
                 </tr>
+                <?php else : ?>
                 <tr>
-                  <th>Scheda grafica</th>
-                  <td>NVIDIA RTX 3090</td>
+                  <th><?php echo $dettaglio["Nome"];?></th>
+                  <td><?php echo $dettaglio["Valore"];?></td>
                 </tr>
-                <tr class="detailsTable">
-                  <th class="detailsTable">Memoria DRAM</th>
-                  <td class="detailsTable">24 GB</td>
-                </tr>
-                <tr>
-                  <th>Memoria RAM</th>
-                  <td>128 GB</td>
-                </tr>
-                <tr class="detailsTable">
-                  <th class="detailsTable">Archiviazione</th>
-                  <td class="detailsTable">3 TB HDD 2 TB SSD</td>
-                </tr>
-                <tr>
-                  <th>Gestione Energetica</th>
-                  <td>850 W, 80 PLUS GoldD</td>
-                </tr>
+                <?php endif; $i++; endforeach; ?>
               </table>
+              <?php endif; ?>
             </aside>
             <footer><hr class="separator" /></footer>
           </section>
         </section>
         <section class="center">
           <h2>Recensioni</h2>
-          <article class="review center">
-            <img src="./img/account.png" alt="" class="reviewUserIcon" />
-            <h3 class="inline-block">Fresh</h3>
+          <?php foreach($templateParams["recensioni"] as $review ): ?>
+          <article class="review">
+            <img src="./img/account.png" alt="Icona utente <?php echo $review["Nome_Utente"]; ?>" class="reviewUserIcon" />
+            <h3 class="inline-block left-text"> <?php echo $review["Nome_Utente"]; ?></h3>
             <div class="reviewVote right inline-block">
+              <?php $n = (int) $review["Voto"]; 
+              for($i = 0; $i < $n; $i++):?>
               <img src="./img/star.png" alt="" class="smallReviewStar" />
-              <img src="./img/star.png" alt="" class="smallReviewStar" />
-              <img src="./img/star.png" alt="" class="smallReviewStar" />
-              <img src="./img/star.png" alt="" class="smallReviewStar" />
+              <?php endfor; 
+              if ($review["Voto"] - (float)$n >= 0.5): $n++?>
+              <img src="./img/halfStar.png" alt="" class="smallReviewStar" />
+              <?php endif; 
+              for($i=0; $i < 5 - $n; $i++):?>
+              <img src="./img/emptyStar.png" alt="" class="smallReviewStar" />
+              <?php endfor; ?>
             </div>
             <p class="reviewText left-text">
-              Ottimo PC! Lo consiglio a tutti quelli che, come me, necessitano
-              di potenti workstation per passare gli esami di Tecnologie Web!
+              <?php echo $review["Testo"]; ?>
             </p>
             <footer class="reviewFooter right-text">
-              Aggiunta il 03/12/2021
+              Aggiunta il <?php echo $review["Data_Recensione"]; ?>
             </footer>
           </article>
-          <article class="review center">
-            <img src="./img/account.png" alt="" class="reviewUserIcon" />
-            <h3 class="inline-block">Cava</h3>
-            <div class="reviewVote right inline-block">
-              <img src="./img/star.png" alt="" class="smallReviewStar" />
-              <img src="./img/emptyStar.png" alt="" class="smallReviewStar" />
-              <img src="./img/emptyStar.png" alt="" class="smallReviewStar" />
-              <img src="./img/emptyStar.png" alt="" class="smallReviewStar" />
-            </div>
-            <p class="reviewText left-text">
-              Non ascoltate quello che dicono gli altri utenti. Una vergogna
-              vendere un pre-assemblato del genere, dal vivo ancora più
-              inguardabile. Per questo prezzo si trovano anche PC più potenti
-            </p>
-            <footer class="reviewFooter right-text">
-              Aggiunta il 03/12/2021
-            </footer>
-          </article>
+          <?php endforeach; ?>
           <footer>
             <button type="button" class="wideLiteButton">
               <span class="buttonContent">Mostra tutte le recensioni</span>
