@@ -3,11 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/framework.css" />
-    <link rel="stylesheet" href="../css/indexStyle.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/framework.css" />
+    <link rel="stylesheet" href="./css/text.css" />
+    <link rel="stylesheet" href="./css/buttons.css" />
+    <link rel="icon" href="img/favicon.ico" type="image/ico">
 
-    <title>Oniric-Home</title>
+    <title><?php echo $templateParams["titolo"]; ?></title>
   </head>
   <body>
 
@@ -148,6 +153,9 @@
     </nav>
 
     <main>
+
+    <?php  require($templateParams["nome"]); ?>
+
     </main>
     <footer class="home-footer">
       <p>
