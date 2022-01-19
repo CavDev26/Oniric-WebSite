@@ -4,7 +4,9 @@ var modal = document.querySelectorAll(".modal , .profileModal");
 var btn = document.querySelectorAll(".modalButton , .filterButton");
 
 // Get the <span> element that closes the modal
-var span = document.querySelectorAll(".close , .profileModalClose");
+var span = document.querySelectorAll(
+  ".close , .profileModalClose, .cancelModal"
+);
 
 // When the user clicks on the button, open the modal
 for (var i = 0; i < modal.length; i++) {

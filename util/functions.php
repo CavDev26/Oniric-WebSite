@@ -10,15 +10,22 @@ function getIdFromName($name){
 }
 
 function isUserLoggedIn(){
-    return !empty($_SESSION['idautore']);
+    return !empty($_SESSION['username']);
 }
 
-function registerLoggedUser($user){
-    $_SESSION["idautore"] = $user["idautore"];
-    $_SESSION["username"] = $user["username"];
-    $_SESSION["nome"] = $user["nome"];
+function registerLoggedUser($user, $passlen){
+    $_SESSION["username"] = $user["Nome_Utente"];
+    $_SESSION["birthdate"] = $user["Data_Nascita"];
+    $_SESSION["passlen"] = $passlen;
+    $_SESSION["namesurname"] = $user["Nome"] . " " . $user["Cognome"];
 }
-
+function findBalance($payMethods) {
+    foreach($payMethods as $payMethod) {
+        if ($payMethod["Nome"] == "saldo") {
+            return $payMethod;
+        }
+    }
+}
 function getAction($action){
     $result = "";
     switch($action){

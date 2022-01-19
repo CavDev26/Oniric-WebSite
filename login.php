@@ -11,24 +11,33 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
         $templateParams["errorelogin"] = "Errore! Controllare username o password!";
     }
     else{
-        registerLoggedUser($login_result[0]);
+        registerLoggedUser($login_result[0], strlen($_POST["password"]));
     }
 }
-
 if(isUserLoggedIn()){
+    if(isset($_POST["caddress"]) && isset($_POST["cncivico"]) && isset($_POST["ccitta"])){
+        $dbh->deleteAddress($_SESSION["username"], array("Via" => $_POST["caddress"], "Numero_civico" => $_POST["cncivico"], "Citta" => $_POST["ccitta"]));
+    }
+    if(isset($_POST["address"]) && isset($_POST["ncivico"]) && isset($_POST["citta"])){
+        $dbh->insertNewAddress($_SESSION["username"], array("Via" => $_POST["address"], "Numero_civico" => $_POST["ncivico"], "Citta" => $_POST["citta"]));
+    }
+    
     // UTENTE LOGGATO
-    $templateParams["titolo"] = "Profilo - ".$_SESSION("username");
-    $templateParams["nome"] = "login-home.php";
-    /*
-    if(isset($_GET["formmsg"])){
-        $templateParams["formmsg"] = $_GET["formmsg"];
-    }*/
+    $templateParams["titolo"] = "Profilo - " . $_SESSION["username"];
+    $templateParams["nome"] = "profile.php";
+    $templateParams["orders"] = $dbh->getOrders($_SESSION["username"]);
+    $templateParams["payMethods"] = $dbh->getPayMethods($_SESSION["username"], 3);
+    $templateParams["addresses"] = $dbh->getAddresses($_SESSION["username"]);
+    $templateParams["userinfo"] = array("username" => $_SESSION["username"], "namesurname" => $_SESSION["namesurname"], 
+                                        "birthdate" => $_SESSION["birthdate"], "passlen" => $_SESSION["passlen"]);
+    $templateParams["balance"] = findBalance($templateParams["payMethods"]);
 }
 else{
     // UTENTE NON LOGGATO
     $templateParams["titolo"] = "Oniric - Login";
     $templateParams["nome"] = "login-form.php";
 }
+
 
 require 'template/base.php';
 ?>
