@@ -13,7 +13,9 @@
             <div class="profileHeader inline-block">
               <img src="./img/account.png" alt="Avatar" class="image" />
               <div class="overlay inline-block center">
-                <button class="miniButton">Esci</button>
+                <form action="#" method="POST">
+                  <input type="submit" class="miniButton p-10" value="Esci" name="exit" />
+                </form>
               </div>
             </div>
             <p class="profileNameText"><?php echo $_SESSION["username"] ?></p>
