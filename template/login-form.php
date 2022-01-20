@@ -1,9 +1,4 @@
 
-<link rel="stylesheet" href="./css/login_signup.css" />
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-
-
 <div class="loginBack ">
       <h1 class="bigTitle">Entra sul tuo Account</h1>
       <?php if(isset($templateParams["errorelogin"])): ?>

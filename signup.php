@@ -3,6 +3,8 @@ require_once 'bootstrap.php';
 
 $templateParams["titolo"] = "Oniric - Registrazione";
 $templateParams["nome"] = "signup-form.php";
+$templateParams["style"] = array("./css/login_signup.css", "https://fonts.googleapis.com/icon?family=Material+Icons");
+$templateParams["js"] = array("./js/togglePassword.js");
 
 if(isset($_POST["username"]) && isset($_POST["password"])){
     if ($_POST["password"] != $_POST["confirmpassword"]) {

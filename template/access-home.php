@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="./css/login_signup.css" />
 <div class="loginBack left-text">
       <h1 class="bigTitle">Registrati su Oniric</h1>
       <div class="center">
