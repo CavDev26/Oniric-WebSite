@@ -1,0 +1,38 @@
+main {
+    margin-top: 40px;
+}
+.product-review-image {
+    width: 100px;
+    height: 100px;
+}
+.reviewText-page {
+    width: 80%;
+    margin-left: 20%;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-right: 10px;
+}
+.nome-articolo {
+    font-weight: bold;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media only screen and (max-width: 1025px) { /*mobile*/
+    .reviewText-page {
+        width: 80%;
+        margin-left: 20%;
+        margin-top: 90px;
+        margin-bottom: 0;
+        padding-right: 10px;
+    }
+    .nome-articolo {
+        font-weight: bold;
+        margin-bottom: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}

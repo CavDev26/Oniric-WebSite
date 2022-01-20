@@ -106,7 +106,7 @@ body {
 .notifications-list {
   position: fixed;
   height: 65%;
-  width: 75%;
+  width: 45%;
   top: 65px;
   right: 0%;
 
@@ -419,6 +419,30 @@ body {
     cursor: pointer;
     opacity: 0;
     z-index: 2;
+  }
+  .notifications-list {
+    position: fixed;
+    height: 65%;
+    width: 75%;
+    top: 65px;
+    right: 0%;
+  
+    margin-top: 0px;
+    padding: 5%;
+  
+    overflow: auto;
+    max-height: 1000px;
+    display: block;
+  
+    text-align: left;
+    background: linear-gradient(180deg, #37284f 0%, #000000 59.37%);
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    border-radius: 0px 0px 0px 10px;
+  
+    transform-origin: 0% 0%;
+    transform: translate(100%, 0%);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
   }
   .notification-menu-img {
     width: 50px;

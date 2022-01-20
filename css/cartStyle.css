@@ -12,7 +12,7 @@
 
 .purchase-button {
     position: fixed;
-    top: 110px;
+    top: 80px;
     left: 50%;
     margin: 0;
     width: 90%;
@@ -216,3 +216,11 @@
     border-bottom: solid 1px var(--buttons);
     font-size: 10px;
 }   
+.qty::-webkit-outer-spin-button,
+.qty::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.qty[type=number] {
+  -moz-appearance: textfield;
+}
