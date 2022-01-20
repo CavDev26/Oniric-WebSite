@@ -14,8 +14,9 @@
     <link rel="stylesheet" href="../css/searchResults.css" />
     <link rel="stylesheet" href="../css/ordineHistory.css" />
     <link rel="stylesheet" href="../css/cartStyle.css" />
+    <link rel="stylesheet" href="../css/orderListStyle.css" />
 
-    <title>Oniric-Ordine</title>
+    <title>Oniric-Acquisti</title>
   </head>
   <body>
 
@@ -157,149 +158,95 @@
     </nav>
 
     <main class="fullHeight">
-      <div class="">
+        <div class="">
             <a class="normal" href="">
                 <div class="purchase-button">
                   <p>Indietro</p>
                 </div>
             </a>
-      </div>
+        </div>
         <div class="lightBack center fullWidth">
             <div class="floatingBack inline-block m-20b mw-800 z-1">
-              <div>
-                <header class="category p-10">Dettagli Articoli- ordine:
-                  <span>cmiacanaf</span>
-                </header>
+                <header class="category p-10">I tuoi acquisti</header>
                 <hr class="span-order"></hr>
-                <ul class="list detail-items">
-                    <li class="m-20l m-20r">
-                      <ul class="list">
-                        <li class="product-container">
-                            <div class="product">
-                              <a href=""><img class="product-image" src="../img/cava2000.png" alt=""/></a>
-                              <h1 class="product-name left-text">Cava 2000</h1>
-                              <hr class="span-cart">
-                              <div class="stars">
-                                <img class="star" src="../img/star.png" alt="">
-                                <img class="star" src="../img/star.png" alt="">
-                                <img class="star" src="../img/star.png" alt="">
-                                <img class="star" src="../img/star.png" alt="">
-                                <img class="star" src="../img/star.png" alt="">
-                              </div>
-                              <div class="price-section">
-                                <p class="valuta">€</p>
-                                <p class="price">999,99</p>
-                              </div>
+                <ul class="list">
+                    <li class="product-container">
+                        <div class="product">
+                            <a href=""><img class="product-image" src="../img/cava2000.png" alt=""/></a>
+                            <h1 class="product-name left-text">Ordine: <a href="" class="normal"><span>8432576322093</span></a></h1>
+                            <hr class="span-cart">
+                            <a href="">
+                                <div class="articolo">
+                                    <span class="limit-text">Oni 13 Pro Max Hyper Mega</span>
+                                </div>
+                            </a>
+                            <div class="status-consegna">
+                                <span>Status spedizione:</span>
+                                <span class="status-text">Consegnato</span>
                             </div>
-                          </li>
-                          <li class="product-container">
-                            <div class="product">
-                              <a href=""><img class="product-image" src="../img/CAVA PHONE.png" alt=""/></a>
-                              <h1 class="product-name left-text">Oni 13</h1>
-                              <hr class="span-cart">
-                              <div class="stars">
-                                <img class="star" src="../img/star.png" alt="">
-                                <img class="star" src="../img/star.png" alt="">
-                                <img class="star" src="../img/star.png" alt="">
-                                <img class="star" src="../img/star.png" alt="">
-                                <img class="star" src="../img/star.png" alt="">
-                              </div>
-                              <div class="price-section">
-                                <p class="valuta">€</p>
-                                <p class="price">999,99</p>
-                              </div>
+                            <div class="price-section">
+                                <span></span>
                             </div>
-                          </li> 
-                      </ul>
-                    </li>
-                    <li class="m-20l m-20r m-20b">
-                      <span class="left fullHeight m-0">Costi di spedizione</span>
-                      <span class="right m-0">0,00$</span><br/>
-                    </li>
-                    <hr class="span-order"></hr>
-                    <li class="m-20">
-                      <span class="left fullHeight total m-0">Totale</span>
-                      <span class="right m-0 total-price">999,99$</span><br/>
-                    </li>
-                </ul>
-              </div>
-              <hr class="span-order-big"></hr>
-              <div>
-                <header class="category m-10t">Dettagli Spedizione</header>
-                <hr class="span-order"></hr>
-                <ul class="list detail-items">
-                  <li class="m-20l m-20r center">
-                    <span class="w-50 fullHeight">Indirizzo di Spedizione:</span>
-                  </li>
-                  <li class="center m-10t m-20l m-10b">  
-                    <span class="add-name">
-                        Lorenzo Cavallucci
-                      </span> <br>
-                      <span class="">
-                        Via San Gimignano 369
-                      </span> <br>
-                      <span class="m-10b">
-                        Cesena, FC, Italia.
-                      </span> <br>
-                  </li>
-                  <hr class="span-order"></hr>
-                  <li>
-                    <span class="center">
-                      Metodo di spedizione
-                    </span>
-                  </li>
-                  <li class="m-20l m-20t m-20r center">
-                    <div class="back">
-                        <img class="center ship-img-omni" src="../img/logo-oniric.png" alt=""/>
-                        <p class="m-0">Omni</p>
-                    </div>
-                  </li>
-                  <hr class="span-order"></hr>
-                  <li class="m-20l m-20r m-20b">
-                    <span class="">
-                        Spedizione prevista:
-                      </span> <br>
-                      <span class="consegna">
-                        26 Gennaio 2022
-                      </span> <br>
-                  </li>
-                  <li class="m-20l m-20t m-20r">
-                    <button class="shipmentAccordion">
-                      Dettagli
-                    </button>
-                    <div class="panelShipment">
-                      <div class="accordionBackShipment">
-                        <div class="left m-20l m-10t m-20r">
-                          <img src="../img/orderhistory.png" class="order-span-img" alt=""/>
                         </div>
-                        <div class="center m-20l m-160b">
-                          <ul class="list m-20t left">
-                            <li class="m-10b">Preso in carico</li>
-                            <li class="m-10b">Spedito</li>
-                            <li class="m-10b">In consegna</li>
-                            <li class="m-10b"><strong>Consegnato</strong></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              <hr class="span-order-big"></hr>
-              <div>
-                <header class="category m-10t">Dettagli Pagamento</header>
-                <hr class="span-order"></hr>
-                <ul class="list detail-items">
-                    <li class="m-20l m-20r center">
-                        <span class="fullHeight">Metodo di pagamento: </span>
-                        <span>Il tuo Saldo</span>
                     </li>
-                    <li class="m-20l m-20r center">
-                      <span class="fullHeight">Data acquisto: </span>
-                      <span>21/12/2021</span>
-                  </li>
+                    <li class="product-container">
+                        <div class="product">
+                            <a href=""><img class="product-image" src="../img/cava2000.png" alt=""/></a>
+                            <h1 class="product-name left-text">Ordine: <a href="" class="normal"><span>8432576322093</span></a></h1>
+                            <hr class="span-cart">
+                            <a href="">
+                                <div class="articolo">
+                                    <span class="limit-text">Oni 13 Pro Max Hyper Mega</span>
+                                </div>
+                            </a>
+                            <div class="status-consegna">
+                                <span>Status spedizione:</span>
+                                <span class="status-text">Consegnato</span>
+                            </div>
+                            <div class="price-section">
+                                <span></span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="product-container">
+                        <div class="product">
+                            <a href=""><img class="product-image" src="../img/cava2000.png" alt=""/></a>
+                            <h1 class="product-name left-text">Ordine: <a href="" class="normal"><span>8432576322093</span></a></h1>
+                            <hr class="span-cart">
+                            <a href="">
+                                <div class="articolo">
+                                    <span class="limit-text">Oni 13 Pro Max Hyper Mega</span>
+                                </div>
+                            </a>
+                            <div class="status-consegna">
+                                <span>Status spedizione:</span>
+                                <span class="status-text">Consegnato</span>
+                            </div>
+                            <div class="price-section">
+                                <span></span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="product-container">
+                        <div class="product">
+                            <a href=""><img class="product-image" src="../img/cava2000.png" alt=""/></a>
+                            <h1 class="product-name left-text">Ordine: <a href="" class="normal"><span>8432576322093</span></a></h1>
+                            <hr class="span-cart">
+                            <a href="">
+                                <div class="articolo">
+                                    <span class="limit-text">Oni 13 Pro Max Hyper Mega</span>
+                                </div>
+                            </a>
+                            <div class="status-consegna">
+                                <span>Status spedizione:</span>
+                                <span class="status-text">Consegnato</span>
+                            </div>
+                            <div class="price-section">
+                                <span></span>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
-              </div>
             </div>
         </div>
         <footer class="home-footer">
