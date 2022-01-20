@@ -354,22 +354,34 @@
               </li>
               <li class="m-10t">
                 <button class="profileAccordion address">
-                  <span class="left add-name">
-                    Lorenzo Cavallucci
-                  </span> <br>
-                  <span class="left">
-                    Via San Gimignano 369
-                  </span> <br>
-                  <span class="left m-10b">
-                    Cesena, FC, Italia.
-                  </span>
+                  <span>Scegli indirizzo</span>
                 </button>
                 <div class="panel">
                   <div class="accordionBack">
-                    <form class="list" action="">
-                      <div>
-                        <input type="radio" class="none absolute" id="sort" />
-                        <label class="labell left" for="sort">
+
+
+                    <form class="list">
+                      <div class="radio-addr">
+                        <input type="radio" id="add1" name="radios" value="address"/>
+                        <label for="add1">
+                          <div class="pls">
+                            <p class="m-0 add-name">Lorenzo Cavallucci<br></p>
+                            Via San Gimignano 369<br>
+                            Cesena, FC, Italia.
+                          </div>
+                        </label>
+                        <hr class="span-order-big"></hr>
+                        <input type="radio" id="add2" name="radios" value="address"/>
+                        <label for="add2">
+                          <div class="pls">
+                            <p class="m-0 add-name">Lorenzo Cavallucci<br></p>
+                            Via San Gimignano 369<br>
+                            Cesena, FC, Italia.
+                          </div>
+                        </label>
+                        <hr class="span-order-big"></hr>
+                        <input type="radio" id="add3" name="radios" value="address"/>
+                        <label for="add3">
                           <div class="pls">
                             <p class="m-0 add-name">Lorenzo Cavallucci<br></p>
                             Via San Gimignano 369<br>
@@ -377,32 +389,10 @@
                           </div>
                         </label>
                       </div>
-                      <hr class="span-accordion"></hr>
-                      <div>
-                        <input type="radio" class="none absolute" id="sort" />
-                        <label class="labell left" for="sort">
-                          <div class="pls">
-                            <p class="m-0 add-name">Lorenzo Cavallucci<br></p>
-                            Via San Gimignano 369<br>
-                            Cesena, FC, Italia.
-                          </div>
-                        </label>
-                      </div>
-                      <hr class="span-accordion"></hr>
-                      <div>
-                        <input type="radio" class="none absolute" id="sort" />
-                        <label class="labell left" for="sort">
-                          <div class="pls">
-                            <p class="m-0 add-name">Lorenzo Cavallucci<br></p>
-                            Via San Gimignano 369<br>
-                            Cesena, FC, Italia.
-                          </div>
-                        </label>
-                      </div>
-                      <hr class="span-accordion"></hr>
-                      <div class="m-20l m-20r m-10t m-20b">
+                      <hr class="span-order-big"></hr>
+                      <div class="center">
                         <a href="">
-                          <button class="add-add">
+                          <button class="add-add hardButton">
                             Aggiungi indirizzo
                           </button>
                         </a>
@@ -423,26 +413,25 @@
                 </button>
                 <div class="panelShipment">
                   <div class="accordionBackShipment">
-                    <form class="list" action="">
-                      <div>
-                        <input type="radio" class="none absolute" id="sort"/>
-                        <label class="labell left" for="sort">
+                    <form class="list">
+                      <div class="radio-ship">
+                        <input type="radio" id="mode1" name="radios" value="mode" checked>
+                        <label class="m-10t" for="mode1">
                           <div class="pls">
                             <img class="left ship-img-omni m-20r" src="../img/logo-oniric.png" alt=""/>
-                            <p>Omni</p>
-                          </div>
+                            <p class="center">Omni</p>
+                          </div>                   
                         </label>
-                      </div>
-                      <hr class="span-accordion"></hr>
-                      <div class="m-80b">
-                        <input type="radio" class="none absolute" id="sort" />
-                        <label class="labell left" for="sort">
+                        <hr class="span-order-big"></hr>
+                        <input type="radio" id="mode2" name="radios" value="mode">
+                        <label for="mode2">
                           <div class="pls">
                             <p>Normale</p>
-                          </div>                          
+                          </div>                   
                         </label>
+                        <hr class="span-order-big"></hr>
                       </div>
-                    </form>
+                    </form> 
                   </div>
                 </div>
               </li>
@@ -474,78 +463,103 @@
                         0,00€
                       </span>
                     </div>
-                    <button class="modalButton">Ricarica Saldo</button>
+                    <button class="modalButton">Ricarica</button>
 
-                      <!-- The Modal -->
-                      <div class="profileModal">
-                        <!-- Modal content -->
-                        <div class="profileModal-content">
-                          <span class="profileModalClose">&times;</span>
-                          <div class="center">
-                            <header>
-                              <div class="p-20t p-10b">
-                                <span class="bigSaturatedText"
-                                  >€ 1205<em>,16 </em></span
-                                >
-                              </div>
-                              <p class="middleSaturatedText m-0 m-20b">
-                                Saldo Rimanente
-                              </p>
-                            </header>
-                            <form action="">
-                              <label
-                                for="quantity"
-                                class="middleText left p-20l f-20 p-10b"
+                    <div class="profileModal">
+                      <div class="profileModal-content">
+                        <span class="profileModalClose">&times;</span>
+                        <div class="center">
+                          <header>
+                            <div class="p-20t p-10b">
+                              <span class="bigSaturatedText"
+                                >€ 1205<em>,16 </em></span
                               >
-                                Ammontare </label
-                              ><br />
-                              <input
-                                class="numberPicker"
-                                type="number"
-                                id="quantity"
-                                name="quantity"
-                                min="1"
-                                max="500"
-                              />
+                            </div>
+                            <p class="middleSaturatedText m-0 m-20b">
+                              Saldo Rimanente
+                            </p>
+                          </header>
+                          <form action="">
+                            <div class="radio-toolbar center">
+                              <header class="m-10b">Ammontare</header>
+                    
+                              <input type="radio" id="radio1" name="radios" value="20" checked>
+                              <label for="radio1">20,00&#128</label>
+                            
+                              <input type="radio" id="radio2" name="radios" value="50">
+                              <label for="radio2">50,00&#128</label>
+                            
+                              <input type="radio" id="radio3" name="radios" value="100">
+                              <label for="radio3">100,00&#128</label><br>
 
-                              <aside>
-                                <header>
-                                  <h2 class="middleText left-text p-20l f-20">
-                                    Scegli con cosa ricaricare il saldo
-                                  </h2>
-                                </header>
-                                <ul class="list">
-                                  <li>
-                                    <div
-                                      class="paymentMethod w-75 inline-block"
-                                    >
-                                      <h3
-                                        class="m-0 right w-60 center f-16 p-10b"
-                                      >
-                                        Carta di Fresh
-                                      </h3>
-                                      <img
-                                        src="../img/visaLogo.png"
-                                        class="left p-10t littlePaymentIcon"
-                                      />
-                                      <p
-                                        class="w-68 right m-0 center f-14 lh-10"
-                                      >
-                                        •••• •••• •••• 0765
-                                      </p>
+                              <input type="radio" id="radiox" name="radios" value="minimo" checked>
+                              <label class="w-90 m-10t" for="radiox">Necessario: 99,00&#128</label>
+                            </div>
+
+                            <div>
+                              <header>
+                                <h2 class="middleText left-text f-20">
+                                  Scegli con cosa ricaricare il saldo
+                                </h2>
+                              </header>
+                              <div>
+                                  <form class="list">
+                                    <div class="payments">
+                                      <input type="radio" id="card1" name="radios" value="card" checked>
+                                      <label for="card1">
+                                        <div class="pls m-10b">
+                                          <img class="left" src="../img/visaLogo.png" alt=""/>
+                                          <p class="center m-0">
+                                            Mastercard <br>
+                                            •••• •••• •••• 0765
+                                          </p>
+                                        </div>                          
+                                      </label>
+                                      <hr class="span-order-big"></hr>
+
+                                      <input type="radio" id="card2" name="radios" value="card">
+                                      <label for="card2">
+                                        <div class="pls m-10b">
+                                          <img class="left" src="../img/visaLogo.png" alt=""/>
+                                          <p class="center m-0">
+                                            Mastercard <br>
+                                            •••• •••• •••• 0765
+                                          </p>
+                                        </div>                          
+                                      </label>
+                                      <hr class="span-order-big"></hr>
+
+                                      <input type="radio" id="card3" name="radios" value="card">
+                                      <label for="card3">
+                                        <div class="pls m-10b">
+                                          <img class="left" src="../img/visaLogo.png" alt=""/>
+                                          <p class="center m-0">
+                                            Mastercard <br>
+                                            •••• •••• •••• 0765
+                                          </p>
+                                        </div>                          
+                                      </label>
                                     </div>
-                                  </li>
-                                </ul>
-                              </aside>
-                              <input
-                                type="submit"
-                                class="hardButton w-75 m-10t m-20b"
-                                value="Ricarica"
-                              />
-                            </form>
-                          </div>
+                                    <hr class="span-order-big"></hr>
+                                    <div class="center">
+                                      <a href="">
+                                        <button class="add-card m-10b">
+                                          Aggiungi una carta
+                                        </button>
+                                      </a>
+                                    </div>
+                                  </form>
+                              </div>
+                            </div>
+                            <input
+                              type="submit"
+                              class="hardButton w-75 m-10t m-20b"
+                              value="Ricarica"
+                            />
+                          </form>
                         </div>
                       </div>
+                    </div>
                   </span>
                   
                   

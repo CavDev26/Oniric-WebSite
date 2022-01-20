@@ -135,6 +135,38 @@
   border: 2px solid var(--primary);
   outline: none;
 }
+.numberPicker::-webkit-outer-spin-button,
+.numberPicker::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.numberPicker[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+
+.radio-toolbar input[type="radio"] {
+  display: none;
+}
+
+.radio-toolbar label {
+  display: inline-block;
+  border-radius: 5px;
+  background-color: #be9cf5;
+  padding: 4px 11px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.radio-toolbar input[type="radio"]:checked+label {
+  background-color: #be9cf59d;
+}
+
+
+
+
+
 .violetBox {
   display: inline-block;
   background: rgba(229, 214, 255, 0.35);

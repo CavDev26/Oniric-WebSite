@@ -92,27 +92,64 @@
   }
 
   .pls {
-    padding: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 0px;
     width: 100%;
   }
-  .labell {
-    width: 100%;
-  }
-  .labell:hover {
+
+  .payments input[type="radio"]:checked+label {
     background: #e5d6ff;
     border-radius: 8px;
   }
+  .payments input[type="radio"] {
+    display: none;
+  }
+  .payments label {
+    width: 80%;
+    display: inline-block;
+    background: rgba(229, 214, 255, 0.35);
+    border-radius: 6px;
+    padding: 4px 11px;
+    cursor: pointer;
+  }
+
+  .radio-ship input[type="radio"]:checked+label {
+    background: #e5d6ff;
+    border-radius: 8px;
+  }
+  .radio-ship input[type="radio"] {
+    display: none;
+  }
+
+  .radio-ship label {
+    width: 80%;
+    display: inline-block;
+    background: rgba(229, 214, 255, 0.35);
+    border-radius: 6px;
+    padding: 4px 11px;
+    cursor: pointer;
+  }
+
+
+  .radio-addr input[type="radio"]:checked+label {
+    background: #e5d6ff;
+    border-radius: 8px;
+  }
+  .radio-addr input[type="radio"] {
+    display: none;
+  }
+
+  .radio-addr label {
+    width: 80%;
+    display: inline-block;
+    border-radius: 6px;
+    padding: 4px 11px;
+    cursor: pointer;
+  }
+
+
+
+
   .ship-img-omni {
     width: 50px;
     height: auto;
   }
-
-.numberPicker::-webkit-outer-spin-button,
-.numberPicker::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.numberPicker[type=number] {
-  -moz-appearance: textfield;
-}
