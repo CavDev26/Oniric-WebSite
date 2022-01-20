@@ -1,4 +1,5 @@
-<main class="fullHeight">
+<main>
+  <main class="fullHeight">
       <div class="lightBack center fullWidth">
         <div class="floatingBack inline-block m-20b mw-800 z-1">
           <header class="center p-10t">
@@ -349,3 +350,4 @@
         </div>
       </div>
     </main>
+</main>
