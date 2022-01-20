@@ -85,7 +85,7 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
     public function getReviewsOfArticle($articleId) {
-        $query = "SELECT Nome_Utente, Voto, Testo, Titolo, Data_Recensione FROM recensione WHERE ID_Articolo = ? LIMIT 10";
+        $query = "SELECT ID_Articolo, Nome_Utente, Voto, Testo, Titolo, Data_Recensione FROM recensione WHERE ID_Articolo = ? LIMIT 10";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s',$articleId);
         $stmt->execute();
@@ -107,6 +107,22 @@ class DatabaseHelper{
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function insertReview ($username, $articleId, $reviewTitle, $reviewText, $reviewVote) {
+        $query = "INSERT INTO recensione (Nome_Utente, ID_Articolo,Voto, Testo, Titolo, Data_recensione) VALUES (?, ?, ?, ?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $data = date("Y-m-d");
+        $stmt->bind_param('ssssss',$username, $articleId, $reviewVote, $reviewText, $reviewTitle, $data);
+        $stmt->execute();
+        return $stmt->insert_id;
+    }
+    public function calculateVote($articleid, $reviews) {
+        $vote = getMeanVote($reviews);
+        $query = "UPDATE articolo SET Voto_medio = ? WHERE ID_Articolo = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss',$vote,$articleid);
+        $stmt->execute();
+        return $vote;
     }
 }
 ?>

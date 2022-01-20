@@ -151,20 +151,38 @@
         </section>
         <section class="center">
           <h2>Recensioni</h2>
-          <?php if (!userWroteReview($articolo["ID_Articolo"])): ?>
-            <section>
-              <h3>Scrivi una recensione</h3>
-              <div class="reviewVote right inline-block" id="writereview">
+          <?php if(!isUserLoggedIn()): ?>
+            <h3 class="m-10t m-10b">Accedi per scrivere una recensione</h3>
+            <form action="./login.php" method="POST">
+              <div class="p-10t">
+                <input type="hidden" name="article" value="<?php echo $articolo["ID_Articolo"]; ?>" />
+                <input type="submit" class="wideLiteButton" value="Accedi" />
               </div>
-              <form action="#" method="POST">
+            </form>
+            <hr class="separator" />
+          <?php elseif (!userWroteReview($_SESSION["username"], $templateParams["recensioni"])):  ?>
+            <section>
+              <h3 class="m-10t m-10b">Scrivi una recensione</h3>
+              <div class="fullWidth center m-10b">
+                <div class="writeReviewVote" id="writereview">
+              </div>
+              </div>
+              <form action="#" method="POST" class="center">
                 <div class="slidecontainer">
-                  <input type="range" min="0.5" max="5" value="2.5" class="slider" id="myRange" step="0.5">
+                  <input type="range" min="0.5" max="5" value="2.5" class="slider" id="myRange" step="0.5" name="reviewVote">
                 </div>
-                <input type="textfield" name="title" placeholder="Dai un titolo alla recensione" />
-                <input type="textarea" name="text" placeholder="Scrivi il testo" />
-                <span id="demo"></span>
+                <div class="fullWidth p-10t">
+                  <input class="writeReviewTitle" type="textfield" placeholder="Dai un titolo alla recensione" name="reviewTitle"/>
+                </div>
+                <div class="fullWidth p-10">
+                  <textarea class="writeReviewArea" placeholder="Scrivi il testo" name="reviewText"></textarea>
+                </div>
+                <div class="p-10t">
+                  <input type="submit" class="wideLiteButton" value="Inserisci recensione" />
+                </div>
               </form>
             </section>
+            <hr class="separator" />
           <?php endif; ?>
           <?php foreach($templateParams["recensioni"] as $review ): ?>
           <article class="review">
