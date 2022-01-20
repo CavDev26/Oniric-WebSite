@@ -105,5 +105,14 @@
   .ship-img-omni {
     width: 50px;
     height: auto;
-    /* margin-right: 20px; */
   }
+
+.numberPicker::-webkit-outer-spin-button,
+.numberPicker::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.numberPicker[type=number] {
+  -moz-appearance: textfield;
+}

@@ -216,3 +216,11 @@
     border-bottom: solid 1px var(--buttons);
     font-size: 10px;
 }   
+.qty::-webkit-outer-spin-button,
+.qty::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.qty[type=number] {
+  -moz-appearance: textfield;
+}
