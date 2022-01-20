@@ -154,6 +154,21 @@
         </section>
         <section class="center">
           <h2>Recensioni</h2>
+          <?php if (!userWroteReview($articolo["ID_Articolo"])): ?>
+            <section>
+              <h3>Scrivi una recensione</h3>
+              <div class="reviewVote right inline-block" id="writereview">
+              </div>
+              <form action="#" method="POST">
+                <div class="slidecontainer">
+                  <input type="range" min="0.5" max="5" value="2.5" class="slider" id="myRange" step="0.5">
+                </div>
+                <input type="textfield" name="title" placeholder="Dai un titolo alla recensione" />
+                <input type="textarea" name="text" placeholder="Scrivi il testo" />
+                <span id="demo"></span>
+              </form>
+            </section>
+          <?php endif; ?>
           <?php foreach($templateParams["recensioni"] as $review ): ?>
           <article class="review">
             <img src="./img/account.png" alt="Icona utente <?php echo $review["Nome_Utente"]; ?>" class="reviewUserIcon" />
@@ -192,3 +207,4 @@
       </div>
 </main>
 <script src="./js/carousel.js"></script>
+<script src="./js/slider.js"></script>
