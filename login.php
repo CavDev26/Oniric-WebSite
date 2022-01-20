@@ -33,7 +33,7 @@ if(isUserLoggedIn()){
     $templateParams["addresses"] = $dbh->getAddresses($_SESSION["username"]);
     $templateParams["userinfo"] = array("username" => $_SESSION["username"], "namesurname" => $_SESSION["namesurname"], 
                                         "birthdate" => $_SESSION["birthdate"], "passlen" => $_SESSION["passlen"]);
-    $templateParams["balance"] = findBalance($templateParams["payMethods"]);
+    $templateParams["balance"] = $dbh->getBalance($_SESSION["username"])[0]["Saldo"];
 }
 else{
     // UTENTE NON LOGGATO

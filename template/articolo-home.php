@@ -1,4 +1,4 @@
-<?php $articolo = $templateParams["articolo"][0]; ?>
+<?php $articolo = $templateParams["articolo"]; ?>
 <link rel="stylesheet" href="./css/productStyle.css" />
  <link rel="stylesheet" href="./css/carousel.css" />
 
@@ -176,9 +176,13 @@
           </article>
           <?php endforeach; ?>
           <footer>
+            <?php if (count($templateParams["recensioni"]) > 0):?>
             <button type="button" class="wideLiteButton">
               <span class="buttonContent">Mostra tutte le recensioni</span>
             </button>
+            <?php else: ?>
+              <p>Ops! Non ci sono ancora recensioni!</p>
+            <?php endif; ?>
           </footer>
         </section>
       </div>

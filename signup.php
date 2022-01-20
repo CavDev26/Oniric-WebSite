@@ -15,7 +15,7 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
         }
         else {
             $nameAndSurname = explode(" ", $_POST["nameAndsurname"]);
-            $result = $dbh->registerUser($nameAndSurname[0], $nameAndSurname[1], $_POST["username"], $_POST["password"], $_POST["birthdate"]);
+            $result = $dbh->registerUser($_POST["email"], $nameAndSurname[0], $nameAndSurname[1], $_POST["username"], $_POST["password"], $_POST["birthdate"]);
             if (!$result) {
                 //registrazione avvenuta con successo
                 $templateParams["nome"] = "signup-success.php";
