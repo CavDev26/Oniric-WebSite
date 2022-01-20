@@ -1,7 +1,7 @@
 // Get the modal
 var modal = document.querySelectorAll(".modal , .profileModal");
 // Get the button that opens the modal
-var btn = document.querySelectorAll(".modalButton , .filterButton");
+var btn = document.querySelectorAll(".modalButton , .modalModify , .remove-method ,.filterButton");
 
 // Get the <span> element that closes the modal
 var span = document.querySelectorAll(

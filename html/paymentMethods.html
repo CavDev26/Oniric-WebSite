@@ -153,23 +153,86 @@
         <header>
           <h1 class="title">Gestisci le tue carte</h1>
         </header>
+        <hr class="span-accordion"></hr>
         <aside class="center">
           <div>
           <ul class="accordionList list left-text m-20l">
           <li>
-              <div class="paymentMethod w-75 inline-block">
-                  <h3 class="m-0 right w-60 center f-16 p-10b">
-                      Carta di Fresh
-                  </h3>
-                  <img
-                      src="../img/visaLogo.png"
-                      class="left p-10t littlePaymentIcon"
-                  />
-                  <p class="w-68 right m-0 center f-14 lh-10">
-                      •••• •••• •••• 0765
-                  </p>
-              </div>
-              <div class="inline-block simpleCross"><img class="simplePencil" src="../img/pencil.png" alt=""></div>
+            <div class="paymentMethod w-75 inline-block">
+                <h3 class="m-0 right w-60 center f-16 p-10b">
+                    Carta di Fresh
+                </h3>
+                <img
+                    src="../img/visaLogo.png"
+                    class="left p-10t littlePaymentIcon"
+                />
+                <p class="w-68 right m-0 center f-14 lh-10">
+                    •••• •••• •••• 0765
+                </p>
+            </div>
+            <button class="inline-block right modalModify m-10b m-20t w-90"><img class="simplePencil" src="../img/pencil.png" alt=""></button>
+            <div class="profileModal center">
+              <div class="profileModal-content">
+                <span class="profileModalClose">&times;</span>
+                <form action="" class="simpleForm p-20t m-20l">
+                  <div class="left p-10l p-10r">
+                    <label for="paymentname" class="form-label lh-20 f-15 ">Modifica Nome del Metodo di Pagamento</label><br />
+                    <input
+                      class="box-input m-10t f-14"
+                      type="text"
+                      id="paymentname"
+                      name="paymentname"
+                      placeholder="(Es. Carta Personale)"
+                    />
+                  </div>
+                  <div class="left p-10l p-10r">
+                    <label for="paymentnumber" class="form-label">Numero Carta</label><br />
+                      <input
+                      class="box-input"
+                      type="text"
+                      id="paymentnumber"
+                      name="paymentnumber"
+                      placeholder="•••• •••• •••• ••••"> 
+                  </div>
+                  <div class="left p-10l p-10r inline">
+                    <label for="scadenza" class="form-label inline-block w-30 lh-20 p-20t left">Scadenza</label><br />
+                    <label for="cvv" class="form-label inline-block right w-30 lh-20 ">CVV</label><br />
+                    <input
+                      class="box-input inline-block w-30 m-10t left"
+                      type="text"
+                      id="scadenza"
+                      name="scadenza">
+                    <input
+                      class="box-input inline-block w-30 m-10t p-10r right"
+                      type="text"
+                      id="cvv"
+                      name="cvv">
+                    </input>
+                  </div>
+                </form>
+                <footer>
+                  <div class="inline-block fullWidth m-20t">
+                    <input class="save-button" type="submit" value="Salva modifiche">
+                    <button class="remove-method m-0"><img src="../img/trash.png" alt="" class="trash-img"/></button>
+                    <div class="profileModal center">
+                      <div class="profileModal-content">
+                        <span class="profileModalClose">&times;</span>
+                        <form action="" class="simpleForm p-20t m-20l">
+                          <div class="center">
+                            <label for="Sure" class="form-label inline-block lh-20">Sei sicuro di voler rimuovere il metodo di pagamento?</label><br />
+                          </div>
+                        </form>
+                        <div class="inline-block fullWidth m-20t">
+                          <input class="hardButton" type="submit" value="Conferma">
+                          <input class="hardButton m-10t" type="submit" value="Annulla">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </footer>
+              </form>
+            </div>
+            </div>
           </li>
           <li>
               <div class="paymentMethod w-75 inline-block">
@@ -184,61 +247,121 @@
                       •••• •••• •••• 0899
                   </p>
               </div>
-              <div class="inline-block simpleCross"><img class="simplePencil" src="../img/pencil.png" alt=""></div>
+              <button class="inline-block right modalModify m-10b m-20t w-90"><img class="simplePencil" src="../img/pencil.png" alt=""></button>
+            <div class="profileModal center">
+              <div class="profileModal-content">
+                <span class="profileModalClose">&times;</span>
+                <form action="" class="simpleForm p-20t m-20l">
+                  <div class="left p-10l p-10r">
+                    <label for="paymentname" class="form-label lh-20 f-15 ">Modifica Nome del Metodo di Pagamento</label><br />
+                    <input
+                      class="box-input m-10t f-14"
+                      type="text"
+                      id="paymentname"
+                      name="paymentname"
+                      placeholder="(Es. Carta Personale)"
+                    />
+                  </div>
+                  <div class="left p-10l p-10r">
+                    <label for="paymentnumber" class="form-label">Numero Carta</label><br />
+                      <input
+                      class="box-input"
+                      type="text"
+                      id="paymentnumber"
+                      name="paymentnumber"
+                      placeholder="•••• •••• •••• ••••"> 
+                  </div>
+                  <div class="left p-10l p-10r inline">
+                    <label for="scadenza" class="form-label inline-block w-30 lh-20 p-20t left">Scadenza</label><br />
+                    <label for="cvv" class="form-label inline-block right w-30 lh-20 ">CVV</label><br />
+                    <input
+                      class="box-input inline-block w-30 m-10t left"
+                      type="text"
+                      id="scadenza"
+                      name="scadenza">
+                    <input
+                      class="box-input inline-block w-30 m-10t p-10r right"
+                      type="text"
+                      id="cvv"
+                      name="cvv">
+                    </input>
+                  </div>
+                </form>
+                <footer>
+                  <div class="inline-block fullWidth m-20t">
+                    <input class="save-button" type="submit" value="Salva modifiche">
+                    <button class="remove-method m-0"><img src="../img/trash.png" alt="" class="trash-img"/></button>
+                    <div class="profileModal center">
+                      <div class="profileModal-content">
+                        <span class="profileModalClose">&times;</span>
+                        <form action="" class="simpleForm p-20t m-20l">
+                          <div class="center">
+                            <label for="Sure" class="form-label inline-block lh-20">Sei sicuro di voler rimuovere il metodo di pagamento?</label><br />
+                          </div>
+                        </form>
+                        <div class="inline-block fullWidth m-20t">
+                          <input class="hardButton" type="submit" value="Conferma">
+                          <input class="hardButton m-10t" type="submit" value="Annulla">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </footer>
+              </form>
+            </div>
           </li>
           </ul>
           </div>
           <div class="center">
-            <button class="hardButton m-10b m-20t w-90">Aggiungi Metodo di Pagamento></button>
+            <button class="modalButton paymentMethod m-10b m-20t w-90">Aggiungi Metodo di Pagamento</button>
+            <div class="profileModal">
+              <div class="profileModal-content">
+                <span class="profileModalClose">&times;</span>
+                <form action="" class="simpleForm p-20t m-20l">
+                  <div class="left p-10l p-10r">
+                    <label for="paymentname" class="form-label lh-20 f-15 ">Inserisci il Nome del Metodo di Pagamento</label><br />
+                    <input
+                      class="box-input m-10t f-14"
+                      type="text"
+                      id="paymentname"
+                      name="paymentname"
+                      placeholder="(Es. Carta Personale)"
+                    />
+                  </div>
+                  <div class="left p-10l p-10r">
+                    <label for="paymentnumber" class="form-label">Numero Carta</label><br />
+                      <input
+                      class="box-input"
+                      type="text"
+                      id="paymentnumber"
+                      name="paymentnumber"
+                      placeholder="•••• •••• •••• ••••"> 
+                  </div>
+                  <div class="left p-10l p-10r inline">
+                    <label for="scadenza" class="form-label inline-block w-30 lh-20 p-20t left">Scadenza</label><br />
+                    <label for="cvv" class="form-label inline-block right w-30 lh-20 ">CVV</label><br />
+                    <input
+                      class="box-input inline-block w-30 m-10t left"
+                      type="text"
+                      id="scadenza"
+                      name="scadenza">
+                    <input
+                      class="box-input inline-block w-30 m-10t p-10r right"
+                      type="text"
+                      id="cvv"
+                      name="cvv" >
+                    </input>
+                  </div>
+                </form>
+                <footer class="center">
+                  <div class="center">
+                    <input class="hardButton m-10b m-20t w-90" type="submit" value="Aggiungi Metodo di Pagamento">
+                  </div>
+                </footer>
+              </form>
+            </div>
           </div>
-      </aside>
-        
-      
-      <!-- questa sezione diventa il modale, da fare due volte  -->
-      <div class="accordionBack">
-          <form action="" class="simpleForm p-20t">
-              <div class="left p-10l p-10r">
-                <label for="paymentname" class="form-label lh-10 f-15 ">Inserisci il Nome del Metodo di Pagamento</label><br />
-                <input
-                  class="box-input m-10t f-14"
-                  type="text"
-                  id="paymentname"
-                  name="paymentname"
-                  placeholder="Inserisci il nome del metodo di pagamento (Es. Carta Personale)"
-                />
-              </div>
-              <div class="left p-10l p-10r">
-                <label for="paymentnumber" class="form-label">Numero Carta</label><br />
-                  <input
-                  class="box-input"
-                  type="text"
-                  id="paymentnumber"
-                  name="paymentnumber"
-                  placeholder="Inserisci il numero della carta"> 
-              </div>
-              <div class="left p-10l p-10r inline">
-                <label for="scadenza" class="form-label inline-block w-30 lh-20 p-20t left">Scadenza</label><br />
-                <label for="cvv" class="form-label inline-block right w-30 lh-20 ">CVV</label><br />
-                <input
-                  class="box-input inline-block w-30 m-10t left"
-                  type="text"
-                  id="scadenza"
-                  name="scadenza">
-                <input
-                  class="box-input inline-block w-30 m-10t right"
-                  type="text"
-                  id="cvv"
-                  name="cvv" >
-                </input>
-              </div>
-            </form>
-            <footer class="center">
-              <div class="center">
-                <input class="hardButton m-10b m-20t w-90" type="submit" value="Aggiungi Metodo di Pagamento">
-              </div>
-            </footer>
-          </form>
-        </div>
+        </aside>
       </div>
     </div>
     <footer class="home-footer">
