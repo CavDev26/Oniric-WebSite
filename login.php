@@ -37,8 +37,14 @@ if(isUserLoggedIn()){
 }
 else{
     // UTENTE NON LOGGATO
-    $templateParams["titolo"] = "Oniric - Login";
-    $templateParams["nome"] = "login-form.php";
+    if (isset($_POST["login"])) {
+        $templateParams["titolo"] = "Oniric - Login";
+        $templateParams["nome"] = "login-form.php";
+    }
+    else {
+        $templateParams["titolo"] = "Oniric - Accesso";
+        $templateParams["nome"] = "access-home.php";
+    }
 }
 
 

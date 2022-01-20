@@ -4,6 +4,9 @@
 
 <main class="center">
 <div class="simpleBack center">
+        <?php if (isset($templateParams["errorearticolo"])): ?>
+          <h1 class="mediumTitle"><?php echo $templateParams["errorearticolo"]?></h1>
+      <?php else: ?>
         <section>
           <h1 class="mediumTitle"><?php echo $articolo["Nome"]; ?></h1>
           <h2 class="mediumSubtitle"><?php echo $articolo["App_Nome"]; ?></h2>
@@ -82,7 +85,7 @@
                   <div>
                     <p class="priceItem">Sconto:</p>
                     <p class="normalPriceNumber">
-                      <?php echo (string) ((float)$articolo["Sconto"]*$articolo["Costo_listino"]) ?>,<em class="priceItalic">00</em> € <?php echo "( " . (string) ((float)$articolo["Sconto"]*100)."% )"?>
+                      <?php echo (string) round(((float)$articolo["Sconto"]*$articolo["Costo_listino"]),2) ?>,<em class="priceItalic">00</em> &#128; <?php echo "( " . (string) ((float)$articolo["Sconto"]*100)."% )"?>
                     </p>
                   </div>
                 </li>
@@ -90,7 +93,7 @@
                   <div>
                     <p class="priceItem">Prezzo:</p>
                     <p class="finalPriceNumber"><?php $price = explode(".",
-                    (string)((float)$articolo["Costo_listino"] - (float)$articolo["Sconto"]*(float)$articolo["Costo_listino"]));
+                    (string)((float)$articolo["Costo_listino"] - round((float)$articolo["Sconto"]*(float)$articolo["Costo_listino"], 2)));
                       if (count($price) == 1) {
                         echo $price[0];
                         echo ", <em class=\"priceItalic\">00</em>";
@@ -185,6 +188,7 @@
             <?php endif; ?>
           </footer>
         </section>
+        <?php endif; ?>
       </div>
 </main>
 <script src="./js/carousel.js"></script>
