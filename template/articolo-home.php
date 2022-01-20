@@ -4,6 +4,9 @@
 
 <main class="center">
 <div class="simpleBack center">
+        <?php if (isset($templateParams["errorearticolo"])): ?>
+          <h1 class="mediumTitle"><?php echo $templateParams["errorearticolo"]?></h1>
+      <?php else: ?>
         <section>
           <h1 class="mediumTitle"><?php echo $articolo["Nome"]; ?></h1>
           <h2 class="mediumSubtitle"><?php echo $articolo["App_Nome"]; ?></h2>
@@ -82,7 +85,7 @@
                   <div>
                     <p class="priceItem">Sconto:</p>
                     <p class="normalPriceNumber">
-                      <?php echo (string) ((float)$articolo["Sconto"]*$articolo["Costo_listino"]) ?>,<em class="priceItalic">00</em> € <?php echo "( " . (string) ((float)$articolo["Sconto"]*100)."% )"?>
+                      <?php echo (string) round(((float)$articolo["Sconto"]*$articolo["Costo_listino"]),2) ?>,<em class="priceItalic">00</em> &#128; <?php echo "( " . (string) ((float)$articolo["Sconto"]*100)."% )"?>
                     </p>
                   </div>
                 </li>
@@ -90,7 +93,7 @@
                   <div>
                     <p class="priceItem">Prezzo:</p>
                     <p class="finalPriceNumber"><?php $price = explode(".",
-                    (string)((float)$articolo["Costo_listino"] - (float)$articolo["Sconto"]*(float)$articolo["Costo_listino"]));
+                    (string)((float)$articolo["Costo_listino"] - round((float)$articolo["Sconto"]*(float)$articolo["Costo_listino"], 2)));
                       if (count($price) == 1) {
                         echo $price[0];
                         echo ", <em class=\"priceItalic\">00</em>";
@@ -151,6 +154,21 @@
         </section>
         <section class="center">
           <h2>Recensioni</h2>
+          <?php if (!userWroteReview($articolo["ID_Articolo"])): ?>
+            <section>
+              <h3>Scrivi una recensione</h3>
+              <div class="reviewVote right inline-block" id="writereview">
+              </div>
+              <form action="#" method="POST">
+                <div class="slidecontainer">
+                  <input type="range" min="0.5" max="5" value="2.5" class="slider" id="myRange" step="0.5">
+                </div>
+                <input type="textfield" name="title" placeholder="Dai un titolo alla recensione" />
+                <input type="textarea" name="text" placeholder="Scrivi il testo" />
+                <span id="demo"></span>
+              </form>
+            </section>
+          <?php endif; ?>
           <?php foreach($templateParams["recensioni"] as $review ): ?>
           <article class="review">
             <img src="./img/account.png" alt="Icona utente <?php echo $review["Nome_Utente"]; ?>" class="reviewUserIcon" />
@@ -185,6 +203,8 @@
             <?php endif; ?>
           </footer>
         </section>
+        <?php endif; ?>
       </div>
 </main>
 <script src="./js/carousel.js"></script>
+<script src="./js/slider.js"></script>

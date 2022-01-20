@@ -33,6 +33,7 @@
           <footer class="center fullWidth">
             <div class="center">
               <input class="softButton" type="submit" value="Accedi">
+              <input type="hidden" value="1" name="login" />
             </div>
         </footer>
       </form>

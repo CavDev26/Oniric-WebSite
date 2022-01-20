@@ -101,5 +101,8 @@ function getMeanVote($reviews) {
     }
     return $mean / $n;
 }
+function userWroteReview($articleid) {
+    return false;
+}
 
 ?>
