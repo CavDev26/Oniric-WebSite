@@ -71,6 +71,7 @@ hr.separator {
   color: var(--lightSecondary);
   padding: 10px;
   font-size: clamp(16px, 4vw, 20px);
+  width: 100%;
   text-align: center;
 }
 
@@ -158,6 +159,10 @@ hr.separator {
   margin: 10px 0;
   padding: 0 20px;
 }
+.simpleText > strong {
+  font-style: bold;
+  font-size: clamp(16px, 4vw, 18px);
+}
 .simpleTextLeft {
   text-align: left;
   padding: 10px;
@@ -182,20 +187,21 @@ hr.separator {
 }
 .reviewText {
   padding: 0 10px 0 80px;
-  margin: 0;
+  margin: 0 2%;
 }
 .reviewUserIcon {
-  padding: 20px 30px 0 10px;
+  padding: 20px 20px 0 10px;
+  width: 100px;
+  height: auto;
   float: left;
 }
 .reviewVote {
-  padding: 15px 15px 0 0;
+  padding: 10px 10px 0 10px;
 }
 .smallReviewStar {
   display: inline-block;
-  margin: 1px;
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
 }
 
 .reviewFooter {
@@ -244,6 +250,19 @@ hr.separator {
   }
   .priceList {
     max-width: 800px;
+  }
+  .reviewVote {
+    padding-top: 20px;
+    padding-right: 5%;
+  }
+  .finalPriceNumber {
+    padding-right: 18%;
+  }
+  .normalPriceNumber {
+    padding-right: 16%;
+  }
+  .priceItem {
+    padding-left: 16%;
   }
 }
 @media screen and (min-width: 960px) {
