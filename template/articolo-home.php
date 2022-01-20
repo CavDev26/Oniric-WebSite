@@ -1,7 +1,4 @@
 <?php $articolo = $templateParams["articolo"]; ?>
-<link rel="stylesheet" href="./css/productStyle.css" />
- <link rel="stylesheet" href="./css/carousel.css" />
-
 <main class="center">
 <div class="simpleBack center">
         <?php if (isset($templateParams["errorearticolo"])): ?>
@@ -206,5 +203,3 @@
         <?php endif; ?>
       </div>
 </main>
-<script src="./js/carousel.js"></script>
-<script src="./js/slider.js"></script>

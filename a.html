@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="it">
   <head>
@@ -10,16 +11,7 @@
     <link rel="stylesheet" href="./css/buttons.css" />
     <link rel="icon" href="img/favicon.ico" type="image/ico">
 
-    <?php
-    if(isset($templateParams["style"])):
-        foreach($templateParams["style"] as $style):
-    ?>
-        <link rel="stylesheet" href="<?php echo $style; ?>" />
-    <?php
-        endforeach;
-    endif;
-    ?>
-    <title><?php echo $templateParams["titolo"]; ?></title>
+    <title>Oniric - Cava 2000</title>
   </head>
   <body>
     <nav class="navbar-top">
@@ -154,23 +146,150 @@
       </div>
     </nav>
 
-    <?php  require($templateParams["nome"]); ?>
-    
+    <main>
+
+    <link rel="stylesheet" href="./css/productStyle.css" />
+ <link rel="stylesheet" href="./css/carousel.css" />
+
+<main class="center">
+<div class="simpleBack center">
+                <section>
+          <h1 class="mediumTitle">Cava 2000</h1>
+          <h2 class="mediumSubtitle">desktop pc</h2>
+                    <img src="./img/emptyStar.png" alt="" class="reviewStar" />
+                    <img src="./img/emptyStar.png" alt="" class="reviewStar" />
+                    <img src="./img/emptyStar.png" alt="" class="reviewStar" />
+                    <img src="./img/emptyStar.png" alt="" class="reviewStar" />
+                    <img src="./img/emptyStar.png" alt="" class="reviewStar" />
+                    <span class="mediumSubtitle">(0)</span>
+        </section>
+        <hr class="separator" />
+          <section class="carouselSection left-text">
+            <div class="slideshow-container">
+                              <div class="mySlides fade">
+                  <img
+                    src="./img/cava2000/1.png"
+                    alt="Cava 2000 immagine numero: 1"
+                    class="productImage"
+                  />
+                </div>
+                              <div class="mySlides fade">
+                  <img
+                    src="./img/cava2000/2.png"
+                    alt="Cava 2000 immagine numero: 2"
+                    class="productImage"
+                  />
+                </div>
+                          </div>
+            <div class="carouselNav center">
+                            <img
+                  src="./img/carouselDot.png"
+                  alt="Seleziona immagine numero 1"
+                  class="carouselDot activeDot"
+                  onclick="currentSlide(1)"
+                />
+                            <img
+                  src="./img/carouselDot.png"
+                  alt="Seleziona immagine numero 2"
+                  class="carouselDot activeDot"
+                  onclick="currentSlide(2)"
+                />
+                        </div>
+          </section>
+          <section class="secondPart center">
+            <section class="descriptionPart fullWidth">
+              <p class="briefDesc">
+                Il PC al top di gamma 2021, pre-assemblato dai nostri esperti e
+                con i migliori componenti disponibili oggi nei nostri magazzini              </p>
+              <footer class="italic-footer">
+                Scorri in basso per altri dettagli
+              </footer>
+              <hr class="separator" />
+            </section>
+            <section class="pricePart">
+              <ul class="priceList">
+                <li class="priceListItem">
+                  <div>
+                    <p class="priceItem">Prezzo Consigliato:</p>
+                    <p class="normalPriceNumber lineThroughNumber">
+                      999, <em class="priceItalic">99</em>                      &#128;
+                    </p>
+                  </div>
+                </li>
+                                <li class="priceListItem">
+                  <div>
+                    <p class="priceItem">Sconto:</p>
+                    <p class="normalPriceNumber">
+                      200,<em class="priceItalic">00</em> &#128; ( 20% )                    </p>
+                  </div>
+                </li>
+                <li class="priceListItem">
+                  <div>
+                    <p class="priceItem">Prezzo:</p>
+                    <p class="finalPriceNumber">799, <em class="priceItalic">99</em>                      &#128;
+                    </p>
+                  </div>
+                </li>
+                              </ul>
+              <footer class="italic-footer lh-10">
+                Tutti i prezzi sono inclusivi di IVA
+              </footer>
+              <hr class="separator" />
+            </section>
+            <section class="center">
+              <h2 class="smallSubTitle">Spedizione Gratuita</h2>
+              <p class="simpleText">
+                Spedito da BRT: Consegna Prevista per
+                <strong>2 Gennaio 2024</strong>
+              </p>
+              <footer><hr class="separator" /></footer>
+              <button type="button" class="wideLiteButton">Aggiungi al Carrello
+            </button>
+            </section>
+            
+              
+          </section>
+          <section class="m-20">
+            <main class="simpleText simpleTextLeft m-20t">
+              Una potente workstation in grado di reggere qualsiasi software. Il
+              PC monta una NVidia RTX 3090 in grado di sopportare grossi sforzi
+              lato GPU. Il processore è un Intel Core i9-11 con frequenza di 3.5
+              GHz. Di seguito i dettagli:            </main>
+            <aside class="tableSection center inline-block">
+                          </aside>
+            <footer><hr class="separator" /></footer>
+          </section>
+        </section>
+        <section class="center">
+          <h2>Recensioni</h2>
+                      <section>
+              <h3>Scrivi una recensione</h3>
+              <div class="reviewVote right inline-block" id="writereview">
+              </div>
+              <form action="#" method="POST">
+                <div class="slidecontainer">
+                  <input type="range" min="0.5" max="5" value="2.5" class="slider" id="myRange" step="0.5">
+                </div>
+                <input type="textfield" name="title" placeholder="Dai un titolo alla recensione" />
+                <input type="textarea" name="text" placeholder="Scrivi il testo" />
+                <span id="demo"></span>
+              </form>
+            </section>
+                              <footer>
+                          <p>Ops! Non ci sono ancora recensioni!</p>
+                      </footer>
+        </section>
+              </div>
+</main>
+<script src="./js/carousel.js"></script>
+<script src="./js/slider.js"></script>
+    </main>
     <footer class="home-footer">
       <p>
         Cava and Fresh (C) Copyright 2021 All rights reserved
       </p>
     </footer>
   </body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="./js/onscroll.js"></script>
-    <?php
-    if(isset($templateParams["js"])):
-        foreach($templateParams["js"] as $script):
-    ?>
-        <script src="<?php echo $script; ?>"></script>
-    <?php
-        endforeach;
-    endif;
-    ?>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="./js/onscroll.js"></script>
 </html>

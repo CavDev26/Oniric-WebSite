@@ -3,6 +3,9 @@ require_once 'bootstrap.php';
 
 $templateParams["titolo"] = "Oniric - Login";
 $templateParams["nome"] = "login-form.php";
+$templateParams["style"] =  array("./css/login_signup.css", "https://fonts.googleapis.com/icon?family=Material+Icons");
+$templateParams["js"] = array("./js/togglePassword.js");
+
 
 if (isset($_POST["exit"])) {
     session_unset();
@@ -15,6 +18,8 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
     }
     else{
         registerLoggedUser($login_result[0], strlen($_POST["password"]));
+        $templateParams["js"] = array("./js/accordion.js", "./js/modal.js");
+    $templateParams["style"] = array("./css/modal.css", "./css/profile.css", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", "./css/accordion.css");
     }
 }
 if(isUserLoggedIn()){
@@ -34,6 +39,9 @@ if(isUserLoggedIn()){
     $templateParams["userinfo"] = array("username" => $_SESSION["username"], "namesurname" => $_SESSION["namesurname"], 
                                         "birthdate" => $_SESSION["birthdate"], "passlen" => $_SESSION["passlen"]);
     $templateParams["balance"] = $dbh->getBalance($_SESSION["username"])[0]["Saldo"];
+    $templateParams["js"] = array("./js/accordion.js", "./js/modal.js");
+    $templateParams["style"] = array("./css/modal.css", "./css/profile.css", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", "./css/accordion.css");
+
 }
 else{
     // UTENTE NON LOGGATO
@@ -46,6 +54,7 @@ else{
         $templateParams["nome"] = "access-home.php";
     }
 }
+
 
 
 require 'template/base.php';

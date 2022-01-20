@@ -1,11 +1,3 @@
-<link rel="stylesheet" href="./css/modal.css" />
-<link rel="stylesheet" href="./css/profile.css" />
-<link rel="stylesheet" href="./css/accordion.css" />
-<link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-
 <main class="fullHeight">
       <div class="lightBack center fullWidth">
         <div class="floatingBack inline-block m-20b mw-800 z-1">
@@ -356,8 +348,4 @@
           </ul>
         </div>
       </div>
-      <script src="./js/accordion.js"></script>
-  <script src="./js/modal.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="./js/onscroll.js"></script>
     </main>
