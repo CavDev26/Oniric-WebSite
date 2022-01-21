@@ -309,7 +309,9 @@ body {
 
 @media only screen and (min-width: 1025px) { /*regole che valgono per schermi grandi (desktop)*/
   .navbar-bot {
+    display: none;
     opacity: 0;
+    z-index: -100;
   }
   .button-top-logo {
     float: left;

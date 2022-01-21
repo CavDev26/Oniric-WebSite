@@ -113,9 +113,21 @@ class DatabaseHelper{
 
     public function getArticlesInCart($username) {
         $query = "SELECT ID_Articolo, Nome, Descrizione, Descrizione_breve, Costo_listino, Quantita_Disp, Sconto, Cartella_immagini, Voto_medio, Nome_Utente, App_Nome FROM articolo WHERE articolo.ID_Articolo in (SELECT ID_Articolo FROM carrello WHERE Nome_Utente = ?)";
-
-
-        // $query = "SELECT ID_Articolo FROM carrello WHERE Nome_Utente = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s',$username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function getShipmentMethods() {
+        $query = "SELECT ID_Tipo_Sped, Nome_Corriere, Tariffa, Paese_Provenienza FROM tipo_spedizione";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function getNameSurname($username) {
+        $query = "SELECT Email, Cognome FROM utente WHERE(Nome_Utente = ?)";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s',$username);
         $stmt->execute();

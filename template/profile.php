@@ -99,17 +99,17 @@
                     <header>
                       <div class="p-20t p-10b">
                         <span class="bigSaturatedText"
-                          >€ <?php $sald = $templateParams["balance"];
-                              $splitted = explode(".", $sald);
-                              if (count($splitted) == 1) {
-                                echo $splitted[0];
-                                echo ", <em class=\"priceItalic\">00</em>";
-                              }
-                              else {
-                                echo $splitted[0];
-                                echo ", <em class=\"priceItalic\">". $splitted[1] . "</em>";
-                              }?>
-                              </span>
+                            >&#128 <?php $sald = min_precision($templateParams["balance"], 2);
+                                $splitted = explode(".", $sald);
+                                  if (count($splitted) == 1) {
+                                    echo $splitted[0];
+                                    echo ", <em class=\"priceItalic\">00</em>";
+                                  }
+                                  else {
+                                    echo $splitted[0];
+                                    echo ", <em class=\"priceItalic\">". $splitted[1] . "</em>";
+                                  }?>
+                        </span>
                       </div>
                       <p class="middleSaturatedText m-0 m-20b">
                         Saldo Rimanente
@@ -125,7 +125,7 @@
                             <header>
                               <div class="p-20t p-10b">
                                 <span class="bigSaturatedText"
-                                  >€ <?php $sald = $templateParams["balance"];
+                                  >&#128 <?php $sald = min_precision($templateParams["balance"], 2);
                                       $splitted = explode(".", $sald);
                                       if (count($splitted) == 1) {
                                         echo $splitted[0];
@@ -135,6 +135,7 @@
                                         echo $splitted[0];
                                         echo ", <em class=\"priceItalic\">". $splitted[1] . "</em>";
                                       }?>
+                                </span>
                               </div>
                               <p class="middleSaturatedText m-0 m-20b">
                                 Saldo Rimanente
