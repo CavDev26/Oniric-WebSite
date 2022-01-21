@@ -5,6 +5,7 @@ function pushNotifications(notification) {
   xhttp.onload = function () {
     document.getElementById("notificationHub").innerHTML += this.responseText;
   };
+  console.log("pushNotification.php?" + notification);
   xhttp.open("GET", "pushNotification.php?" + notification);
   xhttp.send();
 }

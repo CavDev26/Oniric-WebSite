@@ -9,6 +9,6 @@ function addToCart(button, id, imgpath) {
   button.classList.remove("wideLiteButton");
   button.disabled = "true";
   pushNotifications(
-    "articleId=" + id + "&title=cartAddition&imgpath=" + imgpath
+    `articleId=${id}&title=Aggiunto al Carrello&imgpath=${imgpath}`
   );
 }

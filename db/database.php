@@ -170,7 +170,7 @@ class DatabaseHelper{
         }
     }
     public function getNotifications($username) {
-        $query = "SELECT ID_Notifica, Titolo, Descrizione, Data_Ora, Letto, ID_Ordine, Nome_Utente FROM notifica WHERE Nome_Utente = ?";
+        $query = "SELECT ID_Notifica, Titolo, Descrizione, Data_Ora, Letto, ID_Ordine, Nome_Utente FROM notifica WHERE Nome_Utente = ? ORDER BY Data_Ora DESC";
 
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s',$username);
