@@ -118,8 +118,27 @@
                 <strong>2 Gennaio 2024</strong>
               </p>
               <footer><hr class="separator" /></footer>
-              <button type="button" class="wideLiteButton">Aggiungi al Carrello
+              <?php if(!isUserLoggedIn()): ?>
+            <form action="./login.php" method="POST">
+              <div class="p-10t">
+                <input type="hidden" name="article" value="<?php echo $articolo["ID_Articolo"]; ?>" />
+                <input type="submit" class="wideLiteButton" value="Aggiungi al carrello" />
+              </div>
+            </form>
+            <?php else: ?>
+              <button <?php $isInTheCart = $dbh->isInTheCart($_SESSION["username"], $articolo["ID_Articolo"]); if ($isInTheCart)  
+              {
+                echo "disabled=\"true\" class=\"disabledWideLite\"";
+              } else {
+                echo "class=\"wideLiteButton\"";
+              }
+              ?> id="cartButton" type="button" onClick="addToCart(this, '<?php echo $articolo["ID_Articolo"]; ?>')"><?php if ($isInTheCart) {
+                echo "&#10004;";
+              } else {
+                echo "Aggiungi al Carrello";
+              }?>
             </button>
+            <?php endif;?>
             </section>
             
               

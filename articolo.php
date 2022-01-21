@@ -3,11 +3,12 @@ require_once 'bootstrap.php';
 
 //Base Template
 unset($_SESSION["article"]);
+
 $templateParams["titolo"] = "Oniric - Errore";
 $templateParams["nome"] = "articolo-home.php";
 $templateParams["articolo"] = $dbh->getArticle($_GET["id"]);
 $templateParams["style"] = array("./css/productStyle.css", "./css/carousel.css"); 
-$templateParams["js"] = array("./js/carousel.js", "./js/slider.js");
+$templateParams["js"] = array("./js/carousel.js", "./js/slider.js", "./js/addToCart.js");
 
 if (count($templateParams["articolo"]) == 0) {
     $templateParams["errorearticolo"] = "Ops! Non esiste nessun articolo simile!";

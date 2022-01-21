@@ -124,5 +124,25 @@ class DatabaseHelper{
         $stmt->execute();
         return $vote;
     }
+    public function isInTheCart($username, $articleId) {
+        $query = "SELECT * FROM carrello WHERE Nome_Utente = ? AND ID_Articolo = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss',$username, $articleId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return !empty($result->fetch_all(MYSQLI_ASSOC));
+    }
+    public function addToCart($username, $articleId) {
+        if (!$this->isInTheCart($username, $articleId)) {
+            $query = "INSERT INTO carrello(Nome_Utente, ID_Articolo) VALUES (?, ?)";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('ss',$username, $articleId);
+            $stmt->execute();
+            return $stmt->insert_id;
+        }   
+        else {
+            return -1;
+        }
+    }
 }
 ?>
