@@ -108,6 +108,31 @@ class DatabaseHelper{
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function getArticlesInCart($username) {
+        $query = "SELECT ID_Articolo, Nome, Descrizione, Descrizione_breve, Costo_listino, Quantita_Disp, Sconto, Cartella_immagini, Voto_medio, Nome_Utente, App_Nome FROM articolo WHERE articolo.ID_Articolo in (SELECT ID_Articolo FROM carrello WHERE Nome_Utente = ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s',$username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function getShipmentMethods() {
+        $query = "SELECT ID_Tipo_Sped, Nome_Corriere, Tariffa, Paese_Provenienza FROM tipo_spedizione";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function getNameSurname($username) {
+        $query = "SELECT Email, Cognome FROM utente WHERE(Nome_Utente = ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s',$username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);    
+    }
+
     public function insertReview ($username, $articleId, $reviewTitle, $reviewText, $reviewVote) {
         $query = "INSERT INTO recensione (Nome_Utente, ID_Articolo,Voto, Testo, Titolo, Data_recensione) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
@@ -146,12 +171,14 @@ class DatabaseHelper{
     }
     public function getNotifications($username) {
         $query = "SELECT ID_Notifica, Titolo, Descrizione, Data_Ora, Letto, ID_Ordine, Nome_Utente FROM notifica WHERE Nome_Utente = ?";
+
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s',$username);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
     public function pushNotification($notification) {
         $query = "INSERT INTO notifica(ID_Notifica, Titolo,Descrizione, Data_Ora, Letto, ID_Ordine, Nome_Utente, Immagine) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);

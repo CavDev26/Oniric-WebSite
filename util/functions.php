@@ -110,4 +110,20 @@ function userWroteReview($username, $reviews) {
     return false;
 }
 
+function getTotalPrices($articles) {
+    $sum = 0.0;
+    foreach($articles as $art) {
+        $sum += (float) $art["Costo_listino"];
+    }
+    return $sum;
+}
+function min_precision($x, $p) {
+    $e = pow(10,$p);
+    return floor($x*$e)==$x*$e?sprintf("%.${p}f",$x):$x;
+}
+function calculateMinRecharge($saldo, $spesa) {
+    $necessario = 0.00;
+    $necessario = $spesa - $saldo;
+    return $necessario;
+}
 ?>
