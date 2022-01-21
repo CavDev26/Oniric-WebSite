@@ -88,53 +88,28 @@
 
         <span class="button-top-notifications full-height">
           <div class="center m-0">
-            <img src="./img/notificationdef.png" alt="" class="notification-menu-img"/>
+            <img id="bell" src="./img/notificationdef.png" alt="" class="notification-menu-img"/>
           </div>
           <input type="checkbox" class="check-notifications"/>
-          <ul class="notifications-list">
-            
+          <ul class="notifications-list" id="notificationHub">
+            <?php if(isUserLoggedIn()) {
+              foreach($dbh->getNotifications($_SESSION["username"]) as $notification):
+            ?>
             <a href="">  
               <li class="notification-dimensions">
                 <div class="notification-elem">
                   <img src="./img/cava2000.png" alt="" class="notification-img-product"/>
-                  <h1 class="notification-type left-text">Status ordine abc:</h1>
-                  <p class="notification-status left-text">Consegnato</p>
+                  <h1 class="notification-type left-text"><?php echo $notification["Titolo"]?></h1>
+                  <p class="notification-status left-text"><?php echo $notification["Descrizione"]?></p>
                   <img src="./img/notifica-ball.png" alt="" class="notification-indicator"/>
                   <footer class="notification-time right-text">
-                  4h fa
+                  <?php echo $notification["Data_Ora"]?>
                 </footer>
                 </div>
               </li>
             </a>
             <hr class="span-notifications-div">
-            <a href="">  
-              <li class="notification-dimensions">
-                <div class="notification-elem">
-                  <img src="./img/cava2000.png" alt="" class="notification-img-product"/>
-                  <h1 class="notification-type left-text">Status ordine abc:</h1>
-                  <p class="notification-status left-text">Consegnato</p>
-                  <img src="./img/notifica-ball.png" alt="" class="notification-indicator"/>
-                  <footer class="notification-time right-text">
-                  4h fa
-                </footer>
-                </div>
-              </li>
-            </a>
-            <hr class="span-notifications-div">
-            <a href="">  
-              <li class="notification-dimensions">
-                <div class="notification-elem">
-                  <img src="./img/cava2000.png" alt="" class="notification-img-product"/>
-                  <h1 class="notification-type left-text">Status ordine abc:</h1>
-                  <p class="notification-status left-text">Consegnato</p>
-                  <img src="./img/notifica-ball.png" alt="" class="notification-indicator"/>
-                  <footer class="notification-time right-text">
-                  4h fa
-                </footer>
-                </div>
-              </li>
-            </a>
-            <hr class="span-notifications-div">
+            <?php endforeach; }?>
           </ul>
         </span>
     </nav>
@@ -164,6 +139,8 @@
   </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./js/onscroll.js"></script>
+    <script src="./js/notifications.js"></script>
+
     <?php
     if(isset($templateParams["js"])):
         foreach($templateParams["js"] as $script):

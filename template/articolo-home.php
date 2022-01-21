@@ -132,7 +132,7 @@
               } else {
                 echo "class=\"wideLiteButton\"";
               }
-              ?> id="cartButton" type="button" onClick="addToCart(this, '<?php echo $articolo["ID_Articolo"]; ?>')"><?php if ($isInTheCart) {
+              ?> id="cartButton" type="button" onClick="addToCart(this, '<?php echo $articolo["ID_Articolo"]; ?>', '<?php echo $articolo["Cartella_immagini"]."/1.png"; ?>')"><?php if ($isInTheCart) {
                 echo "&#10004;";
               } else {
                 echo "Aggiungi al Carrello";

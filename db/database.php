@@ -144,5 +144,20 @@ class DatabaseHelper{
             return -1;
         }
     }
+    public function getNotifications($username) {
+        $query = "SELECT ID_Notifica, Titolo, Descrizione, Data_Ora, Letto, ID_Ordine, Nome_Utente FROM notifica WHERE Nome_Utente = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s',$username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function pushNotification($notification) {
+        $query = "INSERT INTO notifica(ID_Notifica, Titolo,Descrizione, Data_Ora, Letto, ID_Ordine, Nome_Utente, Immagine) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ssssssss',$notification["ID_Notifica"], $notification["Titolo"], $notification["Descrizione"], $notification["Data_Ora"], $notification["Letto"], $notification["ID_Ordine"], $notification["Nome_Utente"], $notification["Immagine"]);
+        $stmt->execute();
+        return $stmt->insert_id;
+    }
 }
 ?>
