@@ -105,4 +105,11 @@ function userWroteReview($articleid) {
     return false;
 }
 
+function getTotalPrices($articles) {
+    $sum = 0.0;
+    foreach($articles as $art) {
+        $sum += (float) $art["Costo_listino"];
+    }
+    return $sum;
+}
 ?>
