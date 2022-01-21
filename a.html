@@ -262,17 +262,25 @@
         </section>
         <section class="center">
           <h2>Recensioni</h2>
-                      <section>
-              <h3>Scrivi una recensione</h3>
-              <div class="reviewVote right inline-block" id="writereview">
+            <section class="review center p-20">
+              <h3 class="m-10t m-10b">Scrivi una recensione</h3>
+              <div class="fullWidth center m-10b">
+                <div class="writeReviewVote" id="writereview">
               </div>
-              <form action="#" method="POST">
+              </div>
+              <form action="#" method="POST" class="center">
                 <div class="slidecontainer">
-                  <input type="range" min="0.5" max="5" value="2.5" class="slider" id="myRange" step="0.5">
+                  <input type="range" min="0.5" max="5" value="2.5" class="slider" id="myRange" step="0.5" name="reviewVote">
                 </div>
-                <input type="textfield" name="title" placeholder="Dai un titolo alla recensione" />
-                <input type="textarea" name="text" placeholder="Scrivi il testo" />
-                <span id="demo"></span>
+                <div class="fullWidth p-10t">
+                  <input class="writeReviewTitle" type="textfield" name="title" placeholder="Dai un titolo alla recensione" name="reviewTitle"/>
+                </div>
+                <div class="fullWidth p-10t">
+                  <textarea class="writeReviewArea" name="text" placeholder="Scrivi il testo" name="reviewText"></textarea>
+                </div>
+                <div class="p-10t">
+                  <input type="button" class="wideLiteButton" value="Inserisci recensione" />
+                </div>
               </form>
             </section>
                               <footer>
@@ -281,8 +289,8 @@
         </section>
               </div>
 </main>
-<script src="./js/carousel.js"></script>
-<script src="./js/slider.js"></script>
+
+
     </main>
     <footer class="home-footer">
       <p>
@@ -292,4 +300,6 @@
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="./js/onscroll.js"></script>
+  <script src="./js/slider.js"></script>
+  <script src="./js/carousel.js"></script>
 </html>

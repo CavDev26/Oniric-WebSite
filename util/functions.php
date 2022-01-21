@@ -101,7 +101,12 @@ function getMeanVote($reviews) {
     }
     return $mean / $n;
 }
-function userWroteReview($articleid) {
+function userWroteReview($username, $reviews) {
+    foreach ($reviews as $review) {
+        if ($review["Nome_Utente"] == $username) {
+            return true;
+        }
+    }
     return false;
 }
 

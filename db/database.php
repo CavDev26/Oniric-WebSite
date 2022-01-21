@@ -85,7 +85,7 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
     public function getReviewsOfArticle($articleId) {
-        $query = "SELECT Nome_Utente, Voto, Testo, Titolo, Data_Recensione FROM recensione WHERE ID_Articolo = ? LIMIT 10";
+        $query = "SELECT ID_Articolo, Nome_Utente, Voto, Testo, Titolo, Data_Recensione FROM recensione WHERE ID_Articolo = ? LIMIT 10";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s',$articleId);
         $stmt->execute();
@@ -107,6 +107,57 @@ class DatabaseHelper{
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function insertReview ($username, $articleId, $reviewTitle, $reviewText, $reviewVote) {
+        $query = "INSERT INTO recensione (Nome_Utente, ID_Articolo,Voto, Testo, Titolo, Data_recensione) VALUES (?, ?, ?, ?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $data = date("Y-m-d");
+        $stmt->bind_param('ssssss',$username, $articleId, $reviewVote, $reviewText, $reviewTitle, $data);
+        $stmt->execute();
+        return $stmt->insert_id;
+    }
+    public function calculateVote($articleid, $reviews) {
+        $vote = getMeanVote($reviews);
+        $query = "UPDATE articolo SET Voto_medio = ? WHERE ID_Articolo = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss',$vote,$articleid);
+        $stmt->execute();
+        return $vote;
+    }
+    public function isInTheCart($username, $articleId) {
+        $query = "SELECT * FROM carrello WHERE Nome_Utente = ? AND ID_Articolo = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss',$username, $articleId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return !empty($result->fetch_all(MYSQLI_ASSOC));
+    }
+    public function addToCart($username, $articleId) {
+        if (!$this->isInTheCart($username, $articleId)) {
+            $query = "INSERT INTO carrello(Nome_Utente, ID_Articolo) VALUES (?, ?)";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('ss',$username, $articleId);
+            $stmt->execute();
+            return $stmt->insert_id;
+        }   
+        else {
+            return -1;
+        }
+    }
+    public function getNotifications($username) {
+        $query = "SELECT ID_Notifica, Titolo, Descrizione, Data_Ora, Letto, ID_Ordine, Nome_Utente FROM notifica WHERE Nome_Utente = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s',$username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function pushNotification($notification) {
+        $query = "INSERT INTO notifica(ID_Notifica, Titolo,Descrizione, Data_Ora, Letto, ID_Ordine, Nome_Utente, Immagine) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ssssssss',$notification["ID_Notifica"], $notification["Titolo"], $notification["Descrizione"], $notification["Data_Ora"], $notification["Letto"], $notification["ID_Ordine"], $notification["Nome_Utente"], $notification["Immagine"]);
+        $stmt->execute();
+        return $stmt->insert_id;
     }
 }
 ?>
