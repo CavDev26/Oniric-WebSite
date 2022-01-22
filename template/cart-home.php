@@ -1,4 +1,4 @@
-<main class="main-cart">
+<main class="main-cart fullHeight">
       <div class="centered">
         <a class="normal" href="">
           <div class="purchase-button">
@@ -36,11 +36,15 @@
                   </div>
                   <div class="price-section">
                     <p class="valuta">&#128</p>
-                    <p class="price"><?php echo $article["Costo_listino"] ?></p>
+                    <p class="price">
+                    <?php $price = explode(".",
+                    (string)((float)$article["Costo_listino"] - round((float)$article["Sconto"]*(float)$article["Costo_listino"], 2)));
+                    echo min_precision($price[0], 2);?>                      
                   </div>
                   <a href="">
                     <div class="remove-button centered">
                       <p class="m-0">Rimuovi</p>
+                      <!-- gestiscimi con ajax -->
                     </div>
                   </a>
                   <div class="quantity-button centered">
