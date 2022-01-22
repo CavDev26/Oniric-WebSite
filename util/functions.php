@@ -117,6 +117,11 @@ function getTotalPrices($articles) {
     }
     return $sum;
 }
+function getTotalWithShip($articles, $ship){
+    $sum = getTotalPrices($articles);
+    $sum += (float) $ship;
+    return $sum;
+}
 function min_precision($x, $p) {
     $e = pow(10,$p);
     return floor($x*$e)==$x*$e?sprintf("%.${p}f",$x):$x;
@@ -131,20 +136,31 @@ function calculateMinRecharge($saldo, $spesa) {
     return $necessario;
 }
 
-function generateRandomOrderID($length = 10) {
-    return "abcd";
-    // while(strlen($randomString)  < $length) {
-    //     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    //     $charactersLength = strlen($characters);
-    //     $randomString = '';
-    //     for ($i = 0; $i < $length; $i++) {
-    //         $randomString .= $characters[rand(0, $charactersLength - 1)];
-    //     }
-    //     foreach ($dbh->getOrderIds() as $id) {
-    //         if ($id.equals($randomString)) {
-    //             $randomString = '';
-    //         }
-    //     }
-    // }
+function generateRandomOrderID($length = 10, $orderIDS) {
+    $randomString = '';
+    $bene = false;
+    while(strlen($randomString)  < $length) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        // CICLO INFINITO PLS FIXAMI
+        // foreach ($orderIDS as $id) {
+        //     if ($id == $randomString) {
+        //         $randomString = '';
+        //     }
+        //     else {
+        //         $bene = true;
+        //     }
+        // }
+        // if ($bene == true) {
+        //     break;
+        // }
+    }
+}
+
+function generateRandomSpedID($length = 10) {
+    return "sped1";
 }
 ?>

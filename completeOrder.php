@@ -24,13 +24,34 @@ $templateParams["balance"] = $templateParams["balance"][0];
 
 $templateParams["addresses"] = $dbh ->getAddresses($_SESSION["username"]);
 
+if(isset($_POST["caddress"]) && isset($_POST["cncivico"]) && isset($_POST["ccitta"])){
+    $dbh->deleteAddress($_SESSION["username"], array("Via" => $_POST["caddress"], "Numero_civico" => $_POST["cncivico"], "Citta" => $_POST["ccitta"]));
+}
+if(isset($_POST["address"]) && isset($_POST["ncivico"]) && isset($_POST["citta"])){
+    $dbh->insertNewAddress($_SESSION["username"], array("Via" => $_POST["address"], "Numero_civico" => $_POST["ncivico"], "Citta" => $_POST["citta"]));
+}
+
 $templateParams["paymentMethods"] = $dbh ->getPayMethods($_SESSION["username"], );
 
-$templateParams["randomID"] =  generateRandomOrderID();
+$templateParams["randomIDOrder"] = generateRandomOrderID(6 ,array($dbh->getOrderIds()));
+// $templateParams["randomIDOrder"] = $templateParams["randomIDOrder"][0];
 
-if(isset($_POST["totale"])) {
-    $dbh->addOder($templateParams["randomID"], $_POST["chosenadd"], $_POST["totale"], $_SESSION["username"]);
-    // header("Location:" ); direi che va in ordine history
+
+$templateParams["randomIDSped"] =  generateRandomSpedID();
+$templateParams["randomIDSped"] = "sped1";
+
+
+if( isset($_POST["addr"]) && isset($_POST["ship-meth"]) ) {
+    $templateParams["shipMethod"] = $dbh->getShipmentMethodsByID($_POST["ship-meth"]);
+    $templateParams["shipMethod"] = $templateParams["shipMethod"][0];
+    $templateParams["addressCurrent"] = $_POST["addr"];
+    $dbh->addOrder($templateParams["randomIDOrder"], $templateParams["addressCurrent"], (float)getTotalWithShip($templateParams["articles"], $templateParams["shipMethod"]["Tariffa"]) , $_SESSION["username"]);
+    
+    foreach ($templateParams["articles"] as $article) {
+        // $dbh->addDettaglioSpedizione($article["ID_Articolo"], $templateParams["shipMethod"]["Tariffa"], $templateParams["addressCurrent"], "Ricevuto", $article["ID_Articolo"], $templateParams["shipMethod"]["ID_Tipo_Sped"], "abcd2");
+        $dbh->addDettaglioSpedizione($article["ID_Articolo"], $templateParams["shipMethod"]["Tariffa"], $templateParams["addressCurrent"], "Ricevuto", $article["ID_Articolo"], $templateParams["shipMethod"]["ID_Tipo_Sped"], "abcd2");
+    }
+    // header("Location: completeOrder.php");
 }
 
 

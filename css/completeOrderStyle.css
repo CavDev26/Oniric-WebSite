@@ -147,6 +147,33 @@
   }
 
 
+  .addressInputNew {
+    color: var(--secondary);
+    background: var(--traslucentPrimary);
+    border-radius: 4px;
+    width: 60%;
+    height: 40px;
+    border: 2px solid var(--traslucentPrimary);
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    font-family: Inter;
+    font-weight: 500;
+    font-size: 15px;
+    margin: 0;
+    max-width: 500px;
+    padding-left: 10px;
+    box-sizing: border-box;
+  }
+  
+  .addressInputNew::placeholder {
+    color: var(--primary);
+  }
+  
+  .addressInputNew:focus {
+    border: 2px solid var(--primary);
+  }
+
 
 
   .ship-img-omni {

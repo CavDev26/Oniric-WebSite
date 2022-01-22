@@ -1,7 +1,3 @@
-      <div class="centered">
-            <input id="purchaseSubmit" type="button" class="purchase-button o-05" value="Acquista" disabled onclick="<?php $dbh -> addOrder() ?>">
-            </input>
-      </div>
       <div class="lightBack center fullWidth m-50t">
         <div class="floatingBack inline-block m-20b mw-800 z-1">
           <div>
@@ -26,86 +22,88 @@
           </div>
           <hr class="span-order-big"></hr>
           <div>
-            <header class="category m-10t">Dettagli Spedizione</header>
-            <hr class="span-order"></hr>
-            <ul class="list detail-items">
-              <li class="m-20l m-20r">
-                <span class="center w-50 fullHeight">Invia a:</span>
-              </li>
-              <li class="m-10t">
-                <button class="profileAccordion address">
-                  <span>Scegli indirizzo</span>
-                </button>
-                <div class="panel">
-                  <div class="accordionBack">
-                    <form class="list">
+            <form action="#" class="list" method="POST">
+              <header class="category m-10t">Dettagli Spedizione</header>
+              <hr class="span-order"></hr>
+              <ul class="list detail-items">
+                <li class="m-20l m-20r">
+                  <span class="center w-50 fullHeight">Invia a:</span>
+                </li>
+                <li class="m-10t">
+                  <button type="button" class="profileAccordion address">
+                    <span>Scegli indirizzo</span>
+                  </button>
+                  <div class="panel">
+                    <div class="accordionBack">
                       <div class="radio-addr">
-
-                      <?php foreach($templateParams["addresses"] as $addr):?>
-                        <input type="radio" id="<?php echo $addr["Via"].$addr["Numero_civico"] ?>" name="addr" value="address" onclick="checkIfPurchasable()"/>
-                        <label for="<?php echo $addr["Via"].$addr["Numero_civico"] ?>">
-                          <div class="pls">
-                            <p class="m-0 add-name"><?php echo $templateParams["namesurname"]["Email"]; ?><br></p>
-                            <?php echo $addr["Via"] ?> <?php echo $addr["Numero_civico"] ?><br>
-                            <?php echo $addr["Citta"] ?>
-                          </div>
-                        </label>
-                        <hr class="span-order-big"></hr>
-                      <?php endforeach ?>
-                      </div>
-                      <div class="center">
-                          <button class="add-add hardButton">
-                            Aggiungi indirizzo
-                          </button>
-                          <!-- AGGIUNGIMI -->
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </li>
-              <hr class="span-order"></hr>
-              <li>
-                <span class="center">
-                  Metodo di spedizione
-                </span>
-              </li>
-              <li class="m-20l m-20t m-20r">
-                <button class="shipmentAccordion">
-                  Scegli metodo
-                </button>
-                <div class="panelShipment">
-                    <div class="accordionBackShipment">
-                        <form class="list">
-                            <div class="radio-ship">
-                                <?php foreach($templateParams["shipmentMethods"] as $ship):?>
-                                    <?php $Tariffa = min_precision($ship["Tariffa"], 2) ?>
-                                    <input
-                                    onclick="checkIfPurchasable()"
-                                    onClick="changeTotal(<?php echo min_precision($sum, 2); ?>, <?php echo $Tariffa; ?>, <?php echo $templateParams["balance"]["Saldo"] ?>)"
-                                    onchange="changeDisplayed(<?php echo $Tariffa; ?>);" type="radio" id="<?php echo $ship["ID_Tipo_Sped"] ?>" name="ship-meth" value="<?php echo $ship["Nome_Corriere"]; ?>"/>
-                                    <label class="m-10t" for="<?php echo $ship["ID_Tipo_Sped"] ?>">
-                                    <div class="pls">
-                                        <p class="center"><?php echo $ship["Nome_Corriere"]; ?><?php echo "  ($Tariffa&#128)"; ?></p>
-                                    </div>                   
-                                    </label>
-                                    <hr class="span-order-big"></hr>
-                                <?php endforeach; ?>
+                          <?php foreach($templateParams["addresses"] as $addr):?>
+                          <input type="radio" id="<?php echo $addr["Via"].$addr["Numero_civico"] ?>" name="addr" value="<?php echo $addr["Via"].$addr["Numero_civico"] ?>" onClick="checkIfPurchasable(<?php echo $templateParams["balance"]["Saldo"] ?>)"/>
+                          <label for="<?php echo $addr["Via"].$addr["Numero_civico"] ?>">
+                            <div class="pls">
+                              <p class="m-0 add-name"><?php echo $templateParams["namesurname"]["Nome"]; echo " "; echo $templateParams["namesurname"]["Cognome"];  ?><br></p>
+                              <?php echo $addr["Via"] ?> <?php echo $addr["Numero_civico"] ?><br>
+                              <?php echo $addr["Citta"] ?>
                             </div>
-                        </form> 
+                          </label>
+                          <hr class="span-order-big"></hr>
+                          <?php endforeach ?>
+                          <input type="radio" id="nuovoAdd" name="addr" value="" onClick="checkIfPurchasableAndChangeID(<?php echo $templateParams["balance"]["Saldo"] ?>)"/>
+                          <label for="nuovoAdd" class="addressLabel">
+                            <div class=" center pls">  
+                              <input class="addressInputNew" id="nuovoInserito" type="text" placeholder="inserisci Via e Numero Civico">
+                            </div>
+                          </label>
+                      </div>
                     </div>
-                </div>
-              </li>
-              <hr class="span-order"></hr>
-              <li class="m-20l m-20r m-20b">
-                <span class="left">
-                  Spedizione prevista:
-                </span><br>
-                <span class="right m-10b m-10t consegna">
-                    <!-- DEVE CAMBIARE IN BASE AL TIPO DI CONSEGNA -->
-                  <?php echo date("l, d/m/Y"); ?>
-                </span>
-              </li>
-            </ul>
+                  </div>
+                </li>
+                <hr class="span-order"></hr>
+                <li>
+                  <span class="center">
+                    Metodo di spedizione
+                  </span>
+                </li>
+                <li class="m-20l m-20t m-20r">
+                  <button type="button" class="shipmentAccordion">
+                    Scegli metodo
+                  </button>
+                  <div class="panelShipment">
+                      <div class="accordionBackShipment">
+                              <div class="radio-ship">
+                                  <?php foreach($templateParams["shipmentMethods"] as $ship):?>
+                                      <?php $Tariffa = min_precision($ship["Tariffa"], 2) ?>
+                                      <input
+                                      onClick="changeTotalAndPurchasable(<?php echo min_precision($sum, 2); ?>, <?php echo $Tariffa; ?>, <?php echo $templateParams["balance"]["Saldo"] ?>)"
+                                      onchange="changeDisplayed(<?php echo $Tariffa; ?>);" type="radio" id="<?php echo $ship["ID_Tipo_Sped"] ?>" name="ship-meth" value="<?php echo $ship["ID_Tipo_Sped"]; ?>"/>
+                                      <label class="m-10t" for="<?php echo $ship["ID_Tipo_Sped"] ?>">
+                                      <div class="pls">
+                                          <p class="center"><?php echo $ship["Nome_Corriere"]; ?><?php echo "  ($Tariffa&#128)"; ?></p>
+                                      </div>                   
+                                      </label>
+                                      <hr class="span-order-big"></hr>
+                                  <?php endforeach; ?>
+                              </div>
+                      </div>
+                  </div>
+                </li>
+                <hr class="span-order"></hr>
+                <li class="m-20l m-20r m-20b">
+                  <span class="left">
+                    Spedizione prevista:
+                  </span><br>
+                  <span class="right m-10b m-10t consegna">
+                    <?php 
+                    $datetime = new DateTime('tomorrow');
+                    echo $datetime->format("l, d/m/Y");
+                    ?>
+                  </span>
+                </li>
+                <li>
+                <input id="purchaseSubmit" type="submit" class="purchase-button o-05" value="Acquista" disabled>
+              </input>
+                </li>
+              </ul>
+            </form>
           </div>
           <hr class="span-order-big"></hr>
           <div>

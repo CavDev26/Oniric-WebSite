@@ -11,6 +11,9 @@ var addrInput = document.getElementsByName("addr");
 var shipInput = document.getElementsByName("ship-meth");
 var purchaseSubmit = document.getElementById("purchaseSubmit");
 
+var addNuovo = document.getElementById("nuovoAdd");
+var nuovoInserito = document.getElementById("nuovoInserito");
+
 
 function changeTotal(sum, shipPrice, sald) {
     total = parseFloat(sum) + parseFloat(shipPrice);
@@ -19,7 +22,7 @@ function changeTotal(sum, shipPrice, sald) {
         necessarySald.innerHTML = "Necessario: 0.00&#128";
         radioInputNec.value = 0.00;
     } else {
-        necessarySald.innerHTML = total - sald;
+        necessarySald.innerHTML = total - sald + "&#128";
         radioInputNec.value = total - sald;
     }
 }
@@ -56,9 +59,10 @@ function checkIfRechargeable() {
 
 function changeTotalAndPurchasable(sum, shipPrice, sald){
     this.changeTotal(sum, shipPrice, sald);
-    this.checkIfPurchasable();
+    this.checkIfPurchasable(sald);
 }
-function checkIfPurchasable() {
+
+function checkIfPurchasable(sald) {
     addr = false;
     ship = false;
     if (addrInput.length > 0) {
@@ -73,8 +77,13 @@ function checkIfPurchasable() {
             }
         });
     }
-    if (addr == true && ship == true) {
+    if (addr == true && ship == true && parseFloat(priceTotal.innerHTML) <= parseFloat(sald)) {
         purchaseSubmit.disabled = false;
         purchaseSubmit.style.opacity = "1";
     }
+}
+
+function checkIfPurchasableAndChangeID(sald) {
+    this.checkIfPurchasable(sald);
+    addNuovo.value = nuovoInserito.value;
 }
