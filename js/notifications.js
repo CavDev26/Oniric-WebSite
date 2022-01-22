@@ -15,6 +15,17 @@ function pushNotifications(notification) {
   xhttp.send();
 }
 
+function readNotifications(checkbox) {
+  if (checkbox.checked) {
+    console.log("hello");
+    const xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "pushNotification.php?read=1");
+    xhttp.send();
+  } else {
+    $(".notification-indicator").hide();
+  }
+}
+
 function createElementFromHTML(htmlString) {
   var div = document.createElement("div");
   div.innerHTML = htmlString.trim();

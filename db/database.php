@@ -182,7 +182,7 @@ class DatabaseHelper{
     public function pushNotification($notification) {
         $query = "INSERT INTO notifica(ID_Notifica, Titolo,Descrizione, Data_Ora, Letto, ID_Ordine, Nome_Utente, Immagine) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ssssssss',$notification["ID_Notifica"], $notification["Titolo"], $notification["Descrizione"], $notification["Data_Ora"], $notification["Letto"], $notification["ID_Ordine"], $notification["Nome_Utente"], $notification["Immagine"]);
+        $stmt->bind_param('ssssdsss',$notification["ID_Notifica"], $notification["Titolo"], $notification["Descrizione"], $notification["Data_Ora"], $notification["Letto"], $notification["ID_Ordine"], $notification["Nome_Utente"], $notification["Immagine"]);
         $stmt->execute();
         return $stmt->insert_id;
     }
@@ -207,6 +207,13 @@ class DatabaseHelper{
         $stmt = $this->db->prepare($query);
         $data = date("Y-m-d");
         $stmt->bind_param('sssds', $ID_Ordine, $Indirizzo, $data, $spesa, $username);
+        $stmt->execute();
+        return $stmt->insert_id;
+    }
+    public function readNotifications($username) {
+        $query = "UPDATE notifica SET Letto = 1 WHERE Nome_Utente = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $username);
         $stmt->execute();
         return $stmt->insert_id;
     }

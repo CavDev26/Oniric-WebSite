@@ -88,7 +88,7 @@
           <div class="center m-0">
             <label class="pointer" for="notification"><img id="bell" src="./img/notificationdef.png" alt="" class="notification-menu-img"/></label>
           </div>
-          <input id="notification" type="checkbox" class="check-notifications"/>
+          <input id="notification" type="checkbox" class="check-notifications" onchange="readNotifications(this)"/>
           <ul class="notifications-list" id="notificationHub">
             <?php if(isUserLoggedIn()) {
               foreach($dbh->getNotifications($_SESSION["username"]) as $notification):
@@ -99,7 +99,7 @@
                   <img src="./img/cava2000.png" alt="" class="notification-img-product"/>
                   <h1 class="notification-type left-text"><?php echo $notification["Titolo"]?></h1>
                   <p class="notification-status left-text"><?php echo $notification["Descrizione"]?></p>
-                  <img src="./img/notifica-ball.png" alt="" class="notification-indicator"/>
+                  <?php if ($notification["Letto"] == 0): ?><img src="./img/notifica-ball.png" alt="" class="notification-indicator"/><?php endif;?>
                   <footer class="notification-time right-text">
                   <?php echo $notification["Data_Ora"]?>
                 </footer>
