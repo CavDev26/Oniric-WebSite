@@ -26,8 +26,8 @@
         <span class="button-top-logo m-10r">
           <a href=""><img src="./img/logo-oniric.png" alt="" class="logo-img" /></a>
         </span>
-        <span class="left-menu left full-height">
-          <input type="checkbox"/>
+        <label class="left-menu left full-height" for="menu-check">
+          <input id="menu-check" type="checkbox"/>
 
           <span class="first-span menu-mobile"></span>
           <span class="menu-mobile"></span>
@@ -53,7 +53,7 @@
             <li><a href="#">Contatti e Assistenza</a></li>
             <hr class="span-menu-div">
           </ul>
-        </span>
+        </label>
 
         <a class="buttons border-right border-left full-height left" href="">
           <div class="center m-0">

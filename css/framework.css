@@ -82,6 +82,9 @@
 .m-20t {
   margin-top: 20px;
 }
+.m-50t {
+  margin-top: 50px;
+}
 .m-20b {
   margin-bottom: 20px;
 }
@@ -213,4 +216,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.o-05 {
+  opacity: 0.5;
 }

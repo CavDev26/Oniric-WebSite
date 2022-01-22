@@ -123,7 +123,28 @@ function min_precision($x, $p) {
 }
 function calculateMinRecharge($saldo, $spesa) {
     $necessario = 0.00;
-    $necessario = $spesa - $saldo;
+    if( $saldo >= $spesa){
+        $necessario = 0.00;
+    }else {
+        $necessario = $spesa - $saldo;
+    }
     return $necessario;
+}
+
+function generateRandomOrderID($length = 10) {
+    return "abcd";
+    // while(strlen($randomString)  < $length) {
+    //     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    //     $charactersLength = strlen($characters);
+    //     $randomString = '';
+    //     for ($i = 0; $i < $length; $i++) {
+    //         $randomString .= $characters[rand(0, $charactersLength - 1)];
+    //     }
+    //     foreach ($dbh->getOrderIds() as $id) {
+    //         if ($id.equals($randomString)) {
+    //             $randomString = '';
+    //         }
+    //     }
+    // }
 }
 ?>

@@ -13,12 +13,25 @@ $templateParams["shipmentMethods"] = $templateParams["shipmentMethods"][0];
 $templateParams["namesurname"] = $dbh ->getNameSurname($_SESSION["username"]);
 $templateParams["namesurname"] = $templateParams["namesurname"][0];
 
+
+if(isset($_POST["valore"])) {
+    $dbh->updateSald($_SESSION["username"], $_POST["valore"]);
+    header("Location: completeOrder.php");
+}
+
 $templateParams["balance"] = $dbh ->getBalance($_SESSION["username"]);
 $templateParams["balance"] = $templateParams["balance"][0];
 
-$templateParams["addresses"] = $dbh->getAddresses($_SESSION["username"]);
+$templateParams["addresses"] = $dbh ->getAddresses($_SESSION["username"]);
 
-$templateParams["paymentMethods"] = $dbh->getPayMethods($_SESSION["username"], );
+$templateParams["paymentMethods"] = $dbh ->getPayMethods($_SESSION["username"], );
+
+$templateParams["randomID"] =  generateRandomOrderID();
+
+if(isset($_POST["totale"])) {
+    $dbh->addOder($templateParams["randomID"], $_POST["chosenadd"], $_POST["totale"], $_SESSION["username"]);
+    // header("Location:" ); direi che va in ordine history
+}
 
 
 $templateParams["style"] = array("./css/productStyle.css", "./css/framework.css", "./css/cartStyle.css",

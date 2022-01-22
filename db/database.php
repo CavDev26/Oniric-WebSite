@@ -186,5 +186,29 @@ class DatabaseHelper{
         $stmt->execute();
         return $stmt->insert_id;
     }
+
+    public function updateSald($username, $importo) {
+        // echo "Sto a fare dio merda";
+        $query = "UPDATE utente SET saldo = (? + Saldo) WHERE Nome_Utente = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ds',$importo, $username);
+        $stmt->execute();
+        return $stmt->insert_id;
+    }
+    public function getOrderIds() {
+        $query = "SELECT ID_Ordine FROM ordine";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return !empty($result->fetch_all(MYSQLI_ASSOC));
+    }
+    public function addOrder($ID_Ordine, $Indirizzo, $spesa, $username){
+        $query = "INSERT INTO ordine (ID_Ordine, Indirizzo_Consegna, Data_Acquisto, Spesa_Totale, Nome_Utente) VALUES (?, ?, ?, ?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $data = date("Y-m-d");
+        $stmt->bind_param('sssds', $ID_Ordine, $Indirizzo, $data, $spesa, $username);
+        $stmt->execute();
+        return $stmt->insert_id;
+    }
 }
 ?>

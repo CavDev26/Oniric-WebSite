@@ -1,11 +1,8 @@
       <div class="centered">
-          <a class="normal" href="">
-              <div class="purchase-button">
-                <p>Acquista</p>
-              </div>
-           </a>
+            <input id="purchaseSubmit" type="button" class="purchase-button o-05" value="Acquista" disabled onclick="<?php $dbh -> addOrder() ?>">
+            </input>
       </div>
-      <div class="lightBack center fullWidth">
+      <div class="lightBack center fullWidth m-50t">
         <div class="floatingBack inline-block m-20b mw-800 z-1">
           <div>
             <header class="category m-10t">Dettagli Articoli</header>
@@ -45,7 +42,7 @@
                       <div class="radio-addr">
 
                       <?php foreach($templateParams["addresses"] as $addr):?>
-                        <input type="radio" id="<?php echo $addr["Via"].$addr["Numero_civico"] ?>" name="radios" value="address"/>
+                        <input type="radio" id="<?php echo $addr["Via"].$addr["Numero_civico"] ?>" name="addr" value="address" onclick="checkIfPurchasable()"/>
                         <label for="<?php echo $addr["Via"].$addr["Numero_civico"] ?>">
                           <div class="pls">
                             <p class="m-0 add-name"><?php echo $templateParams["namesurname"]["Email"]; ?><br></p>
@@ -56,7 +53,6 @@
                         <hr class="span-order-big"></hr>
                       <?php endforeach ?>
                       </div>
-                      <hr class="span-order-big"></hr>
                       <div class="center">
                           <button class="add-add hardButton">
                             Aggiungi indirizzo
@@ -83,9 +79,10 @@
                             <div class="radio-ship">
                                 <?php foreach($templateParams["shipmentMethods"] as $ship):?>
                                     <?php $Tariffa = min_precision($ship["Tariffa"], 2) ?>
-                                    <input 
+                                    <input
+                                    onclick="checkIfPurchasable()"
                                     onClick="changeTotal(<?php echo min_precision($sum, 2); ?>, <?php echo $Tariffa; ?>, <?php echo $templateParams["balance"]["Saldo"] ?>)"
-                                    onchange="changeDisplayed(<?php echo $Tariffa; ?>);" type="radio" id="<?php echo $ship["ID_Tipo_Sped"] ?>" name="radios" value="<?php echo $ship["Nome_Corriere"]; ?>" checked="true" />
+                                    onchange="changeDisplayed(<?php echo $Tariffa; ?>);" type="radio" id="<?php echo $ship["ID_Tipo_Sped"] ?>" name="ship-meth" value="<?php echo $ship["Nome_Corriere"]; ?>"/>
                                     <label class="m-10t" for="<?php echo $ship["ID_Tipo_Sped"] ?>">
                                     <div class="pls">
                                         <p class="center"><?php echo $ship["Nome_Corriere"]; ?><?php echo "  ($Tariffa&#128)"; ?></p>
@@ -161,24 +158,23 @@
                               Saldo Rimanente
                             </p>
                           </header>
-                          <form action="">
+                          <form action="" method="POST">
                             <div class="radio-toolbar center">
                               <header class="m-10b">Ammontare</header>
-                    
-                              <input type="radio" id="radio1" name="radios" value="20" checked>
+
+                              <input type="radio" id="radio1" name="valore" value="20" onclick="checkIfRechargeable()">
                               <label for="radio1">20,00&#128</label>
                             
-                              <input type="radio" id="radio2" name="radios" value="50">
+                              <input type="radio" id="radio2" name="valore" value="50" onclick="checkIfRechargeable()">
                               <label for="radio2">50,00&#128</label>
                             
-                              <input type="radio" id="radio3" name="radios" value="100">
+                              <input type="radio" id="radio3" name="valore" value="100" onclick="checkIfRechargeable()">
                               <label for="radio3">100,00&#128</label><br>
 
-                              <input type="radio" id="radiox" name="radios" value="minimo">
                               <?php $necessario = calculateMinRecharge($templateParams["balance"]["Saldo"], $sum); ?>
-                              <label id="necessarySald" class="w-90 m-10t" for="radiox">Necessario: <?php echo "$necessario &#128"; ?></label>
+                              <input type="radio" id="radiox" name="valore" value="<?php echo $necessario;?>" onclick="checkIfRechargeable()">
+                              <label id="necessarySald" class="w-90 m-10t" for="radiox">Necessario: <?php echo $necessario; ?>&#128</label>
                             </div>
-                          </form>
                             <div>
                               <header>
                                 <h2 class="middleText left-text f-20">
@@ -186,10 +182,9 @@
                                 </h2>
                               </header>
                               <div>
-                                  <form class="list">
-                                    <div class="payments">
+                                <div class="payments">
                                         <?php foreach($templateParams["paymentMethods"] as $pay):?>
-                                            <input type="radio" id="<?php echo $pay["Numero"]?>" name="radios" value="card" checked>
+                                            <input type="radio" id="<?php echo $pay["Numero"]?>" name="card" value="card" onclick="checkIfRechargeable()">
                                             <label for="<?php echo $pay["Numero"]?>">
                                                 <div class="pls m-10b">
                                                 <img class="left" src="./img/visaLogo.png" alt=""/>
@@ -202,8 +197,7 @@
                                             </label>
                                             <hr class="span-order-big"></hr>
                                         <?php endforeach; ?>
-                                    </div>
-                                    <hr class="span-order-big"></hr>
+                                </div>
                                     <div class="center">
                                       <a href="">
                                         <button class="add-card m-10b">
@@ -211,14 +205,16 @@
                                         </button>
                                       </a>
                                     </div>
-                                  </form>
-                              </div>
                             </div>
                             <input
-                              type="submit"
-                              class="hardButton w-75 m-10t m-20b"
-                              value="Ricarica"
+                                    id="submitRecharge"
+                                    type="submit"
+                                    class="hardButton o-05 w-75 m-10t m-20b"
+                                    disabled
+                                    value="Inserisci tutti i dati"
                             />
+                          </form>
+                            </div>
                         </div>
                       </div>
                     </div>
