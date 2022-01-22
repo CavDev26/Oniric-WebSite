@@ -36,7 +36,6 @@ body {
   background: #37284f;
 }
 
-
 .bottom-nav-button {
   padding-top: 2%;
   justify-content: center;
@@ -50,7 +49,6 @@ body {
   width: auto\9;
   height: auto;
 }
-
 
 .logo-img {
   width: 50px;
@@ -445,7 +443,6 @@ body {
   transform: rotate(-45deg) translate(0, -1px);
 }
 
-
 @media only screen and (min-width: 1025px) {
   /*regole che valgono per schermi grandi (desktop)*/
   .navbar-bot {
@@ -460,7 +457,7 @@ body {
     height: 70px;
     text-align: center;
     z-index: 100;
-  
+
     border: 1px solid black;
     background: radial-gradient(
       139.02% 189.45% at 48.25% 44.79%,
@@ -533,16 +530,16 @@ body {
   .buttons-img {
     display: none;
   }
-  .left-menu {
-    /* position: absolute;
+  .left-menu > label {
+    position: absolute;
     opacity: 0;
-    z-index: -100; */
+    z-index: -100;
+  }
+  .left-menu > span {
+    display: none;
   }
 }
 
-
-
 @media only screen and (max-width: 1025px) {
   /*mobile*/
-  
 }

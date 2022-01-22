@@ -26,13 +26,11 @@
         <span class="button-top-logo m-10r">
           <a href=""><img src="./img/logo-oniric.png" alt="" class="logo-img" /></a>
         </span>
-        <label class="left-menu left full-height" for="menu-check">
-          <input id="menu-check" type="checkbox"/>
-
-          <span class="first-span menu-mobile"></span>
-          <span class="menu-mobile"></span>
-          <span class="menu-mobile"></span>
-
+        <span class="left-menu left full-height">
+              <input id="menu-check" type="checkbox"/>
+              <span class="first-span menu-mobile"></span>
+              <span class="menu-mobile"></span>
+              <span class="menu-mobile"></span>
           <ul class="unfolded-left-menu">
             <li class="search-line">
               <div class="wrapper">
@@ -53,14 +51,14 @@
             <li><a href="#">Contatti e Assistenza</a></li>
             <hr class="span-menu-div">
           </ul>
-        </label>
+        </span>
 
-        <a class="buttons border-right border-left full-height left" href="">
+        <label for="menu-check"><div class="buttons border-right border-left full-height left">
           <div class="center m-0">
             <img src="./img/Search.png" class="buttons-img" alt=""/>
           </div>
           <span class="menu-desc">Menù</span>
-        </a>
+        </div></label>
         <a class="buttons border-right full-height left" href="">
           <div class="center m-0">
             <img src="./img/Search.png" class="buttons-img" alt=""/>
@@ -88,9 +86,9 @@
 
         <span class="button-top-notifications full-height">
           <div class="center m-0">
-            <img id="bell" src="./img/notificationdef.png" alt="" class="notification-menu-img"/>
+            <label class="pointer" for="notification"><img id="bell" src="./img/notificationdef.png" alt="" class="notification-menu-img"/></label>
           </div>
-          <input type="checkbox" class="check-notifications"/>
+          <input id="notification" type="checkbox" class="check-notifications"/>
           <ul class="notifications-list" id="notificationHub">
             <?php if(isUserLoggedIn()) {
               foreach($dbh->getNotifications($_SESSION["username"]) as $notification):
