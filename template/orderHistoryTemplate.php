@@ -41,7 +41,7 @@
                                     </div>
                                     <div class="price-section">
                                         <p class="valuta">&#128</p>
-                                        <p class="price"><?php echo min_precision((float)$articledet["Costo_Listino"] - round((float)$articledet["Sconto"]*(float)$articledet["Costo_Listino"]), 2); ?></p>
+                                        <p class="price"><?php echo min_precision((float)$articledet["Costo_listino"] - round((float)$articledet["Sconto"]*(float)$articledet["Costo_listino"]), 2); ?></p>
                                     </div>
                                 </div>
                             </li>
@@ -85,6 +85,7 @@
                   </li>
                   <hr class="span-order"></hr>
                   <li class="m-20l m-20t m-20r">
+                    <?php $status = $templateParams["dettagliearticoli"][0]["Status_Ordine"]; ?>
                     <button class="shipmentAccordion">
                       Status Spedizione
                     </button>
@@ -94,38 +95,12 @@
                           <img src="./img/orderhistory.png" class="order-span-img" alt=""/>
                         </div>
                         <div class="center m-20l m-160b">
-                        <?php $status = $templateParams["dettagliearticoli"][0]["Status_Ordine"]; ?>
                           <ul class="list m-20t left">
-                            <li id="PresoInCarico" class="m-10b">Preso in carico</li>
-                            <li id="Spedito" class="m-10b">Spedito</li>
-                            <li id="InConsegna" class="m-10b">In consegna</li>
-                            <li id="Consegnato" class="m-10b">Consegnato</li>
+                            <li id="PresoInCarico" class="m-10b <?php if($status == "Ricevuto"){echo "statusOrderBig";} ?>">Preso in carico</li>
+                            <li id="Spedito" class="m-10b" <?php if($status == "Spedito"){echo "statusOrderBig";} ?>>Spedito</li>
+                            <li id="InConsegna" class="m-10b" <?php if($status == "In Consegna"){echo "statusOrderBig";} ?>>In consegna</li>
+                            <li id="Consegnato" class="m-10b" <?php if($status == "Consegnato"){echo "statusOrderBig";} ?>>Consegnato</li>
                           </ul>
-                          <script>
-                                var status1 = document.getElementById("PresoInCarico");
-                                var status2 = document.getElementById("Spedito");
-                                var status3 = document.getElementById("InConsegna");
-                                var status4 = document.getElementById("Consegnato");
-
-                                function changeStatus(expr){
-                                    switch (expr) {
-                                        case 'Ricevuto':
-                                            status1.classList.add("statusOrderBig");
-                                            break;
-                                        case 'Spedito':
-                                            status2.classList.add("statusOrderBig");
-                                            break;
-                                        case 'InConsegna':
-                                            status3.classList.add("statusOrderBig");
-                                            break;
-                                        case 'Consegnato':
-                                            status4.classList.add("statusOrderBig");
-                                            break;
-                                        default:
-                                    }
-                                }
-                                changeStatus("<?php echo $status ?>");
-                            </script>
                         </div>
                       </div>
                     </div>

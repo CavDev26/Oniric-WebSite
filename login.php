@@ -43,7 +43,8 @@ if(isUserLoggedIn()){
     if (isset($_SESSION["completeOrder"])) {
         header("location: cart.php");
     }
-    if (isset($_SESSION["completeOrder"])) {
+    //forse non va bene
+    if (isset($_SESSION["orderHistory"])) {
         header("location: index.php");
     }
 

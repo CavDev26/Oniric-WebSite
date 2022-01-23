@@ -39,11 +39,12 @@ if(isUserLoggedIn()){
         $templateParams["shipMethod"] = $templateParams["shipMethod"][0];
         $templateParams["addressCurrent"] = $_POST["addr"];
         $templateParams["randomIDOrder"] = generateRandomOrderID(6 ,array($dbh->getOrderIds()));
-        $templateParams["randomIDSped"] =  generateRandomSpedID();
 
         $dbh->addOrder($templateParams["randomIDOrder"], $templateParams["addressCurrent"], (float)getTotalWithShip($templateParams["articles"], $templateParams["shipMethod"]["Tariffa"]) , $_SESSION["username"]);
+        // var_dump($templateParams["articles"]);
         foreach ($templateParams["articles"] as $article) {
-            $dbh->addDettaglioSpedizione($article["ID_Articolo"], $templateParams["shipMethod"]["Tariffa"], $templateParams["addressCurrent"], "Ricevuto", $article["ID_Articolo"], $templateParams["shipMethod"]["ID_Tipo_Sped"], $templateParams["randomIDOrder"]);
+            $templateParams["randomIDSped"] =  generateRandomSpedID(3);
+            $dbh->addDettaglioSpedizione($templateParams["randomIDSped"], $templateParams["shipMethod"]["Tariffa"], $templateParams["addressCurrent"], "Ricevuto", $article["ID_Articolo"], $templateParams["shipMethod"]["ID_Tipo_Sped"], $templateParams["randomIDOrder"]);
         }
         $templateParams["newBal"] = min_precision($templateParams["balance"]["Saldo"] - (float)getTotalWithShip($templateParams["articles"], $templateParams["shipMethod"]["Tariffa"]), 2);
         $dbh->removeSald($_SESSION["username"],  round($templateParams["newBal"], 2));

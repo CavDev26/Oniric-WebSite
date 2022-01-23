@@ -221,7 +221,7 @@ class DatabaseHelper{
     public function addDettaglioSpedizione($ID_Spedizione, $Costo_Spedizione, $Indirizzo_Consegna, $Status_Ordine, $ID_Articolo, $ID_Tipo_Sped, $ID_Ordine) {
         $query = "INSERT INTO dettaglio_spedizione (ID_Spedizione, Costo_Spedizione, Data_Arrivo, Indirizzo_Consegna, Status_Ordine, ID_Articolo, ID_Tipo_Sped, ID_Ordine) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
-        $data = date(null);
+        $data = "00000000";
         $stmt->bind_param('sdssssss', $ID_Spedizione, $Costo_Spedizione, $data, $Indirizzo_Consegna, $Status_Ordine, $ID_Articolo, $ID_Tipo_Sped, $ID_Ordine);
         $stmt->execute();
         return $stmt->insert_id;
@@ -271,7 +271,7 @@ class DatabaseHelper{
     }
 
     public function getDettagliSpedizioneandArticoli($IDOrdine) {
-        $query = "SELECT ID_Spedizione, Costo_Spedizione, Data_Arrivo, Status_Ordine, d.ID_Articolo, ID_Tipo_Sped, Nome, Costo_Listino, Sconto, Cartella_Immagini, Voto_medio FROM dettaglio_spedizione d, articolo a WHERE ID_Ordine = ? AND d.ID_Articolo = a.ID_Articolo";
+        $query = "SELECT ID_Spedizione, Costo_Spedizione, Data_Arrivo, Status_Ordine, d.ID_Articolo, ID_Tipo_Sped, Nome, Costo_listino, Sconto, Cartella_Immagini, Voto_medio FROM dettaglio_spedizione d, articolo a WHERE ID_Ordine = ? AND d.ID_Articolo = a.ID_Articolo";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s', $IDOrdine);
         $stmt->execute();
@@ -282,6 +282,15 @@ class DatabaseHelper{
         $query = "SELECT Nome_Corriere FROM tipo_spedizione WHERE ID_Tipo_Sped = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s', $IDTipo);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function getAllOrdersByUsername($username) {
+        $query = "SELECT o.ID_Ordine, Status_Ordine, Nome, Cartella_immagini FROM ordine o, dettaglio_spedizione d, articolo a WHERE o.Nome_Utente = ? AND d.ID_Ordine = o.ID_Ordine AND d.ID_Articolo = a.ID_Articolo";
+        // $query = "SELECT o.ID_Ordine, Status_Ordine, ID_Articolo FROM ordine o, dettaglio_spedizione d WHERE o.Nome_Utente = ? AND d.ID_Ordine = o.ID_Ordine";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $username);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);

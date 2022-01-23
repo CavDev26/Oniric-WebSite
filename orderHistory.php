@@ -6,8 +6,7 @@ unset($_SESSION["orderHistory"]);
 if(isUserLoggedIn()){
     $templateParams["titolo"] = "Order History";
     $templateParams["nome"] = "orderHistoryTemplate.php";
-
-    $templateParams["id"] = "pquQf2"; //da fixare poi
+    $templateParams["id"] = $_GET["id"];
 
     $templateParams["ordine"] = $dbh->getOrderByID($_SESSION["username"], $templateParams["id"]);
     $templateParams["ordine"] = $templateParams["ordine"][0];
@@ -21,9 +20,9 @@ if(isUserLoggedIn()){
     $templateParams["style"] = array("./css/framework.css", "./css/cartStyle.css",
     "./css/buttons.css", "./css/modal.css", "./css/profile.css", "./css/accordion.css",
     "./css/completeOrderStyle.css",  "./css/searchResults.css",  "./css/ordineHistory.css");
-    $templateParams["js"] = array("./js/accordion.js", "./js/modal.js", "./js/orderStatus.js");
+    $templateParams["js"] = array("./js/accordion.js", "./js/modal.js");
 } else {
-    $_SESSION["orderHistory"] = "historyr";
+    $_SESSION["orderHistory"] = "history";
     header("Location: login.php");
 }
 

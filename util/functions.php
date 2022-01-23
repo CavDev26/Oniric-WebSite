@@ -114,7 +114,7 @@ function getTotalPrices($articles) {
     $price = 0.0;
     $sum = 0.0;
     foreach($articles as $art) {
-        $price = (float)$art["Costo_Listino"] - round((float)$art["Sconto"]*(float)$art["Costo_Listino"], 2);
+        $price = (float)$art["Costo_listino"] - round((float)$art["Sconto"]*(float)$art["Costo_listino"], 2);
         $sum += (float)$price;
     }
     return round($sum, 2);

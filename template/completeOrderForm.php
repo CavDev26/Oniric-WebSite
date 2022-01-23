@@ -175,7 +175,7 @@
                             </div>
                             <div>
                               <header>
-                                <h2 class="middleText left-text f-20">
+                                <h2 class="middleText f-20">
                                   Scegli con cosa ricaricare il saldo
                                 </h2>
                               </header>
@@ -197,10 +197,10 @@
                                         <?php endforeach; ?>
                                 </div>
                                     <div class="center">
-                                      <a href="">
-                                        <button class="add-card m-10b">
+                                      <a href="payMethods.php">
+                                        <div class="add-card center m-10b">
                                           Aggiungi una carta
-                                        </button>
+                                        </div>
                                       </a>
                                     </div>
                             </div>
