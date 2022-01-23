@@ -170,7 +170,7 @@ class DatabaseHelper{
         }
     }
     public function getNotifications($username) {
-        $query = "SELECT ID_Notifica, Titolo, Descrizione, Data_Ora, Letto, ID_Ordine, Nome_Utente 
+        $query = "SELECT ID_Notifica, Titolo, Descrizione, Data_Ora, Letto, ID_Ordine, Nome_Utente, Immagine
                 FROM notifica WHERE Nome_Utente = ? ORDER BY Data_Ora DESC LIMIT 20";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s',$username);
@@ -215,7 +215,7 @@ class DatabaseHelper{
     public function addDettaglioSpedizione($ID_Spedizione, $Costo_Spedizione, $Indirizzo_Consegna, $Status_Ordine, $ID_Articolo, $ID_Tipo_Sped, $ID_Ordine) {
         $query = "INSERT INTO dettaglio_spedizione (ID_Spedizione, Costo_Spedizione, Data_Arrivo, Indirizzo_Consegna, Status_Ordine, ID_Articolo, ID_Tipo_Sped, ID_Ordine) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
-        $data = date(null);
+        $data = null;
         $stmt->bind_param('sdssssss', $ID_Spedizione, $Costo_Spedizione, $data, $Indirizzo_Consegna, $Status_Ordine, $ID_Articolo, $ID_Tipo_Sped, $ID_Ordine);
         $stmt->execute();
         return $stmt->insert_id;
@@ -248,6 +248,58 @@ class DatabaseHelper{
         $stmt->bind_param('sssss', $payMethod["Nome"], $payMethod["Circuito_pagamento"], $payMethod["Numero"], $username, $methodName);
         $stmt->execute();
         return $stmt->insert_id;
+    }
+    public function getNumberOfArticles() {
+        $query = "SELECT COUNT(*) FROM articolo";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function getArticles($pageNum, $filters) {
+        $from = ($pageNum -1)* 4;
+        if (empty($filters)) {
+            $query = "SELECT ID_Articolo, Nome, Descrizione, Descrizione_breve, Costo_listino, Quantita_Disp, Sconto, Cartella_immagini, 
+            Voto_medio, Nome_Utente, App_Nome FROM articolo LIMIT ?, 4";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('i',$from);
+            $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            $query = "SELECT ID_Articolo, Nome, Descrizione, Descrizione_breve, Costo_listino, Quantita_Disp, Sconto, Cartella_immagini, 
+            Voto_medio, Nome_Utente, App_Nome FROM articolo a WHERE ";
+            if (!empty($filters["tag"])) {
+                $query .= "(EXISTS (SELECT ID_Articolo, Nome FROM richiamo r WHERE a.ID_Articolo = r.ID_Articolo AND r.Nome IN (";
+                foreach ($filters["tag"] as $tag) {
+                    $query .= "\"".$tag."\",";
+                }
+                substr_replace($query," ",-1,1);
+                $query .= ")))";
+            }
+            $query .= " LIMIT ?, 4";
+            echo $query;
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('i',$from);
+            $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+        }
+        
+    } 
+    public function getTags() {
+        $query = "SELECT Nome FROM tag LIMIT 10";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function getCategories() {
+        $query = "SELECT Nome FROM categoria LIMIT 10";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 }
 ?>

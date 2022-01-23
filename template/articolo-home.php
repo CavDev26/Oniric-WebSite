@@ -132,7 +132,8 @@
               } else {
                 echo "class=\"wideLiteButton\"";
               }
-              ?> id="cartButton" type="button" onClick="addToCart(this, '<?php echo $articolo["ID_Articolo"]; ?>', '<?php echo $articolo["Cartella_immagini"]."/1.png"; ?>')"><?php if ($isInTheCart) {
+              ?> id="<?php echo $articolo["ID_Articolo"]; ?>" type="button" onClick="addToCart(this, '<?php echo $articolo["ID_Articolo"]; ?>', 
+              '<?php echo findExtension("./img/".$articolo["Cartella_immagini"],1);?>')"><?php if ($isInTheCart) {
                 echo "&#10004;";
               } else {
                 echo "Aggiungi al Carrello";

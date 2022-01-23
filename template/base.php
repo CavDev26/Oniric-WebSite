@@ -96,7 +96,7 @@
             <a href="<?php echo getHrefOfNotification($notification["ID_Notifica"]); ?>">  
               <li class="notification-dimensions">
                 <div class="notification-elem">
-                  <img src="./img/cava2000.png" alt="" class="notification-img-product"/>
+                  <img src="<?php echo $notification["Immagine"]?>" alt="" class="notification-img-product"/>
                   <h1 class="notification-type left-text"><?php echo $notification["Titolo"]?></h1>
                   <p class="notification-status left-text"><?php echo $notification["Descrizione"]?></p>
                   <?php if ($notification["Letto"] == 0): ?><img src="./img/notifica-ball.png" alt="" class="notification-indicator"/><?php endif;?>
