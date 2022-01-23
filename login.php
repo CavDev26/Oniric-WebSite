@@ -13,6 +13,8 @@ if (isset($_POST["exit"])) {
 if (isset($_POST["article"])) {
     $_SESSION['article'] = $_POST["article"];
 }
+
+
 if(isset($_POST["username"]) && isset($_POST["password"])){
     $login_result = $dbh->checkLogin($_POST["username"], $_POST["password"]);
     if(count($login_result)==0){
@@ -35,11 +37,16 @@ if(isUserLoggedIn()){
     if (isset($_SESSION["article"])) {
         header("location: articolo.php?id=". $_SESSION["article"]);
     }
-    
-    //DA FIXARE
-    if (isset($_SESSION["completeOrder"])) {
-        header("location: completeOrder.php");
+    if (isset($_SESSION["cart"])) {
+        header("location: cart.php");
     }
+    if (isset($_SESSION["completeOrder"])) {
+        header("location: cart.php");
+    }
+    if (isset($_SESSION["completeOrder"])) {
+        header("location: index.php");
+    }
+
     // UTENTE LOGGATO
     $templateParams["titolo"] = "Profilo - " . $_SESSION["username"];
     $templateParams["nome"] = "profile.php";

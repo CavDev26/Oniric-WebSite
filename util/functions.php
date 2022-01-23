@@ -111,11 +111,13 @@ function userWroteReview($username, $reviews) {
 }
 
 function getTotalPrices($articles) {
+    $price = 0.0;
     $sum = 0.0;
     foreach($articles as $art) {
-        $sum += (float) $art["Costo_listino"];
+        $price = (float)$art["Costo_Listino"] - round((float)$art["Sconto"]*(float)$art["Costo_Listino"], 2);
+        $sum += (float)$price;
     }
-    return $sum;
+    return round($sum, 2);
 }
 function getTotalWithShip($articles, $ship){
     $sum = getTotalPrices($articles);
@@ -150,31 +152,47 @@ function getHrefOfNotification ($notificationId) {
 }
 
 function generateRandomOrderID($length = 10, $orderIDS) {
+    // return "abcd2";
+
     $randomString = '';
-    $bene = false;
+    $bene = true;
     while(strlen($randomString)  < $length) {
+        $randomString = '';
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
         for ($i = 0; $i < $length; $i++) {
             $randomString .= $characters[rand(0, $charactersLength - 1)];
         }
-        // CICLO INFINITO PLS FIXAMI
+        // echo $randomString;
+        return $randomString;
         // foreach ($orderIDS as $id) {
         //     if ($id == $randomString) {
-        //         $randomString = '';
-        //     }
-        //     else {
+        //         $bene = false;
+        //         break;
+        //     } else {
         //         $bene = true;
         //     }
         // }
         // if ($bene == true) {
-        //     break;
+        //     return $randomString;
         // }
     }
 }
 
 function generateRandomSpedID($length = 10) {
-    return "sped1";
+    // return "sped1";
+    $randomString = '';
+    $bene = true;
+    while(strlen($randomString)  < $length) {
+        $randomString = '';
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        // echo $randomString;
+        return $randomString;
+    }
 }
 
 ?>

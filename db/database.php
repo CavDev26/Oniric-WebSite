@@ -189,8 +189,14 @@ class DatabaseHelper{
     }
 
     public function updateSald($username, $importo) {
-        // echo "Sto a fare dio merda";
-        $query = "UPDATE utente SET saldo = (? + Saldo) WHERE Nome_Utente = ?";
+        $query = "UPDATE utente SET Saldo = (? + Saldo) WHERE Nome_Utente = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ds',$importo, $username);
+        $stmt->execute();
+        return $stmt->insert_id;
+    }
+    public function removeSald($username, $importo) {
+        $query = "UPDATE utente SET Saldo = ? WHERE Nome_Utente = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ds',$importo, $username);
         $stmt->execute();
@@ -248,6 +254,37 @@ class DatabaseHelper{
         $stmt->bind_param('sssss', $payMethod["Nome"], $payMethod["Circuito_pagamento"], $payMethod["Numero"], $username, $methodName);
         $stmt->execute();
         return $stmt->insert_id;
+    }
+    public function deleteAllFromCart($username, $ID) {
+        $query = "DELETE FROM carrello where Nome_Utente = ? and ID_Articolo = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss', $username, $ID);
+        return  $stmt->execute();
+    }
+    public function getOrderByID($username, $ID) {
+        $query = "SELECT ID_Ordine, Indirizzo_Consegna, Data_Acquisto, Spesa_Totale FROM ordine WHERE(Nome_Utente = ? AND ID_Ordine = ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss', $username, $ID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getDettagliSpedizioneandArticoli($IDOrdine) {
+        $query = "SELECT ID_Spedizione, Costo_Spedizione, Data_Arrivo, Status_Ordine, d.ID_Articolo, ID_Tipo_Sped, Nome, Costo_Listino, Sconto, Cartella_Immagini, Voto_medio FROM dettaglio_spedizione d, articolo a WHERE ID_Ordine = ? AND d.ID_Articolo = a.ID_Articolo";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $IDOrdine);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function getTIpoSpedizione($IDTipo) {
+        $query = "SELECT Nome_Corriere FROM tipo_spedizione WHERE ID_Tipo_Sped = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $IDTipo);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 }
 ?>

@@ -1,4 +1,3 @@
-<!-- <?php echo "Ciao" ?> -->
 <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/framework.css" />
     <link rel="stylesheet" href="../css/indexStyle.css" />
