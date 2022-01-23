@@ -36,7 +36,6 @@ body {
   background: #37284f;
 }
 
-
 .bottom-nav-button {
   padding-top: 2%;
   justify-content: center;
@@ -51,26 +50,15 @@ body {
   height: auto;
 }
 
-
 .logo-img {
   width: 50px;
   height: 50px;
 }
 
-.check-notifications {
-  display: block;
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  top: 5px;
-  cursor: pointer;
-  opacity: 0;
-  z-index: 2;
-}
 .notifications-list {
   position: fixed;
-  height: 65%;
-  width: 45%;
+  height: 90%;
+  width: 100%;
   top: 65px;
   right: 0%;
 
@@ -93,7 +81,7 @@ body {
 }
 .notification-dimensions {
   width: 90%;
-  height: 15%;
+  height: 20%;
 }
 .notification-elem {
   position: relative;
@@ -122,19 +110,18 @@ body {
   margin-top: 0;
 }
 .notification-indicator {
-  position: absolute;
-  bottom: 3px;
-  right: 50px;
+  float: right;
+  margin: 5px;
+  margin-top: -20px;
   height: 16px;
   width: auto\9;
 }
 .notification-time {
-  position: absolute;
+  float: right;
+  margin: 5px;
   font-style: italic;
   font-weight: 200;
   font-size: 16px;
-  right: 5px;
-  bottom: 3px;
 }
 .notification-elem:hover {
   color: var(--primary);
@@ -365,30 +352,7 @@ body {
   opacity: 0;
   z-index: 2;
 }
-.notifications-list {
-  position: fixed;
-  height: 65%;
-  width: 75%;
-  top: 65px;
-  right: 0%;
 
-  margin-top: 0px;
-  padding: 5%;
-
-  overflow: auto;
-  max-height: 1000px;
-  display: block;
-
-  text-align: left;
-  background: linear-gradient(180deg, #37284f 0%, #000000 59.37%);
-  list-style-type: none;
-  -webkit-font-smoothing: antialiased;
-  border-radius: 0px 0px 0px 10px;
-
-  transform-origin: 0% 0%;
-  transform: translate(100%, 0%);
-  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-}
 .notification-menu-img {
   width: 50px;
   height: 50px;
@@ -445,7 +409,6 @@ body {
   transform: rotate(-45deg) translate(0, -1px);
 }
 
-
 @media only screen and (min-width: 1025px) {
   /*regole che valgono per schermi grandi (desktop)*/
   .navbar-bot {
@@ -460,7 +423,7 @@ body {
     height: 70px;
     text-align: center;
     z-index: 100;
-  
+
     border: 1px solid black;
     background: radial-gradient(
       139.02% 189.45% at 48.25% 44.79%,
@@ -533,16 +496,43 @@ body {
   .buttons-img {
     display: none;
   }
-  .left-menu {
-    /* position: absolute;
+  .left-menu > label {
+    position: absolute;
     opacity: 0;
-    z-index: -100; */
+    z-index: -100;
+  }
+  .left-menu > span {
+    display: none;
+  }
+  .notifications-list {
+    position: fixed;
+    height: 65%;
+    width: 50%;
+    top: 65px;
+    right: 0%;
+
+    margin-top: 0px;
+    padding: 5%;
+
+    overflow: auto;
+    max-height: 1000px;
+    display: block;
+
+    text-align: left;
+    background: linear-gradient(180deg, #37284f 0%, #000000 59.37%);
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    border-radius: 0px 0px 0px 10px;
+
+    transform-origin: 0% 0%;
+    transform: translate(100%, 0%);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  }
+  .check-notifications {
+    display: none;
   }
 }
 
-
-
 @media only screen and (max-width: 1025px) {
   /*mobile*/
-  
 }

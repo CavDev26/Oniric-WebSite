@@ -135,6 +135,19 @@ function calculateMinRecharge($saldo, $spesa) {
     }
     return $necessario;
 }
+function generateNotificationId($letter, $objectId) {
+    return "N" . $letter . $objectId ."&". date("ymds") . rand(0, 128);
+}
+function getHrefOfNotification ($notificationId) {
+    $letter = substr($notificationId, 1, 1);
+    if ($letter == "C") {
+        return "cart.php";
+    } else if ($letter == "O") {
+        $orderId = substr($notificationId, 3, strrpos($notificationId, "&")-3);
+        return "order.php?id=". $orderId;
+    }
+    return "";
+}
 
 function generateRandomOrderID($length = 10, $orderIDS) {
     $randomString = '';
@@ -163,4 +176,5 @@ function generateRandomOrderID($length = 10, $orderIDS) {
 function generateRandomSpedID($length = 10) {
     return "sped1";
 }
+
 ?>

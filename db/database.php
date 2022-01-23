@@ -85,7 +85,7 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
     public function getReviewsOfArticle($articleId) {
-        $query = "SELECT ID_Articolo, Nome_Utente, Voto, Testo, Titolo, Data_Recensione FROM recensione WHERE ID_Articolo = ? LIMIT 10";
+        $query = "SELECT ID_Articolo, Nome_Utente, Voto, Testo, Titolo, Data_Recensione FROM recensione WHERE ID_Articolo = ? LIMIT 5";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s',$articleId);
         $stmt->execute();
@@ -170,8 +170,8 @@ class DatabaseHelper{
         }
     }
     public function getNotifications($username) {
-        $query = "SELECT ID_Notifica, Titolo, Descrizione, Data_Ora, Letto, ID_Ordine, Nome_Utente FROM notifica WHERE Nome_Utente = ?";
-
+        $query = "SELECT ID_Notifica, Titolo, Descrizione, Data_Ora, Letto, ID_Ordine, Nome_Utente 
+                FROM notifica WHERE Nome_Utente = ? ORDER BY Data_Ora DESC LIMIT 20";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s',$username);
         $stmt->execute();
@@ -180,9 +180,10 @@ class DatabaseHelper{
     }
 
     public function pushNotification($notification) {
-        $query = "INSERT INTO notifica(ID_Notifica, Titolo,Descrizione, Data_Ora, Letto, ID_Ordine, Nome_Utente, Immagine) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO notifica(ID_Notifica, Titolo,Descrizione, Data_Ora, Letto, ID_Ordine, Nome_Utente, Immagine) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ssssssss',$notification["ID_Notifica"], $notification["Titolo"], $notification["Descrizione"], $notification["Data_Ora"], $notification["Letto"], $notification["ID_Ordine"], $notification["Nome_Utente"], $notification["Immagine"]);
+        $stmt->bind_param('ssssdsss',$notification["ID_Notifica"], $notification["Titolo"], $notification["Descrizione"], $notification["Data_Ora"], $notification["Letto"], $notification["ID_Ordine"], $notification["Nome_Utente"], $notification["Immagine"]);
         $stmt->execute();
         return $stmt->insert_id;
     }
@@ -210,6 +211,7 @@ class DatabaseHelper{
         $stmt->execute();
         return $stmt->insert_id;
     }
+
     public function addDettaglioSpedizione($ID_Spedizione, $Costo_Spedizione, $Indirizzo_Consegna, $Status_Ordine, $ID_Articolo, $ID_Tipo_Sped, $ID_Ordine) {
         $query = "INSERT INTO dettaglio_spedizione (ID_Spedizione, Costo_Spedizione, Data_Arrivo, Indirizzo_Consegna, Status_Ordine, ID_Articolo, ID_Tipo_Sped, ID_Ordine) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
@@ -225,6 +227,26 @@ class DatabaseHelper{
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
+
+    public function readNotifications($username) {
+        $query = "UPDATE notifica SET Letto = 1 WHERE Nome_Utente = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $username);
+        $stmt->execute();
+        return $stmt->insert_id;
+    }
+    public function deleteMethod($username,$methodName) {
+        $query = "DELETE FROM metodo_pagamento where Nome_Utente = ? and Nome = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss', $username, $methodName);
+        return  $stmt->execute();
+    }
+    public function modifyMethod($username,$payMethod, $methodName) {
+        $query = "UPDATE metodo_pagamento SET Nome = ?, Circuito_pagamento = ?, Numero = ? WHERE Nome_Utente = ? and Nome = ? ";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('sssss', $payMethod["Nome"], $payMethod["Circuito_pagamento"], $payMethod["Numero"], $username, $methodName);
+        $stmt->execute();
+        return $stmt->insert_id;
     }
 }
 ?>
