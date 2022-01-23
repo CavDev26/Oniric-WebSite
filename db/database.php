@@ -227,6 +227,7 @@ class DatabaseHelper{
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
+    }
 
     public function readNotifications($username) {
         $query = "UPDATE notifica SET Letto = 1 WHERE Nome_Utente = ?";
