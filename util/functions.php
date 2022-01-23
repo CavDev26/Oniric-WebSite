@@ -176,5 +176,14 @@ function generateRandomOrderID($length = 10, $orderIDS) {
 function generateRandomSpedID($length = 10) {
     return "sped1";
 }
-
+function findExtension ($dir, $i) {
+    $extensions = array("jpg", "png");
+    foreach ($extensions as $extension) {
+        if (file_exists($dir . "/" . $i .".". $extension ))
+        {
+            return $dir . "/" . $i . ".". $extension;
+        }
+    }
+    return "";
+}
 ?>
