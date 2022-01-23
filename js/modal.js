@@ -1,7 +1,9 @@
 // Get the modal
 var modal = document.querySelectorAll(".modal , .profileModal");
 // Get the button that opens the modal
-var btn = document.querySelectorAll(".modalButton , .modalModify , .remove-method ,.filterButton");
+var btn = document.querySelectorAll(
+  ".modalButton , .modalModify , .remove-method ,.filterButton"
+);
 
 // Get the <span> element that closes the modal
 var span = document.querySelectorAll(
@@ -19,11 +21,15 @@ for (var i = 0; i < modal.length; i++) {
 
   // When the user clicks on <span> (x), close the modal
   span[i].onclick = function () {
-    console.log(modal);
     this.parentElement.parentElement.style.display = "none";
     document.body.style.overflow = "auto";
     document.getElementsByClassName("navbar-bot")[0].style.display = "flex";
   };
+}
+function closeModal(button) {
+  button.parentElement.parentElement.parentElement.parentElement.style.display =
+    "none";
+  document.getElementsByClassName("navbar-bot")[0].style.display = "flex";
 }
 // When the user clicks anywhere outside of the modal, close it/*
 window.onclick = function (event) {

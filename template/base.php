@@ -93,7 +93,7 @@
             <?php if(isUserLoggedIn()) {
               foreach($dbh->getNotifications($_SESSION["username"]) as $notification):
             ?>
-            <a href="">  
+            <a href="<?php echo getHrefOfNotification($notification["ID_Notifica"]); ?>">  
               <li class="notification-dimensions">
                 <div class="notification-elem">
                   <img src="./img/cava2000.png" alt="" class="notification-img-product"/>

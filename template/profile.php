@@ -220,10 +220,11 @@
                         <?php endforeach; ?>
                       </ul>
                       <footer>
-                        <form action="">
+                        <form action="./payMethods.php" method="POST">
                           <input
-                            type="button"
+                            type="submit"
                             class="hardButton w-75 m-10t m-20b"
+                            name="profile"
                             value="Modifica metodi di Pagamento"
                           />
                         </form>

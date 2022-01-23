@@ -4,12 +4,15 @@ require "bootstrap.php";
 if(isUserLoggedIn()) {
         if(isset($_GET["articleId"])) {
             if (isset($_GET["title"])) {
-                $notification = array("ID_Notifica" => $_GET["articleId"].(string)rand(0,2048), "Titolo" => $_GET["title"], "Descrizione" =>"Hai aggiunto questo articolo al carrello", "Data_Ora" => date("Y-m-d H:i:s"), "Letto" => 0, "ID_Ordine" => null, "Nome_Utente" => $_SESSION["username"]);
+                $notification = array("ID_Notifica" => generateNotificationId("C",$_GET["articleId"]), 
+                "Titolo" => $_GET["title"], "Descrizione" =>"Hai aggiunto questo articolo al carrello", 
+                "Data_Ora" => date("Y-m-d H:i:s"), "Letto" => 0, "ID_Ordine" => null, "Nome_Utente" => $_SESSION["username"]);
+                
                 if (isset($_GET["imgpath"])) {
                     $notification["Immagine"] = $_GET["imgpath"]; 
                 }
                 $dbh->pushNotification($notification);
-                echo '<a href="">  
+                echo '<a href="' . getHrefOfNotification($notification["ID_Notifica"]) . '">  
             <li class="notification-dimensions">
                 <div class="notification-elem">
                 <img src=./img/'. $notification["Immagine"].' alt="" class="notification-img-product"/>
