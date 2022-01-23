@@ -125,7 +125,7 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
     public function getNameSurname($username) {
-        $query = "SELECT Email, Cognome FROM utente WHERE(Nome_Utente = ?)";
+        $query = "SELECT Nome, Cognome FROM utente WHERE(Nome_Utente = ?)";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s',$username);
         $stmt->execute();
@@ -203,14 +203,31 @@ class DatabaseHelper{
         $result = $stmt->get_result();
         return !empty($result->fetch_all(MYSQLI_ASSOC));
     }
-    public function addOrder($ID_Ordine, $Indirizzo, $spesa, $username){
-        $query = "INSERT INTO ordine (ID_Ordine, Indirizzo_Consegna, Data_Acquisto, Spesa_Totale, Nome_Utente) VALUES (?, ?, ?, ?, ?, ?)";
+    public function addOrder($ID_Ordine, $Indirizzo, $spesa, $username) {
+        $query = "INSERT INTO ordine (ID_Ordine, Indirizzo_Consegna, Data_Acquisto, Spesa_Totale, Nome_Utente) VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
         $data = date("Y-m-d");
         $stmt->bind_param('sssds', $ID_Ordine, $Indirizzo, $data, $spesa, $username);
         $stmt->execute();
         return $stmt->insert_id;
     }
+
+    public function addDettaglioSpedizione($ID_Spedizione, $Costo_Spedizione, $Indirizzo_Consegna, $Status_Ordine, $ID_Articolo, $ID_Tipo_Sped, $ID_Ordine) {
+        $query = "INSERT INTO dettaglio_spedizione (ID_Spedizione, Costo_Spedizione, Data_Arrivo, Indirizzo_Consegna, Status_Ordine, ID_Articolo, ID_Tipo_Sped, ID_Ordine) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $data = date(null);
+        $stmt->bind_param('sdssssss', $ID_Spedizione, $Costo_Spedizione, $data, $Indirizzo_Consegna, $Status_Ordine, $ID_Articolo, $ID_Tipo_Sped, $ID_Ordine);
+        $stmt->execute();
+        return $stmt->insert_id;
+    }
+    public function getShipmentMethodsByID($id) {
+        $query = "SELECT ID_Tipo_Sped, Nome_Corriere, Tariffa, Paese_Provenienza FROM tipo_spedizione WHERE(ID_Tipo_Sped = ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+
     public function readNotifications($username) {
         $query = "UPDATE notifica SET Letto = 1 WHERE Nome_Utente = ?";
         $stmt = $this->db->prepare($query);

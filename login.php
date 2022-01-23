@@ -35,6 +35,11 @@ if(isUserLoggedIn()){
     if (isset($_SESSION["article"])) {
         header("location: articolo.php?id=". $_SESSION["article"]);
     }
+    
+    //DA FIXARE
+    if (isset($_SESSION["completeOrder"])) {
+        header("location: completeOrder.php");
+    }
     // UTENTE LOGGATO
     $templateParams["titolo"] = "Profilo - " . $_SESSION["username"];
     $templateParams["nome"] = "profile.php";
