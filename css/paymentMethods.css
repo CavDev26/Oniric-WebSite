@@ -1,74 +1,74 @@
 .title {
-    font-size: 30px;
+  font-size: 30px;
 }
 .simplePencil {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 30px;
-    height: 30px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
 }
 .modalModify {
-    width: 30px;
-    height: 30px;
-    background: none;
-    border: none;
-    margin-right: 6%;
-    margin-top: 25px;
-    position: relative;
+  width: 30px;
+  height: 30px;
+  background: none;
+  border: none;
+  margin-right: 6%;
+  margin-top: 25px;
+  position: relative;
 }
 .modalModify:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 .save-button {
-    float: left;
-    background-color: var(--buttons);
-    border-radius: 5px;
-    border: none;
-    height: 30px;
-    line-height: 30px;
-    width: 60%;
-    margin-left: 10%;
-
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    font-size: 16px;
-    align-items: center;
-    text-align: center;
-    color: #37284f;
-    transition: 0.4s;
+  background-color: var(--buttons);
+  border-radius: 5px;
+  border: none;
+  height: 40px;
+  line-height: 30px;
+  width: 90%;
+  margin-top: 20px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 16px;
+  align-items: center;
+  text-align: center;
+  color: #37284f;
+  transition: 0.4s;
 }
 
 .remove-method {
-    float: right;
-    background-color: var(--buttons);
-    border-radius: 5px;
-    border: none;
-    height: 30px;
-    line-height: 30px;
-    width: 18%;
-    margin-right: 10%;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    font-size: 16px;
-    align-items: center;
-    text-align: center;
-    color: #37284f;
-    transition: 0.4s;
+  display: inline-block;
+  background-color: var(--buttons);
+  border-radius: 5px;
+  border: none;
+  height: 30px;
+  line-height: 30px;
+  width: 90%;
+  margin-top: 20px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 16px;
+  align-items: center;
+  text-align: center;
+  color: #37284f;
+  transition: 0.4s;
 }
 
-.save-button:hover, .remove-method:hover {
-    transition: all 0.65s;
-    box-shadow: 4px 10px 11px 1px #43316198;
-    transform: scale(1.01);
+.save-button:hover,
+.remove-method:hover {
+  transition: all 0.65s;
+  box-shadow: 4px 10px 11px 1px #43316198;
+  transform: scale(1.01);
 }
 
-.save-button:focus, .remove-method:focus {
-    border: 2px solid rgba(67, 49, 97, 0.58);
-    box-sizing: border-box;
-    border-radius: 8px;
+.save-button:focus,
+.remove-method:focus {
+  border: 2px solid rgba(67, 49, 97, 0.58);
+  box-sizing: border-box;
+  border-radius: 8px;
 }
 
 .trash-img {
-    width: 20px;
-    height: 20px;
+  width: 20px;
+  height: 20px;
 }

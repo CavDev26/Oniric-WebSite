@@ -160,7 +160,12 @@
 .center {
   text-align: center;
 }
-
+.pointer {
+  cursor: pointer;
+}
+.none {
+  display: none;
+}
 .inline-block {
   display: inline-block;
 }

@@ -228,11 +228,11 @@
           </article>
           <?php endforeach; ?>
           <footer>
-            <?php if (count($templateParams["recensioni"]) > 0):?>
+            <?php if (count($templateParams["recensioni"]) == 5):?>
             <button type="button" class="wideLiteButton">
               <span class="buttonContent">Mostra tutte le recensioni</span>
             </button>
-            <?php else: ?>
+            <?php elseif (count($templateParams["recensioni"]) == 0): ?>
               <p>Ops! Non ci sono ancora recensioni!</p>
             <?php endif; ?>
           </footer>
