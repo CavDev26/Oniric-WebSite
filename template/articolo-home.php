@@ -27,7 +27,7 @@
               for($i=1; $i <= count($dir); $i++): ?>
                 <div class="mySlides fade">
                   <img
-                    src="<?php echo "./img/" . $articolo["Cartella_immagini"] . "/" . $i . ".png" ?>"
+                    src="<?php echo findExtension("./img/" . $articolo["Cartella_immagini"], $i);?>"
                     alt="<?php echo $articolo["Nome"] . " immagine numero: " . $i ?>"
                     class="productImage"
                   />
