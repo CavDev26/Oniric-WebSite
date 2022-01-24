@@ -186,4 +186,124 @@ function findExtension ($dir, $i) {
     }
     return "";
 }
+function filterQuery ($filters) {
+    $query = " ";
+    $flag = 0;
+    if (!empty($filters["tag"])) {
+        $query .= "(EXISTS (SELECT ID_Articolo, Nome FROM richiamo r WHERE a.ID_Articolo = r.ID_Articolo AND r.Nome IN (";
+        foreach ($filters["tag"] as $tag) {
+            $query .= "\"".$tag."\",";
+        }
+        $query = rtrim($query, ", ");
+        $query .= ")))";
+        $flag = 1;
+    }
+    if (!empty($filters["price"])) {
+        if ($flag == 1) {
+            $query .= " AND";
+        }
+        $query .= " ( ";
+        foreach ($filters["price"] as $price) {
+            $query .= " a.Costo_listino - a.Costo_listino * a.Sconto " . generateQuery("price", $price) . " OR";
+        }
+        $query = rtrim($query, "OR ");
+        $query .= ") ";
+        $flag = 1;
+    }
+    if (!empty($filters["vote"])) {
+        if ($flag == 1) {
+            $query .= " AND";
+        }
+        $query .= " ( ";
+        foreach ($filters["vote"] as $vote) {
+            $query .= " Voto_medio " . generateQuery("vote", $vote) . " OR";
+        }
+        $query = rtrim($query, "OR ");
+        $query .= ") ";
+        $flag = 1;
+    }
+    if (!empty($filters["category"])) {
+        if ($flag == 1) {
+            $query .= " AND ";
+        }
+        $query .= " ( ";
+        $query .= " App_Nome IN ( ";
+        foreach ($filters["category"] as $category) {
+            $query .= "\"".$category."\",";
+        }
+        $query = rtrim($query, ", ");
+        $query .= "))";
+        $flag = 1;
+    }
+    if (!empty($filters["name"])) {
+        if ($flag == 1) {
+            $query .= " AND ";
+        }
+        $query .= " a.Nome LIKE '%{$filters["name"]}%'";
+    }
+    return $query;
+}
+function generateQuery ($field, $value) {
+    if ($field == "price") {
+        if ($value == 1) {
+            return " BETWEEN 100 AND 500 ";
+        } else if ($value == 2) {
+            return "BETWEEN 500 AND 1000";
+        } else if ($value == 3) {
+            return "> 1000";
+        }
+    } else if ($field == "vote") {
+        if ($value == 1) {
+            return " = 5 ";
+        } else if ($value == 2) {
+            return " >= 4";
+        } else if ($value == 3) {
+            return ">= 3 ";
+        } else if ($value == 4) {
+            return ">= 2 ";
+        }else if ($value == 5) {
+            return ">= 1 ";
+        }
+    }
+}
+function createInput($name, $value) {
+    return "<input type=\"hidden\" name=\"".$name."\" value=\"".$value."\"/>";
+}
+
+function keepGetValues() {
+    if (isset($_GET["tag"])) {
+        foreach ($_GET["tag"] as $tag) {
+            echo createInput("tag[]", $tag);
+        }
+    }
+    if (isset($_GET["price"])) {
+        foreach ($_GET["price"] as $price) {
+            echo createInput("price[]", $price);
+        }
+    }
+    if (isset($_GET["vote"])) {
+        foreach ($_GET["vote"] as $vote) {
+            echo createInput("vote[]", $vote);
+        }
+    }
+    if (isset($_GET["category"])) {
+        foreach ($_GET["category"] as $category) {
+            echo createInput("category[]", $category);
+        }
+    }
+    if (isset($_GET["name"])) {
+        echo createInput("name", $_GET["name"]);
+    }
+}
+
+function checkForChecked($getVar, $value) {
+    if (isset($getVar)) {
+        foreach ($getVar as $var) {
+            if ($var == $value) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
 ?>

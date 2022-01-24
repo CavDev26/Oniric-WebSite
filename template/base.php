@@ -33,10 +33,11 @@
               <span class="menu-mobile"></span>
           <ul class="unfolded-left-menu">
             <li class="search-line">
-              <div class="wrapper">
-                <a href="#"><img class="search-icon" src="./img/Search.png"/></a>
-                <input class="search" placeholder="Search" type="text" >
-              </div>  
+                <form action="articleList.php" class="wrapper" method="GET">
+                <label class="search-icon" for="submitSearch"><img src="./img/Search.png"/></label>
+                <input class="none" type="submit" name="submitSearch" id="submitSearch"/>
+                <input class="search" placeholder="Cerca" type="text" name="name"/>
+                </form>
             </li>
             
             <hr class="span-menu-div">

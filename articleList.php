@@ -7,12 +7,17 @@ unset($_SESSION["article"]);
 if (!isset($_GET["pagenum"])) {
     $_GET["pagenum"] = 1;
 }
+
 $filters = array();
 $filters["tag"] = array();
 $filters["price"] = array();
 $filters["category"] = array();
 $filters["vote"] = array();
+$filters["name"] = "";
 
+if (isset($_GET["name"])) {
+    $filters["name"] = $_GET["name"];
+}
 if (isset($_GET["tag"])) {
     foreach ($_GET["tag"] as $tag) {
         array_push($filters["tag"], $tag) ;
@@ -39,7 +44,7 @@ $templateParams["nome"] = "articleListPage.php";
 $templateParams["articoli"] = $dbh->getArticles($_GET["pagenum"], $filters);
 $templateParams["style"] = array("./css/searchResults.css", "./css/accordion.css", "./css/modal.css"); 
 $templateParams["js"] = array("./js/accordion.js", "./js/modal.js", "./js/addToCart.js");
-$templateParams["pageNumber"] = (int) $dbh->getNumberOfArticles()[0]["COUNT(*)"]/ 4;
+$templateParams["pageNumber"] = (int) $dbh->getNumberOfArticles($filters)[0]["COUNT(*)"]/ 4;
 $templateParams["tags"] = $dbh->getTags();
 $templateParams["categorie"] = $dbh->getCategories();
 $filters = array();

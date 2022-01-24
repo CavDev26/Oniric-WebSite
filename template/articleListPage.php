@@ -4,7 +4,11 @@
           <div class="relative z-1 p-20t center">
             <div class="fullWidth center">
               <div class="fullWidth inline-block center m-20t">
-                <input class="resultSearch" placeholder="Search" type="text" />
+                <form class="wrapper"action="articleList.php" method="GET" >
+                <input class="resultSearch" placeholder="Cerca qui il tuo prodotto" type="text" name="name" />
+                <label class="littleSearch-icon" for="submitSearch2"><img src="./img/Search.png"/></label>
+                <input class="none" type="submit" name="submitSearch2" id="submitSearch2"/>
+                </form>
                 <hr class="filterSeparator inline-block" />
               </div>
             </div>
@@ -27,41 +31,16 @@
                       <li class="inline-block fullWidth">
                         <div>
                           <button type="button" class="filterAccordion">
-                            Consegna
-                          </button>
-                          <div class="panel p-10r p-10l">
-                            <ul class="filterList">
-                              <li>
-                                <label class="checkContainer p-10t">
-                                  Domani
-                                  <input type="checkbox" />
-                                  <span class="checkmark"></span>
-                                </label>
-                              </li>
-                              <li>
-                                <label class="checkContainer p-10t">
-                                  Dopo Domani
-                                  <input type="checkbox" />
-                                  <span class="checkmark"></span>
-                                </label>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </li>
-                      <hr class="filterSeparator" />
-                      <li class="inline-block fullWidth">
-                        <div>
-                          <button type="button" class="filterAccordion">
                             Tag
                           </button>
                           <div class="panel p-10r p-10l">
                             <ul class="filterList">
-                                <?php foreach($templateParams["tags"] as $tag):?>
+                                <?php $i = 0; foreach($templateParams["tags"] as $tag):?>
                               <li>
                                 <label class="checkContainer p-10t">
                                   #<?php echo $tag["Nome"]; ?>
-                                  <input type="checkbox" name="tag[]" value="<?php echo $tag["Nome"]; ?>"/>
+                                  <input type="checkbox" name="tag[]" value="<?php echo $tag["Nome"]; ?>" 
+                                  <?php if (isset($_GET["tag"])) {if (checkForChecked($_GET["tag"], $tag["Nome"])) { echo "checked"; }}?>/>
                                   <span class="checkmark"></span>
                                 </label>
                               </li>
@@ -82,21 +61,24 @@
                               <li>
                                 <label class="checkContainer p-10t">
                                   tra 100 e 500 €
-                                  <input type="checkbox" name="price[]" value="1"/>
+                                  <input type="checkbox" name="price[]" value="1" 
+                                  <?php if (isset($_GET["price"])) {if (checkForChecked($_GET["price"], 1)) {echo "checked";}}?>/>
                                   <span class="checkmark"></span>
                                 </label>
                               </li>
                               <li>
                                 <label class="checkContainer p-10t">
                                   tra 500 e 1000 €
-                                  <input type="checkbox" name="price[]" value="2"/>
+                                  <input type="checkbox" name="price[]" value="2"
+                                  <?php if (isset($_GET["price"])) {if (checkForChecked($_GET["price"], 2)) {echo "checked";}}?>/>
                                   <span class="checkmark"></span>
                                 </label>
                               </li>
                               <li>
                                 <label class="checkContainer p-10t">
                                   sopra 1000 €
-                                  <input type="checkbox" name="price[]" value="3"/>
+                                  <input type="checkbox" name="price[]" value="3"
+                                  <?php if (isset($_GET["price"])) {if (checkForChecked($_GET["price"], 3)) {echo "checked";}}?>/>
                                   <span class="checkmark"></span>
                                 </label>
                               </li>
@@ -116,7 +98,8 @@
                               <li>
                                 <label class="checkContainer p-10t">
                                   <?php echo $categoria["Nome"] ?>
-                                  <input type="checkbox" name="category[]" value="<?php echo $categoria["Nome"] ?>"/>
+                                  <input type="checkbox" name="category[]" value="<?php echo $categoria["Nome"] ?>"
+                                  <?php if (isset($_GET["category"])) {if (checkForChecked($_GET["category"], $categoria["Nome"])) {echo "checked";}}?>/>
                                   <span class="checkmark"></span>
                                 </label>
                               </li>
@@ -141,7 +124,8 @@
                                     class="resultStar"
                                   />
                                   5
-                                  <input type="checkbox" name="vote[]" value="1"/>
+                                  <input type="checkbox" name="vote[]" value="1"
+                                  <?php if (isset($_GET["vote"])) {if (checkForChecked($_GET["vote"], 1)) {echo "checked";}}?>/>
                                   <span class="checkmark"></span>
                                 </label>
                               </li>
@@ -153,7 +137,8 @@
                                     class="resultStar"
                                   />
                                   4 o pi&ugrave;
-                                  <input type="checkbox"  name="vote[]" value="1"/>
+                                  <input type="checkbox"  name="vote[]" value="2"
+                                  <?php if (isset($_GET["vote"])) {if (checkForChecked($_GET["vote"], 2)) {echo "checked";}}?>/>
                                   <span class="checkmark"></span>
                                 </label>
                               </li>
@@ -165,7 +150,8 @@
                                     class="resultStar"
                                   />
                                   3 o pi&ugrave;
-                                  <input type="checkbox"  name="vote[]" value="1"/>
+                                  <input type="checkbox"  name="vote[]" value="3"
+                                  <?php if (isset($_GET["vote"])) {if (checkForChecked($_GET["vote"], 3)) {echo "checked";}}?>/>
                                   <span class="checkmark"></span>
                                 </label>
                               </li>
@@ -177,7 +163,8 @@
                                     class="resultStar"
                                   />
                                   2 o pi&ugrave;
-                                  <input type="checkbox"  name="vote[]" value="1"/>
+                                  <input type="checkbox"  name="vote[]" value="4"
+                                  <?php if (isset($_GET["vote"])) {if (checkForChecked($_GET["vote"], 4)) {echo "checked";}}?>/>
                                   <span class="checkmark"></span>
                                 </label>
                               </li>
@@ -189,7 +176,8 @@
                                     class="resultStar"
                                   />
                                   1 o pi&ugrave;
-                                  <input type="checkbox"  name="vote[]" value="1"/>
+                                  <input type="checkbox"  name="vote[]" value="5"
+                                  <?php if (isset($_GET["vote"])) {if (checkForChecked($_GET["vote"], 5)) {echo "checked";}}?>/>
                                   <span class="checkmark"></span>
                                 </label>
                               </li>
@@ -223,18 +211,22 @@
             </div>
           </div>
           <ul class="productList z-1 relative">
+            <?php if (isset($templateParams["errorearticolo"])) :?>
+            <li class="m-20 f-24"><?php echo $templateParams["errorearticolo"];?> </li>
+            <?php else: ?>
             <?php for($i = 0 ; $i < count($templateParams["articoli"]); $i++):?>
             <?php $articolo = $templateParams["articoli"][$i]; ?>
             <li class="center inline-block fullWidth">
-                <a href="articolo.php?id=<?php echo $articolo["ID_Articolo"];?>">
+                
                 <div class="floatingHalf m-20b inline-block">
+                <a href="articolo.php?id=<?php echo $articolo["ID_Articolo"];?>">
                 <img
                     src="<?php echo findExtension("./img/" . $articolo["Cartella_immagini"], 1);?>"
                     alt="<?php echo $articolo["Nome"] . " immagine risultato" ;?>"
                     class="resultImage"
                   />
-                <h2 class="resultTitle"><?php echo $articolo["Nome"];?></h2>
                 </a>
+                <h2 class="resultTitle"><?php echo $articolo["Nome"];?></h2>
                 <div class="inline-block">
                   <?php $n = (int) $articolo["Voto_medio"]; 
                     for($j = 0; $j < $n; $j++):?>
@@ -265,7 +257,9 @@
                       &#128;</span>
                       <?php if (!is_null($articolo["Sconto"]) && $articolo["Sconto"] != 0): ?>
                       <span class="sale"> <?php echo " - ". (string) ((float)$articolo["Sconto"]*100)." &#37; "?></span>
-                      <?php endif; ?>
+                      <?php endif; 
+                      if (is_null($articolo["Sconto"]) || $articolo["Sconto"] == 0) {echo "<br />";}
+                      ?>
                     </div>
                     <?php if (!is_null($articolo["Sconto"])): ?>
                     <p class="m-0 priceTitle f-20"><?php $price = explode(".",
@@ -284,7 +278,7 @@
                 </section>
                 <footer>
                   <div class="resultFooter">
-                    <form>
+                    <form class="fullHeight">
                         <?php if (isUserLoggedIn()): ?>
                       <button <?php $isInTheCart = $dbh->isInTheCart($_SESSION["username"], $articolo["ID_Articolo"]); 
                       if ($isInTheCart)  
@@ -310,15 +304,16 @@
               <?php $i++;?>
               <?php if ($i < count($templateParams["articoli"])) :?>
               <?php $articolo = $templateParams["articoli"][$i]; ?>
-              <a href="articolo.php?id=<?php echo $articolo["ID_Articolo"];?>">
+              
               <div class="floatingHalf m-20b inline-block">
+                <a href="articolo.php?id=<?php echo $articolo["ID_Articolo"];?>">
                 <img
                     src="<?php echo findExtension("./img/" . $articolo["Cartella_immagini"], 1);?>"
                     alt="<?php echo $articolo["Nome"] . " immagine risultato" ;?>"
                     class="resultImage"
                   />
+                  </a>
                 <h2 class="resultTitle"><?php echo $articolo["Nome"];?></h2>
-              </a>
                 <div class="inline-block">
                   <?php $n = (int) $articolo["Voto_medio"]; 
                     for($j = 0; $j < $n; $j++):?>
@@ -363,7 +358,8 @@
                         echo ", ". $price[1];
                       }
                       ?></p>
-                    <?php endif; ?>
+                    <?php endif; 
+                    if (is_null($articolo["Sconto"]) || $articolo["Sconto"] == 0) {echo "<br />";}?>
                   </div>
                 </section>
                 <footer>
@@ -392,29 +388,49 @@
                 </footer>
               </div>
             </li>
-            <?php endif; endfor;?>
+            <?php endif; endfor; endif;?>
             
           </ul>
+          <?php if (!isset($templateParams["errorearticolo"])): ?>
           <footer class="resultsFooter">
             <div>
             <?php if ($_GET["pagenum"] != 1):?>
-              <a href="?pagenum=<?php if ($_GET["pagenum"] != 1) {echo $_GET["pagenum"]-1;}?>" class="p-10r"
-                ><span class="pageText"
-                  ><img src="./img/leftArrow.png" alt="" /></span
-              ></a>
+            <form class="inline-block" action="articleList.php" class="p-10r" method="GET">
+                <label for="submit1"class="pageText">
+                      <img src="./img/leftArrow.png" alt="" />
+                </label>
+                <input type="submit" class="none" id="submit1" name="submit1" value="">
+                <input type="hidden" name="pagenum" value="<?php if ($_GET["pagenum"] != 1) {echo $_GET["pagenum"]-1;}?>" />
+                <?php keepGetValues();?>
+            </form>
             <?php endif; ?>
              <span class="pageText"><?php if ($_GET["pagenum"] > 2) {echo "...";}?></span>
-              <a href="?pagenum=<?php if ($_GET["pagenum"] > 1) {echo $_GET["pagenum"]-1;}?>" class="pageText"><span><?php if ($_GET["pagenum"] != 1) {echo $_GET["pagenum"]-1;}?> </span></a>
+             <form class="inline-block page-text" action="articleList.php" method="GET">
+                <label class="pageText" for="submit2"><?php if ($_GET["pagenum"] != 1) {echo $_GET["pagenum"]-1;}?> </label>
+                <input type="submit" class="none" id="submit2" name="submit2" value="">
+                <input type="hidden" name="pagenum" value="<?php if ($_GET["pagenum"] > 1) {echo $_GET["pagenum"]-1;}?>" />
+                <?php keepGetValues();?>
+            </form>
               <a href="" class="currentPageText"><span><?php echo $_GET["pagenum"];?></span></a>
-              <a href="?pagenum=<?php if ($_GET["pagenum"] < $templateParams["pageNumber"]) {echo $_GET["pagenum"]+1;}?>" class="pageText"><span><?php if ($_GET["pagenum"] < $templateParams["pageNumber"]) {echo $_GET["pagenum"]+1;}?></span></a>
+              <form class="inline-block page-text" action="articleList.php" class="pageText" method="GET">
+                <label class="pageText" for="submit3"><?php if ($_GET["pagenum"] < $templateParams["pageNumber"]) {echo $_GET["pagenum"]+1;}?></label>
+                <input type="submit" class="none" id="submit3" name="submit3" value="">
+                <input type="hidden" name="pagenum" value="<?php if ($_GET["pagenum"] < $templateParams["pageNumber"]) {echo $_GET["pagenum"]+1;}?>" />
+                <?php keepGetValues();?>
+            </form>
               <span class="pageText"><?php if ($_GET["pagenum"] < $templateParams["pageNumber"]-1) {echo "...";}?></span>
               <?php if ($_GET["pagenum"] < $templateParams["pageNumber"]):?>
-              <a href="?pagenum=<?php if ($_GET["pagenum"] < $templateParams["pageNumber"]) {echo $_GET["pagenum"]+1;}?>" class="p-10l"
-                ><span class="pageText"
-                  ><img src="./img/rightArrow.png" alt="" /></span
-              ></a>
+              <form class="inline-block" action="articleList.php" class="p-10l" method="GET">
+              <label for="submit4" class="pageText"
+                  ><img src="./img/rightArrow.png" alt="" />
+              </label>
+                <input type="submit" class="none" id="submit4" name="submit4" value="">
+                <input type="hidden" name="pagenum" value="<?php if ($_GET["pagenum"] < $templateParams["pageNumber"]) {echo $_GET["pagenum"]+1;}?>" />
+                <?php keepGetValues();?>
+            </form>
             <?php endif; ?>
             </div>
           </footer>
+          <?php endif; ?>
         </div>
     </main>

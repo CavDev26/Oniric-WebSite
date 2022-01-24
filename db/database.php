@@ -249,8 +249,12 @@ class DatabaseHelper{
         $stmt->execute();
         return $stmt->insert_id;
     }
-    public function getNumberOfArticles() {
-        $query = "SELECT COUNT(*) FROM articolo";
+    public function getNumberOfArticles($filters) {
+        $query = "SELECT COUNT(*) FROM articolo a ";
+        if (!(empty($filters["tag"]) && empty($filters["price"]) && empty($filters["vote"]) && empty($filters["category"]) 
+        && empty($filters["name"])) ) {
+            $query .= "WHERE ". filterQuery($filters);
+        }
         $stmt = $this->db->prepare($query);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -258,7 +262,8 @@ class DatabaseHelper{
     }
     public function getArticles($pageNum, $filters) {
         $from = ($pageNum -1)* 4;
-        if (empty($filters)) {
+        if (empty($filters["tag"]) && empty($filters["price"]) && empty($filters["vote"]) && empty($filters["category"])
+            && empty($filters["name"])) {
             $query = "SELECT ID_Articolo, Nome, Descrizione, Descrizione_breve, Costo_listino, Quantita_Disp, Sconto, Cartella_immagini, 
             Voto_medio, Nome_Utente, App_Nome FROM articolo LIMIT ?, 4";
             $stmt = $this->db->prepare($query);
@@ -268,22 +273,14 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
         } else {
             $query = "SELECT ID_Articolo, Nome, Descrizione, Descrizione_breve, Costo_listino, Quantita_Disp, Sconto, Cartella_immagini, 
-            Voto_medio, Nome_Utente, App_Nome FROM articolo a WHERE ";
-            if (!empty($filters["tag"])) {
-                $query .= "(EXISTS (SELECT ID_Articolo, Nome FROM richiamo r WHERE a.ID_Articolo = r.ID_Articolo AND r.Nome IN (";
-                foreach ($filters["tag"] as $tag) {
-                    $query .= "\"".$tag."\",";
-                }
-                substr_replace($query," ",-1,1);
-                $query .= ")))";
-            }
+            Voto_medio, Nome_Utente, App_Nome FROM articolo a WHERE";
+            $query .= filterQuery($filters);
             $query .= " LIMIT ?, 4";
-            echo $query;
             $stmt = $this->db->prepare($query);
             $stmt->bind_param('i',$from);
             $stmt->execute();
-        $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
         }
         
     } 
