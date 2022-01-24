@@ -288,12 +288,12 @@
                         }
                         ?> id="<?php echo $articolo["ID_Articolo"];?>" type="button" onClick="addToCart(this, '<?php echo $articolo["ID_Articolo"]; ?>', 
                         '<?php echo findExtension("./img/".$articolo["Cartella_immagini"],1);?>')"><?php if ($isInTheCart) {
-                            echo "&#10004;";
+                            echo "";
                         } else {
                             echo "";
                         }?></button>
                       <?php else : ?>
-                        <button disabled="true" class="disabledCartResult">Accedi per aggiungere al cartello</button>
+                        <button disabled="true" class="noLogCartResult">Accedi per aggiungere al cartello</button>
                         <?php endif; ?>
                     </form>
                   </div>
@@ -373,12 +373,12 @@
                         }
                         ?> id="<?php echo $articolo["ID_Articolo"];?>" type="button" onClick="addToCart(this, '<?php echo $articolo["ID_Articolo"]; ?>', 
                         '<?php echo findExtension("./img/".$articolo["Cartella_immagini"],1);?>')"><?php if ($isInTheCart) {
-                            echo "&#10004;";
+                            echo "";
                         } else {
                             echo "";
                         }?></button>
                       <?php else : ?>
-                        <button disabled="true" class="disabledCartResult">Accedi per aggiungere al cartello</button>
+                        <button disabled="true" class="noLogCartResult">Accedi per aggiungere al cartello</button>
                         <?php endif; ?>
                     </form>
                   </div>
