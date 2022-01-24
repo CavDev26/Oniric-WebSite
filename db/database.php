@@ -170,7 +170,7 @@ class DatabaseHelper{
         }
     }
     public function getNotifications($username) {
-        $query = "SELECT ID_Notifica, Titolo, Descrizione, Data_Ora, Letto, ID_Ordine, Nome_Utente 
+        $query = "SELECT ID_Notifica, Titolo, Descrizione, Data_Ora, Letto, ID_Ordine, Nome_Utente, Immagine
                 FROM notifica WHERE Nome_Utente = ? ORDER BY Data_Ora DESC LIMIT 20";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s',$username);
@@ -255,6 +255,7 @@ class DatabaseHelper{
         $stmt->execute();
         return $stmt->insert_id;
     }
+
     public function deleteAllFromCart($username, $ID) {
         $query = "DELETE FROM carrello where Nome_Utente = ? and ID_Articolo = ?";
         $stmt = $this->db->prepare($query);
@@ -265,6 +266,16 @@ class DatabaseHelper{
         $query = "SELECT ID_Ordine, Indirizzo_Consegna, Data_Acquisto, Spesa_Totale FROM ordine WHERE(Nome_Utente = ? AND ID_Ordine = ?)";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ss', $username, $ID);
+    }
+
+    public function getNumberOfArticles($filters) {
+        $query = "SELECT COUNT(*) FROM articolo a ";
+        if (!(empty($filters["tag"]) && empty($filters["price"]) && empty($filters["vote"]) && empty($filters["category"]) 
+        && empty($filters["name"])) ) {
+            $query .= "WHERE ". filterQuery($filters);
+        }
+        $stmt = $this->db->prepare($query);
+
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -286,6 +297,39 @@ class DatabaseHelper{
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function getArticles($pageNum, $filters) {
+        $from = ($pageNum -1)* 4;
+        if (empty($filters["tag"]) && empty($filters["price"]) && empty($filters["vote"]) && empty($filters["category"])
+            && empty($filters["name"])) {
+            $query = "SELECT ID_Articolo, Nome, Descrizione, Descrizione_breve, Costo_listino, Quantita_Disp, Sconto, Cartella_immagini, 
+            Voto_medio, Nome_Utente, App_Nome FROM articolo LIMIT ?, 4";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('i',$from);
+            $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            $query = "SELECT ID_Articolo, Nome, Descrizione, Descrizione_breve, Costo_listino, Quantita_Disp, Sconto, Cartella_immagini, 
+            Voto_medio, Nome_Utente, App_Nome FROM articolo a WHERE";
+            $query .= filterQuery($filters);
+            $query .= " LIMIT ?, 4";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('i',$from);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+        
+    } 
+    public function getTags() {
+        $query = "SELECT Nome FROM tag LIMIT 10";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     public function getAllOrdersByUsername($username) {
         $query = "SELECT o.ID_Ordine, Status_Ordine, Nome, Cartella_immagini FROM ordine o, dettaglio_spedizione d, articolo a WHERE o.Nome_Utente = ? AND d.ID_Ordine = o.ID_Ordine AND d.ID_Articolo = a.ID_Articolo";
         // $query = "SELECT o.ID_Ordine, Status_Ordine, ID_Articolo FROM ordine o, dettaglio_spedizione d WHERE o.Nome_Utente = ? AND d.ID_Ordine = o.ID_Ordine";
@@ -295,6 +339,15 @@ class DatabaseHelper{
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function getCategories() {
+        $query = "SELECT Nome FROM categoria LIMIT 10";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     public function getUserReviews($var, $art) {
         if($art == true) {
             $query = "SELECT r.ID_Articolo, r.Voto, r.Testo, r.Titolo, r.Data_recensione, r.Nome_Utente, a.Nome, a.Cartella_immagini FROM recensione r, articolo a WHERE a.ID_Articolo = ? AND a.ID_Articolo = r.ID_Articolo";

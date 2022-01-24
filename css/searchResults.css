@@ -102,12 +102,22 @@
   width: 47%;
   z-index: 10;
 }
-
+.littleSearch-icon {
+  position: absolute;
+  right: 0%;
+  bottom: 60%;
+  width: auto\9;
+  height: auto\9;
+  max-width: 5%;
+  max-height: 85%;
+  cursor: pointer;
+}
 .resultImage {
   padding: 10px;
   height: 100px;
   width: auto\9;
-  max-height: 98%;
+  max-width: 30vw;
+  object-fit: contain;
 }
 .resultTitle {
   font-size: clamp(12px, 4vw, 24px);
@@ -126,12 +136,14 @@
   background: #37284f;
   border-radius: 0px 0px 17px 17px;
   width: 100%;
+  min-height: 57px;
 }
 
 .priceSection {
   margin-top: 20px;
   display: inline-block;
   width: 95%;
+  min-height: 90px;
   background: #e5d6ff;
   box-shadow: 0px 4px 12px 1px #37284f;
   border-radius: 13px 13px 0px 0px;
@@ -357,6 +369,8 @@
 .pageText {
   color: #433161;
   padding: 0 3px;
+  cursor: pointer;
+  margin: 0 5px;
 }
 .currentPageText {
   background: #e5d6ff;
@@ -465,6 +479,7 @@
   }
   .resultImage {
     height: 150px;
+    max-width: 16vw;
   }
   .priceSection {
     width: 100%;
@@ -473,5 +488,15 @@
   .searchResultsBack {
     border-left: 100px solid;
     border-right: 100px solid;
+  }
+  .littleSearch-icon {
+    position: absolute;
+    bottom: auto;
+    right: 0%;
+    width: auto\9;
+    height: auto\9;
+    max-width: 5%;
+    max-height: 85%;
+    cursor: pointer;
   }
 }

@@ -27,7 +27,7 @@
               for($i=1; $i <= count($dir); $i++): ?>
                 <div class="mySlides fade">
                   <img
-                    src="<?php echo "./img/" . $articolo["Cartella_immagini"] . "/" . $i . ".png" ?>"
+                    src="<?php echo findExtension("./img/" . $articolo["Cartella_immagini"], $i);?>"
                     alt="<?php echo $articolo["Nome"] . " immagine numero: " . $i ?>"
                     class="productImage"
                   />
@@ -132,7 +132,8 @@
               } else {
                 echo "class=\"wideLiteButton\"";
               }
-              ?> id="cartButton" type="button" onClick="addToCart(this, '<?php echo $articolo["ID_Articolo"]; ?>', '<?php echo $articolo["Cartella_immagini"]."/1.png"; ?>')"><?php if ($isInTheCart) {
+              ?> id="<?php echo $articolo["ID_Articolo"]; ?>" type="button" onClick="addToCart(this, '<?php echo $articolo["ID_Articolo"]; ?>', 
+              '<?php echo findExtension("./img/".$articolo["Cartella_immagini"],1);?>')"><?php if ($isInTheCart) {
                 echo "&#10004;";
               } else {
                 echo "Aggiungi al Carrello";

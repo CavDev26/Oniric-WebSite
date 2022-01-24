@@ -229,6 +229,7 @@ body {
   height: auto\9;
   max-width: 8%;
   max-height: 85%;
+  cursor: pointer;
 }
 .search {
   width: 100%;
