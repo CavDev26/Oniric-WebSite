@@ -33,10 +33,11 @@
               <span class="menu-mobile"></span>
           <ul class="unfolded-left-menu">
             <li class="search-line">
-              <div class="wrapper">
-                <a href="#"><img class="search-icon" src="./img/Search.png"/></a>
-                <input class="search" placeholder="Search" type="text" >
-              </div>  
+                <form action="articleList.php" class="wrapper" method="GET">
+                <label class="search-icon" for="submitSearch"><img src="./img/Search.png"/></label>
+                <input class="none" type="submit" name="submitSearch" id="submitSearch"/>
+                <input class="search" placeholder="Cerca" type="text" name="name"/>
+                </form>
             </li>
             
             <hr class="span-menu-div">
@@ -96,7 +97,7 @@
             <a href="<?php echo getHrefOfNotification($notification["ID_Notifica"]); ?>">  
               <li class="notification-dimensions">
                 <div class="notification-elem">
-                  <img src="./img/cava2000.png" alt="" class="notification-img-product"/>
+                  <img src="<?php echo $notification["Immagine"]?>" alt="" class="notification-img-product"/>
                   <h1 class="notification-type left-text"><?php echo $notification["Titolo"]?></h1>
                   <p class="notification-status left-text"><?php echo $notification["Descrizione"]?></p>
                   <?php if ($notification["Letto"] == 0): ?><img src="./img/notifica-ball.png" alt="" class="notification-indicator"/><?php endif;?>
