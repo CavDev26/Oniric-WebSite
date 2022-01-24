@@ -32,7 +32,7 @@ class DatabaseHelper{
         return $stmt->insert_id;
     }
     public function getOrders($username) {
-        $query = "SELECT Nome, Data_Arrivo, Cartella_immagini FROM articolo a, dettaglio_spedizione d, ordine o WHERE o.Nome_Utente = ? AND
+        $query = "SELECT o.ID_Ordine, Nome, Data_Arrivo, Cartella_immagini FROM articolo a, dettaglio_spedizione d, ordine o WHERE o.Nome_Utente = ? AND
                  d.ID_Ordine = o.ID_Ordine AND d.ID_Articolo = a.ID_Articolo";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s',$username);
@@ -294,6 +294,29 @@ class DatabaseHelper{
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function getUserReviews($var, $art) {
+        if($art == true) {
+            $query = "SELECT r.ID_Articolo, r.Voto, r.Testo, r.Titolo, r.Data_recensione, r.Nome_Utente, a.Nome, a.Cartella_immagini FROM recensione r, articolo a WHERE a.ID_Articolo = ? AND a.ID_Articolo = r.ID_Articolo";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('s', $var);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            $query = "SELECT r.ID_Articolo, r.Voto, r.Testo, r.Titolo, r.Data_recensione, a.Nome, a.Cartella_immagini FROM recensione r, articolo a WHERE r.Nome_Utente = ? AND r.ID_Articolo = a.ID_Articolo";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('s', $var);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+    }
+    public function removeFromCart($username, $id) {
+        $query = "DELETE FROM carrello where Nome_Utente = ? and ID_Articolo = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss', $username, $id);
+        return  $stmt->execute();
     }
 }
 ?>

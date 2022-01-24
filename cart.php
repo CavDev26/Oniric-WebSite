@@ -11,6 +11,7 @@ if(isUserLoggedIn()){
     if( count($templateParams["articles"]) == 0) {
         $templateParams["nessunarticolo"] = "Non hai articoli nel carrello!";
     }
+    
 
     $templateParams["style"] = array("./css/productStyle.css", "./css/framework.css", "./css/cartStyle.css");
     $templateParams["js"] = array("./js/plusMinusButton.js");

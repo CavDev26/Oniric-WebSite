@@ -1,8 +1,6 @@
-    
-        <!-- DA FIXARE PLS -->
-     
-     <div class="">
-            <a class="normal" href="">
+      <!-- QUESTO E' DIVERSO -->
+      <div class="">
+            <a class="normal" href="orderList.php">
                 <div class="purchase-button">
                   <p>Indietro</p>
                 </div>
@@ -10,7 +8,10 @@
       </div>
         <div class="lightBack center fullWidth m-50t" >
             <div class="floatingBack inline-block m-20b mw-800 z-1">
-              <div>
+              <?php if(isset($templateParams["erroreHistory"])): ?>
+                  <h1 class="mediumTitle center"><?php echo $templateParams["erroreHistory"];?></h1>
+              <?php else: ?>
+                <div>
                 <header class="category p-10">Dettagli Articoli- ordine:
                     <span><?php echo $templateParams["id"] ?></span>
                 </header>
@@ -23,7 +24,7 @@
                                 <div class="product">
                                     <a href="<?php echo "articolo.php?id=".$articledet["ID_Articolo"] ?>"> 
                                         <img class="product-image" src="<?php echo "./img/" . $articledet["Cartella_Immagini"] . "/" . 1 . ".png" ?>" 
-                                        alt="<?php echo $articolo["Nome"] ?>"/>
+                                        alt="<?php echo $articledet["Nome"] ?>"/>
                                     </a>
                                     <h1 class="product-name left-text"><?php echo $articledet["Nome"] ?></h1>
                                     <hr class="span-cart">
@@ -122,5 +123,6 @@
                   </li>
                 </ul>
               </div>
+              <?php endif; ?>
             </div>
         </div>

@@ -4,6 +4,7 @@
             c.addClass("buttons_added"), c.children().first().before('<input type="button" value="-" class="minus" />'), c.children().last().after('<input type="button" value="+" class="plus" />')
         })
     }
+
     String.prototype.getDecimals || (String.prototype.getDecimals = function() {
         var a = this,
             b = ("" + a).match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
@@ -19,4 +20,29 @@
             d = parseFloat(a.attr("min")),
             e = a.attr("step");
         b && "" !== b && "NaN" !== b || (b = 0), "" !== c && "NaN" !== c || (c = ""), "" !== d && "NaN" !== d || (d = 0), "any" !== e && "" !== e && void 0 !== e && "NaN" !== parseFloat(e) || (e = 1), jQuery(this).is(".plus") ? c && b >= c ? a.val(c) : a.val((b + parseFloat(e)).toFixed(e.getDecimals())) : d && b <= d ? a.val(d) : b > 0 && a.val((b - parseFloat(e)).toFixed(e.getDecimals())), a.trigger("change")
+        var i = a.siblings(".idContainer").val();
+        $("#"+i).val(a.val());
     });
+
+
+
+var acquista = document.getElementById("acquista");
+
+function removeVisualFromCart(button) {
+    $(button).parent().parent().remove();
+    if($(".product-container").length == 0){
+        var text ="<h1 class=\"mediumTitle center\">Non hai articoli nel carrello!</h1>";
+        $(".cartback").prepend(text);
+        acquista.disabled = true;
+        acquista.style.opacity = "0";
+    }
+}
+
+function removeFromCart(button, id) {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function () {
+      removeVisualFromCart(button);
+    };
+    xhttp.open("GET", "removeFromCart.php?artId=" + id);
+    xhttp.send();
+  }

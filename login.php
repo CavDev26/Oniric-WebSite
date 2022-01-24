@@ -34,6 +34,7 @@ if(isUserLoggedIn()){
     if(isset($_POST["address"]) && isset($_POST["ncivico"]) && isset($_POST["citta"])){
         $dbh->insertNewAddress($_SESSION["username"], array("Via" => $_POST["address"], "Numero_civico" => $_POST["ncivico"], "Citta" => $_POST["citta"]));
     }
+
     if (isset($_SESSION["article"])) {
         header("location: articolo.php?id=". $_SESSION["article"]);
     }
@@ -57,8 +58,14 @@ if(isUserLoggedIn()){
     $templateParams["userinfo"] = array("username" => $_SESSION["username"], "namesurname" => $_SESSION["namesurname"], 
                                         "birthdate" => $_SESSION["birthdate"], "passlen" => $_SESSION["passlen"]);
     $templateParams["balance"] = $dbh->getBalance($_SESSION["username"])[0]["Saldo"];
-    $templateParams["js"] = array("./js/accordion.js", "./js/modal.js");
-    $templateParams["style"] = array("./css/modal.css", "./css/profile.css", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", "./css/accordion.css");
+
+    if(isset($_POST["valore"])) {
+        $dbh->updateSald($_SESSION["username"], $_POST["valore"]);
+        header("Location: login.php");
+    }
+
+    $templateParams["js"] = array("./js/accordion.js", "./js/modal.js", "./js/shipmentPrices.js");
+    $templateParams["style"] = array("./css/completeOrderStyle.css", "./css/modal.css", "./css/profile.css", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", "./css/accordion.css");
 
 }
 else{

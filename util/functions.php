@@ -110,17 +110,19 @@ function userWroteReview($username, $reviews) {
     return false;
 }
 
-function getTotalPrices($articles) {
+function getTotalPrices($articles, $q) {
     $price = 0.0;
     $sum = 0.0;
+    $i = 0;
     foreach($articles as $art) {
-        $price = (float)$art["Costo_listino"] - round((float)$art["Sconto"]*(float)$art["Costo_listino"], 2);
+        $price = (float)($art["Costo_listino"] - round((float)$art["Sconto"]*(float)$art["Costo_listino"], 2))*$q[$i];
         $sum += (float)$price;
+        $i++;
     }
     return round($sum, 2);
 }
-function getTotalWithShip($articles, $ship){
-    $sum = getTotalPrices($articles);
+function getTotalWithShip($articles, $ship, $q){
+    $sum = getTotalPrices($articles, $q);
     $sum += (float) $ship;
     return $sum;
 }

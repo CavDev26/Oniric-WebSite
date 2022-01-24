@@ -7,15 +7,28 @@ if(isUserLoggedIn()){
     $templateParams["titolo"] = "Order History";
     $templateParams["nome"] = "orderHistoryTemplate.php";
     $templateParams["id"] = $_GET["id"];
+    
+    // if (isset($_POST["orderH"])) {
+    //     $_SESSION["orderH"] = $_POST["orderH"];
+    // }
+    // if(isset($_POST["exit"])) {
+    //     if (isset($_SESSION["orderH"])) {
+    //         unset($_SESSION["orderH"]);
+    //         header("Location: orderList.php");
+    //     }
+    // }
 
     $templateParams["ordine"] = $dbh->getOrderByID($_SESSION["username"], $templateParams["id"]);
-    $templateParams["ordine"] = $templateParams["ordine"][0];
+    if(count($templateParams["ordine"]) == 0) {
+        $templateParams["erroreHistory"] = "Oooops non esiste questo ordine...";
+    } else {
+        $templateParams["ordine"] = $templateParams["ordine"][0];
 
-    $templateParams["dettagliearticoli"] = $dbh->getDettagliSpedizioneandArticoli($templateParams["id"]);
-    
-    $templateParams["sped"] = $dbh->getTIpoSpedizione($templateParams["dettagliearticoli"][0]["ID_Tipo_Sped"]);
-    $templateParams["sped"] = $templateParams["sped"][0];
-
+        $templateParams["dettagliearticoli"] = $dbh->getDettagliSpedizioneandArticoli($templateParams["id"]);
+        
+        $templateParams["sped"] = $dbh->getTIpoSpedizione($templateParams["dettagliearticoli"][0]["ID_Tipo_Sped"]);
+        $templateParams["sped"] = $templateParams["sped"][0];
+    }
 
     $templateParams["style"] = array("./css/framework.css", "./css/cartStyle.css",
     "./css/buttons.css", "./css/modal.css", "./css/profile.css", "./css/accordion.css",
