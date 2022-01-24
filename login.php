@@ -13,6 +13,8 @@ if (isset($_POST["exit"])) {
 if (isset($_POST["article"])) {
     $_SESSION['article'] = $_POST["article"];
 }
+
+
 if(isset($_POST["username"]) && isset($_POST["password"])){
     $login_result = $dbh->checkLogin($_POST["username"], $_POST["password"]);
     if(count($login_result)==0){
@@ -32,14 +34,21 @@ if(isUserLoggedIn()){
     if(isset($_POST["address"]) && isset($_POST["ncivico"]) && isset($_POST["citta"])){
         $dbh->insertNewAddress($_SESSION["username"], array("Via" => $_POST["address"], "Numero_civico" => $_POST["ncivico"], "Citta" => $_POST["citta"]));
     }
+
     if (isset($_SESSION["article"])) {
         header("location: articolo.php?id=". $_SESSION["article"]);
     }
-    
-    //DA FIXARE
-    if (isset($_SESSION["completeOrder"])) {
-        header("location: completeOrder.php");
+    if (isset($_SESSION["cart"])) {
+        header("location: cart.php");
     }
+    if (isset($_SESSION["completeOrder"])) {
+        header("location: cart.php");
+    }
+    //forse non va bene
+    if (isset($_SESSION["orderHistory"])) {
+        header("location: index.php");
+    }
+
     // UTENTE LOGGATO
     $templateParams["titolo"] = "Profilo - " . $_SESSION["username"];
     $templateParams["nome"] = "profile.php";
@@ -49,8 +58,14 @@ if(isUserLoggedIn()){
     $templateParams["userinfo"] = array("username" => $_SESSION["username"], "namesurname" => $_SESSION["namesurname"], 
                                         "birthdate" => $_SESSION["birthdate"], "passlen" => $_SESSION["passlen"]);
     $templateParams["balance"] = $dbh->getBalance($_SESSION["username"])[0]["Saldo"];
-    $templateParams["js"] = array("./js/accordion.js", "./js/modal.js");
-    $templateParams["style"] = array("./css/modal.css", "./css/profile.css", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", "./css/accordion.css");
+
+    if(isset($_POST["valore"])) {
+        $dbh->updateSald($_SESSION["username"], $_POST["valore"]);
+        header("Location: login.php");
+    }
+
+    $templateParams["js"] = array("./js/accordion.js", "./js/modal.js", "./js/shipmentPrices.js");
+    $templateParams["style"] = array("./css/completeOrderStyle.css", "./css/modal.css", "./css/profile.css", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", "./css/accordion.css");
 
 }
 else{

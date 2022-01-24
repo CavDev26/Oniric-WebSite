@@ -110,15 +110,19 @@ function userWroteReview($username, $reviews) {
     return false;
 }
 
-function getTotalPrices($articles) {
+function getTotalPrices($articles, $q) {
+    $price = 0.0;
     $sum = 0.0;
+    $i = 0;
     foreach($articles as $art) {
-        $sum += (float) $art["Costo_listino"];
+        $price = (float)($art["Costo_listino"] - round((float)$art["Sconto"]*(float)$art["Costo_listino"], 2))*$q[$i];
+        $sum += (float)$price;
+        $i++;
     }
-    return $sum;
+    return round($sum, 2);
 }
-function getTotalWithShip($articles, $ship){
-    $sum = getTotalPrices($articles);
+function getTotalWithShip($articles, $ship, $q){
+    $sum = getTotalPrices($articles, $q);
     $sum += (float) $ship;
     return $sum;
 }
@@ -150,31 +154,47 @@ function getHrefOfNotification ($notificationId) {
 }
 
 function generateRandomOrderID($length = 10, $orderIDS) {
+    // return "abcd2";
+
     $randomString = '';
-    $bene = false;
+    $bene = true;
     while(strlen($randomString)  < $length) {
+        $randomString = '';
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
         for ($i = 0; $i < $length; $i++) {
             $randomString .= $characters[rand(0, $charactersLength - 1)];
         }
-        // CICLO INFINITO PLS FIXAMI
+        // echo $randomString;
+        return $randomString;
         // foreach ($orderIDS as $id) {
         //     if ($id == $randomString) {
-        //         $randomString = '';
-        //     }
-        //     else {
+        //         $bene = false;
+        //         break;
+        //     } else {
         //         $bene = true;
         //     }
         // }
         // if ($bene == true) {
-        //     break;
+        //     return $randomString;
         // }
     }
 }
 
 function generateRandomSpedID($length = 10) {
-    return "sped1";
+    // return "sped1";
+    $randomString = '';
+    $bene = true;
+    while(strlen($randomString)  < $length) {
+        $randomString = '';
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        // echo $randomString;
+        return $randomString;
+    }
 }
 function findExtension ($dir, $i) {
     $extensions = array("jpg", "png");

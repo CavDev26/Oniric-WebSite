@@ -10,20 +10,22 @@ $templateParams["style"] = array("./css/productStyle.css","./css/login_signup.cs
                                 "./css/modal.css","./css/text.css","./css/buttons.css","./css/accordion.css","./css/completeOrderStyle.css",
                                 "./css/cartStyle.css","./css/paymentMethods.css");
 if (isUserLoggedIn()) {
-    if (isset($_POST["order"])) {
-        $_SESSION["order"] = $_SESSION["order"];
+    if (isset($_POST["completeOrder"])) {
+        $_SESSION["completeOrder"] = $_POST["completeOrder"];
     } elseif (isset($_POST["profile"])) {
         $_SESSION["profile"] = $_POST["profile"];
     }
     if(isset($_POST["exit"])) {
-        if (isset($_SESSION["order"])) {
-        unset($_SESSION["order"]);
-        header("Location: completeOrder.php");
-    }
-    if (isset($_SESSION["profile"])) {
-        unset($_SESSION["profile"]);
-        header("Location: login.php");
-    }
+
+        if (isset($_SESSION["completeOrder"])) {
+            unset($_SESSION["completeOrder"]);
+            header("Location: completeOrder.php");
+        }
+        if (isset($_SESSION["profile"])) {
+            unset($_SESSION["profile"]);
+            header("Location: login.php");
+        }
+
     }
     if (isset($_POST["deleteMethod"])) {
         $dbh->deleteMethod($_SESSION["username"],$_POST["deleteMethod"]);

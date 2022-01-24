@@ -1,14 +1,13 @@
 <?php
 require_once 'bootstrap.php';
 
-//Base Template
-
 $templateParams["titolo"] = "Oniric";
 $templateParams["nome"] = "home.php";
-// $templateParams["categorie"] = $dbh->getCategories();
-// $templateParams["articolicasuali"] = $dbh->getRandomPosts(2);
-// //Home Template
-// $templateParams["articoli"] = $dbh->getPosts();
+
+$templateParams["first-article"] = "";
+$templateParams["articolo"] = $dbh->getArticle($templateParams["first-article"]);
+
+$templateParams["style"] = array("./css/framework.css", "./css/buttons.css", "./css/indexStyle.css");
 
 require 'template/base.php';
 ?>

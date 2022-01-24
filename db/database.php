@@ -32,7 +32,7 @@ class DatabaseHelper{
         return $stmt->insert_id;
     }
     public function getOrders($username) {
-        $query = "SELECT Nome, Data_Arrivo, Cartella_immagini FROM articolo a, dettaglio_spedizione d, ordine o WHERE o.Nome_Utente = ? AND
+        $query = "SELECT o.ID_Ordine, Nome, Data_Arrivo, Cartella_immagini FROM articolo a, dettaglio_spedizione d, ordine o WHERE o.Nome_Utente = ? AND
                  d.ID_Ordine = o.ID_Ordine AND d.ID_Articolo = a.ID_Articolo";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s',$username);
@@ -189,8 +189,14 @@ class DatabaseHelper{
     }
 
     public function updateSald($username, $importo) {
-        // echo "Sto a fare dio merda";
-        $query = "UPDATE utente SET saldo = (? + Saldo) WHERE Nome_Utente = ?";
+        $query = "UPDATE utente SET Saldo = (? + Saldo) WHERE Nome_Utente = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ds',$importo, $username);
+        $stmt->execute();
+        return $stmt->insert_id;
+    }
+    public function removeSald($username, $importo) {
+        $query = "UPDATE utente SET Saldo = ? WHERE Nome_Utente = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ds',$importo, $username);
         $stmt->execute();
@@ -215,7 +221,7 @@ class DatabaseHelper{
     public function addDettaglioSpedizione($ID_Spedizione, $Costo_Spedizione, $Indirizzo_Consegna, $Status_Ordine, $ID_Articolo, $ID_Tipo_Sped, $ID_Ordine) {
         $query = "INSERT INTO dettaglio_spedizione (ID_Spedizione, Costo_Spedizione, Data_Arrivo, Indirizzo_Consegna, Status_Ordine, ID_Articolo, ID_Tipo_Sped, ID_Ordine) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
-        $data = null;
+        $data = "00000000";
         $stmt->bind_param('sdssssss', $ID_Spedizione, $Costo_Spedizione, $data, $Indirizzo_Consegna, $Status_Ordine, $ID_Articolo, $ID_Tipo_Sped, $ID_Ordine);
         $stmt->execute();
         return $stmt->insert_id;
@@ -249,6 +255,19 @@ class DatabaseHelper{
         $stmt->execute();
         return $stmt->insert_id;
     }
+
+    public function deleteAllFromCart($username, $ID) {
+        $query = "DELETE FROM carrello where Nome_Utente = ? and ID_Articolo = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss', $username, $ID);
+        return  $stmt->execute();
+    }
+    public function getOrderByID($username, $ID) {
+        $query = "SELECT ID_Ordine, Indirizzo_Consegna, Data_Acquisto, Spesa_Totale FROM ordine WHERE(Nome_Utente = ? AND ID_Ordine = ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss', $username, $ID);
+    }
+
     public function getNumberOfArticles($filters) {
         $query = "SELECT COUNT(*) FROM articolo a ";
         if (!(empty($filters["tag"]) && empty($filters["price"]) && empty($filters["vote"]) && empty($filters["category"]) 
@@ -256,10 +275,29 @@ class DatabaseHelper{
             $query .= "WHERE ". filterQuery($filters);
         }
         $stmt = $this->db->prepare($query);
+
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function getDettagliSpedizioneandArticoli($IDOrdine) {
+        $query = "SELECT ID_Spedizione, Costo_Spedizione, Data_Arrivo, Status_Ordine, d.ID_Articolo, ID_Tipo_Sped, Nome, Costo_listino, Sconto, Cartella_Immagini, Voto_medio FROM dettaglio_spedizione d, articolo a WHERE ID_Ordine = ? AND d.ID_Articolo = a.ID_Articolo";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $IDOrdine);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function getTIpoSpedizione($IDTipo) {
+        $query = "SELECT Nome_Corriere FROM tipo_spedizione WHERE ID_Tipo_Sped = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $IDTipo);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     public function getArticles($pageNum, $filters) {
         $from = ($pageNum -1)* 4;
         if (empty($filters["tag"]) && empty($filters["price"]) && empty($filters["vote"]) && empty($filters["category"])
@@ -291,12 +329,47 @@ class DatabaseHelper{
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function getAllOrdersByUsername($username) {
+        $query = "SELECT o.ID_Ordine, Status_Ordine, Nome, Cartella_immagini FROM ordine o, dettaglio_spedizione d, articolo a WHERE o.Nome_Utente = ? AND d.ID_Ordine = o.ID_Ordine AND d.ID_Articolo = a.ID_Articolo";
+        // $query = "SELECT o.ID_Ordine, Status_Ordine, ID_Articolo FROM ordine o, dettaglio_spedizione d WHERE o.Nome_Utente = ? AND d.ID_Ordine = o.ID_Ordine";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     public function getCategories() {
         $query = "SELECT Nome FROM categoria LIMIT 10";
         $stmt = $this->db->prepare($query);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getUserReviews($var, $art) {
+        if($art == true) {
+            $query = "SELECT r.ID_Articolo, r.Voto, r.Testo, r.Titolo, r.Data_recensione, r.Nome_Utente, a.Nome, a.Cartella_immagini FROM recensione r, articolo a WHERE a.ID_Articolo = ? AND a.ID_Articolo = r.ID_Articolo";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('s', $var);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            $query = "SELECT r.ID_Articolo, r.Voto, r.Testo, r.Titolo, r.Data_recensione, a.Nome, a.Cartella_immagini FROM recensione r, articolo a WHERE r.Nome_Utente = ? AND r.ID_Articolo = a.ID_Articolo";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('s', $var);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+    }
+    public function removeFromCart($username, $id) {
+        $query = "DELETE FROM carrello where Nome_Utente = ? and ID_Articolo = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss', $username, $id);
+        return  $stmt->execute();
     }
 }
 ?>

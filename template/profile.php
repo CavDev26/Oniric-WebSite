@@ -75,15 +75,26 @@
                           class="orderImage"
                         />
                         <div class="orderMiddleText">
-                          Arriverà <strong><?php echo $order["Data_Arrivo"]; ?></strong>
+                        <a href="<?php echo "orderHistory.php?id=".$order["ID_Ordine"] ?>">
+                          Vai ai dettagli >
+                         </a>
                         </div>
                       </li>
                       <?php endforeach; ?>
                     </ul>
                     <footer>
-                      <button class="hardButton w-75 m-10t m-20b">
+
+                    <form action="orderList.php" method="POST">
+                          <input
+                            type="submit"
+                            class="hardButton w-75 m-10t m-20b"
+                            name="orders"
+                            value="Mostra tutti gli ordini"
+                          />
+                        </form>
+                      <!-- <button class="hardButton w-75 m-10t m-20b">
                         Mostra tutti gli ordini
-                      </button>
+                      </button> -->
                     </footer>
                   </div>
                 </div>
@@ -116,83 +127,79 @@
                       </p>
                       <button class="modalButton">Ricarica</button>
 
-                      <!-- The Modal -->
-                      <div class="profileModal">
-                        <!-- Modal content -->
-                        <div class="profileModal-content">
-                          <span class="profileModalClose">&times;</span>
-                          <div class="center">
-                            <header>
-                              <div class="p-20t p-10b">
-                                <span class="bigSaturatedText"
-                                  >&#128 <?php $sald = min_precision($templateParams["balance"], 2);
-                                      $splitted = explode(".", $sald);
-                                      if (count($splitted) == 1) {
-                                        echo $splitted[0];
-                                        echo ", <em class=\"priceItalic\">00</em>";
-                                      }
-                                      else {
-                                        echo $splitted[0];
-                                        echo ", <em class=\"priceItalic\">". $splitted[1] . "</em>";
-                                      }?>
-                                </span>
-                              </div>
-                              <p class="middleSaturatedText m-0 m-20b">
-                                Saldo Rimanente
-                              </p>
-                            </header>
-                            <form action="">
-                              <label
-                                for="quantity"
-                                class="middleText left p-20l f-20 p-10b"
-                              >
-                                Ammontare </label
-                              ><br />
-                              <input
-                                class="numberPicker"
-                                type="number"
-                                id="quantity"
-                                name="quantity"
-                                min="1"
-                                max="500"
-                              />
+                              <div class="profileModal">
+                                <div class="profileModal-content">
+                                  <span class="profileModalClose">&times;</span>
+                                  <div class="center">
+                                    <header>
+                                      <div class="p-20t p-10b">
+                                          <span class="bigSaturatedText">
+                                              &#128 <?php $sald = min_precision($templateParams["balance"], 2);
+                                              $splitted = explode(".", $sald);
+                                              if (count($splitted) == 1) {
+                                                  echo $splitted[0];
+                                                  echo ", <em class=\"priceItalic\">00</em>";
+                                              }
+                                              else {
+                                              echo $splitted[0];
+                                              echo ", <em class=\"priceItalic\">". $splitted[1] . "</em>";
+                                              }?>
+                                          </span>
+                                      </div>
+                                      <p class="middleSaturatedText m-0 m-20b">
+                                        Saldo Rimanente
+                                      </p>
+                                    </header>
+                                    <form action="" method="POST">
+                                      <div class="radio-toolbar center">
+                                        <header class="m-10b">Ammontare</header>
 
-                              <aside>
-                                <header>
-                                  <h2 class="middleText left-text p-20l f-20">
-                                    Scegli con cosa ricaricare il saldo
-                                  </h2>
-                                </header>
-                                <ul class="list">
-                                  <?php foreach($templateParams["payMethods"] as $payMethod): ?>
-                          <li>
-                          <div class="paymentMethod w-75 inline-block">
-                            <h3 class="m-0 right w-60 center f-16 p-10b">
-                              <?php echo $payMethod["Nome"] ?>
-                            </h3>
-                            <img
-                              src="./img/visaLogo.png"
-                              class="left p-10t littlePaymentIcon"
-                            />
-                            <p class="w-68 right m-0 center f-14 lh-10">
-                              <?php for($i = 0; $i < strlen((string)$payMethod["Numero"])-2; $i++) {echo "●";} 
-                              echo substr((string)$payMethod["Numero"], -2); ?>
-                            </p>
-                          </div>
-                        </li>
-                        <?php endforeach; ?>
-                                  
-                                </ul>
-                              </aside>
-                              <input
-                                type="submit"
-                                class="hardButton w-75 m-10t m-20b"
-                                value="Ricarica"
-                              />
-                            </form>
-                          </div>
-                        </div>
-                      </div>
+                                        <input type="radio" id="radio1" name="valore" value="20" onclick="checkIfRechargeable()">
+                                        <label for="radio1">20,00&#128</label>
+                                      
+                                        <input type="radio" id="radio2" name="valore" value="50" onclick="checkIfRechargeable()">
+                                        <label for="radio2">50,00&#128</label>
+                                      
+                                        <input type="radio" id="radio3" name="valore" value="100" onclick="checkIfRechargeable()">
+                                        <label for="radio3">100,00&#128</label><br>
+
+                                      </div>
+                                      <div>
+                                        <header>
+                                          <h2 class="middleText f-20">
+                                            Scegli con cosa ricaricare il saldo
+                                          </h2>
+                                        </header>
+                                        <div>
+                                          <div class="payments">
+                                                  <?php foreach($templateParams["payMethods"] as $pay):?>
+                                                      <input type="radio" id="<?php echo $pay["Numero"]?>" name="card" value="card" onclick="checkIfRechargeable()">
+                                                      <label for="<?php echo $pay["Numero"]?>">
+                                                          <div class="pls m-10b">
+                                                          <img class="left" src="./img/visaLogo.png" alt=""/>
+                                                          <p class="center m-0">
+                                                              <?php echo $pay["Nome"] ?> <br>
+                                                              <?php for($i = 0; $i < strlen((string)$pay["Numero"])-2; $i++) {echo "●";} 
+                                                              echo substr((string)$pay["Numero"], -2); ?>
+                                                          </p>
+                                                          </div>                          
+                                                      </label>
+                                                      <hr class="span-order-big"></hr>
+                                                  <?php endforeach; ?>
+                                          </div>
+                                      </div>
+                                      <input
+                                              id="submitRecharge"
+                                              type="submit"
+                                              class="hardButton o-05 w-75 m-10t m-20b"
+                                              disabled
+                                              value="Inserisci tutti i dati"
+                                      />
+                                    </form>
+                                      </div>
+                                  </div>
+                                </div>
+                            </div>
                     </header>
                     <aside>
                       <header>
@@ -242,9 +249,11 @@
               </button>
             </li>
             <li>
-              <button class="coolButton">
-                <strong>Le tue Recensioni</strong>
-              </button>
+              <a href="reviews.php">
+                <button class="coolButton">
+                  <strong>Le tue Recensioni</strong>
+                </button>
+              </a>
             </li>
             <li>
               <div>
