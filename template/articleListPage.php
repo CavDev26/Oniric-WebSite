@@ -4,7 +4,7 @@
           <div class="relative z-1 p-20t center">
             <div class="fullWidth center">
               <div class="fullWidth inline-block center m-20t">
-                <form class="wrapper"action="articleList.php" method="GET" >
+                <form class="wrapper" action="articleList.php" method="GET" >
                 <input class="resultSearch" placeholder="Cerca qui il tuo prodotto" type="text" name="name" 
                 value="<?php if (isset($_GET["name"])) { echo $_GET["name"];}?>" />
                 <label class="littleSearch-icon" for="submitSearch2"><img alt="Ricerca prodotto" src="./img/Search.png"/></label>
@@ -21,7 +21,7 @@
               <div id="myModal" class="modal">
                 <!-- Modal content -->
                 <div class="modal-content">
-                  <span class="close">&times;</span>
+                  <span class="close">&times; </span>
                   <form class="simpleForm p-10 m-0" method="GET" action="#">
                     <input
                       type="submit"
@@ -50,8 +50,8 @@
                             </ul>
                           </div>
                         </div>
+                        <hr class="filterSeparator" />
                       </li>
-                      <hr class="filterSeparator" />
                       <li class="inline-block fullWidth">
                         <div>
                           <button type="button" class="filterAccordion">
@@ -86,8 +86,8 @@
                             </ul>
                           </div>
                         </div>
+                        <hr class="filterSeparator" />
                       </li>
-                      <hr class="filterSeparator" />
                       <li class="inline-block fullWidth">
                         <div>
                           <button type="button" class="filterAccordion">
@@ -108,8 +108,8 @@
                             </ul>
                           </div>
                         </div>
+                        <hr class="filterSeparator" />
                       </li>
-                      <hr class="filterSeparator" />
                       <li class="inline-block fullWidth">
                         <div>
                           <button type="button" class="filterAccordion">
@@ -195,7 +195,7 @@
               <button class="dropbtn">Ordina</button>
               <div class="dropdown-content">
                   <div>
-                    <form action="" method="GET" class="p-10">
+                    <form action="#" method="GET" class="p-10">
                     <?php keepGetValues();?>
                     <input type="hidden" name="sort" value="asc"/>
                     <label class="sortButton" for="sortA">Prezzo (Ascendente)</label>
@@ -203,14 +203,13 @@
                     </form>
                   </div>
                   <div>
-                    <form action="" method="GET" class="p-10">
+                    <form action="#" method="GET" class="p-10">
                       <?php keepGetValues();?>
                       <input type="hidden" name="sort" value="desc"/>
                       <label class="sortButton" for="sortD">Prezzo (Discendente)</label>
                       <input type="submit" class="none" id="sortD"/>
                     </form>
                   </div>
-                </form>
               </div>
             </div>
           </div>
@@ -257,7 +256,7 @@
                         echo ", ". $price[1];
                       }
                       ?>
-                      &#128;</span>
+                      &euro; </span>
                       <?php if (!is_null($articolo["Sconto"]) && $articolo["Sconto"] != 0): ?>
                       <span class="sale"> <?php echo " - ". (string) ((float)$articolo["Sconto"]*100)." &#37; "?></span>
                       <?php endif; 
@@ -342,7 +341,7 @@
                         echo ", ". $price[1];
                       }
                       ?>
-                      &#128;</span>
+                      &euro; </span>
                       <?php if (!is_null($articolo["Sconto"]) && $articolo["Sconto"] != 0): ?>
                       <span class="sale"> <?php echo " - ". (string) ((float)$articolo["Sconto"]*100)." &#37; "?></span>
                       <?php endif; 
@@ -396,7 +395,7 @@
           <footer class="resultsFooter">
             <div>
             <?php if ($_GET["pagenum"] != 1):?>
-            <form class="inline-block" action="articleList.php" class="p-10r" method="GET">
+            <form class="inline-block p-10r" action="articleList.php" method="GET">
                 <label for="submit1"class="pageText">
                       <img src="./img/leftArrow.png" alt="Pagina Precedente" />
                 </label>
@@ -413,7 +412,7 @@
                 <?php keepGetValues();?>
             </form>
               <a href="" class="currentPageText"><span><?php echo $_GET["pagenum"];?></span></a>
-              <form class="inline-block page-text" action="articleList.php" class="pageText" method="GET">
+              <form class="inline-block page-text" action="articleList.php" method="GET">
                 <label class="pageText" for="submit3"><?php if ($_GET["pagenum"] < $templateParams["pageNumber"]) {echo $_GET["pagenum"]+1;}?></label>
                 <input type="submit" class="none" id="submit3" name="submit3" value="">
                 <input type="hidden" name="pagenum" value="<?php if ($_GET["pagenum"] < $templateParams["pageNumber"]) {echo $_GET["pagenum"]+1;}?>" />
@@ -421,7 +420,7 @@
             </form>
               <span class="pageText"><?php if ($_GET["pagenum"] < $templateParams["pageNumber"]-1) {echo "...";}?></span>
               <?php if ($_GET["pagenum"] < $templateParams["pageNumber"]):?>
-              <form class="inline-block" action="articleList.php" class="p-10l" method="GET">
+              <form class="inline-block p-10l" action="articleList.php" method="GET">
               <label for="submit4" class="pageText"
                   ><img src="./img/rightArrow.png" alt="Pagina successiva" />
               </label>
@@ -434,4 +433,5 @@
           </footer>
           <?php endif; ?>
         </div>
+      </div>
     </main>

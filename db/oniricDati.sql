@@ -88,3 +88,15 @@ insert into articolo values ("ASPRT", "Oni Sport", "Veicolo potente, dotata di B
  "Una macchina veloce, elettrica, intelligente e progettata seguendo il design dei nostri
  esperti. Perditi nei chilometri con Oni Sport.",
  79999.99, 5, 0.05, "oniricSport", 0.0,"AdminOniric" ,'Veicoli');
+
+INSERT INTO recensione (Nome_Utente, ID_Articolo, Voto, Testo, Titolo, Data_Recensione) VALUES ("AdminOniric", "AADO4", 4, "Prodotto che rispecchia a pieno ogni aspettativa. Non potevo chiedere di meglio, spedizione assolutamente rapida con Omni!", "Prodotto perfetto", "2021-01-24");
+INSERT INTO recensione (Nome_Utente, ID_Articolo, Voto, Testo, Titolo, Data_Recensione) VALUES ("Paul23", "AADO4", 5, "Mai vista una cosa simile, è spettacolare tutto ciò, proprio incredibile.", "Consigliato", "2021-01-20");
+
+INSERT INTO recensione (Nome_Utente, ID_Articolo, Voto, Testo, Titolo, Data_Recensione) VALUES ("Paul23", "ABTWO", 1, "E' arrivato dopo 1 anno dall'acquisto. Ridicolo, Oniric decisamente sotto la media", "Pessimo", "2021-01-24");
+INSERT INTO recensione (Nome_Utente, ID_Articolo, Voto, Testo, Titolo, Data_Recensione) VALUES ("AdminOniric", "ABTWO", 3, "Fa quello che deve, senza lodi, però. Un po' troppo costoso rispetto alla concorrenza", "Meh", "2021-01-23");
+
+INSERT INTO recensione (Nome_Utente, ID_Articolo, Voto, Testo, Titolo, Data_Recensione) VALUES ("AdminOniric", "ADRT3", 5, "Regalo di compleanno per mia figlia, non potevo trovare di meglio!", "Mia figlia lo ha adorato!o", "2021-01-24");
+
+
+INSERT INTO tipo_spedizione (ID_Tipo_Sped, Nome_Corriere, Tariffa, Paese_Provenienza) VALUES ("OMNI", "Omni", 0.00, "Italia");
+

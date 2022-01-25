@@ -10,7 +10,7 @@
         <header>
           <h1 class="title">Gestisci le tue carte</h1>
         </header>
-        <hr class="span-accordion"></hr>
+        <hr class="span-accordion"/>
         <aside class="center">
           <div>
           <ul class="accordionList list left-text m-20l">
@@ -95,11 +95,11 @@
                                 <form action="#" class="simpleForm p-20t m-20l" method="POST">
                                     <input type="hidden" value="<?php echo $payMethod["Nome"]?>" name="deleteMethod" />
                                     <div class="center">
-                                        <label for="Sure" class="form-label inline-block lh-20">Sei sicuro di voler rimuovere il metodo di pagamento?</label><br />
+                                        <label class="form-label inline-block lh-20">Sei sicuro di voler rimuovere il metodo di pagamento?</label><br />
                                     </div>
                                     <div class="inline-block fullWidth m-20t">
                                         <input class="hardButton" type="submit" value="Conferma" />
-                                        <button class="hardButton m-10t" type="button"onClick="closeModal(this)">Annulla</button>
+                                        <button class="hardButton m-10t" type="button" onClick="closeModal(this)">Annulla</button>
                                     </div>
                                 </form>
                             </div>
@@ -144,13 +144,12 @@
                       class="box-input inline-block w-30 m-10t left"
                       type="text"
                       id="scadenza"
-                      name="scadenza" value="<?php echo date("y"); ?>"required />
+                      name="scadenza" value="<?php echo date("y"); ?>" required />
                     <input
                       class="box-input inline-block w-30 m-10t p-10r right"
                       type="text"
                       id="circuit"
                       name="circuit" required />
-                    </input>
                   </div>
                 <footer class="center">
                   <div class="center">

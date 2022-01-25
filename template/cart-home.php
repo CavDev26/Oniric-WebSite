@@ -5,12 +5,10 @@
           </div>
         <?php else: ?>
           <form action="completeOrder.php" method="POST">
-            <input type="hidden" name="cart">
-            </input>
-            <input id="acquista" type="submit" class="purchase-button" value="Procedi all'acquisto">
-            </input>
+            <input type="hidden" name="cart" />
+            <input id="acquista" type="submit" class="purchase-button" value="Procedi all'acquisto" />
             <?php foreach($templateParams["articles"] as $art): ?>
-              <input id="<?php echo $art["ID_Articolo"]; ?>" type="hidden" name="quantity[]" value="1"></input>
+              <input id="<?php echo $art["ID_Articolo"]; ?>" type="hidden" name="quantity[]" value="1" />
             <?php endforeach; ?>
           </form>
           <div class="cartback center m-t-200">
@@ -37,20 +35,20 @@
                         <?php endfor; ?>
                       </div>
                       <div class="price-section">
-                        <p class="valuta">&#128</p>
+                        <p class="valuta">&euro; </p>
                         <p class="price">
                         <?php $price = (float)$article["Costo_listino"] - round((float)$article["Sconto"]*(float)$article["Costo_listino"], 2);
                         echo min_precision($price, 2);?>                      
                       </div>
-                      <button class="remove-button centered" onClick="removeFromCart(this, '<?php echo $article["ID_Articolo"]; ?>')">
-                          <p class="m-0">Rimuovi</p>
+                      <button class="remove-button centered center" onClick="removeFromCart(this, '<?php echo $article["ID_Articolo"]; ?>')">
+                          Rimuovi
                       </button>
                       <div class="quantity-button centered">
                         <div class="quantity buttons_added">
-                          <input class="idContainer" name="idContainer" type="hidden" value="<?php echo $article["ID_Articolo"]; ?>">
-                          <input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="qty" size="4">
-                          <input type="button" value="-" class="minus">
-                          <input type="button" value="+" class="plus">
+                          <input class="idContainer" name="idContainer" type="hidden" value="<?php echo $article["ID_Articolo"]; ?>" />
+                          <input type="number" step="1" min="1" name="quantity" value="1" title="Qty" class="qty" />
+                          <input type="button" value="-" class="minus" />
+                          <input type="button" value="+" class="plus" />
                         </div>
                       </div>
                     </div>

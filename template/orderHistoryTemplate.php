@@ -1,5 +1,5 @@
       <div>
-            <form action="" method="POST" class="normal">
+            <form action="#" method="POST" class="normal">
               <div>
                 <input type="hidden" name="exit" value="1" />
                 <input class="purchase-button" type="submit" value="Indietro" />
@@ -15,7 +15,7 @@
                 <header class="category p-10">Dettagli Articoli- ordine:
                     <span><?php echo $templateParams["id"] ?></span>
                 </header>
-                <hr class="span-order"></hr>
+                <hr class="span-order"/>
                 <ul class="list detail-items">
                     <li class="m-20l m-20r">
                       <ul class="list">
@@ -41,7 +41,7 @@
                                         <?php endfor; ?>
                                     </div>
                                     <div class="price-section">
-                                        <p class="valuta">&#128</p>
+                                        <p class="valuta">&euro;</p>
                                         <p class="price"><?php echo min_precision((float)$articledet["Costo_listino"] - round((float)$articledet["Sconto"]*(float)$articledet["Costo_listino"]), 2); ?></p>
                                     </div>
                                 </div>
@@ -51,19 +51,19 @@
                     </li>
                     <li class="m-20l m-20r m-20b">
                       <span class="left fullHeight m-0">Costi di spedizione</span>
-                      <span class="right m-0"><?php echo min_precision($articledet["Costo_Spedizione"] ,2) ?>&#128</span><br/>
+                      <span class="right m-0"><?php echo min_precision($articledet["Costo_Spedizione"] ,2) ?>&euro</span><br/>
+                      <hr class="span-order"/>
                     </li>
-                    <hr class="span-order"></hr>
                     <li class="m-20">
                       <span class="left fullHeight total m-0">Totale</span>
-                      <span class="right m-0 total-price"><?php echo min_precision(getTotalWithShipNoQ($templateParams["dettagliearticoli"], $templateParams["dettagliearticoli"][0]["Costo_Spedizione"]), 2) ?>&#128</span><br/>
+                      <span class="right m-0 total-price"><?php echo min_precision(getTotalWithShipNoQ($templateParams["dettagliearticoli"], $templateParams["dettagliearticoli"][0]["Costo_Spedizione"]), 2) ?>&euro;</span><br/>
                     </li>
                 </ul>
               </div>
-              <hr class="span-order-big"></hr>
+              <hr class="span-order-big"/>
               <div>
                 <header class="category m-10t">Dettagli Spedizione</header>
-                <hr class="span-order"></hr>
+                <hr class="span-order"/>
                 <ul class="list detail-items">
                   <li class="m-20l m-20r center">
                     <span class="w-50 fullHeight">Indirizzo di Spedizione:</span>
@@ -72,8 +72,8 @@
                     <span class="add-name">
                         <?php echo $templateParams["ordine"]["Indirizzo_Consegna"] ?>
                     </span> <br>
+                    <hr class="span-order"/>
                   </li>
-                  <hr class="span-order"></hr>
                   <li>
                     <span class="center">
                       Metodo di spedizione
@@ -83,8 +83,8 @@
                     <div class="back">
                         <p class="m-0"><?php echo $templateParams["sped"]["Nome_Corriere"] ?></p>
                     </div>
+                    <hr class="span-order"/>
                   </li>
-                  <hr class="span-order"></hr>
                   <li class="m-20l m-20t m-20r">
                     <?php $status = $templateParams["dettagliearticoli"][0]["Status_Ordine"]; ?>
                     <button class="shipmentAccordion">
@@ -108,10 +108,10 @@
                   </li>
                 </ul>
               </div>
-              <hr class="span-order-big"></hr>
+              <hr class="span-order-big"/>
               <div>
                 <header class="category m-10t">Dettagli Pagamento</header>
-                <hr class="span-order"></hr>
+                <hr class="span-order"/>
                 <ul class="list detail-items">
                     <li class="m-20l m-20r center">
                         <span class="fullHeight">Metodo di pagamento: </span>

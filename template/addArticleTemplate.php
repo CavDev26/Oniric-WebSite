@@ -6,7 +6,7 @@
         <header><h1>Inserisci un nuovo articolo</h1></header>
         <hr class="separator" />
 
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form action="#" method="POST" enctype="multipart/form-data">
         <section>
             <label for="imgarticolo">Immagine Articolo</label>
             <input type="file" name="imgarticolo" id="imgarticolo" />
@@ -19,6 +19,7 @@
                     class="box-input-add m-10t f-14"
                     type="text"
                     name="name"
+                    id="name"
                     placeholder="Nome articolo" required
                 />
                 <br>
@@ -28,6 +29,7 @@
                     class="box-input-add m-10t f-14"
                     type="text"
                     name="app_nome"
+                    id="app_nome"
                     placeholder="Categoria" required
                 />
         </section>
@@ -40,6 +42,7 @@
                     class="box-input-add m-10t f-14"
                     type="text"
                     name="briefDesc"
+                    id="briefDesc"
                     placeholder="descrizione breve" required
                 />
 
@@ -58,6 +61,7 @@
                         class="box-input-add m-10t f-14"
                         type="number"
                         name="price"
+                        id="price"
                         placeholder="Prezzo" required step="0.01"
                     />
                   </div>
@@ -70,9 +74,9 @@
                         class="box-input-add m-10t f-14"
                         type="number"
                         name="discount"
+                        id="discount"
                         placeholder="Sconto (null se non previsto)" 
                     />
-                    </p>
                   </div>
                 </li>
               </ul>
@@ -83,13 +87,14 @@
             </section>
             
             <section class="m-20">
-            <main class="simpleText m-20t">
-                <label for="name">Descrizione lunga*</label>
+            <div class="simpleText m-20t">
+                <label for="descr">Descrizione lunga*</label>
                 <br>
                 <input
                     class="box-input-add-long m-10t f-14"
                     type="text"
                     name="descrizione"
+                    id="descr"
                     placeholder="Inserisci una descrizione lunga" required
                 />
                 <br><br>
@@ -99,9 +104,10 @@
                     class="box-input-add-qty f-14"
                     type="number"
                     name="qty"
+                    id="qty"
                     required
                 />
-            </main>
+            </div>
             <aside class="tableSection center inline-block">
             <p class="center">Dettagli</p>
               <table class="detailsTable">
@@ -118,7 +124,7 @@
           </section>
         </section>
 
-        <input type="submit" name="" id="" value="Inserisci" class="hardButton">
+        <input type="submit" value="Inserisci" class="hardButton">
 
         </form>
        <?php endif; ?>
