@@ -217,7 +217,6 @@
             <?php for($i = 0 ; $i < count($templateParams["articoli"]); $i++):?>
             <?php $articolo = $templateParams["articoli"][$i]; ?>
             <li class="center inline-block fullWidth">
-                
                 <div class="floatingHalf m-20b inline-block">
                 <a href="articolo.php?id=<?php echo $articolo["ID_Articolo"];?>">
                 <img
@@ -289,13 +288,12 @@
                         }
                         ?> id="<?php echo $articolo["ID_Articolo"];?>" type="button" onClick="addToCart(this, '<?php echo $articolo["ID_Articolo"]; ?>', 
                         '<?php echo findExtension("./img/".$articolo["Cartella_immagini"],1);?>')"><?php if ($isInTheCart) {
-                            echo "&#10004;";
+                            echo "";
                         } else {
                             echo "";
-                        }?>
-                      </button>
+                        }?></button>
                       <?php else : ?>
-                        <button disabled="true" class="disabledCartResult">Accedi per aggiungere al cartello</button>
+                        <button disabled="true" class="noLogCartResult">Accedi per aggiungere al cartello</button>
                         <?php endif; ?>
                     </form>
                   </div>
@@ -304,7 +302,6 @@
               <?php $i++;?>
               <?php if ($i < count($templateParams["articoli"])) :?>
               <?php $articolo = $templateParams["articoli"][$i]; ?>
-              
               <div class="floatingHalf m-20b inline-block">
                 <a href="articolo.php?id=<?php echo $articolo["ID_Articolo"];?>">
                 <img
@@ -312,7 +309,7 @@
                     alt="<?php echo $articolo["Nome"] . " immagine risultato" ;?>"
                     class="resultImage"
                   />
-                  </a>
+                </a>
                 <h2 class="resultTitle"><?php echo $articolo["Nome"];?></h2>
                 <div class="inline-block">
                   <?php $n = (int) $articolo["Voto_medio"]; 
@@ -344,7 +341,9 @@
                       &#128;</span>
                       <?php if (!is_null($articolo["Sconto"]) && $articolo["Sconto"] != 0): ?>
                       <span class="sale"> <?php echo " - ". (string) ((float)$articolo["Sconto"]*100)." &#37; "?></span>
-                      <?php endif; ?>
+                      <?php endif; 
+                      if (is_null($articolo["Sconto"]) || $articolo["Sconto"] == 0) {echo "<br />";}
+                      ?>
                     </div>
                     <?php if (!is_null($articolo["Sconto"])): ?>
                     <p class="m-0 priceTitle f-20"><?php $price = explode(".",
@@ -358,13 +357,12 @@
                         echo ", ". $price[1];
                       }
                       ?></p>
-                    <?php endif; 
-                    if (is_null($articolo["Sconto"]) || $articolo["Sconto"] == 0) {echo "<br />";}?>
+                    <?php endif; ?>
                   </div>
                 </section>
                 <footer>
                   <div class="resultFooter">
-                    <form>
+                    <form class="fullHeight">
                         <?php if (isUserLoggedIn()): ?>
                       <button <?php $isInTheCart = $dbh->isInTheCart($_SESSION["username"], $articolo["ID_Articolo"]); 
                       if ($isInTheCart)  
@@ -375,13 +373,12 @@
                         }
                         ?> id="<?php echo $articolo["ID_Articolo"];?>" type="button" onClick="addToCart(this, '<?php echo $articolo["ID_Articolo"]; ?>', 
                         '<?php echo findExtension("./img/".$articolo["Cartella_immagini"],1);?>')"><?php if ($isInTheCart) {
-                            echo "&#10004;";
+                            echo "";
                         } else {
                             echo "";
-                        }?>
-                      </button>
+                        }?></button>
                       <?php else : ?>
-                        <button disabled="true" class="disabledCartResult">Accedi per aggiungere al cartello</button>
+                        <button disabled="true" class="noLogCartResult">Accedi per aggiungere al cartello</button>
                         <?php endif; ?>
                     </form>
                   </div>

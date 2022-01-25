@@ -56,7 +56,7 @@
                     <hr class="span-order"></hr>
                     <li class="m-20">
                       <span class="left fullHeight total m-0">Totale</span>
-                      <span class="right m-0 total-price"><?php echo min_precision(getTotalWithShip($templateParams["dettagliearticoli"], $templateParams["dettagliearticoli"][0]["Costo_Spedizione"]), 2) ?>&#128</span><br/>
+                      <span class="right m-0 total-price"><?php echo min_precision(getTotalWithShipNoQ($templateParams["dettagliearticoli"], $templateParams["dettagliearticoli"][0]["Costo_Spedizione"]), 2) ?>&#128</span><br/>
                     </li>
                 </ul>
               </div>

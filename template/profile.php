@@ -49,9 +49,10 @@
                         >
                         <span class="middleText center"><?php echo $templateParams["userinfo"]["birthdate"] ?></span>
                       </li>
-                      <button class="center modifyAccountButton m-10b m-10t">
+                      <form action="userInfo.php" method="POST"><button class="center modifyAccountButton m-10b m-10t">
                         Modifica dati
                       </button>
+                      <input type="hidden" name="profile" value="1"/></form>
                       <br />
                     </ul>
                   </div>

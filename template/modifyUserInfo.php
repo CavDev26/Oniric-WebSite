@@ -6,7 +6,8 @@
             <input class="bigHardButton relative" type="submit" value="Torna all'Account">
           </form>
         </div>
-        <form action="" class="simpleForm p-20t p-10">
+        <?php if (isset($templateParams["errore"])): ?><p class="p-20t"><?php echo $templateParams["errore"]; ?></p><?php endif; ?>
+        <form action="" class="simpleForm p-20t p-10" method="POST">
             <div class="p-10 fullWidth">
               <label for="username" class="form-label">Nome Utente:</label><br />
               <input
@@ -15,7 +16,8 @@
                 id="username"
                 name="username"
                 placeholder="Inserisci il tuo nome utente"
-                value="Fresh"
+                value="<?php echo $templateParams["userinfo"]["username"];?>"
+                disabled="true"
               />
             </div>
             <div class="p-10 fullWidth">
@@ -25,7 +27,7 @@
                 type="password"
                 id="oldpassword"
                 name="oldpassword"
-                placeholder="••••••••••••••" 
+                value="<?php for($i = 0; $i < $templateParams["userinfo"]["passlen"]; $i++) {echo "●";} ?>" 
                 disabled="true"> 
             </div>
             <div class="p-10 fullWidth">
@@ -55,9 +57,9 @@
                 class="box-input"
                 type="text"
                 id="nameAndsurname"
-                name="name"
+                name="nameAndsurname"
                 placeholder="Inserisci il tuo nome e cognome"
-                value="Francesco Magnani"
+                value="<?php echo $templateParams["userinfo"]["namesurname"] ?>"
               />
             </div>
             <div class="p-10 fullWidth">
@@ -68,7 +70,7 @@
                 id="birthdate"
                 name="name"
                 placeholder="Inserisci la tua data di nascita"
-                value="2000-03-16"
+                value="<?php echo $templateParams["userinfo"]["birthdate"] ?>"
                 disabled="true"
               />
             </div>

@@ -6,7 +6,7 @@ if(isset($_GET["cartId"])) {
         if ($dbh->addToCart($_SESSION["username"], $_GET["cartId"]) == -1) {
             echo "Hai gi&agrave; questo articolo nel carrello";
         } else {
-            echo "&#10004;";
+            echo "";
         }
     }
     
