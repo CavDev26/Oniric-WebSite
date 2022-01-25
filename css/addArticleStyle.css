@@ -1,0 +1,103 @@
+.box-input-add {
+    color: var(--secondary);
+    background: var(--traslucentPrimary);
+    border-radius: 4px;
+    width: 97%;
+    height: 40px;
+    border: 2px solid var(--traslucentPrimary);
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    font-family: Inter;
+    font-weight: 500;
+    font-size: 15px;
+    margin: 0;
+    max-width: 500px;
+    padding-left: 10px;
+    box-sizing: border-box;
+  }
+  
+  .box-input-add::placeholder,
+  .box-input-add-qty::placeholder,
+  .box-input-add-long::placeholder {
+      color: var(--primary);
+  }
+  
+  .box-input-add:focus,
+  .box-input-add-long:focus,
+  .box-input-add-qty:focus {
+      border: 2px solid var(--primary);
+  }
+
+  .box-input-add-long {
+    color: var(--secondary);
+    background: var(--traslucentPrimary);
+    border-radius: 4px;
+    width: 97%;
+    height: 80px;
+    border: 2px solid var(--traslucentPrimary);
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    font-family: Inter;
+    font-weight: 500;
+    font-size: 15px;
+    margin: 0;
+    max-width: 500px;
+    padding-left: 10px;
+    box-sizing: border-box;
+  }
+  .box-input-add-qty {
+    color: var(--secondary);
+    background: var(--traslucentPrimary);
+    border-radius: 4px;
+    width: 20%;
+    height: 40px;
+    border: 2px solid var(--traslucentPrimary);
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    font-family: Inter;
+    font-weight: 500;
+    font-size: 15px;
+    margin: 0;
+    max-width: 500px;
+    padding-left: 10px;
+    box-sizing: border-box;
+  }
+
+  .add-riga {
+    color: var(--secondary);
+    background: var(--traslucentPrimary);
+    border-radius: 4px;
+    width: 80%;
+    height: 25px;
+    border: 2px solid var(--traslucentPrimary);
+    font-weight: 500;
+    font-size: 15px;
+    margin: 0;
+    max-width: 500px;
+    padding-left: 10px;
+    box-sizing: border-box;
+  }
+
+@media only screen and (min-width: 1025px) { /*only desktop*/
+    .box-input-add {
+        color: var(--secondary);
+        background: var(--traslucentPrimary);
+        border-radius: 4px;
+        width: 97%;
+        height: 40px;
+        border: 2px solid var(--traslucentPrimary);
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+        outline: none;
+        font-family: Inter;
+        font-weight: 500;
+        font-size: 15px;
+        margin: 0;
+        max-width: 500px;
+        padding-left: 10px;
+        box-sizing: border-box;
+    }
+}

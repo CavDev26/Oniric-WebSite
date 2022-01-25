@@ -5,10 +5,6 @@ function isActive($pagename){
     }
 }
 
-function getIdFromName($name){
-    return preg_replace("/[^a-z]/", '', strtolower($name));
-}
-
 function isUserLoggedIn(){
     return !empty($_SESSION['username']);
 }
@@ -149,7 +145,7 @@ function calculateMinRecharge($saldo, $spesa) {
     return $necessario;
 }
 function generateNotificationId($letter, $objectId) {
-    return "N" . $letter . $objectId ."&". date("ymds") . rand(0, 128);
+    return "N" . $letter . $objectId ."x". date("ymds") . rand(0, 128);
 }
 function getHrefOfNotification ($notificationId) {
     $letter = substr($notificationId, 1, 1);
@@ -162,9 +158,7 @@ function getHrefOfNotification ($notificationId) {
     return "";
 }
 
-function generateRandomOrderID($length = 10, $orderIDS) {
-    // return "abcd2";
-
+function generateRandomOrderID($length = 10) {
     $randomString = '';
     $bene = true;
     while(strlen($randomString)  < $length) {
@@ -174,24 +168,11 @@ function generateRandomOrderID($length = 10, $orderIDS) {
         for ($i = 0; $i < $length; $i++) {
             $randomString .= $characters[rand(0, $charactersLength - 1)];
         }
-        // echo $randomString;
         return $randomString;
-        // foreach ($orderIDS as $id) {
-        //     if ($id == $randomString) {
-        //         $bene = false;
-        //         break;
-        //     } else {
-        //         $bene = true;
-        //     }
-        // }
-        // if ($bene == true) {
-        //     return $randomString;
-        // }
     }
 }
 
 function generateRandomSpedID($length = 10) {
-    // return "sped1";
     $randomString = '';
     $bene = true;
     while(strlen($randomString)  < $length) {
@@ -201,7 +182,6 @@ function generateRandomSpedID($length = 10) {
         for ($i = 0; $i < $length; $i++) {
             $randomString .= $characters[rand(0, $charactersLength - 1)];
         }
-        // echo $randomString;
         return $randomString;
     }
 }
@@ -301,23 +281,39 @@ function createInput($name, $value) {
 
 function keepGetValues() {
     if (isset($_GET["tag"])) {
-        foreach ($_GET["tag"] as $tag) {
-            echo createInput("tag[]", $tag);
+        if (is_array($_GET["tag"] )) {
+            foreach ($_GET["tag"] as $tag) {
+                echo createInput("tag[]", $tag);
+            }   
+        } else {
+            echo createInput("tag[]", $_GET["tag"]);
         }
     }
     if (isset($_GET["price"])) {
-        foreach ($_GET["price"] as $price) {
-            echo createInput("price[]", $price);
+        if (is_array($_GET["price"] )) {
+            foreach ($_GET["price"] as $price) {
+                echo createInput("price[]", $price);
+            }   
+        } else {
+            echo createInput("price[]", $_GET["price"]);
         }
     }
     if (isset($_GET["vote"])) {
-        foreach ($_GET["vote"] as $vote) {
-            echo createInput("vote[]", $vote);
+        if (is_array($_GET["vote"] )) {
+            foreach ($_GET["vote"] as $vote) {
+                echo createInput("vote[]", $vote);
+            }   
+        } else {
+            echo createInput("vote[]", $_GET["vote"]);
         }
     }
     if (isset($_GET["category"])) {
-        foreach ($_GET["category"] as $category) {
-            echo createInput("category[]", $category);
+        if (is_array($_GET["category"] )) {
+            foreach ($_GET["category"] as $category) {
+                echo createInput("category[]", $category);
+            }   
+        } else {
+            echo createInput("category[]", $_GET["category"]);
         }
     }
     if (isset($_GET["name"])) {
@@ -330,11 +326,18 @@ function keepGetValues() {
 
 function checkForChecked($getVar, $value) {
     if (isset($getVar)) {
-        foreach ($getVar as $var) {
-            if ($var == $value) {
+        if (is_array($getVar)) {
+            foreach ($getVar as $var) {
+                if ($var == $value) {
+                    return true;
+                }
+            }
+        } else {
+            if ($value == $getVar) {
                 return true;
             }
         }
+        
     }
     return false;
 }

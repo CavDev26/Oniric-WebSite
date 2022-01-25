@@ -8,8 +8,6 @@ if(isUserLoggedIn()){
 
     if(isset($_POST["quantity"])) {
         $_SESSION["quantities"] = $_POST["quantity"];
-    } else {
-        // header("Location: cart.php");
     }
 
     $templateParams["quantities"] = $_SESSION["quantities"];
@@ -49,7 +47,7 @@ if(isUserLoggedIn()){
             $templateParams["shipMethod"] = $dbh->getShipmentMethodsByID($_POST["ship-meth"]);
             $templateParams["shipMethod"] = $templateParams["shipMethod"][0];
             $templateParams["addressCurrent"] = $_POST["addr"];
-            $templateParams["randomIDOrder"] = generateRandomOrderID(6 ,array($dbh->getOrderIds()));
+            $templateParams["randomIDOrder"] = generateRandomOrderID(6);
 
             $dbh->addOrder($templateParams["randomIDOrder"], $templateParams["addressCurrent"], (float)getTotalWithShip($templateParams["articles"], $templateParams["shipMethod"]["Tariffa"], $templateParams["quantities"]) , $_SESSION["username"]);
             $i = 0;

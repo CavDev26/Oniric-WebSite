@@ -39,10 +39,7 @@ if (isUserLoggedIn()) {
     }
     $templateParams["userinfo"] = array("username" => $_SESSION["username"], "namesurname" => $_SESSION["namesurname"], 
                                         "birthdate" => $_SESSION["birthdate"], "passlen" => $_SESSION["passlen"]);
-// $templateParams["categorie"] = $dbh->getCategories();
-// $templateParams["articolicasuali"] = $dbh->getRandomPosts(2);
-// //Home Template
-// $templateParams["articoli"] = $dbh->getPosts();
+
 }
 require 'template/base.php';
 ?>

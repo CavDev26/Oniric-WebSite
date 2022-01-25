@@ -1,7 +1,6 @@
 <?php
 require_once 'bootstrap.php';
 
-//Base Template
 
 $templateParams["titolo"] = "Gestisci le tue carte";
 $templateParams["nome"] = "modifyPayMethods.php";
@@ -39,10 +38,7 @@ if (isUserLoggedIn()) {
         $dbh->insertNewPayMethod($_SESSION["username"], $payMethod);
     }
     $templateParams["payMethods"] = $dbh->getPayMethods($_SESSION["username"]);
-// $templateParams["categorie"] = $dbh->getCategories();
-// $templateParams["articolicasuali"] = $dbh->getRandomPosts(2);
-// //Home Template
-// $templateParams["articoli"] = $dbh->getPosts();
+
 }
 require 'template/base.php';
 ?>

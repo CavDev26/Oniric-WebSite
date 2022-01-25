@@ -1,4 +1,4 @@
-      <div class="">
+      <div>
             <form action="" method="POST" class="normal">
               <div>
                 <input type="hidden" name="exit" value="1" />
@@ -31,13 +31,13 @@
                                     <div class="stars">
                                         <?php $n = (int) $articledet["Voto_medio"]; 
                                             for($i = 0; $i < $n; $i++):?>
-                                            <img src="./img/star.png" alt="full star" class="star" />
+                                            <img src="./img/star.png" alt="<?php echo $articledet["Voto_medio"]?>" class="star" />
                                             <?php endfor; 
                                             if ($articledet["Voto_medio"] - (float)$n >= 0.5): $n++;?>
-                                            <img src="./img/halfStar.png" alt="half star" class="star" />
+                                            <img src="./img/halfStar.png" alt="<?php echo $articledet["Voto_medio"]?>" class="star" />
                                             <?php endif; 
                                             for($i=0; $i < 5 - $n; $i++):?>
-                                            <img src="./img/emptyStar.png" alt="empty star" class="star" />
+                                            <img src="./img/emptyStar.png" alt="<?php echo $articledet["Voto_medio"]?>" class="star" />
                                         <?php endfor; ?>
                                     </div>
                                     <div class="price-section">

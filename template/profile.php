@@ -4,7 +4,7 @@
         <div class="floatingBack inline-block m-20b mw-800 z-1">
           <header class="center p-10t">
             <div class="profileHeader inline-block">
-              <img src="./img/account.png" alt="Avatar" class="image" />
+              <img src="./img/account.png" alt="Avatar image" class="image" />
               <div class="overlay inline-block center">
                 <form action="#" method="POST">
                   <input type="submit" class="miniButton p-10" value="Esci" name="exit" />
@@ -33,7 +33,7 @@
                         <span class="lightText left w-50 fullHeight"
                           >Password:</span
                         >
-                        <span class="middleText center"><?php for($i = 0; $i < $templateParams["userinfo"]["passlen"]; $i++) {echo "●";} ?></span>
+                        <span class="middleText center"><?php for($i = 0; $i < $templateParams["userinfo"]["passlen"]; $i++) {echo "&#8226;";} ?></span>
                         <br />
                       </li>
                       <li class="m-20">

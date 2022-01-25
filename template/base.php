@@ -24,7 +24,7 @@
   <body>
     <nav class="navbar-top">
         <span class="button-top-logo m-10r">
-          <a href=""><img src="./img/logo-oniric.png" alt="Torna alla home" class="logo-img" /></a>
+          <a href="index.php"><img src="./img/logo-oniric.png" alt="Torna alla home" class="logo-img" /></a>
         </span>
         <span class="left-menu left full-height">
               <input id="menu-check" type="checkbox"/>
@@ -41,47 +41,32 @@
             </li>
             
             <hr class="span-menu-div">
-            <li><a href="#">Pre-assemblati</a></li>
+            <li><a href="articleList.php?category=Desktop+PC">Desktop PC</a></li>
             <hr class="span-menu-div">
-            <li><a href="#">Categoria 1</a></li>
+            <li><a href="articleList.php?category=Mobile">Mobile</a></li>
             <hr class="span-menu-div">
-            <li><a href="#">Categoria 2</a></li>
+            <li><a href="articleList.php?category=Console+da+gioco">Console da Gioco</a></li>
             <hr class="span-menu-div">
-            <li><a href="#">Categoria 3</a></li>
+            <li><a href="articleList.php?category=Cuffie">Cuffie</a></li>
             <hr class="span-menu-div">
-            <li><a href="#">Contatti e Assistenza</a></li>
+            <li><a href="contatti.php">Contatti e Assistenza</a></li>
             <hr class="span-menu-div">
           </ul>
         </span>
 
         <label for="menu-check"><div class="buttons border-right border-left full-height left">
-          <div class="center m-0">
-            <img src="./img/Search.png" class="buttons-img" alt="Cerca su Oniric"/>
-          </div>
           <span class="menu-desc">Menù</span>
         </div></label>
-        <a class="buttons border-right full-height left" href="">
-          <div class="center m-0">
-            <img src="./img/Search.png" class="buttons-img" alt="Cerca su Oniric"/>
-          </div>
+        <a class="buttons border-right full-height left" href="articleList.php">
           <span class="menu-desc">Ricerca</span>
         </a>
-        <a class="buttons full-height border-right left" href="">
-          <div class="center m-0">
-            <img src="./img/Search.png" class="buttons-img" alt="Cerca su Oniric"/>
-          </div>
+        <a class="buttons full-height border-right left" href="contatti.php">
           <span class="menu-desc">Supporto</span>
         </a>
-        <a class="buttons full-height border-right left" href="">
-          <div class="center m-0">
-            <img src="./img/user.png" class="buttons-img" alt="Profilo"/>
-          </div>
+        <a class="buttons full-height border-right left" href="login.php">
           <span class="menu-desc">Profilo</span>
         </a>
-        <a class="buttons full-height border-right left" href="">
-          <div class="m-0">
-            <img src="./img/Cart.png" class="buttons-img" alt="Carrello"/>
-          </div>
+        <a class="buttons full-height border-right left" href="cart.php">
           <span class="menu-desc">Carrello</span>
         </a>
 
@@ -115,16 +100,16 @@
 
     <nav class="navbar-bot">
       <div class="bottom-nav-button display-flex-column">
-        <a href=""><img src="./img/User.png" alt="Profilo" class="bottom-nav-icon-img"/></a>
+        <a href="login.php"><img src="./img/User.png" alt="Profilo" class="bottom-nav-icon-img"/></a>
       </div>
       <div class="bottom-nav-button display-flex-column">
-        <a href=""><img src="./img/Home.png" alt="Home" class="bottom-nav-icon-img"/></a>
+        <a href="index.php"><img src="./img/Home.png" alt="Home" class="bottom-nav-icon-img"/></a>
       </div>
       <div class="bottom-nav-button display-flex-column">
-        <a href=""><img src="./img/Search.png" alt="Cerca" class="bottom-nav-icon-img"/></a>
+        <a href="articleList.php"><img src="./img/Search.png" alt="Cerca" class="bottom-nav-icon-img"/></a>
       </div>
       <div class="bottom-nav-button display-flex-column">
-        <a href=""><img src="./img/Cart.png" alt="Carrello" class="bottom-nav-icon-img"/></a>
+        <a href="cart.php"><img src="./img/Cart.png" alt="Carrello" class="bottom-nav-icon-img"/></a>
       </div>
     </nav>
 

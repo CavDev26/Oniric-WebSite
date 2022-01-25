@@ -8,9 +8,6 @@ if(isUserLoggedIn()){
     $templateParams["nome"] = "orderHistoryTemplate.php";
     $templateParams["id"] = $_GET["id"];
     
-    // if (isset($_POST["orderH"])) {
-    //     $_SESSION["orderH"] = $_POST["orderH"];
-    // }
     if(isset($_GET["profile"])) {
         $_SESSION["profile"] = 1;
     }

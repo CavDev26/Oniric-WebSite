@@ -20,23 +20,39 @@ if (isset($_GET["name"])) {
     $filters["name"] = $_GET["name"];
 }
 if (isset($_GET["tag"])) {
-    foreach ($_GET["tag"] as $tag) {
-        array_push($filters["tag"], $tag) ;
+    if (is_array($_GET["tag"] )) {
+        foreach ($_GET["tag"] as $tag) {
+            array_push($filters["tag"], $tag) ;
+        }
+    } else {
+        array_push($filters["tag"], $_GET["tag"]);
     }
 }
 if (isset($_GET["price"])) {
-    foreach ($_GET["price"] as $price) {
-        array_push($filters["price"], $price) ;
+    if (is_array($_GET["price"] )) {
+        foreach ($_GET["price"] as $price) {
+            array_push($filters["price"], $price) ;
+        }
+    } else {
+        array_push($filters["price"], $_GET["price"]);
     }
 }
 if (isset($_GET["category"])) {
-    foreach ($_GET["category"] as $category) {
-        array_push($filters["category"], $category) ;
+    if (is_array($_GET["category"] )) {
+        foreach ($_GET["category"] as $category) {
+            array_push($filters["category"], $category) ;
+        }
+    } else {
+        array_push($filters["category"], $_GET["category"]);
     }
 }
 if (isset($_GET["vote"])) {
-    foreach ($_GET["vote"] as $vote) {
-        array_push($filters["vote"], $vote) ;
+    if (is_array($_GET["vote"] )) {
+        foreach ($_GET["vote"] as $vote) {
+            array_push($filters["vote"], $vote) ;
+        }
+    } else {
+        array_push($filters["vote"], $_GET["vote"]);
     }
 }
 if (isset($_GET["sort"])) {

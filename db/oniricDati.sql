@@ -21,13 +21,14 @@ insert into categoria values ('Portatili');
 insert into categoria values ('Console da gioco');
 insert into categoria values ('Veicoli');
 insert into categoria values ('Cuffie');
-
+insert into tag values ('saldiinvernali2022');
 
 insert into articolo values ("AADO4", "Audio 4", "Le nostre nuovissime cuffie, 
 con frequenze mai sentite prima e un audio naturale. Grazie alle nostre nuove tecnologie,
 tra cui Oniric Natural Sounds&#8482;, il brand delle Oniric Audio&#8482; subisce ancora una
 volta una svolta.", "Il nuovo modello della nostra serie Oniric Audio&#8482;", 499.99, 
 20, 0.1, "oniricAudio4",0.0,"AdminOniric" ,'Cuffie');
+insert into richiamo values ("AADO4", "saldiinvernali2022");
 
 insert into articolo values ("ABTWO", "Book Two", "Il portatile general-purpose Oniric,
 con specifiche di medio livello adatte a qualsiasi utente", "&Egrave; arrivato il secondo
@@ -39,6 +40,8 @@ insert into articolo values ("ADRT2", "Drift 2", "Il secondo modello della serie
  "Prova il secondo modello della serie Drift. Una piattaforma ergonomica e potente, ma, 
  soprattutto, PORTATILE!",
  599.99, 20, 0.20, "oniricDrift2", 0.0,"AdminOniric" ,'Console da gioco');
+insert into richiamo values ("ADRT2", "saldiinvernali2022");
+
 insert into articolo values ("ADRT3", "Drift 3", "Non lasciatevi ingannare dalla sua dimensione.
 Oniric Drift 3 &egrave; una delle console pi&ugrave; potenti attualmente sul mercato. Con le sue
 dimensioni di solo 43,6 x 70,9 x 7,7 mm riesce ad esplorare giochi che anche alcune macchine
@@ -53,6 +56,7 @@ e pi&ugrave; venduti! Un pc che comprime una hardware all'avanguardia in uno spa
 sempre mantenuto fresco grazie a dissipatori di marchio Oniric&#8482;", 
  "Una build folle! Potente! Appariscente! Tra i nostri prodotti pi&ugrave; venduti!",
  1599.99, 20, 0.1, "oniricMadBox", 0.0,"AdminOniric" ,'Desktop pc');
+ insert into richiamo values ("AMBX1", "saldiinvernali2022");
 
 insert into articolo values ("ANXS1", "Nexus", "Uno dei nostri modelli pi&ugrave; appariscenti e
 coraggiosi. L'approccio in fase di progettazione si &egrave; basato sull'ergonomia e
@@ -60,6 +64,8 @@ comodit&agrave; per l'utente. Divertitevi!",
  "Una console da gioco imperdibile. Speaker potenti, schermo curvo, hardware potente e
  un sistema operativo Oniric",
  849.99, 20, 0.3, "oniricNexus", 0.0,"AdminOniric" ,'Console da gioco');
+  insert into richiamo values ("ANXS1", "saldiinvernali2022");
+
 insert into articolo values ("ADBLE", "Dreamable New", "Un sogno, una speranza. Oniric Dreamable&#8482; &egrave; tra i prodotti che ha dato il via a
  Oniric e la sua storia. Dreamable New reincarna tale sogno sotto veste nuova, portandolo ad
  un nuovo livello.", 
@@ -67,6 +73,8 @@ insert into articolo values ("ADBLE", "Dreamable New", "Un sogno, una speranza. 
 ora disponibile in una nuova versione! Potenziato sotto ogni aspetto, in occasione dell'apertura
 del nostro nuovo sito!",
  199.99, 20, 0.15, "oniricDreamable", 0.0,"AdminOniric" ,'Mobile');
+insert into richiamo values ("ADBLE", "saldiinvernali2022");
+
 insert into articolo values ("ASND3", "Sound 3", "La tecnologia Oniric porta avanti 
 il progetto delle Oniric Sound&#8482; evolvendolo ogni volta. La durabilit&agrave; di
 queste cuffie non ha pari: resistenti all'acqua e flessibili. Queste cuffie sono 

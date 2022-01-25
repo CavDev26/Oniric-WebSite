@@ -1,10 +1,10 @@
-<main class="fullHeight">
+<main class="fullHeight center">
         <div class="centered m-50t">
             <a class="normal" href="<?php echo $templateParams["backlink"] ?>">
                 <div class="purchase-button">
-                  <p>Indietro</p>
+                    <p>Indietro</p>
                 </div>
-             </a>
+            </a>
         </div>
         <div class="simpleBack center">
             <section class="center">
@@ -25,13 +25,13 @@
                                     <div class="reviewVote inline-block">
                                     <?php $n = (int) $rev["Voto"];
                                                     for($i = 0; $i < $n; $i++):?>
-                                                    <img src="./img/star.png" alt="full star" class="smallReviewStar" />
+                                                    <img src="./img/star.png" alt="<?php echo $rev["Voto"];?>" class="smallReviewStar" />
                                                     <?php endfor; 
                                                     if ($rev["Voto"] - (float)$n >= 0.5): $n++;?>
-                                                    <img src="./img/halfStar.png" alt="half star" class="smallReviewStar" />
+                                                    <img src="./img/halfStar.png" alt="<?php echo $rev["Voto"];?>" class="smallReviewStar" />
                                                     <?php endif; 
                                                     for($i=0; $i < 5 - $n; $i++):?>
-                                                    <img src="./img/emptyStar.png" alt="empty star" class="smallReviewStar" />
+                                                    <img src="./img/emptyStar.png" alt="<?php echo $rev["Voto"];?>" class="smallReviewStar" />
                                                 <?php endfor; ?>
                                     </div>
                                     <p class="reviewTitle left-text">
@@ -63,13 +63,13 @@
                                 <div class="reviewVote inline-block">
                                 <?php $n = (int) $rev["Voto"];
                                                 for($i = 0; $i < $n; $i++):?>
-                                                <img src="./img/star.png" alt="full star" class="smallReviewStar" />
+                                                <img src="./img/star.png" alt="<?php echo $rev["Voto"];?>" class="smallReviewStar" />
                                                 <?php endfor; 
                                                 if ($rev["Voto"] - (float)$n >= 0.5): $n++;?>
-                                                <img src="./img/halfStar.png" alt="half star" class="smallReviewStar" />
+                                                <img src="./img/halfStar.png" alt="<?php echo $rev["Voto"];?>" class="smallReviewStar" />
                                                 <?php endif; 
                                                 for($i=0; $i < 5 - $n; $i++):?>
-                                                <img src="./img/emptyStar.png" alt="empty star" class="smallReviewStar" />
+                                                <img src="./img/emptyStar.png" alt="<?php echo $rev["Voto"];?>" class="smallReviewStar" />
                                             <?php endfor; ?>
                                 </div>
                                 <p class="reviewTitle left-text">
@@ -85,6 +85,6 @@
                         <?php endforeach; ?>
                     <?php endif; ?>
                 <?php endif; ?>
-              </section>
+            </section>
         </div>
 </main>

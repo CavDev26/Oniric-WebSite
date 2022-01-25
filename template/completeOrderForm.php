@@ -194,7 +194,7 @@
                                                       <input type="radio" id="<?php echo $pay["Numero"]?>" name="card" value="card" onclick="checkIfRechargeable()">
                                                       <label for="<?php echo $pay["Numero"]?>">
                                                           <div class="pls m-10b">
-                                                          <img class="left" src="./img/visaLogo.png" alt=""/>
+                                                          <img class="left" src="./img/visaLogo.png" alt="Immagine carta"/>
                                                           <p class="center m-0">
                                                               <?php echo $pay["Nome"] ?> <br>
                                                               <?php for($i = 0; $i < strlen((string)$pay["Numero"])-2; $i++) {echo "●";} 
@@ -234,7 +234,7 @@
                             <span class="center fullHeight m-0">Hai un buono sconto o un codice?</span>
                             <input class="giftcard m-10t m-20b left" type="text" placeholder="Inserisci codice">
                             <button class="insert-giftcard right m-10t m-20b">
-                              ✓
+                              &#10004;
                             </button>
                           </li>
                       </ul>
