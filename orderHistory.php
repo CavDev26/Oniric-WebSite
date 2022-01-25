@@ -6,6 +6,9 @@ unset($_SESSION["orderHistory"]);
 if(isUserLoggedIn()){
     $templateParams["titolo"] = "Order History";
     $templateParams["nome"] = "orderHistoryTemplate.php";
+    if (!isset($_GET["id"])) {
+        header("Location: index.php");
+    }
     $templateParams["id"] = $_GET["id"];
     
     if(isset($_GET["profile"])) {

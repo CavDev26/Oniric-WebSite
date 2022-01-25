@@ -64,7 +64,7 @@ if(isUserLoggedIn()){
                 $dbh->deleteAllFromCart($_SESSION["username"], $article["ID_Articolo"]);
             }
             unset($_SESSION["quantities"]);
-            header("Location: index.php");
+            header("Location: orderHistory.php?profile=1&id=".$templateParams["randomIDOrder"]);
         }
 
     }

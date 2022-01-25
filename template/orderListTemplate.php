@@ -15,7 +15,7 @@
                     <a href="<?php echo "orderHistory.php?id=".$element["ID_Ordine"] ?>">
                         <li class="product-container">
                             <div class="product">
-                                <img class="product-image" src="<?php echo "./img/" . $element["Cartella_immagini"] . "/1.png" ?>" 
+                                <img class="product-image" src="<?php echo findExtension("./img/".$element["Cartella_immagini"] . "/",1); ?>" 
                                 alt="Immagine prodotto"/>
                                 <h1 class="product-name left-text">Ordine: <span><?php echo $element["ID_Ordine"]; ?></span></h1>
                                 <hr class="span-cart">

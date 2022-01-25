@@ -70,7 +70,7 @@
                       <?php foreach($templateParams["orders"] as $order): ?>
                         <li class="left-text relative p-10">
                         <img
-                          src="./img/<?php echo $order["Cartella_immagini"]; ?>/1.png"
+                          src="<?php echo findExtension("./img/".$order["Cartella_immagini"] . "/",1); ?>"
                           alt="<?php echo $order["Nome"] ?>"
                           srcset=""
                           class="orderImage"
@@ -289,14 +289,10 @@
                       </li>
                         <?php endforeach; ?>
                     </ul>
-                    <!-- Trigger/Open The Modal -->
-
                     <button class="modalButton">
                       Aggiungi un nuovo Indirizzo
                     </button>
-                    <!-- The Modal -->
                     <div class="profileModal">
-                      <!-- Modal content -->
                       <div class="profileModal-content">
                         <span class="profileModalClose">&times;</span>
                         <h3>Inserisci nuovo indirizzo</h3>

@@ -23,7 +23,7 @@
                             <li class="product-container">
                                 <div class="product">
                                     <a href="<?php echo "articolo.php?id=".$articledet["ID_Articolo"] ?>"> 
-                                        <img class="product-image" src="<?php echo "./img/" . $articledet["Cartella_Immagini"] . "/" . 1 . ".png" ?>" 
+                                        <img class="product-image" src="<?php echo findExtension("./img/".$articledet["Cartella_Immagini"] . "/",1); ?>" 
                                         alt="<?php echo $articledet["Nome"] ?>"/>
                                     </a>
                                     <h1 class="product-name left-text"><?php echo $articledet["Nome"] ?></h1>
