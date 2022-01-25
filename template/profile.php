@@ -1,5 +1,4 @@
-<main>
-  <main class="fullHeight">
+  <main>
       <div class="lightBack center fullWidth">
         <div class="floatingBack inline-block m-20b mw-800 z-1">
           <header class="center p-10t">
@@ -49,11 +48,12 @@
                         >
                         <span class="middleText center"><?php echo $templateParams["userinfo"]["birthdate"] ?></span>
                       </li>
+                      <li>
                       <form action="userInfo.php" method="POST"><button class="center modifyAccountButton m-10b m-10t">
                         Modifica dati
                       </button>
                       <input type="hidden" name="profile" value="1"/></form>
-                      <br />
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -72,7 +72,6 @@
                         <img
                           src="<?php echo findExtension("./img/".$order["Cartella_immagini"] . "/",1); ?>"
                           alt="<?php echo $order["Nome"] ?>"
-                          srcset=""
                           class="orderImage"
                         />
                         <div class="orderMiddleText">
@@ -127,12 +126,10 @@
                         Saldo Rimanente
                       </p>
                       <button class="modalButton">Ricarica</button>
-
                               <div class="profileModal">
                                 <div class="profileModal-content">
                                   <span class="profileModalClose">&times;</span>
                                   <div class="center">
-                                    <header>
                                       <div class="p-20t p-10b">
                                           <span class="bigSaturatedText">
                                               &#128 <?php $sald = min_precision($templateParams["balance"], 2);
@@ -150,10 +147,9 @@
                                       <p class="middleSaturatedText m-0 m-20b">
                                         Saldo Rimanente
                                       </p>
-                                    </header>
-                                    <form action="" method="POST">
+                                    <form action="#" method="POST">
                                       <div class="radio-toolbar center">
-                                        <header class="m-10b">Ammontare</header>
+                                        <h2 class="m-10b mediumText">Ammontare</h2>
 
                                         <input type="radio" id="radio1" name="valore" value="20" onclick="checkIfRechargeable()">
                                         <label for="radio1">20,00&#128</label>
@@ -166,26 +162,22 @@
 
                                       </div>
                                       <div>
-                                        <header>
-                                          <h2 class="middleText f-20">
+                                          <h3 class="middleText f-20">
                                             Scegli con cosa ricaricare il saldo
-                                          </h2>
-                                        </header>
+                                          </h3>
                                         <div>
                                           <div class="payments">
                                                   <?php foreach($templateParams["payMethods"] as $pay):?>
                                                       <input type="radio" id="<?php echo $pay["Numero"]?>" name="card" value="card" onclick="checkIfRechargeable()">
-                                                      <label for="<?php echo $pay["Numero"]?>">
-                                                          <div class="pls m-10b">
-                                                          <img class="left" src="./img/visaLogo.png" alt=""/>
-                                                          <p class="center m-0">
-                                                              <?php echo $pay["Nome"] ?> <br>
+                                                      <label class="pls m-10b" for="<?php echo $pay["Numero"]?>">
+                                                          <img class="left" src="./img/visaLogo.png" alt="Immagine carta"/>
+                                                          <span class="center m-0">
+                                                              <?php echo $pay["Nome"] ?> <br />
                                                               <?php for($i = 0; $i < strlen((string)$pay["Numero"])-2; $i++) {echo "●";} 
                                                               echo substr((string)$pay["Numero"], -2); ?>
-                                                          </p>
-                                                          </div>                          
+                                                          </span>
                                                       </label>
-                                                      <hr class="span-order-big"></hr>
+                                                      <hr class="span-order-big">
                                                   <?php endforeach; ?>
                                           </div>
                                       </div>
@@ -196,18 +188,16 @@
                                               disabled
                                               value="Inserisci tutti i dati"
                                       />
+                                    </div>
                                     </form>
-                                      </div>
                                   </div>
                                 </div>
                             </div>
                     </header>
                     <aside>
-                      <header>
                         <h2 class="middleText left-text p-20l f-20">
                           Altri metodi di Pagamento
                         </h2>
-                      </header>
                       <ul class="list">
                         <?php foreach($templateParams["payMethods"] as $payMethod): ?>
                           <li>
@@ -218,6 +208,7 @@
                             <img
                               src="./img/visaLogo.png"
                               class="left p-10t littlePaymentIcon"
+                              alt="Logo carta"
                             />
                             <p class="w-68 right m-0 center f-14 lh-10">
                               <?php for($i = 0; $i < strlen((string)$payMethod["Numero"])-2; $i++) {echo "●";} 
@@ -244,11 +235,11 @@
               </div>
             </li>
             <li>
-              <a href="reviews.php">
+              <form action="reviews.php">
                 <button class="coolButton">
                   <strong>Le tue Recensioni</strong>
                 </button>
-              </a>
+              </form>
             </li>
             <li>
               <div>
@@ -391,4 +382,3 @@
         </div>
       </div>
     </main>
-</main>

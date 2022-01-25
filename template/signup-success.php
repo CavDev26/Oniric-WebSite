@@ -4,7 +4,7 @@
   <form action="login.php" class="simpleForm" method="POST">
     <footer class="center fullWidth">
       <div class="center">
-        <input class="softButton" type="submit" value="Accedi ora">
+        <input class="softButton" type="submit" value="Accedi ora" />
       </div>
     </footer>
   </form>

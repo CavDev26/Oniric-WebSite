@@ -23,10 +23,10 @@
   </head>
   <body>
     <nav class="navbar-top">
-        <span class="button-top-logo m-10r">
+        <div class="button-top-logo m-10r">
           <a href="index.php"><img src="./img/logo-oniric.png" alt="Torna alla home" class="logo-img" /></a>
-        </span>
-        <span class="left-menu left full-height">
+        </div>
+        <div class="left-menu left full-height">
               <input id="menu-check" type="checkbox"/>
               <span class="first-span menu-mobile"></span>
               <span class="menu-mobile"></span>
@@ -40,23 +40,23 @@
                 </form>
             </li>
             
-            <hr class="span-menu-div">
+            <li><hr class="span-menu-div"></li>
             <li><a href="articleList.php?category=Desktop+PC">Desktop PC</a></li>
-            <hr class="span-menu-div">
+            <li><hr class="span-menu-div"></li>
             <li><a href="articleList.php?category=Mobile">Mobile</a></li>
-            <hr class="span-menu-div">
+            <li><hr class="span-menu-div"></li>
             <li><a href="articleList.php?category=Console+da+gioco">Console da Gioco</a></li>
-            <hr class="span-menu-div">
+            <li><hr class="span-menu-div"></li>
             <li><a href="articleList.php?category=Cuffie">Cuffie</a></li>
-            <hr class="span-menu-div">
+            <li><hr class="span-menu-div"></li>
             <li><a href="contatti.php">Contatti e Assistenza</a></li>
-            <hr class="span-menu-div">
+            <li><hr class="span-menu-div"></li>
           </ul>
-        </span>
+        </div>
 
-        <label for="menu-check"><div class="buttons border-right border-left full-height left">
-          <span class="menu-desc">Menù</span>
-        </div></label>
+        <div class="buttons border-right border-left full-height left"><label for="menu-check">
+          <span class="menu-desc">Men&ugrave;</span>
+       </label> </div>
         <a class="buttons border-right full-height left" href="articleList.php">
           <span class="menu-desc">Ricerca</span>
         </a>
@@ -70,7 +70,7 @@
           <span class="menu-desc">Carrello</span>
         </a>
 
-        <span class="button-top-notifications full-height">
+        <div class="button-top-notifications full-height">
           <div class="center m-0">
             <label class="pointer" for="notification"><img id="bell" src="./img/notificationdef.png" alt="Notifiche" class="notification-menu-img"/></label>
           </div>
@@ -79,8 +79,9 @@
             <?php if(isUserLoggedIn()) {
               foreach($dbh->getNotifications($_SESSION["username"]) as $notification):
             ?>
-            <a href="<?php echo getHrefOfNotification($notification["ID_Notifica"]); ?>">  
+            
               <li class="notification-dimensions">
+                <a href="<?php echo getHrefOfNotification($notification["ID_Notifica"]); ?>">  
                 <div class="notification-elem">
                   <img src="<?php echo $notification["Immagine"]?>" alt="<?php echo $notification["Titolo"]?>" class="notification-img-product"/>
                   <h1 class="notification-type left-text"><?php echo $notification["Titolo"]?></h1>
@@ -90,12 +91,13 @@
                   <?php echo $notification["Data_Ora"]?>
                 </footer>
                 </div>
+                </a>
               </li>
-            </a>
-            <hr class="span-notifications-div">
+            
+            <li><hr class="span-notifications-div"></li>
             <?php endforeach; }?>
           </ul>
-        </span>
+        </div>
     </nav>
 
     <nav class="navbar-bot">
@@ -117,10 +119,9 @@
     
     <footer class="home-footer">
       <p>
-        Cava and Fresh &#169 Copyright 2021 All rights reserved
+        Cava and Fresh &#169; Copyright 2021 All rights reserved
       </p>
     </footer>
-  </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./js/onscroll.js"></script>
     <script src="./js/notifications.js"></script>
@@ -134,4 +135,5 @@
         endforeach;
     endif;
     ?>
+  </body>
 </html>

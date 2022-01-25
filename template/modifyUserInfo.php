@@ -1,15 +1,15 @@
 <div class="loginBack ">
       <div class="floatingBack inline-block m-20b fullWidth">
         <div class="center relative">
-          <form action="" method="POST">
+          <form action="#" method="POST">
             <input type="hidden" name="exit" value="1" />
             <input class="bigHardButton relative" type="submit" value="Torna all'Account">
           </form>
         </div>
         <?php if (isset($templateParams["errore"])): ?><p class="p-20t"><?php echo $templateParams["errore"]; ?></p><?php endif; ?>
-        <form action="" class="simpleForm p-20t p-10" method="POST">
+        <form action="#" class="simpleForm p-20t p-10" method="POST">
             <div class="p-10 fullWidth">
-              <label for="username" class="form-label">Nome Utente:</label><br />
+              <label class="form-label">Nome Utente:</label><br />
               <input
                 class="box-input"
                 type="text"
@@ -17,21 +17,21 @@
                 name="username"
                 placeholder="Inserisci il tuo nome utente"
                 value="<?php echo $templateParams["userinfo"]["username"];?>"
-                disabled="true"
+                disabled
               />
             </div>
             <div class="p-10 fullWidth">
-              <label for="password" class="form-label">Vecchia Password:</label><br />
+              <label class="form-label">Vecchia Password:</label><br />
                 <input
                 class="box-input"
                 type="password"
                 id="oldpassword"
                 name="oldpassword"
                 value="<?php for($i = 0; $i < $templateParams["userinfo"]["passlen"]; $i++) {echo "&#8226;";} ?>" 
-                disabled="true"> 
+                disabled /> 
             </div>
             <div class="p-10 fullWidth">
-              <label for="password" class="form-label">Nuova Password:</label><br />
+              <label for="newpassword" class="form-label">Nuova Password:</label><br />
                 <input
                 class="box-input"
                 type="password"
@@ -48,7 +48,6 @@
               id="confirmpassword"
               name="confirmpassword"
               placeholder="Inserisci di nuovo la tua password" >
-              </input>
               <span class="material-icons passwordEye noselect" onclick="togglePassword(this)">visibility</span>
             </div>
             <div class="p-10 fullWidth">
@@ -69,9 +68,8 @@
                 type="date"
                 id="birthdate"
                 name="name"
-                placeholder="Inserisci la tua data di nascita"
                 value="<?php echo $templateParams["userinfo"]["birthdate"] ?>"
-                disabled="true"
+                disabled
               />
             </div>
           <footer class="center fullWidth">

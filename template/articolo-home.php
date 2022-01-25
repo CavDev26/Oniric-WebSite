@@ -145,9 +145,9 @@
               
           </section>
           <section class="m-20">
-            <main class="simpleText simpleTextLeft m-20t">
+            <div class="simpleText simpleTextLeft m-20t">
               <?php echo $articolo["Descrizione"]; ?>
-            </main>
+            </div>
             <aside class="tableSection center inline-block">
               <?php if(count($templateParams["dettagli"]) > 0): ?>
               <table class="detailsTable">
@@ -168,7 +168,6 @@
             </aside>
             <footer><hr class="separator" /></footer>
           </section>
-        </section>
         <section class="center">
           <h2>Recensioni</h2>
           <?php if(!isUserLoggedIn()): ?>
@@ -192,7 +191,7 @@
                   <input type="range" min="0.5" max="5" value="2.5" class="slider" id="myRange" step="0.5" name="reviewVote">
                 </div>
                 <div class="fullWidth p-10t">
-                  <input class="writeReviewTitle" type="textfield" placeholder="Dai un titolo alla recensione" name="reviewTitle"/>
+                  <input class="writeReviewTitle" type="text" placeholder="Dai un titolo alla recensione" name="reviewTitle"/>
                 </div>
                 <div class="fullWidth p-10">
                   <textarea class="writeReviewArea" placeholder="Scrivi il testo" name="reviewText"></textarea>

@@ -44,8 +44,7 @@
             id="confirmpassword"
             name="confirmpassword"
             placeholder="Inserisci di nuovo la tua password" 
-            required>
-            </input>
+            required />
             <span class="material-icons passwordEye noselect" onclick="togglePassword(this)">visibility</span>
           </div>
           <div class="p-10 fullWidth">
@@ -66,20 +65,19 @@
               type="date"
               id="birthdate"
               name="birthdate"
-              placeholder="Inserisci la tua data di nascita"
               required
             />
           </div>
           <div class="center p-10">
             <label for="news" class="saturatedText ">Ricevi notizie riguardo le offerte o eventi relativi a Oniric</label>
             <label class="switch">
-                <input type="checkbox">
+                <input type="checkbox" id="news" />
                 <span class="slider round"></span>
             </label>
           </div>
         <footer class="center fullWidth">
           <div class="center">
-            <input class="softButton" type="submit" value="Registrati">
+            <input class="softButton" type="submit" value="Registrati" />
           </div>
         </footer>
         

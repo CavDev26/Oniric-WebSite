@@ -1,5 +1,5 @@
 <main>
-      <a href="">
+      <a href="articleList.php?tag=saldiinvernali2022">
         <article class="winter-sales-a">
           <header>
             <h1>Sono arrivati i Saldi invernali!</h1>

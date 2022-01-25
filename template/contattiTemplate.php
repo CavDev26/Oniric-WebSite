@@ -47,7 +47,6 @@
                       ><img src="./img/instagram.png" alt="Contatti instagram" class="p-20l p-20r"
                   /></span>
                 </div>
-              </p>
             </div>
           </li>
         </ul>
