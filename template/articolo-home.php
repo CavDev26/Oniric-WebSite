@@ -9,13 +9,13 @@
           <h2 class="mediumSubtitle"><?php echo $articolo["App_Nome"]; ?></h2>
           <?php $n = (int) $templateParams["votomedio"]; 
           for($i = 0; $i < $n; $i++):?>
-          <img src="./img/star.png" alt="" class="reviewStar" />
+          <img src="./img/star.png" alt="Voto prodotto <?php echo $templateParams["votomedio"]; ?>" class="reviewStar" />
           <?php endfor; 
           if ($templateParams["votomedio"] - (float)$n >= 0.5): $n++;?>
-          <img src="./img/halfStar.png" alt="" class="reviewStar" />
+          <img src="./img/halfStar.png" alt="Voto prodotto <?php echo $templateParams["votomedio"]; ?>" class="reviewStar" />
           <?php endif; 
           for($i=0; $i < 5 - $n; $i++):?>
-          <img src="./img/emptyStar.png" alt="" class="reviewStar" />
+          <img src="./img/emptyStar.png" alt="Voto prodotto <?php echo $templateParams["votomedio"]; ?>" class="reviewStar" />
           <?php endfor; ?>
           <span class="mediumSubtitle">(<?php echo count($templateParams["recensioni"]);?>)</span>
         </section>
@@ -211,13 +211,13 @@
             <div class="reviewVote right inline-block">
               <?php $n = (int) $review["Voto"]; 
               for($i = 0; $i < $n; $i++):?>
-              <img src="./img/star.png" alt="" class="smallReviewStar" />
+              <img src="./img/star.png" alt="Voto recensione <?php echo $review["Voto"];?>" class="smallReviewStar" />
               <?php endfor; 
               if ($review["Voto"] - (float)$n >= 0.5): $n++?>
-              <img src="./img/halfStar.png" alt="" class="smallReviewStar" />
+              <img src="./img/halfStar.png" alt="Voto recensione <?php echo $review["Voto"];?>" class="smallReviewStar" />
               <?php endif; 
               for($i=0; $i < 5 - $n; $i++):?>
-              <img src="./img/emptyStar.png" alt="" class="smallReviewStar" />
+              <img src="./img/emptyStar.png" alt="Voto recensione <?php echo $review["Voto"];?>" class="smallReviewStar" />
               <?php endfor; ?>
             </div>
             <p class="reviewText left-text">

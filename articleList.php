@@ -14,6 +14,7 @@ $filters["price"] = array();
 $filters["category"] = array();
 $filters["vote"] = array();
 $filters["name"] = "";
+$sort = "";
 
 if (isset($_GET["name"])) {
     $filters["name"] = $_GET["name"];
@@ -38,10 +39,13 @@ if (isset($_GET["vote"])) {
         array_push($filters["vote"], $vote) ;
     }
 }
+if (isset($_GET["sort"])) {
+    $sort = $_GET["sort"];
+}
 
 $templateParams["titolo"] = "Oniric - Articoli";
 $templateParams["nome"] = "articleListPage.php";
-$templateParams["articoli"] = $dbh->getArticles($_GET["pagenum"], $filters);
+$templateParams["articoli"] = $dbh->getArticles($_GET["pagenum"], $filters, $sort);
 $templateParams["style"] = array("./css/searchResults.css", "./css/accordion.css", "./css/modal.css"); 
 $templateParams["js"] = array("./js/accordion.js", "./js/modal.js", "./js/addToCart.js");
 $templateParams["pageNumber"] = (int) $dbh->getNumberOfArticles($filters)[0]["COUNT(*)"]/ 4;

@@ -301,12 +301,16 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getArticles($pageNum, $filters) {
+    public function getArticles($pageNum, $filters, $sort) {
         $from = ($pageNum -1)* 4;
         if (empty($filters["tag"]) && empty($filters["price"]) && empty($filters["vote"]) && empty($filters["category"])
             && empty($filters["name"])) {
             $query = "SELECT ID_Articolo, Nome, Descrizione, Descrizione_breve, Costo_listino, Quantita_Disp, Sconto, Cartella_immagini, 
-            Voto_medio, Nome_Utente, App_Nome FROM articolo LIMIT ?, 4";
+            Voto_medio, Nome_Utente, App_Nome FROM articolo ";
+            if (!empty($sort)) {
+                $query .= " ORDER BY Costo_listino - Costo_listino * Sconto " . $sort;
+            }
+            $query .= " LIMIT ?, 4";
             $stmt = $this->db->prepare($query);
             $stmt->bind_param('i',$from);
             $stmt->execute();
@@ -316,6 +320,9 @@ class DatabaseHelper{
             $query = "SELECT ID_Articolo, Nome, Descrizione, Descrizione_breve, Costo_listino, Quantita_Disp, Sconto, Cartella_immagini, 
             Voto_medio, Nome_Utente, App_Nome FROM articolo a WHERE";
             $query .= filterQuery($filters);
+            if (!empty($sort)) {
+                $query .= " ORDER BY (Costo_listino - Costo_listino * Sconto) " . $sort;
+            }
             $query .= " LIMIT ?, 4";
             $stmt = $this->db->prepare($query);
             $stmt->bind_param('i',$from);

@@ -96,9 +96,6 @@
                           />
                           <input type="hidden" name="profile" />
                         </form>
-                      <!-- <button class="hardButton w-75 m-10t m-20b">
-                        Mostra tutti gli ordini
-                      </button> -->
                     </footer>
                   </div>
                 </div>

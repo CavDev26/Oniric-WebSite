@@ -24,7 +24,7 @@
   <body>
     <nav class="navbar-top">
         <span class="button-top-logo m-10r">
-          <a href=""><img src="./img/logo-oniric.png" alt="" class="logo-img" /></a>
+          <a href=""><img src="./img/logo-oniric.png" alt="Torna alla home" class="logo-img" /></a>
         </span>
         <span class="left-menu left full-height">
               <input id="menu-check" type="checkbox"/>
@@ -34,7 +34,7 @@
           <ul class="unfolded-left-menu">
             <li class="search-line">
                 <form action="articleList.php" class="wrapper" method="GET">
-                <label class="search-icon" for="submitSearch"><img src="./img/Search.png"/></label>
+                <label class="search-icon" for="submitSearch"><img alt="Cerca su Oniric" src="./img/Search.png"/></label>
                 <input class="none" type="submit" name="submitSearch" id="submitSearch"/>
                 <input class="search" placeholder="Cerca" type="text" name="name"/>
                 </form>
@@ -56,38 +56,38 @@
 
         <label for="menu-check"><div class="buttons border-right border-left full-height left">
           <div class="center m-0">
-            <img src="./img/Search.png" class="buttons-img" alt=""/>
+            <img src="./img/Search.png" class="buttons-img" alt="Cerca su Oniric"/>
           </div>
           <span class="menu-desc">Menù</span>
         </div></label>
         <a class="buttons border-right full-height left" href="">
           <div class="center m-0">
-            <img src="./img/Search.png" class="buttons-img" alt=""/>
+            <img src="./img/Search.png" class="buttons-img" alt="Cerca su Oniric"/>
           </div>
           <span class="menu-desc">Ricerca</span>
         </a>
         <a class="buttons full-height border-right left" href="">
           <div class="center m-0">
-            <img src="./img/Search.png" class="buttons-img" alt=""/>
+            <img src="./img/Search.png" class="buttons-img" alt="Cerca su Oniric"/>
           </div>
           <span class="menu-desc">Supporto</span>
         </a>
         <a class="buttons full-height border-right left" href="">
           <div class="center m-0">
-            <img src="./img/user.png" class="buttons-img" alt=""/>
+            <img src="./img/user.png" class="buttons-img" alt="Profilo"/>
           </div>
           <span class="menu-desc">Profilo</span>
         </a>
         <a class="buttons full-height border-right left" href="">
           <div class="m-0">
-            <img src="./img/Cart.png" class="buttons-img" alt=""/>
+            <img src="./img/Cart.png" class="buttons-img" alt="Carrello"/>
           </div>
           <span class="menu-desc">Carrello</span>
         </a>
 
         <span class="button-top-notifications full-height">
           <div class="center m-0">
-            <label class="pointer" for="notification"><img id="bell" src="./img/notificationdef.png" alt="" class="notification-menu-img"/></label>
+            <label class="pointer" for="notification"><img id="bell" src="./img/notificationdef.png" alt="Notifiche" class="notification-menu-img"/></label>
           </div>
           <input id="notification" type="checkbox" class="check-notifications" onchange="readNotifications(this)"/>
           <ul class="notifications-list" id="notificationHub">
@@ -97,10 +97,10 @@
             <a href="<?php echo getHrefOfNotification($notification["ID_Notifica"]); ?>">  
               <li class="notification-dimensions">
                 <div class="notification-elem">
-                  <img src="<?php echo $notification["Immagine"]?>" alt="" class="notification-img-product"/>
+                  <img src="<?php echo $notification["Immagine"]?>" alt="<?php echo $notification["Titolo"]?>" class="notification-img-product"/>
                   <h1 class="notification-type left-text"><?php echo $notification["Titolo"]?></h1>
                   <p class="notification-status left-text"><?php echo $notification["Descrizione"]?></p>
-                  <?php if ($notification["Letto"] == 0): ?><img src="./img/notifica-ball.png" alt="" class="notification-indicator"/><?php endif;?>
+                  <?php if ($notification["Letto"] == 0): ?><img src="./img/notifica-ball.png" alt="Notifica da leggere" class="notification-indicator"/><?php endif;?>
                   <footer class="notification-time right-text">
                   <?php echo $notification["Data_Ora"]?>
                 </footer>
@@ -115,16 +115,16 @@
 
     <nav class="navbar-bot">
       <div class="bottom-nav-button display-flex-column">
-        <a href=""><img src="./img/User.png" alt="" class="bottom-nav-icon-img"/></a>
+        <a href=""><img src="./img/User.png" alt="Profilo" class="bottom-nav-icon-img"/></a>
       </div>
       <div class="bottom-nav-button display-flex-column">
-        <a href=""><img src="./img/Home.png" alt="" class="bottom-nav-icon-img"/></a>
+        <a href=""><img src="./img/Home.png" alt="Home" class="bottom-nav-icon-img"/></a>
       </div>
       <div class="bottom-nav-button display-flex-column">
-        <a href=""><img src="./img/Search.png" alt="" class="bottom-nav-icon-img"/></a>
+        <a href=""><img src="./img/Search.png" alt="Cerca" class="bottom-nav-icon-img"/></a>
       </div>
       <div class="bottom-nav-button display-flex-column">
-        <a href=""><img src="./img/Cart.png" alt="" class="bottom-nav-icon-img"/></a>
+        <a href=""><img src="./img/Cart.png" alt="Carrello" class="bottom-nav-icon-img"/></a>
       </div>
     </nav>
 
@@ -132,7 +132,7 @@
     
     <footer class="home-footer">
       <p>
-        Cava and Fresh (C) Copyright 2021 All rights reserved
+        Cava and Fresh &#169 Copyright 2021 All rights reserved
       </p>
     </footer>
   </body>
