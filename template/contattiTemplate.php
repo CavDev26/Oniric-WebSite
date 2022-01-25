@@ -16,7 +16,7 @@
             <div class="contactBobble inline-block m-20b">
               <p class="mediumText">
                 In caso di problemi puoi scrivere una email al seguente indirizzo:
-                <strong>assistenza@oniric.com</strong> O contattare il numero:
+                <strong>assistenza&#64;oniric.com</strong> O contattare il numero:
                 <strong>+39 099 3211 987</strong>
               </p>
             </div>
@@ -38,13 +38,13 @@
                 </strong>
                 <div>
                   <span
-                      ><img src="./img/facebook.png" alt="" class="p-20l p-20r"
+                      ><img src="./img/facebook.png" alt="Contatti facebook" class="p-20l p-20r"
                   /></span>
                   <span
-                      ><img src="./img/twitter.png" alt="" class="p-20l p-20r"
+                      ><img src="./img/twitter.png" alt="Contatti twitter" class="p-20l p-20r"
                   /></span>
                   <span
-                      ><img src="./img/instagram.png" alt="" class="p-20l p-20r"
+                      ><img src="./img/instagram.png" alt="Contatti instagram" class="p-20l p-20r"
                   /></span>
                 </div>
               </p>

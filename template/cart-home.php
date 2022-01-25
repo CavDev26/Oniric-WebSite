@@ -19,20 +19,21 @@
             <?php foreach($templateParams["articles"] as $article): ?>
               <li class="product-container">
                     <div class="product">
-                    <a href=""><img class="product-image" src="<?php echo "./img/" . $article["Cartella_immagini"] . "/1.png" ?>" 
+                    <a href="articolo.php?id=<?php echo $article["ID_Articolo"];?>"><img class="product-image" 
+                    src="<?php echo findExtension("./img/".$article["Cartella_immagini"], 1); ?>" 
                     alt="Immagine articolo <?php echo $article["Nome"]; ?>"/></a>
                     <h1 class="product-name left-text"><?php echo $article["Nome"]; ?></h1>
                     <hr class="span-cart">
                       <div class="stars">
                         <?php $n = (int) $article["Voto_medio"]; 
                         for($i = 0; $i < $n; $i++):?>
-                        <img src="./img/star.png" alt="<?php ?>" class="star" />
+                        <img src="./img/star.png" alt="<?php echo $article["Voto_medio"];?>" class="star" />
                         <?php endfor; 
                         if ($article["Voto_medio"] - (float)$n >= 0.5): $n++;?>
-                        <img src="./img/halfStar.png" alt="" class="star" />
+                        <img src="./img/halfStar.png" alt="<?php echo $article["Voto_medio"];?>" class="star" />
                         <?php endif; 
                         for($i=0; $i < 5 - $n; $i++):?>
-                        <img src="./img/emptyStar.png" alt="" class="star" />
+                        <img src="./img/emptyStar.png" alt="<?php echo $article["Voto_medio"];?>" class="star" />
                         <?php endfor; ?>
                       </div>
                       <div class="price-section">
@@ -43,7 +44,6 @@
                       </div>
                       <button class="remove-button centered" onClick="removeFromCart(this, '<?php echo $article["ID_Articolo"]; ?>')">
                           <p class="m-0">Rimuovi</p>
-                          <!-- gestiscimi con ajax -->
                       </button>
                       <div class="quantity-button centered">
                         <div class="quantity buttons_added">

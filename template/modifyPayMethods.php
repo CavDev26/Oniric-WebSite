@@ -23,13 +23,15 @@
                     <img
                         src="./img/visaLogo.png"
                         class="left p-10t littlePaymentIcon"
+                        alt="Immagine carta"
                     />
                     <p class="w-68 right m-0 center f-14 lh-10">
                         <?php for($i = 0; $i < strlen((string)$payMethod["Numero"])-2; $i++) {echo "●";} 
                               echo substr((string)$payMethod["Numero"], -4); ?>
                     </p>
                 </div>
-                <button class="inline-block right modalModify m-10b m-20t w-90"><img class="simplePencil" src="./img/pencil.png" alt=""></button>
+                <button class="inline-block right modalModify m-10b m-20t w-90"><img class="simplePencil" src="./img/pencil.png" 
+                alt="Modifica metodo"></button>
                 <div class="profileModal center">
                 <div class="profileModal-content">
                     <span class="profileModalClose">&times;</span>

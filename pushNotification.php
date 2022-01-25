@@ -15,10 +15,10 @@ if(isUserLoggedIn()) {
                 echo '<a href="' . getHrefOfNotification($notification["ID_Notifica"]) . '">  
             <li class="notification-dimensions">
                 <div class="notification-elem">
-                <img src='. $notification["Immagine"].' alt="" class="notification-img-product"/>
+                <img src='. $notification["Immagine"].' alt="Notifica :'. $notification["Titolo"].'" class="notification-img-product"/>
                 <h1 class="notification-type left-text">'.$notification["Titolo"].'</h1>
                 <p class="notification-status left-text">'.$notification["Descrizione"].'</p>
-                <img src="./img/notifica-ball.png" alt="" class="notification-indicator"/>
+                <img src="./img/notifica-ball.png" alt="Letto" class="notification-indicator"/>
                 <footer class="notification-time right-text">'.$notification["Data_Ora"].'</footer></div></li></a>';
             }
         } else if (isset($_GET["read"])) {

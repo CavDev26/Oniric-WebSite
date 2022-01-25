@@ -83,9 +83,10 @@
   height: 150px;
   width: 150px;
   max-height: 98%;
-  margin-right: 5px;
+  margin-right: 10px;
   padding-left: 2px;
   border-radius: 15px;
+  object-fit: cover;
 }
 .product-name {
   color: black;

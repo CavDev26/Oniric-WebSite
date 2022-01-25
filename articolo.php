@@ -15,7 +15,8 @@ if (count($templateParams["articolo"]) == 0) {
 } else {
     $templateParams["articolo"] = $templateParams["articolo"][0];
     if (isset($_POST["reviewTitle"]) && isset($_POST["reviewText"]) && isset($_POST["reviewVote"])) {
-        $dbh->insertReview($_SESSION["username"],$templateParams["articolo"]["ID_Articolo"],$_POST["reviewTitle"], $_POST["reviewText"], $_POST["reviewVote"] );
+        $dbh->insertReview($_SESSION["username"],$templateParams["articolo"]["ID_Articolo"],$_POST["reviewTitle"], 
+        $_POST["reviewText"], $_POST["reviewVote"] );
         $templateParams["recensioni"] = $dbh->getReviewsOfArticle($_GET["id"]);
         $vote = $dbh->calculateVote($templateParams["articolo"]["ID_Articolo"], $templateParams["recensioni"]);
         $templateParams["articolo"]["Voto_medio"] = $vote;

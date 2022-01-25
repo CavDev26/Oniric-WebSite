@@ -342,7 +342,6 @@ class DatabaseHelper{
 
     public function getAllOrdersByUsername($username) {
         $query = "SELECT o.ID_Ordine, Status_Ordine, Nome, Cartella_immagini FROM ordine o, dettaglio_spedizione d, articolo a WHERE o.Nome_Utente = ? AND d.ID_Ordine = o.ID_Ordine AND d.ID_Articolo = a.ID_Articolo";
-        // $query = "SELECT o.ID_Ordine, Status_Ordine, ID_Articolo FROM ordine o, dettaglio_spedizione d WHERE o.Nome_Utente = ? AND d.ID_Ordine = o.ID_Ordine";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s', $username);
         $stmt->execute();
@@ -351,7 +350,7 @@ class DatabaseHelper{
     }
 
     public function getCategories() {
-        $query = "SELECT Nome FROM categoria LIMIT 10";
+        $query = "SELECT Nome FROM categoria";
         $stmt = $this->db->prepare($query);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -411,6 +410,27 @@ class DatabaseHelper{
         $stmt->execute();
         $result = $stmt->get_result();
         return !empty($result->fetch_all(MYSQLI_ASSOC));
+    }
+    public function insertArticle($ID_Articolo, $Nome, $Descrizione, $Descrizione_breve, $Costo_listino, $Quantita_disp, $Sconto, $Cartella_immagini, $Voto_medio, $Nome_Utente, $App_Nome){
+        $query = "INSERT INTO articolo (ID_Articolo, Nome, Descrizione, Descrizione_breve, Costo_listino, Quantita_disp, Sconto, Cartella_immagini, Voto_medio, Nome_Utente, App_Nome) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ssssdidsdss', $ID_Articolo, $Nome, $Descrizione, $Descrizione_breve, $Costo_listino, $Quantita_disp, $Sconto, $Cartella_immagini, $Voto_medio, $Nome_Utente, $App_Nome);
+        $stmt->execute();
+        return $stmt->insert_id;
+    }
+    public function insertDettaglioArt($id, $nome, $valore){
+        $query = "INSERT INTO dettaglio_articolo (ID_Articolo, Nome, Valore) VALUES (?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('sss', $id, $nome, $valore);
+        $stmt->execute();
+        return $stmt->insert_id;
+    }
+    public function addCategory($nome) {
+        $query = "INSERT INTO categoria (Nome) VALUES (?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $nome);
+        $stmt->execute();
+        return $stmt->insert_id;
     }
 }
 ?>

@@ -5,7 +5,7 @@
       <?php endif; ?>
       <form action="#" class="simpleForm" method="POST">
           <div class="p-10 fullWidth">
-            <label for="email" class="form-label">Email:</label><br />
+            <label for="email" class="form-label">Email:*</label><br />
             <input
               class="box-input"
               type="text"
@@ -15,7 +15,7 @@
               required>
           </div>
           <div class="p-10 fullWidth">
-            <label for="username" class="form-label">Nome Utente:</label><br />
+            <label for="username" class="form-label">Nome Utente:*</label><br />
             <input
               class="box-input"
               type="text"
@@ -26,7 +26,7 @@
             />
           </div>
           <div class="p-10 fullWidth">
-            <label for="password" class="form-label">Password:</label><br />
+            <label for="password" class="form-label">Password:*</label><br />
               <input
               class="box-input"
               type="password"
@@ -37,7 +37,7 @@
               <span class="material-icons passwordEye noselect" onclick="togglePassword(this)">visibility</span>
           </div>
           <div class="p-10 fullWidth">
-            <label for="confirmpassword" class="form-label">Conferma Password:</label><br />
+            <label for="confirmpassword" class="form-label">Conferma Password:*</label><br />
             <input
             class="box-input"
             type="password"
@@ -49,7 +49,7 @@
             <span class="material-icons passwordEye noselect" onclick="togglePassword(this)">visibility</span>
           </div>
           <div class="p-10 fullWidth">
-            <label for="nameAndsurname" class="form-label">Nome e Cognome:</label><br />
+            <label for="nameAndsurname" class="form-label">Nome e Cognome:*</label><br />
             <input
               class="box-input"
               type="text"
@@ -60,7 +60,7 @@
             />
           </div>
           <div class="p-10 fullWidth">
-            <label for="birthdate" class="form-label">Data di Nascita:</label><br />
+            <label for="birthdate" class="form-label">Data di Nascita:*</label><br />
             <input
               class="box-input"
               type="date"

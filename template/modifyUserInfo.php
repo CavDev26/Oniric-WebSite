@@ -27,7 +27,7 @@
                 type="password"
                 id="oldpassword"
                 name="oldpassword"
-                value="<?php for($i = 0; $i < $templateParams["userinfo"]["passlen"]; $i++) {echo "●";} ?>" 
+                value="<?php for($i = 0; $i < $templateParams["userinfo"]["passlen"]; $i++) {echo "&#8226;";} ?>" 
                 disabled="true"> 
             </div>
             <div class="p-10 fullWidth">
