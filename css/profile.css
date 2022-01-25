@@ -140,11 +140,9 @@
   -webkit-appearance: none;
   margin: 0;
 }
-.numberPicker[type=number] {
+.numberPicker[type="number"] {
   -moz-appearance: textfield;
 }
-
-
 
 .radio-toolbar input[type="radio"] {
   display: none;
@@ -159,13 +157,47 @@
   cursor: pointer;
 }
 
-.radio-toolbar input[type="radio"]:checked+label {
+.radio-toolbar input[type="radio"]:checked + label {
   background-color: #be9cf59d;
 }
 
+.makeAdminLbl {
+  display: inline-block;
+  text-align: left;
+  width: 100%;
+  color: var(--lightSecondary);
+  align-items: left;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 40px;
+  max-width: 500px;
+}
+.makeAdminForm {
+  color: var(--secondary);
+  background: var(--traslucentPrimary);
+  border-radius: 4px;
+  width: 97%;
+  height: 40px;
+  border: 2px solid var(--traslucentPrimary);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 15px;
+  margin: 0;
+  max-width: 500px;
+  padding-left: 10px;
+  box-sizing: border-box;
+}
 
+.makeAdminForm::placeholder {
+  color: var(--primary);
+}
 
-
+.makeAdminForm:focus {
+  border: 2px solid var(--primary);
+}
 
 .violetBox {
   display: inline-block;

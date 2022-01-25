@@ -9,7 +9,7 @@ class DatabaseHelper{
         }        
     }
     public function checkLogin($username, $password){
-        $query = "SELECT Nome, Cognome, Nome_Utente, Data_Nascita FROM utente WHERE Nome_Utente = ? AND Password = ?";
+        $query = "SELECT Nome, Cognome, Nome_Utente, Data_Nascita, Amministratore FROM utente WHERE Nome_Utente = ? AND Password = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ss',$username, $password);
         $stmt->execute();
@@ -389,6 +389,21 @@ class DatabaseHelper{
         $stmt->bind_param('sss', $ns[0], $ns[1], $username);
         $stmt->execute();
         return $stmt->insert_id;
+    }
+    public function makeAdmin($username) {
+        $query = "UPDATE utente SET Amministratore = 1 WHERE Nome_Utente = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $username);
+        $stmt->execute();
+        return $stmt->insert_id;
+    }
+    public function isAdmin ($username) {
+        $query = "SELECT Nome_Utente FROM utente WHERE Nome_Utente = ? AND Amministratore = 1";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s',$username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return !empty($result->fetch_all(MYSQLI_ASSOC));
     }
 }
 ?>
