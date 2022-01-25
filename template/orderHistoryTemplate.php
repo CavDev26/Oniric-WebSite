@@ -1,10 +1,10 @@
-      <!-- QUESTO E' DIVERSO -->
       <div class="">
-            <a class="normal" href="orderList.php">
-                <div class="purchase-button">
-                  <p>Indietro</p>
-                </div>
-            </a>
+            <form action="" method="POST" class="normal">
+              <div>
+                <input type="hidden" name="exit" value="1" />
+                <input class="purchase-button" type="submit" value="Indietro" />
+              </div>
+            </form>
       </div>
         <div class="lightBack center fullWidth m-50t" >
             <div class="floatingBack inline-block m-20b mw-800 z-1">

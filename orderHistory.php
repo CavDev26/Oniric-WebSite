@@ -11,12 +11,17 @@ if(isUserLoggedIn()){
     // if (isset($_POST["orderH"])) {
     //     $_SESSION["orderH"] = $_POST["orderH"];
     // }
-    // if(isset($_POST["exit"])) {
-    //     if (isset($_SESSION["orderH"])) {
-    //         unset($_SESSION["orderH"]);
-    //         header("Location: orderList.php");
-    //     }
-    // }
+    if(isset($_GET["profile"])) {
+        $_SESSION["profile"] = 1;
+    }
+    if (isset($_POST["exit"])) {
+        if (isset($_SESSION["profile"])) {
+            header("Location: login.php");
+        } else {
+            header("Location: orderList.php");
+        }
+        
+    }
 
     $templateParams["ordine"] = $dbh->getOrderByID($_SESSION["username"], $templateParams["id"]);
     if(count($templateParams["ordine"]) == 0) {

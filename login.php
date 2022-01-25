@@ -14,7 +14,6 @@ if (isset($_POST["article"])) {
     $_SESSION['article'] = $_POST["article"];
 }
 
-
 if(isset($_POST["username"]) && isset($_POST["password"])){
     $login_result = $dbh->checkLogin($_POST["username"], $_POST["password"]);
     if(count($login_result)==0){

@@ -160,7 +160,12 @@
 .radio-toolbar input[type="radio"]:checked + label {
   background-color: #be9cf59d;
 }
-
+.orderDetailButton {
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
 .makeAdminLbl {
   display: inline-block;
   text-align: left;

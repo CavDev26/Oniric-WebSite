@@ -76,9 +76,11 @@
                           class="orderImage"
                         />
                         <div class="orderMiddleText">
-                        <a href="<?php echo "orderHistory.php?id=".$order["ID_Ordine"] ?>">
-                          Vai ai dettagli >
-                         </a>
+                          <form action="orderHistory.php" method="GET">
+                            <input type="hidden" name="id"  value="<?php echo $order["ID_Ordine"]; ?>"/>
+                            <input type="submit" value="Vai ai dettagli" class="orderMiddleText orderDetailButton" />
+                            <input type="hidden" name="profile" />
+                          </form>
                         </div>
                       </li>
                       <?php endforeach; ?>
@@ -92,6 +94,7 @@
                             name="orders"
                             value="Mostra tutti gli ordini"
                           />
+                          <input type="hidden" name="profile" />
                         </form>
                       <!-- <button class="hardButton w-75 m-10t m-20b">
                         Mostra tutti gli ordini

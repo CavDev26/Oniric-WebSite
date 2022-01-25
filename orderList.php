@@ -9,9 +9,16 @@ if(isUserLoggedIn()){
     if (isset($_POST["orders"])) {
         $_SESSION["orders"] = $_POST["orders"];
     }
+    if(isset($_POST["profile"])) {
+        $_SESSION["profile"] = 1;
+    }
+
     if(isset($_POST["exit"])) {
         if (isset($_SESSION["orders"])) {
             unset($_SESSION["orders"]);
+            header("Location: login.php");
+        } else if (isset($_SESSION["profile"])) {
+            unset($_SESSION["profile"]);
             header("Location: login.php");
         }
     }
