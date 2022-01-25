@@ -121,6 +121,15 @@ function getTotalPrices($articles, $q) {
     }
     return round($sum, 2);
 }
+function getTotalWithShipNoQ($articles, $ship){
+    $q = array();
+    for ($i = 0; $i < count($articles); $i++) {
+        array_push($q, 1);
+    }
+    $sum = getTotalPrices($articles, $q);
+    $sum += (float) $ship;
+    return $sum;
+}
 function getTotalWithShip($articles, $ship, $q){
     $sum = getTotalPrices($articles, $q);
     $sum += (float) $ship;

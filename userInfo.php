@@ -7,21 +7,38 @@ $templateParams["titolo"] = "Gestisci i tuoi dati";
 $templateParams["nome"] = "modifyUserInfo.php";
 $templateParams["js"] = array("./js/togglePassword.js");
 $templateParams["style"] = array("./css/login_signup.css", "https://fonts.googleapis.com/icon?family=Material+Icons");
+
 if (isUserLoggedIn()) {
     if(isset($_POST["exit"])) {
         header("Location: login.php");
     }
-    if (isset($_POST["deleteMethod"])) {
-        $dbh->deleteMethod($_SESSION["username"],$_POST["deleteMethod"]);
+    if (!isset($_POST["profile"])) {
+        if (isset($_POST["nameAndsurname"]) && !empty($_POST["nameAndsurname"])) {
+            if (isset($_POST["newpassword"]) && !empty($_POST["newpassword"])) {
+                if (isset($_POST["confirmpassword"])&& !empty($_POST["confirmpassword"])) {
+                    if ($_POST["confirmpassword"] == $_POST["newpassword"]) {
+                        $dbh->updateUser($_SESSION["username"],$_POST["newpassword"], $_POST["nameAndsurname"]);
+                        $_SESSION["passlen"] = strlen($_POST["newpassword"]);
+                        $_SESSION["namesurname"] = $_POST["nameAndsurname"];
+                        header("Location: login.php");
+                    }
+                    else {
+                        $templateParams["errore"] = "Errore! Le nuove password non corrispondono";
+                    }
+                } else {
+                    $templateParams["errore"] = "Errore! Per favore conferma la nuova password";
+                }
+            } else {
+                $dbh->updateUserNames($_SESSION["username"],$_POST["nameAndsurname"]);
+                $_SESSION["namesurname"] = $_POST["nameAndsurname"];
+                header("Location: login.php");
+            }  
+        }else {
+                $templateParams["errore"] = "Errore! Inserire un nome e cognome";
+        }
     }
-    if (isset($_POST["modifyMethod"]) && isset($_POST["mname"]) && isset($_POST["mnumber"]) && isset($_POST["mcircuit"])) {
-        $payMethod = array("Numero"=>$_POST["mnumber"], "Nome"=>$_POST["mname"], "Circuito_pagamento"=>$_POST["mcircuit"]);
-        $dbh->modifyMethod($_SESSION["username"],$payMethod, $_POST["modifyMethod"]);
-    }
-    if (isset($_POST["insertMethod"]) && isset($_POST["name"]) && isset($_POST["number"]) && isset($_POST["circuit"])) {
-        $payMethod = array("Numero"=>$_POST["number"], "Nome"=>$_POST["name"], "Tassa"=>2.0, "Circuito_pagamento"=>$_POST["circuit"]);
-        $dbh->insertNewPayMethod($_SESSION["username"], $payMethod);
-    }
+    $templateParams["userinfo"] = array("username" => $_SESSION["username"], "namesurname" => $_SESSION["namesurname"], 
+                                        "birthdate" => $_SESSION["birthdate"], "passlen" => $_SESSION["passlen"]);
 // $templateParams["categorie"] = $dbh->getCategories();
 // $templateParams["articolicasuali"] = $dbh->getRandomPosts(2);
 // //Home Template

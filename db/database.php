@@ -266,6 +266,9 @@ class DatabaseHelper{
         $query = "SELECT ID_Ordine, Indirizzo_Consegna, Data_Acquisto, Spesa_Totale FROM ordine WHERE(Nome_Utente = ? AND ID_Ordine = ?)";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ss', $username, $ID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     public function getNumberOfArticles($filters) {
@@ -370,6 +373,22 @@ class DatabaseHelper{
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ss', $username, $id);
         return  $stmt->execute();
+    }
+    public function updateUser($username,$newpassword, $namesurname) {
+        $query = "UPDATE utente SET Password = ?, Nome = ?, Cognome = ? WHERE Nome_Utente = ?";
+        $stmt = $this->db->prepare($query);
+        $ns = explode(" ", $namesurname);
+        $stmt->bind_param('ssss', $newpassword, $ns[0], $ns[1], $username);
+        $stmt->execute();
+        return $stmt->insert_id;
+    }
+    public function updateUserNames($username, $namesurname) {
+        $query = "UPDATE utente SET Nome = ?, Cognome = ? WHERE Nome_Utente = ?";
+        $stmt = $this->db->prepare($query);
+        $ns = explode(" ", $namesurname);
+        $stmt->bind_param('sss', $ns[0], $ns[1], $username);
+        $stmt->execute();
+        return $stmt->insert_id;
     }
 }
 ?>
