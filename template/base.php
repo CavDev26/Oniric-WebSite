@@ -119,7 +119,7 @@
     
     <footer class="home-footer">
       <p>
-        Cava and Fresh &#169; Copyright 2021 All rights reserved
+        Cava and Fresh &copy; Copyright 2021 All rights reserved
       </p>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

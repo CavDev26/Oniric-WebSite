@@ -140,9 +140,7 @@
               }?>
             </button>
             <?php endif;?>
-            </section>
-            
-              
+            </section> 
           </section>
           <section class="m-20">
             <div class="simpleText simpleTextLeft m-20t">

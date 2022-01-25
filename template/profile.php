@@ -110,7 +110,7 @@
                     <header>
                       <div class="p-20t p-10b">
                         <span class="bigSaturatedText"
-                            >&#128 <?php $sald = min_precision($templateParams["balance"], 2);
+                            >&euro;<?php $sald = min_precision($templateParams["balance"], 2);
                                 $splitted = explode(".", $sald);
                                   if (count($splitted) == 1) {
                                     echo $splitted[0];
@@ -132,7 +132,7 @@
                                   <div class="center">
                                       <div class="p-20t p-10b">
                                           <span class="bigSaturatedText">
-                                              &#128 <?php $sald = min_precision($templateParams["balance"], 2);
+                                              &euro; <?php $sald = min_precision($templateParams["balance"], 2);
                                               $splitted = explode(".", $sald);
                                               if (count($splitted) == 1) {
                                                   echo $splitted[0];
@@ -152,13 +152,13 @@
                                         <h2 class="m-10b mediumText">Ammontare</h2>
 
                                         <input type="radio" id="radio1" name="valore" value="20" onclick="checkIfRechargeable()">
-                                        <label for="radio1">20,00&#128</label>
+                                        <label for="radio1">20,00&euro;</label>
                                       
                                         <input type="radio" id="radio2" name="valore" value="50" onclick="checkIfRechargeable()">
-                                        <label for="radio2">50,00&#128</label>
+                                        <label for="radio2">50,00&euro;</label>
                                       
                                         <input type="radio" id="radio3" name="valore" value="100" onclick="checkIfRechargeable()">
-                                        <label for="radio3">100,00&#128</label><br>
+                                        <label for="radio3">100,00&euro;</label><br>
 
                                       </div>
                                       <div>
