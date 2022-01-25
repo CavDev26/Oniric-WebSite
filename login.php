@@ -14,7 +14,6 @@ if (isset($_POST["article"])) {
     $_SESSION['article'] = $_POST["article"];
 }
 
-
 if(isset($_POST["username"]) && isset($_POST["password"])){
     $login_result = $dbh->checkLogin($_POST["username"], $_POST["password"]);
     if(count($login_result)==0){
@@ -28,6 +27,21 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
     }
 }
 if(isUserLoggedIn()){
+    if ($dbh->isAdmin($_SESSION["username"])) {
+        $templateParams["admin"] = 1;
+    }
+    if (isset($_POST["adminuser"])) {
+        if (isset($templateParams["admin"])) {
+            $dbh->makeAdmin($_POST["adminuser"]);
+            $notification = array("ID_Notifica" => generateNotificationId("AD",$_POST["adminuser"]), 
+                "Titolo" => "Ora sei amministratore!", "Descrizione" =>$_SESSION["username"]. " ti ha reso amministratore", 
+                "Data_Ora" => date("Y-m-d H:i:s"), "Letto" => 0, "ID_Ordine" => null, "Nome_Utente" => $_POST["adminuser"], "Immagine" => "./img/logo-oniric.png");
+            $dbh->pushNotification($notification);
+        } else {
+            $templateParams["error"] = "Non hai i permessi per fare questo";
+        }
+                
+    }
     if(isset($_POST["caddress"]) && isset($_POST["cncivico"]) && isset($_POST["ccitta"])){
         $dbh->deleteAddress($_SESSION["username"], array("Via" => $_POST["caddress"], "Numero_civico" => $_POST["cncivico"], "Citta" => $_POST["ccitta"]));
     }

@@ -323,6 +323,9 @@ function keepGetValues() {
     if (isset($_GET["name"])) {
         echo createInput("name", $_GET["name"]);
     }
+    if (isset($_GET["sort"])) {
+        echo createInput("sort", $_GET["sort"]);
+    }
 }
 
 function checkForChecked($getVar, $value) {

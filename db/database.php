@@ -9,7 +9,7 @@ class DatabaseHelper{
         }        
     }
     public function checkLogin($username, $password){
-        $query = "SELECT Nome, Cognome, Nome_Utente, Data_Nascita FROM utente WHERE Nome_Utente = ? AND Password = ?";
+        $query = "SELECT Nome, Cognome, Nome_Utente, Data_Nascita, Amministratore FROM utente WHERE Nome_Utente = ? AND Password = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ss',$username, $password);
         $stmt->execute();
@@ -301,12 +301,16 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getArticles($pageNum, $filters) {
+    public function getArticles($pageNum, $filters, $sort) {
         $from = ($pageNum -1)* 4;
         if (empty($filters["tag"]) && empty($filters["price"]) && empty($filters["vote"]) && empty($filters["category"])
             && empty($filters["name"])) {
             $query = "SELECT ID_Articolo, Nome, Descrizione, Descrizione_breve, Costo_listino, Quantita_Disp, Sconto, Cartella_immagini, 
-            Voto_medio, Nome_Utente, App_Nome FROM articolo LIMIT ?, 4";
+            Voto_medio, Nome_Utente, App_Nome FROM articolo ";
+            if (!empty($sort)) {
+                $query .= " ORDER BY Costo_listino - Costo_listino * Sconto " . $sort;
+            }
+            $query .= " LIMIT ?, 4";
             $stmt = $this->db->prepare($query);
             $stmt->bind_param('i',$from);
             $stmt->execute();
@@ -316,6 +320,9 @@ class DatabaseHelper{
             $query = "SELECT ID_Articolo, Nome, Descrizione, Descrizione_breve, Costo_listino, Quantita_Disp, Sconto, Cartella_immagini, 
             Voto_medio, Nome_Utente, App_Nome FROM articolo a WHERE";
             $query .= filterQuery($filters);
+            if (!empty($sort)) {
+                $query .= " ORDER BY (Costo_listino - Costo_listino * Sconto) " . $sort;
+            }
             $query .= " LIMIT ?, 4";
             $stmt = $this->db->prepare($query);
             $stmt->bind_param('i',$from);
@@ -389,6 +396,21 @@ class DatabaseHelper{
         $stmt->bind_param('sss', $ns[0], $ns[1], $username);
         $stmt->execute();
         return $stmt->insert_id;
+    }
+    public function makeAdmin($username) {
+        $query = "UPDATE utente SET Amministratore = 1 WHERE Nome_Utente = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $username);
+        $stmt->execute();
+        return $stmt->insert_id;
+    }
+    public function isAdmin ($username) {
+        $query = "SELECT Nome_Utente FROM utente WHERE Nome_Utente = ? AND Amministratore = 1";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s',$username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return !empty($result->fetch_all(MYSQLI_ASSOC));
     }
 }
 ?>

@@ -76,9 +76,11 @@
                           class="orderImage"
                         />
                         <div class="orderMiddleText">
-                        <a href="<?php echo "orderHistory.php?id=".$order["ID_Ordine"] ?>">
-                          Vai ai dettagli >
-                         </a>
+                          <form action="orderHistory.php" method="GET">
+                            <input type="hidden" name="id"  value="<?php echo $order["ID_Ordine"]; ?>"/>
+                            <input type="submit" value="Vai ai dettagli" class="orderMiddleText orderDetailButton" />
+                            <input type="hidden" name="profile" />
+                          </form>
                         </div>
                       </li>
                       <?php endforeach; ?>
@@ -92,10 +94,8 @@
                             name="orders"
                             value="Mostra tutti gli ordini"
                           />
+                          <input type="hidden" name="profile" />
                         </form>
-                      <!-- <button class="hardButton w-75 m-10t m-20b">
-                        Mostra tutti gli ordini
-                      </button> -->
                     </footer>
                   </div>
                 </div>
@@ -244,12 +244,6 @@
               </div>
             </li>
             <li>
-              <button class="coolButton">
-                <strong>Iscrivi a Omni</strong>
-                <img src="./img/first_logo.jpg" class="inline-block" />
-              </button>
-            </li>
-            <li>
               <a href="reviews.php">
                 <button class="coolButton">
                   <strong>Le tue Recensioni</strong>
@@ -355,9 +349,48 @@
                 </div>
               </div>
             </li>
+            <?php if (isset($templateParams["admin"]) && $templateParams["admin"] == 1):?>
             <li>
-              <button class="coolButton"><strong>Notifiche</strong></button>
+              <div>
+                <button class="profileAccordion">
+                  <strong>Admin</strong>
+                </button>
+                <div class="panel">
+                  <div class="accordionBack">
+                    <div class="p-10 fullWidth">
+                      <form action="" method="POST">
+                        <label for="adminuser" class="makeAdminLbl">Rendi amministratore</label><br />
+                        <input
+                          class="makeAdminForm"
+                          type="text"
+                          id="adminuser"
+                          name="adminuser"
+                          placeholder="Inserisci il nome utente"
+                        />
+                        <input
+                          type="submit"
+                          class="hardButton w-75 m-10t m-20b"
+                          name="submitAdminUser"
+                          value="Rendi amministratore"
+                        />
+                      </form>
+                    </div>
+                    <footer>
+                      <form action="addArticle.php" method="POST">
+                        <label for="addarticle" class="makeAdminLbl">Aggiungi un articolo su Oniric</label><br />
+                        <input
+                          type="submit"
+                          class="hardButton w-75 m-10t m-20b"
+                          name="addarticle"
+                          value="Aggiungi articolo"
+                        />
+                      </form>
+                    </footer>
+                  </div>
+                </div>
+              </div>
             </li>
+            <?php endif;?>
           </ul>
         </div>
       </div>

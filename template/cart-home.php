@@ -19,13 +19,14 @@
             <?php foreach($templateParams["articles"] as $article): ?>
               <li class="product-container">
                     <div class="product">
-                    <a href=""><img class="product-image" src="<?php echo "./img/" . $article["Cartella_immagini"] . "/1.png" ?>" alt=""/></a>
+                    <a href=""><img class="product-image" src="<?php echo "./img/" . $article["Cartella_immagini"] . "/1.png" ?>" 
+                    alt="Immagine articolo <?php echo $article["Nome"]; ?>"/></a>
                     <h1 class="product-name left-text"><?php echo $article["Nome"]; ?></h1>
                     <hr class="span-cart">
                       <div class="stars">
                         <?php $n = (int) $article["Voto_medio"]; 
                         for($i = 0; $i < $n; $i++):?>
-                        <img src="./img/star.png" alt="" class="star" />
+                        <img src="./img/star.png" alt="<?php ?>" class="star" />
                         <?php endfor; 
                         if ($article["Voto_medio"] - (float)$n >= 0.5): $n++;?>
                         <img src="./img/halfStar.png" alt="" class="star" />

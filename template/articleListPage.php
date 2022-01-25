@@ -5,8 +5,9 @@
             <div class="fullWidth center">
               <div class="fullWidth inline-block center m-20t">
                 <form class="wrapper"action="articleList.php" method="GET" >
-                <input class="resultSearch" placeholder="Cerca qui il tuo prodotto" type="text" name="name" />
-                <label class="littleSearch-icon" for="submitSearch2"><img src="./img/Search.png"/></label>
+                <input class="resultSearch" placeholder="Cerca qui il tuo prodotto" type="text" name="name" 
+                value="<?php if (isset($_GET["name"])) { echo $_GET["name"];}?>" />
+                <label class="littleSearch-icon" for="submitSearch2"><img alt="Ricerca prodotto" src="./img/Search.png"/></label>
                 <input class="none" type="submit" name="submitSearch2" id="submitSearch2"/>
                 </form>
                 <hr class="filterSeparator inline-block" />
@@ -60,7 +61,7 @@
                             <ul class="filterList m-10b">
                               <li>
                                 <label class="checkContainer p-10t">
-                                  tra 100 e 500 €
+                                  tra 100 e 500 &#8364;
                                   <input type="checkbox" name="price[]" value="1" 
                                   <?php if (isset($_GET["price"])) {if (checkForChecked($_GET["price"], 1)) {echo "checked";}}?>/>
                                   <span class="checkmark"></span>
@@ -68,7 +69,7 @@
                               </li>
                               <li>
                                 <label class="checkContainer p-10t">
-                                  tra 500 e 1000 €
+                                  tra 500 e 1000 &#8364;
                                   <input type="checkbox" name="price[]" value="2"
                                   <?php if (isset($_GET["price"])) {if (checkForChecked($_GET["price"], 2)) {echo "checked";}}?>/>
                                   <span class="checkmark"></span>
@@ -76,7 +77,7 @@
                               </li>
                               <li>
                                 <label class="checkContainer p-10t">
-                                  sopra 1000 €
+                                  sopra 1000 &#8364;
                                   <input type="checkbox" name="price[]" value="3"
                                   <?php if (isset($_GET["price"])) {if (checkForChecked($_GET["price"], 3)) {echo "checked";}}?>/>
                                   <span class="checkmark"></span>
@@ -120,7 +121,7 @@
                                 <label class="checkContainer p-10t">
                                   <img
                                     src="./img/star.png"
-                                    alt=""
+                                    alt="Voto di 5 stelle"
                                     class="resultStar"
                                   />
                                   5
@@ -133,7 +134,7 @@
                                 <label class="checkContainer p-10t">
                                   <img
                                     src="./img/star.png"
-                                    alt=""
+                                    alt="Voto sopra 4 stelle"
                                     class="resultStar"
                                   />
                                   4 o pi&ugrave;
@@ -146,7 +147,7 @@
                                 <label class="checkContainer p-10t">
                                   <img
                                     src="./img/star.png"
-                                    alt=""
+                                    alt="Voto sopra 3 stelle"
                                     class="resultStar"
                                   />
                                   3 o pi&ugrave;
@@ -159,7 +160,7 @@
                                 <label class="checkContainer p-10t">
                                   <img
                                     src="./img/star.png"
-                                    alt=""
+                                    alt="Voto sopra 2 stelle"
                                     class="resultStar"
                                   />
                                   2 o pi&ugrave;
@@ -172,7 +173,7 @@
                                 <label class="checkContainer p-10t">
                                   <img
                                     src="./img/star.png"
-                                    alt=""
+                                    alt="Voto sopra 1 stella"
                                     class="resultStar"
                                   />
                                   1 o pi&ugrave;
@@ -193,18 +194,21 @@
             <div class="dropdown">
               <button class="dropbtn">Ordina</button>
               <div class="dropdown-content">
-                <form action="">
                   <div>
-                    <input type="radio" class="none absolute" id="sort" />
-                    <label for="sort">Rilevanza</label>
+                    <form action="" method="GET" class="p-10">
+                    <?php keepGetValues();?>
+                    <input type="hidden" name="sort" value="asc"/>
+                    <label class="sortButton" for="sortA">Prezzo (Ascendente)</label>
+                    <input type="submit" class="none" id="sortA"/>
+                    </form>
                   </div>
                   <div>
-                    <input type="radio" class="none absolute" id="sort" />
-                    <label for="sort">Prezzo (Ascendente)</label>
-                  </div>
-                  <div>
-                    <input type="radio" class="none absolute" id="sort" />
-                    <label for="sort">Prezzo (Discendente)</label>
+                    <form action="" method="GET" class="p-10">
+                      <?php keepGetValues();?>
+                      <input type="hidden" name="sort" value="desc"/>
+                      <label class="sortButton" for="sortD">Prezzo (Discendente)</label>
+                      <input type="submit" class="none" id="sortD"/>
+                    </form>
                   </div>
                 </form>
               </div>
@@ -229,13 +233,13 @@
                 <div class="inline-block">
                   <?php $n = (int) $articolo["Voto_medio"]; 
                     for($j = 0; $j < $n; $j++):?>
-                    <img src="./img/star.png" alt="" class="resultStar" />
+                    <img src="./img/star.png" alt="Stella Voto <?php echo $articolo["Voto_medio"]?>" class="resultStar" />
                     <?php endfor; 
                     if ($articolo["Voto_medio"] - (float)$n >= 0.5): $n++;?>
-                    <img src="./img/halfStar.png" alt="" class="resultStar" />
+                    <img src="./img/halfStar.png" alt="Stella Voto <?php echo $articolo["Voto_medio"]?>" class="resultStar" />
                     <?php endif; 
                     for($j=0; $j < 5 - $n; $j++):?>
-                    <img src="./img/emptyStar.png" alt="" class="resultStar" />
+                    <img src="./img/emptyStar.png" alt="Stella Voto <?php echo $articolo["Voto_medio"]?>" class="resultStar" />
                     <?php endfor; ?>
                 </div>
                 <section>
@@ -314,13 +318,13 @@
                 <div class="inline-block">
                   <?php $n = (int) $articolo["Voto_medio"]; 
                     for($j = 0; $j < $n; $j++):?>
-                    <img src="./img/star.png" alt="" class="resultStar" />
+                    <img src="./img/star.png" alt="Stella Voto <?php echo $articolo["Voto_medio"]?>" class="resultStar" />
                     <?php endfor; 
                     if ($articolo["Voto_medio"] - (float)$n >= 0.5): $n++;?>
-                    <img src="./img/halfStar.png" alt="" class="resultStar" />
+                    <img src="./img/halfStar.png" alt="Stella Voto <?php echo $articolo["Voto_medio"]?>" class="resultStar" />
                     <?php endif; 
                     for($j=0; $j < 5 - $n; $j++):?>
-                    <img src="./img/emptyStar.png" alt="" class="resultStar" />
+                    <img src="./img/emptyStar.png" alt="Stella Voto <?php echo $articolo["Voto_medio"]?>" class="resultStar" />
                     <?php endfor; ?>
                 </div>
                 <section>
@@ -394,7 +398,7 @@
             <?php if ($_GET["pagenum"] != 1):?>
             <form class="inline-block" action="articleList.php" class="p-10r" method="GET">
                 <label for="submit1"class="pageText">
-                      <img src="./img/leftArrow.png" alt="" />
+                      <img src="./img/leftArrow.png" alt="Pagina Precedente" />
                 </label>
                 <input type="submit" class="none" id="submit1" name="submit1" value="">
                 <input type="hidden" name="pagenum" value="<?php if ($_GET["pagenum"] != 1) {echo $_GET["pagenum"]-1;}?>" />
@@ -419,7 +423,7 @@
               <?php if ($_GET["pagenum"] < $templateParams["pageNumber"]):?>
               <form class="inline-block" action="articleList.php" class="p-10l" method="GET">
               <label for="submit4" class="pageText"
-                  ><img src="./img/rightArrow.png" alt="" />
+                  ><img src="./img/rightArrow.png" alt="Pagina successiva" />
               </label>
                 <input type="submit" class="none" id="submit4" name="submit4" value="">
                 <input type="hidden" name="pagenum" value="<?php if ($_GET["pagenum"] < $templateParams["pageNumber"]) {echo $_GET["pagenum"]+1;}?>" />
