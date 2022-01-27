@@ -51,7 +51,7 @@
                     </li>
                     <li class="m-20l m-20r m-20b">
                       <span class="left fullHeight m-0">Costi di spedizione</span>
-                      <span class="right m-0"><?php echo min_precision($articledet["Costo_Spedizione"] ,2) ?>&euro</span><br/>
+                      <span class="right m-0"><?php echo min_precision($articledet["Costo_Spedizione"] ,2) ?>&euro;</span><br/>
                       <hr class="span-order"/>
                     </li>
                     <li class="m-20">

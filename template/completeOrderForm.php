@@ -51,11 +51,11 @@
                                     <hr class="span-order-big"/>
                                     <?php endforeach ?>
                                     <input type="radio" id="nuovoAdd" name="addr" value="" onClick="checkIfPurchasableAndChangeID(<?php echo $templateParams["balance"]["Saldo"] ?>)"/>
-                                    <div class=" center pls">
-                                      <label for="nuovoAdd" class="addressLabel">  
-                                          <input class="addressInputNew" id="nuovoInserito" type="text" placeholder="inserisci Via e Numero Civico">
-                                      </label>
-                                    </div>
+                                    <label for="nuovoAdd" class="addressLabel">  
+                                        <div class=" center pls">
+                                        <input class="addressInputNew" id="nuovoInserito" type="text" placeholder="inserisci Via e Numero Civico">
+                                        </div>
+                                    </label>
                                 </div>
                               </div>
                             </div>

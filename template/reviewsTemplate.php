@@ -19,7 +19,7 @@
                                 <article class="review center">
                                     <p class="right m-10r">Aggiunta da: <?php echo $rev["Nome_Utente"];?></p>
                                         <img class="product-review-image left m-10"
-                                            src="<?php echo "./img/" . $rev["Cartella_immagini"] . "/" . 1 . ".png" ?>" 
+                                            src="<?php echo findExtension("./img/" . $rev["Cartella_immagini"], 1);?>" 
                                             alt="<?php echo $rev["Nome"] ?>"/>
                                         <p class="nome-articolo m-10t m-10l left-text"><?php echo $rev["Nome"]; ?></p>
                                     <div class="reviewVote inline-block">
@@ -56,7 +56,7 @@
                             <article class="review center">
                                 <a href="<?php echo "articolo.php?id=".$rev["ID_Articolo"] ?>" class="normal">
                                     <img class="product-review-image left m-10"
-                                        src="<?php echo "./img/" . $rev["Cartella_immagini"] . "/" . 1 . ".png" ?>" 
+                                        src="<?php echo findExtension("./img/" . $rev["Cartella_immagini"], 1);?>" 
                                         alt="<?php echo $rev["Nome"] ?>"/>
                                     <p class="nome-articolo m-10t m-10l left-text"><?php echo $rev["Nome"]; ?></p>
                                 </a>

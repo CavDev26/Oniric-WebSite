@@ -97,6 +97,9 @@ INSERT INTO recensione (Nome_Utente, ID_Articolo, Voto, Testo, Titolo, Data_Rece
 
 INSERT INTO recensione (Nome_Utente, ID_Articolo, Voto, Testo, Titolo, Data_Recensione) VALUES ("AdminOniric", "ADRT3", 5, "Regalo di compleanno per mia figlia, non potevo trovare di meglio!", "Mia figlia lo ha adorato!o", "2021-01-24");
 
+UPDATE articolo SET Voto_medio = 4.5 WHERE ID_Articolo = "AADO4";
+UPDATE articolo SET Voto_medio = 2 WHERE ID_Articolo = "ABTWO";
+UPDATE articolo SET Voto_medio = 5 WHERE ID_Articolo = "ADRT3";
 
 INSERT INTO tipo_spedizione (ID_Tipo_Sped, Nome_Corriere, Tariffa, Paese_Provenienza) VALUES ("OMNI", "Omni", 0.00, "Italia");
 
